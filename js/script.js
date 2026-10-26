@@ -11,14 +11,13 @@
     7. გვერდები და ნავიგაცია
     8. ამანათის ფორმა
     9. ძებნა
-   10. ფასები, ზედა ზოლი, შეფასებები, დაბეჭდვა
-   11. ადგილების არჩევა
+   10. ფასები, ზედა ზოლი, შეფასებები
    12. ადმინ-პანელი
    13. სტატისტიკა
    14. გაშვება
 
    ცვლილებების უმეტესობა არ მოითხოვს ამ ფაილის შეცვლას. განრიგს, ფასებს,
-   ტექსტებს და ადგილებს ცვლი ადმინ-გვერდიდან: შენი-საიტი/#/admin
+   და ტექსტებს ცვლი ადმინ-გვერდიდან: შენი-საიტი/#/admin
    ===================================================================== */
 
 // ======================================================================
@@ -231,10 +230,10 @@ function render() {
     $("route").innerHTML = r;
     $("route2").innerHTML = r;
     $("sg").innerHTML = g.map(function (t) {
-        return "<li>" + ft(t, 1) + " · " + lt("ge", t) + "</li>";
+        return "<li>" + ft(t, 1) + "</li>";
     }).join("");
     $("sm").innerHTML = m.map(function (t) {
-        return "<li>" + ft(t, 0) + " · " + lt("ru", t) + "</li>";
+        return "<li>" + ft(t, 0) + "</li>";
     }).join("");
     $("a3").textContent = k.fg + ": " + dn("ge") + ". " + k.rtl + ": " + dn("ru") + ".";
     $("pp").innerHTML = S.map(function (s) {
@@ -246,26 +245,19 @@ function render() {
     route();
     var ge = $("dir").value == "ge", ds = ge ? g : m, sel = $("dt").value;
     $("dt").innerHTML = ds.map(function (t, i) {
-        return '<option value="' + i + '" data-m="' + ft(t, ge) + '">' + ft(t, ge) + " · " + lt(ge ? "ge" : "ru", t) + "</option>";
+        return '<option value="' + i + '" data-m="' + ft(t, ge) + '">' + ft(t, ge) + "</option>";
     }).join("");
     $("dt").value = sel || 0;
     fillSt();
     $("stl").textContent = ge ? k.st1 : k.st2;
-    $("adt").innerHTML = g.map(function (t) {
-        return '<option value="' + keyOf(1, t) + '">' + k.ge + " · " + ft(t, 1) + "</option>";
-    }).join("") + m.map(function (t) {
-        return '<option value="' + keyOf(0, t) + '">' + k.ru + " · " + ft(t, 0) + "</option>";
-    }).join("");
     renderX();
-    drawSeats();
-    adrw();
     cd();
     upd();
 }
 // ანახლებს WhatsApp-ის ბმულს ფორმაში შევსებული მონაცემებით.
 function upd() {
     var k = T[L], ge = $("dir").value == "ge", dt = $("dt").selectedOptions[0], st = $("st").selectedOptions[0];
-    var tx = k.msg + "\n" + k.f + ": " + (ge ? k.ge : k.ru) + "\n" + k.w + ": " + (dt ? dt.dataset.m : "") + "\n" + k.s + ": " + (st ? st.textContent : "") + "\n" + k.p + ": " + $("px").value + (SEL.length ? "\n" + k.sl + ": " + SEL.join(", ") : "") + "\n" + k.pm + ": " + $("pay").selectedOptions[0].textContent + (pinfo() ? "\n" + k.tot + ": " + pinfo().tot + " " + SC.cur + "\n" + k.dep + ": " + pinfo().dep + " " + SC.cur : "") + "\n" + k.n + ": " + $("nm").value + "\n" + k.t + ": " + $("ph").value;
+    var tx = k.msg + "\n" + k.f + ": " + (ge ? k.ge : k.ru) + "\n" + k.w + ": " + (dt ? dt.dataset.m : "") + "\n" + k.s + ": " + (st ? st.textContent : "") + "\n" + k.p + ": " + $("px").value + "\n" + k.pm + ": " + $("pay").selectedOptions[0].textContent + (pinfo() ? "\n" + k.tot + ": " + pinfo().tot + " " + SC.cur + "\n" + k.dep + ": " + pinfo().dep + " " + SC.cur : "") + "\n" + k.n + ": " + $("nm").value + "\n" + k.t + ": " + $("ph").value;
     prShow();
     pupd();
     $("wa").href = "https://wa.me/995598808022?text=" + encodeURIComponent(tx);
@@ -280,17 +272,13 @@ document.querySelectorAll(".lang button").forEach(function (b) {
         render();
     };
 });
-$("dir").onchange = function () {
-    SEL = [];
-    render();
-};
+$("dir").onchange = render;
 ["st", "px", "nm", "ph", "pay"].forEach(function (i) {
     $(i).oninput = upd;
 });
 $("dt").onchange = function () {
-    SEL = [];
     fillSt();
-    drawSeats();
+    upd();
 };
 
 // ======================================================================
@@ -460,7 +448,7 @@ document.addEventListener("click", function (e) {
 })();
 
 // ======================================================================
-// 10. დამატებითი: ფასები, ზედა ზოლი, შეფასებები, დაბეჭდვა
+// 10. დამატებითი: ფასები, ზედა ზოლი, შეფასებები
 // ======================================================================
 
 // უსაფრთხო ტექსტი: HTML სიმბოლოებს აქცევს ჩვეულებრივ ტექსტად.
@@ -475,14 +463,9 @@ function esc(s) {
 function mp(q, u) {
     return ' <a class="mp" target="_blank" rel="noopener" aria-label="map" href="' + (u ? esc(u) : "https://www.google.com/maps/search/?api=1&amp;query=" + encodeURIComponent(q)) + '">📍</a>';
 }
-// "დარჩა N ადგილი" ტექსტი რეისისთვის (50 ადგილიდან გამოკლებული დაკავებულები).
-function lt(kind, t) {
-    var n = 50 - (TK[keyOf(kind == "ge", t)] || []).length;
-    return n > 0 ? T[L].sl2.replace("{n}", n) : T[L].sf;
-}
-// ჯამი და ავანსი (25%) არჩეული ადგილების რაოდენობის მიხედვით. თუ ფასი 0-ია, აბრუნებს null-ს.
+// ჯამი და ავანსი (25%) მგზავრების რაოდენობის მიხედვით. თუ ფასი 0-ია, აბრუნებს null-ს.
 function pinfo() {
-    var ge = $("dir").value == "ge", p = SC.price[ge ? "ge" : "ru"] || 0, n = SEL.length || +$("px").value || 1;
+    var ge = $("dir").value == "ge", p = SC.price[ge ? "ge" : "ru"] || 0, n = +$("px").value || 1;
     return p > 0 ? {
         tot: p * n, dep: Math.ceil(p * n / 4)
     } : null;
@@ -535,122 +518,9 @@ $("nbx").onclick = function () {
     catch (e) { }
     $("nb").hidden = true;
 };
-$("prt").onclick = function () {
-    var k = T[L], dt = $("dt").selectedOptions[0], st = $("st").selectedOptions[0], pi = pinfo(), ge = $("dir").value == "ge";
-    var rows = [[k.f, ge ? k.ge : k.ru], [k.w, dt ? dt.dataset.m : ""], [k.s, st ? st.textContent : ""], [k.p, $("px").value], [k.sl, SEL.join(", ") || "—"], [k.n, $("nm").value], [k.t, $("ph").value], [k.pm, $("pay").selectedOptions[0].textContent]];
-    if (pi)
-        rows.push([k.tot, pi.tot + " " + SC.cur], [k.dep, pi.dep + " " + SC.cur]);
-    $("tkt").innerHTML = "<h2>Imereti Tour</h2><p>" + k.tkh + "</p><table>" + rows.map(function (r) {
-        return "<tr><th>" + esc(r[0]) + "</th><td>" + esc(r[1]) + "</td></tr>";
-    }).join("") + "</table><p>+995 598 80 80 22 · WhatsApp</p>";
-    document.body.classList.add("pt");
-    window.print();
-    setTimeout(function () {
-        document.body.classList.remove("pt");
-    }, 500);
-};
-
-// ======================================================================
-// 11. ადგილების არჩევა (50-ადგილიანი ავტობუსი)
-// დაკავებული ადგილები იკითხება ფაილიდან js/seats-data.js.
-// ======================================================================
-
-var SEL = [], TK = window.TAKEN || {}, AD = JSON.parse(JSON.stringify(TK));
-// რეისის გასაღები დაკავებული ადგილებისთვის, მაგ. "ge-2026-10-07".
-function keyOf(ge, t) {
-    return (ge ? "ge-" : "ru-") + new Intl.DateTimeFormat("sv-SE", { timeZone: ge ? "Asia/Tbilisi" : "Europe/Moscow" }).format(new Date(t));
-}
-// ამჟამად არჩეული რეისის გასაღები.
-function dkey() {
-    var ge = $("dir").value == "ge", ds = trips(ge ? "ge" : "ru", 4);
-    return keyOf(ge, ds[+$("dt").value || 0]);
-}
-// ერთი სავარძლის ღილაკი.
-function sb(n) {
-    return '<button type="button" class="seat" data-n="' + n + '" aria-label="' + n + '">' + n + "</button>";
-}
-// ავტობუსის სქემა: 11 რიგი 2+2 (ადგილები 1-44) და უკანა რიგი 6 ადგილით (45-50).
-function mapHtml() {
-    var h = '<div class="bmap"><div class="bfront"><i class="wheel"></i></div>';
-    for (var r = 0; r < 11; r++)
-        h += '<div class="srow">' + sb(4 * r + 1) + sb(4 * r + 2) + '<span class="aisle"></span>' + sb(4 * r + 3) + sb(4 * r + 4) + "</div>";
-    h += '<div class="srow back">';
-    for (var n = 45; n <= 50; n++)
-        h += sb(n);
-    return h + "</div></div>";
-}
-// ღებავს სქემას: თავისუფალი / არჩეული / დაკავებული.
-function paint(box, tk, sel, lock) {
-    box.querySelectorAll(".seat").forEach(function (b) {
-        var n = +b.dataset.n, t = tk.indexOf(n) >= 0;
-        b.classList.toggle("tk", t);
-        b.classList.toggle("sel", sel.indexOf(n) >= 0);
-        b.disabled = lock && t;
-        b.setAttribute("aria-pressed", sel.indexOf(n) >= 0);
-    });
-}
-// განაახლებს ადგილების სქემას და არჩეული ადგილების ტექსტს.
-function drawSeats() {
-    var box = $("smap");
-    if (!box.firstChild)
-        box.innerHTML = mapHtml();
-    var tk = TK[dkey()] || [];
-    SEL = SEL.filter(function (n) {
-        return tk.indexOf(n) < 0;
-    });
-    paint(box, tk, SEL, true);
-    $("ssel").textContent = SEL.length ? T[L].ssl + ": " + SEL.join(", ") : T[L].ssh;
-    if (SEL.length)
-        $("px").value = SEL.length;
-    upd();
-}
-$("smap").onclick = function (e) {
-    var b = e.target.closest(".seat");
-    if (!b || b.disabled)
-        return;
-    var n = +b.dataset.n, i = SEL.indexOf(n);
-    if (i >= 0)
-        SEL.splice(i, 1);
-    else if (SEL.length < 10)
-        SEL.push(n);
-    SEL.sort(function (x, y) {
-        return x - y;
-    });
-    drawSeats();
-};
-// ადმინ-გვერდზე დაკავებული ადგილების სქემა და გამოსაცემი ფაილი.
-function adrw() {
-    var box = $("amap");
-    if (!box.firstChild)
-        box.innerHTML = mapHtml();
-    paint(box, AD[$("adt").value] || [], [], false);
-    var o = {};
-    for (var x in AD)
-        if (AD[x].length)
-            o[x] = AD[x];
-    var t = "/* დაკავებული ადგილები */\nwindow.TAKEN=" + JSON.stringify(o) + ";\n";
-    $("aout").value = t;
-    $("adl").href = "data:text/javascript;charset=utf-8," + encodeURIComponent(t);
-}
-$("amap").onclick = function (e) {
-    var b = e.target.closest(".seat");
-    if (!b)
-        return;
-    var key = $("adt").value, n = +b.dataset.n, a = AD[key] = AD[key] || [], i = a.indexOf(n);
-    if (i >= 0)
-        a.splice(i, 1);
-    else
-        a.push(n);
-    a.sort(function (x, y) {
-        return x - y;
-    });
-    adrw();
-};
-$("adt").onchange = adrw;
-
 // ======================================================================
 // 12. ადმინ-პანელი (გახსენი: #/admin)
-// აქ ცვლი განრიგს, ფასებს, ტექსტებს და ადგილებს, მერე ჩამოტვირთავ ფაილებს.
+// აქ ცვლი განრიგს, ფასებს და ტექსტებს, მერე ჩამოტვირთავ ფაილს.
 // ======================================================================
 
 var AC = JSON.parse(JSON.stringify(SC)), DN = [["ორშ", 1], ["სამ", 2], ["ოთხ", 3], ["ხუთ", 4], ["პარ", 5], ["შაბ", 6], ["კვი", 0]];

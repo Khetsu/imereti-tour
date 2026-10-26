@@ -104,7 +104,7 @@
         <div class="vc" data-i="vt1"></div>
       </div>
 
-      <!-- ადგილის დაჯავშნა: ფორმა და ავტობუსის სქემა -->
+      <!-- ადგილის დაჯავშნა: მარტივი ფორმა → WhatsApp (ადგილებს ოფისი ანაწილებს) -->
       <section id="book" class="band b1">
         <div class="w">
           <h2 class="hflag"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><use href="#flag"></use></svg><span data-i="bk"></span></h2>
@@ -129,18 +129,7 @@
               <span data-i="px"></span>
               <input id="px" type="number" min="1" max="20" value="1">
             </label>
-            <div class="seats">
-              <b data-i="stt"></b>
-              <div class="lg">
-                <span><i></i><em data-i="lf"></em></span>
-                <span><i class="a"></i><em data-i="ls"></em></span>
-                <span><i class="t"></i><em data-i="lt"></em></span>
-              </div>
-              <div id="smap"></div>
-              <p id="ssel"></p>
-              <p class="note" data-i="snote"></p>
-              <p class="note" id="pr" hidden></p>
-            </div>
+            <p class="note" id="pr" hidden></p>
             <label>
               <span data-i="nm"></span>
               <input id="nm" autocomplete="name">
@@ -158,7 +147,6 @@
             </label>
             <p class="note" data-i="note"></p>
             <a class="btn" id="wa" href="#" target="_blank" rel="noopener" data-i="send"></a>
-            <button type="button" class="btn alt" id="prt" data-i="prt"></button>
           </form>
         </div>
       </section>
@@ -200,16 +188,6 @@
               <b>+995 598 80 80 22</b>
               <a href="tel:+995598808022">Call</a>
               <a href="https://wa.me/995598808022">WhatsApp</a>
-            </div>
-            <div class="ct">
-              <b>+995 551 88 02 88</b>
-              <a href="tel:+995551880288">Call</a>
-              <a href="https://wa.me/995551880288">WhatsApp</a>
-              <a href="viber://chat?number=%2B995551880288">Viber</a>
-            </div>
-            <div class="ct">
-              <b>+7 965 384 44 11</b>
-              <a href="tel:+79653844411">Call</a>
             </div>
           </div>
         </div>
@@ -342,24 +320,14 @@
       </form>
     </div>
 
-    <!-- ადმინ-გვერდი (#/admin): განრიგი, ფასები, ადგილები -->
+    <!-- ადმინ-გვერდი (#/admin): განრიგი, ფასები, ტექსტები -->
     <div class="w pg" id="p-admin" hidden>
       <h1>ადმინ-პანელი</h1>
-      <p class="sub">აქ ცვლი განრიგს და დაკავებულ ადგილებს. შეცვლის შემდეგ გადმოწერე ფაილი, ჩაანაცვლე საქაღალდეში <b>js/</b> და ისევ ატვირთე საიტი Netlify-ზე. (ცვლილება მხოლოდ შენს ბრაუზერში ჩანს, სანამ არ ატვირთავ.)</p>
+      <p class="sub">აქ ცვლი განრიგს, ფასებს და ტექსტებს. შეცვლის შემდეგ გადმოწერე ფაილი, ჩაანაცვლე საქაღალდეში <b>js/</b> და ატვირთე GitHub-ზე (git push): Cloudflare საიტს თავისით განაახლებს. (ცვლილება მხოლოდ შენს ბრაუზერში ჩანს, სანამ არ ატვირთავ.)</p>
       <h2>1. საიტის პარამეტრები</h2>
       <div id="sched"></div>
       <textarea id="sout" rows="4" readonly></textarea>
       <p><a class="btn" id="sdl" href="#" download="schedule-config.js">გადმოწერა: schedule-config.js</a></p>
-      <h2 style="margin-top:40px">2. დაკავებული ადგილები</h2>
-      <form onsubmit="return false">
-        <label style="grid-column:1/-1">
-          <span>რეისი</span>
-          <select id="adt"></select>
-        </label>
-      </form>
-      <div id="amap" style="margin:16px 0"></div>
-      <textarea id="aout" rows="5" readonly></textarea>
-      <p><a class="btn" id="adl" href="#" download="seats-data.js">გადმოწერა: seats-data.js</a></p>
     </div>
 
     <!-- გვერდი: პირობები (გაუქმება და თანხის დაბრუნება) -->
@@ -411,12 +379,8 @@
 
     <!-- მცურავი WhatsApp ღილაკი -->
     <a class="fab" href="https://wa.me/995598808022" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 5a11 11 0 0 0-9.4 16.6L5 27l5.6-1.5A11 11 0 1 0 16 5zm0 2a9 9 0 1 1-4.7 16.7l-.4-.2-3.3.9.9-3.2-.2-.4A9 9 0 0 1 16 7zm-3.2 4.3c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.4 5.3 4.6 2.6 1 3.1.8 3.7.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.7-.4l-2.1-1c-.3-.1-.5-.2-.7.1l-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5z"></path></svg></a>
-
-    <!-- დასაბეჭდი ჯავშნის ბარათი (ჩანს მხოლოდ დაბეჭდვისას) -->
-    <div id="tkt"></div>
-    <!-- სკრიპტები: 1) პარამეტრები (schedule-config.js), 2) დაკავებული ადგილები (seats-data.js), 3) მთავარი პროგრამა (script.js) -->
+    <!-- სკრიპტები: 1) პარამეტრები (schedule-config.js), 2) მთავარი პროგრამა (script.js) -->
   <script src="js/schedule-config.js"></script>
-    <script src="js/seats-data.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>
