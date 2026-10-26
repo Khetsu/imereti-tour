@@ -32,11 +32,16 @@ imereti-tour/
 | საიტის ტექსტი (სათაური, აღწერა) | `js/script.js`, სექცია 1 (`ka`, `ru`, `en`) |
 | ტელეფონის ნომერი | `js/script.js` და `index.html` (მოძებნე `995598808022`) |
 
-## როგორ განაახლო საიტი Netlify-ზე
+## როგორ განაახლო საიტი (Cloudflare Pages)
+
+საიტი: **https://imereti-tour.pages.dev** · კოდი: github.com/Khetsu/imereti-tour
 
 1. შეცვალე ფაილი (ან ჩაანაცვლე გადმოწერილი `schedule-config.js` / `seats-data.js` საქაღალდე `js/`-ში).
-2. app.netlify.com -> შენი საიტი -> **Deploys**.
-3. გადაათრიე მთელი `imereti-tour` საქაღალდე გვერდის ბოლოში.
+2. ტერმინალში, ამ საქაღალდეში: `git add .` -> `git commit -m "რა შეიცვალა"` -> `git push`.
+3. Cloudflare საიტს თავისით განაახლებს დაახლოებით ერთ წუთში (dash.cloudflare.com -> Workers & Pages -> imereti-tour -> Deployments).
+
+`wrangler.toml` და `package.json` Cloudflare-ისთვისაა (აწყობა არ სჭირდება, ფაილები მთავარ საქაღალდეშია) — არ წაშალო.
+საიტის მისამართი წერია: `sitemap.xml`, `robots.txt` და ყველა `index.html`-ის თავში (og:image, canonical).
 
 ## გაითვალისწინე
 
