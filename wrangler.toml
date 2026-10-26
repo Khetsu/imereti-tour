@@ -1,0 +1,3 @@
+# Cloudflare Pages: საიტი სუფთა HTML-ია, ფაილები მთავარ საქაღალდეშია
+name = "imereti-tour"
+pages_build_output_dir = "."

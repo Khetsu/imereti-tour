@@ -1,0 +1,8 @@
+{
+  "name": "imereti-tour",
+  "private": true,
+  "description": "იმერეთი ტური: სტატიკური საიტი. აწყობა არ სჭირდება, build მხოლოდ Cloudflare Pages-ისთვისაა",
+  "scripts": {
+    "build": "echo \"static site, nothing to build\""
+  }
+}
