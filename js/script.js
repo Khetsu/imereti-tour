@@ -15,6 +15,7 @@
    12. ადმინ-პანელი
    13. სტატისტიკა
    14. გაშვება
+   15. ახალი დიზაინის ღილაკები (მიმართულება, მგზავრები, ძებნა, მოძრავი ავტობუსი)
 
    ცვლილებების უმეტესობა არ მოითხოვს ამ ფაილის შეცვლას. განრიგს, ფასებს,
    და ტექსტებს ცვლი ადმინ-გვერდიდან: შენი-საიტი/#/admin
@@ -36,6 +37,15 @@ var T = {
         brand: "Imereti Tour", h: "Georgia–Moscow, safe and comfortable", sub: "Regular trips both ways and fast, secure parcel delivery.", nx1: "Next departure from Georgia", nx2: "Next departure from Moscow", cta: "Book a seat", rt: "Route", bk: "Book a seat", dir: "Direction", d1o: "Georgia → Moscow", d2o: "Moscow → Georgia", dt: "Date", st1: "Pickup stop", st2: "Drop-off stop", px: "Passengers", nm: "Name", ph: "Phone", send: "Send via WhatsApp", q6: "Can I cancel my booking?", a6: "Yes. If you cancel, we refund the amount you paid. Message us on WhatsApp.", mapl: "View on map", sl2: "{n} seats left", sf: "Sold out", tot: "Total", dep: "Advance (25%)", per: "per seat", pkg: "Parcel, 1 kg", prh: "Prices", rvh: "Passenger reviews", noinfo: "Information coming soon. Message us on WhatsApp.", nv5: "Terms", kgl: "Weight (kg)", est: "Estimated price", prt: "Print / PDF", tkh: "Booking request. Please confirm via WhatsApp.", fg: "From Georgia", rtl: "From Moscow", stt: "Choose your seats", ssh: "No seats selected yet", ssl: "Selected seats", sl: "Seats", lf: "Free", ls: "Selected", lt: "Taken", snote: "A seat is secured once the advance payment is made and confirmed.", vt1: "From mountains to big cities", vt2: "Your way from Georgia to Moscow", tag: "Georgia–Moscow", sp: "Search the site...", nores: "Nothing found", nv4: "Parcels", more: "More about parcels", mw: "Moscow", pt: "Parcel delivery Georgia–Moscow", ps: "Fast, secure parcel delivery on our regular bus trips, in both directions.", f1: "Fast", f1t: "Your parcel goes on the next trip, regularly in both directions.", f2: "Secure", f2t: "We take care of transporting your parcel safely.", f3: "Both directions", f3t: "From Georgia to Moscow and from Moscow to Georgia.", f4: "Convenient stops", f4t: "Batumi, Kobuleti, Poti, Kutaisi, Tbilisi and Moscow.", how: "How to send", s1: "Message us on WhatsApp: direction and what you want to send.", s2: "We confirm the terms, the stop and the handover time.", s3: "The parcel travels on the next trip and the recipient collects it at the destination.", pts: "Stops", pform: "Send a request", pwhat: "What are you sending", pmsg: "Hello! I would like to send a parcel.", nv0: "Home", nv1: "Buses", nv2: "Schedule", nv3: "FAQ", bh: "Our buses", bsub: "Comfortable buses and reliable service on the long road.", amh: "What you get on board", am1: "Comfortable buses", am2: "Safe and reliable service", am3: "Air conditioning", am5: "USB charging", sh: "Departure schedule", fh: "Frequently asked questions", q1: "How do I book a seat?", a1: "Fill in the form on the home page and send it via WhatsApp, or call our numbers.", q2: "How much do I pay when booking?", a2: "At least 25%. You can also pay the full amount.", q3: "Which days do buses run?", a3: "From Georgia on Wednesdays and Saturdays, from Moscow on Tuesdays and Saturdays.", q4: "Do you carry parcels?", a4: "Yes, in both directions. Call or message us for details.", q5: "Where can I board?", a5: "Batumi, Kobuleti, Poti, Kutaisi, Tbilisi. In Moscow at metro Annino.", pay: "Payment", pay1: "At least 25% in advance", pay2: "100% in full", note: "To confirm a booking you must pay at least 25% in advance, or you can pay the full amount. We will send payment details via WhatsApp. If you cancel, we refund your money.", pm: "Payment", pc: "Parcels", pct: "We deliver parcels fast and securely in both directions between Georgia and Moscow.", ct: "Contact", ofk: "Kobuleti office", ofp: "Poti office", wd: "Departures: Wednesday and Saturday", ret: "From Moscow: Tuesday and Saturday", msk: "Moscow, metro Annino (MKAD 33 km, 6 vladenie, building 5)", d: "d", hh: "h", mm: "min", lc: "en-GB", msg: "Hello! I would like to book a seat.", f: "Direction", w: "Date", s: "Stop", p: "Passengers", n: "Name", t: "Phone", ge: "Georgia → Moscow", ru: "Moscow → Georgia"
     }
 };
+// ახალი დიზაინის ტექსტები (მთავარი ეკრანი, ბილეთი, ბარათები). ემატება ზემოთა სიებს.
+var T2 = {
+    ka: { cGe: "საქართველო", cMo: "მოსკოვი", hsub: "რეგულარული რეისები ორივე მიმართულებით. დაჯავშნე ადგილი 1 წუთში, რეგისტრაციის გარეშე.", cdD: "დღე", cdH: "საათი", cdM: "წუთი", cdS: "წამი", fr: "საიდან", to: "სად", swp: "მიმართულების შეცვლა", hw: "სამი ნაბიჯი და ადგილი შენია", hw1: "აირჩიე თარიღი", hw1t: "უახლოესი რეისები ორივე მიმართულებით.", hw2: "მიუთითე გაჩერება", hw2t: "ბათუმი, ქობულეთი, ფოთი, ქუთაისი, თბილისი.", hw3: "გაგზავნე", hw3t: "ჯავშანი WhatsApp-ში მოგვდის და მალევე გიდასტურებთ.", whyt: "ნამდვილი ავტობუსები, ნამდვილი კომფორტი", c1: "თანამედროვე ავტობუსები", c1t: "კონდიციონერი · USB დამტენი", c2: "რბილი სავარძლები", c2t: "გრძელი გზისთვის", c3t: "ორივე მიმართულებით" },
+    ru: { cGe: "Грузия", cMo: "Москва", hsub: "Регулярные рейсы в обе стороны. Забронируйте место за 1 минуту, без регистрации.", cdD: "дн.", cdH: "час.", cdM: "мин.", cdS: "сек.", fr: "Откуда", to: "Куда", swp: "Сменить направление", hw: "Три шага — и место ваше", hw1: "Выберите дату", hw1t: "Ближайшие рейсы в обе стороны.", hw2: "Укажите остановку", hw2t: "Батуми, Кобулети, Поти, Кутаиси, Тбилиси.", hw3: "Отправьте", hw3t: "Заявка приходит нам в WhatsApp, и мы быстро подтверждаем.", whyt: "Настоящие автобусы, настоящий комфорт", c1: "Современные автобусы", c1t: "Кондиционер · USB-зарядка", c2: "Удобные кресла", c2t: "для долгой дороги", c3t: "в обе стороны" },
+    en: { cGe: "Georgia", cMo: "Moscow", hsub: "Regular trips both ways. Book a seat in 1 minute, no sign-up.", cdD: "days", cdH: "hours", cdM: "min", cdS: "sec", fr: "From", to: "To", swp: "Swap direction", hw: "Three steps and the seat is yours", hw1: "Pick a date", hw1t: "Upcoming trips in both directions.", hw2: "Choose your stop", hw2t: "Batumi, Kobuleti, Poti, Kutaisi, Tbilisi.", hw3: "Send", hw3t: "Your request reaches us on WhatsApp and we confirm shortly.", whyt: "Real buses, real comfort", c1: "Modern buses", c1t: "Air conditioning · USB charging", c2: "Comfortable seats", c2t: "for the long road", c3t: "both directions" }
+};
+for (var tl in T2)
+    for (var tk in T2[tl])
+        T[tl][tk] = T2[tl][tk];
 
 // ======================================================================
 // 2. გაჩერებები (დრო, ქალაქი სამ ენაზე)
@@ -197,13 +207,19 @@ function fmt(t, tz) {
     });
     return WK[["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(p.weekday)] + ", " + p.day + " " + MN[+p.month - 1];
 }
-// უკუთვლა უახლოეს გასვლამდე (დღე / საათი / წუთი).
+// უკუთვლა უახლოეს გასვლამდე (დღე / საათი / წუთი / წამი), ყოველ წამში ახლდება.
 function cd() {
-    var g = trips("ge", 1)[0];
-    if (!g)
+    var g = trips("ge", 1)[0], box = $("cd");
+    if (!g || !box)
         return;
-    var m = Math.max(0, g - Date.now()), k = T[L];
-    $("cd").innerHTML = Math.floor(m / 864e5) + "<i>" + k.d + "</i>" + Math.floor(m % 864e5 / 36e5) + "<i>" + k.hh + "</i>" + Math.floor(m % 36e5 / 6e4) + "<i>" + k.mm + "</i>";
+    var m = Math.max(0, g - Date.now()), k = T[L], p = function (n) { return String(n).padStart(2, "0"); };
+    var v = [Math.floor(m / 864e5), p(Math.floor(m % 864e5 / 36e5)), p(Math.floor(m % 36e5 / 6e4)), p(Math.floor(m % 6e4 / 1e3))], lb = [k.cdD, k.cdH, k.cdM, k.cdS];
+    if (box.children.length != 4)
+        box.innerHTML = lb.map(function () { return "<div><b></b><small></small></div>"; }).join("");
+    v.forEach(function (x, i) {
+        box.children[i].firstChild.textContent = x;
+        box.children[i].lastChild.textContent = lb[i];
+    });
 }
 
 // ======================================================================
@@ -252,8 +268,17 @@ function render() {
     $("dt").value = sel || 0;
     fillSt();
     $("stl").textContent = ge ? k.st1 : k.st2;
+    $("tkA").textContent = ge ? k.cGe : k.cMo;
+    $("tkB").textContent = ge ? k.cMo : k.cGe;
+    document.querySelectorAll("[data-i-aria]").forEach(function (e) {
+        e.setAttribute("aria-label", k[e.dataset.iAria]);
+    });
+    document.querySelectorAll("[data-href]").forEach(function (a) {
+        a.href = SPA ? "#/" + a.dataset.href : BASE + a.dataset.href + "/";
+    });
     renderX();
     cd();
+    rbus();
     upd();
 }
 // ანახლებს WhatsApp-ის ბმულს ფორმაში შევსებული მონაცემებით.
@@ -660,12 +685,64 @@ document.addEventListener("click", function (e) {
 // 14. გაშვება
 // ======================================================================
 
+// ======================================================================
+// 15. ახალი დიზაინის ღილაკები: მიმართულების შეცვლა, მგზავრები −/+, ძებნა, მოძრავი ავტობუსი, ქვედა ღილაკი
+// ======================================================================
+
+$("swap").onclick = function () {
+    $("dir").value = $("dir").value == "ge" ? "ru" : "ge";
+    this.classList.toggle("spin");
+    render();
+};
+function px(d) {
+    var e = $("px"), v = Math.min(20, Math.max(1, (+e.value || 1) + d));
+    e.value = v;
+    upd();
+}
+$("pxm").onclick = function () { px(-1); };
+$("pxp").onclick = function () { px(1); };
+$("qbtn").onclick = function () {
+    var s = $("sr");
+    s.hidden = !s.hidden;
+    if (!s.hidden)
+        $("q").focus();
+};
+// ავტობუსი მარშრუტზე ჩადის ბოლო გაჩერებამდე (სიმაღლე ითვლება გვერდის ზომის მიხედვით).
+function rbus() {
+    var r = $("route"), c = $("rcard"), end = r && r.querySelector("li.end");
+    if (!end || !c)
+        return;
+    var first = r.querySelector("li");
+    c.style.setProperty("--rh", (end.offsetTop - first.offsetTop + 8) + "px");
+}
+addEventListener("resize", rbus);
+// ტელეფონზე მენიუს რიგში მიმდინარე გვერდი ჩანდეს.
+function mnScroll() {
+    var a = document.querySelector('#mn a[aria-current="page"]'), m = $("mn");
+    if (a && m.scrollWidth > m.clientWidth)
+        m.scrollLeft = a.offsetLeft - m.clientWidth / 2 + a.offsetWidth / 2;
+}
+addEventListener("load", mnScroll);
+// ქვედა ღილაკი იმალება, როცა ფორმა უკვე ეკრანზეა.
+(function () {
+    var st = $("sticky"), bk = $("book");
+    if (!("IntersectionObserver" in window) || !st || !bk)
+        return;
+    new IntersectionObserver(function (a) {
+        st.classList.toggle("off", a[0].isIntersecting && !$("p-home").hidden);
+    }, { threshold: .25 }).observe(bk);
+})();
+
+// ======================================================================
+// 14. გაშვება
+// ======================================================================
+
 window.onhashchange = route;
 (function () {
-    var els = document.querySelectorAll(".band .w,.vc");
+    var els = document.querySelectorAll(".rv");
     if (!("IntersectionObserver" in window)) {
         els.forEach(function (e) {
-            e.classList.add("rv", "in");
+            e.classList.add("in");
         });
         return;
     }
@@ -676,11 +753,12 @@ window.onhashchange = route;
                 io.unobserve(x.target);
             }
         });
-    }, { threshold: .12 });
+    }, { threshold: .1 });
     els.forEach(function (e) {
-        e.classList.add("rv");
         io.observe(e);
     });
 })();
 render();
-setInterval(cd, 6e4);
+rbus();
+addEventListener("load", rbus);
+setInterval(cd, 1000);

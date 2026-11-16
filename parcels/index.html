@@ -1,16 +1,16 @@
 <!DOCTYPE html>
+<!-- იმერეთი ტური · ეს ფაილი იქმნება src/template.html-დან (node tools/build.mjs). ხელით ნუ შეცვლი. -->
 <html lang="ka">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>ამანათების გადაზიდვა საქართველო–მოსკოვი — იმერეთი ტური</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;800&amp;display=swap">
     <meta name="description" content="ამანათების სწრაფი და უსაფრთხო გადაზიდვა საქართველო–მოსკოვი ორივე მიმართულებით.">
-    <meta name="theme-color" content="#0B2239">
+    <meta name="theme-color" content="#14213D">
     <meta property="og:type" content="website">
     <meta property="og:title" content="ამანათების გადაზიდვა საქართველო–მოსკოვი — იმერეთი ტური">
     <meta property="og:description" content="ამანათების სწრაფი და უსაფრთხო გადაზიდვა საქართველო–მოსკოვი ორივე მიმართულებით.">
-    <meta property="og:image" content="https://imereti-tour.pages.dev/images/og.jpg?v=2">
+    <meta property="og:image" content="https://imereti-tour.pages.dev/images/og.jpg?v=3">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="იმერეთი ტური · საქართველო ⇄ მოსკოვი · დაჯავშნე საიტზე">
@@ -20,372 +20,257 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://imereti-tour.pages.dev/parcels/">
     <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700;800;900&amp;family=Noto+Sans:wght@400;600;700;800;900&amp;display=swap">
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body data-page="parcels" data-base="../">
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-      <symbol id="boxes" viewBox="0 0 200 150">
-        <rect x="20" y="72" width="100" height="68" rx="3" fill="#C8975A" stroke="#7A5530" stroke-width="2"></rect>
-        <rect x="60" y="72" width="18" height="68" fill="#E8C98F"></rect>
-        <rect x="28" y="102" width="24" height="16" fill="#fff"></rect>
-        <rect x="108" y="92" width="76" height="48" rx="3" fill="#D6A96B" stroke="#7A5530" stroke-width="2"></rect>
-        <rect x="138" y="92" width="14" height="48" fill="#EFD6A4"></rect>
-        <rect x="40" y="30" width="62" height="44" rx="3" fill="#B98446" stroke="#7A5530" stroke-width="2"></rect>
-        <rect x="63" y="30" width="14" height="44" fill="#E8C98F"></rect>
-        <circle cx="168" cy="44" r="20" fill="#F2B705"></circle>
-        <path d="M158 44l7 7 12-14" fill="none" stroke="#0B2239" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-      </symbol>
-      <symbol id="flag" viewBox="0 0 30 20">
-        <rect width="30" height="20" fill="#fff" stroke="#bbb" stroke-width=".6"></rect>
-        <path d="M13 0h4v20h-4zM0 8h30v4H0z" fill="#C8102E"></path>
-        <path d="M5 4h3M6.5 2.5v3M22 4h3M23.5 2.5v3M5 16h3M6.5 14.5v3M22 16h3M23.5 14.5v3" stroke="#C8102E" stroke-width="1.1"></path>
-      </symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></g></symbol>
+      <symbol id="i-swap" viewBox="0 0 24 24"><path d="M7 7h12l-3-3M17 17H5l3 3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-box" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></g></symbol>
+      <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></g></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></g></symbol>
+      <symbol id="i-seat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v9a2 2 0 0 0 2 2h7M7 13H5M16 15l2 5M9 15l-2 5M11 8h5"/></g></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+      <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M3.5 7l17 10M20.5 7l-17 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-wifi" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r="1" fill="currentColor"/></g></symbol>
+      <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v4a6 6 0 0 1-12 0zM12 18v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></g></symbol>
     </svg>
 
-    <!-- ზედა ინფორმაციის ზოლი (ჩანს, თუ ადმინ-გვერდზე ტექსტი ჩაწერე) -->
-    <div class="nb" id="nb" hidden role="status">
-      <span id="nbt"></span>
-      <button type="button" id="nbx" aria-label="Close">×</button>
-    </div>
+    <!-- ზედა გაფრთხილების ზოლი (ჩანს, თუ ადმინ-გვერდზე ტექსტი ჩაწერე) -->
+    <div class="nb" id="nb" hidden role="status"><span id="nbt"></span><button type="button" id="nbx" aria-label="Close">×</button></div>
 
-    <!-- ზედა ზოლი: ლოგო, ძებნა, ენის ღილაკები და მენიუ -->
-    <div class="topbar">
-      <div class="w">
-        <header class="top">
-          <a class="logo" href="../"><img src="../images/logo.svg" alt="" width="52" height="52"><span><b data-i="brand"></b><small data-i="tag"></small></span></a>
-          <div class="sr" role="search">
-            <input id="q" type="search" autocomplete="off" aria-label="Search">
-            <ul id="qr" hidden></ul>
-          </div>
-          <div class="lang" role="group" aria-label="Language"><button data-l="ka">KA</button><button data-l="ru">RU</button><button data-l="en">EN</button></div>
-        </header>
+    <!-- ზედა ზოლი: ლოგო, მენიუ, ძებნა, ენა -->
+    <header class="hd" id="hd">
+      <div class="w hd-in">
+        <a class="logo" href=".././" aria-label="Imereti Tour"><img src="../images/logo.svg" alt="" width="40" height="40"><span><b data-i="brand"></b><small data-i="tag"></small></span></a>
         <nav class="mn" id="mn" aria-label="Pages"></nav>
-      </div>
-    </div>
-
-    <!-- მთავარი გვერდი -->
-    <div id="p-home">
-
-      <!-- მთავარი: სათაური, უახლოესი გასვლა, მარშრუტი და მოძრავი ავტობუსი -->
-      <div class="heroband">
-        <div class="hs hs1"></div>
-        <div class="hs hs2"></div>
-        <div class="hs hs3"></div>
-        <div class="w">
-          <main>
-            <div class="hero">
-              <div>
-                <h1 data-i="h"></h1>
-                <p class="sub" data-i="sub"></p>
-                <div class="next">
-                  <small data-i="nx1"></small>
-                  <b id="d1"></b>
-                  <div class="cd" id="cd"></div>
-                </div>
-                <div class="next">
-                  <small data-i="nx2"></small>
-                  <b id="d2"></b>
-                </div>
-                <p><a class="btn" href="#book" data-i="cta"></a></p>
-              </div>
-              <div>
-                <h2 data-i="rt"></h2>
-                <ol class="route" id="route"></ol>
-              </div>
-            </div>
-            <div class="road" aria-hidden="true">
-              <div class="bus">
-                <svg viewBox="0 0 230 84" width="230" height="84"><rect x="4" y="8" width="214" height="50" rx="12" fill="#fff" stroke="#1C2321" stroke-width="2.5"></rect><rect x="18" y="18" width="30" height="18" rx="3" fill="#9CC8D6"></rect><rect x="54" y="18" width="30" height="18" rx="3" fill="#9CC8D6"></rect><rect x="90" y="18" width="30" height="18" rx="3" fill="#9CC8D6"></rect><rect x="126" y="18" width="30" height="18" rx="3" fill="#9CC8D6"></rect><path d="M164 18h40a6 6 0 0 1 6 6v12h-46z" fill="#9CC8D6"></path><rect x="5" y="42" width="212" height="7" fill="#8E1B2D"></rect><rect x="206" y="46" width="10" height="6" rx="2" fill="#F2B705"></rect><g class="wh"><circle cx="58" cy="62" r="13" fill="#1C2321"></circle><path d="M58 52v20M48 62h20" stroke="#fff" stroke-width="2.5"></path></g><g class="wh"><circle cx="168" cy="62" r="13" fill="#1C2321"></circle><path d="M168 52v20M158 62h20" stroke="#fff" stroke-width="2.5"></path></g></svg>
-              </div>
-              <div class="lane"></div>
-            </div>
-          </main>
+        <div class="hd-r">
+          <button type="button" class="ic-btn" id="qbtn" aria-label="Search"><svg><use href="#i-search"/></svg></button>
+          <div class="lang" role="group" aria-label="Language"><button data-l="ka">KA</button><button data-l="ru">RU</button><button data-l="en">EN</button></div>
         </div>
       </div>
-
-      <!-- პანორამული ფოტო-ზოლი -->
-      <div class="vista">
-        <div class="vb v-m"></div>
-        <div class="vc" data-i="vt1"></div>
+      <div class="w sr" id="sr" role="search" hidden>
+        <svg><use href="#i-search"/></svg><input id="q" type="search" autocomplete="off" aria-label="Search"><ul id="qr" hidden></ul>
       </div>
+    </header>
 
-      <!-- ადგილის დაჯავშნა: მარტივი ფორმა → WhatsApp (ადგილებს ოფისი ანაწილებს) -->
-      <section id="book" class="band b1">
-        <div class="w">
-          <h2 class="hflag"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><use href="#flag"></use></svg><span data-i="bk"></span></h2>
-          <form id="f" onsubmit="return false">
-            <label>
-              <span data-i="dir"></span>
-              <select id="dir">
-                <option value="ge" data-i="d1o"></option>
-                <option value="ru" data-i="d2o"></option>
-              </select>
-            </label>
-            <label>
-              <span data-i="dt"></span>
-              <select id="dt"></select>
-            </label>
-            <label>
-              <span id="stl"></span>
-              <select id="st"></select>
-              <a id="stm" class="mp" target="_blank" rel="noopener" style="margin:6px 0 0"></a>
-            </label>
-            <label>
-              <span data-i="px"></span>
-              <input id="px" type="number" min="1" max="20" value="1">
-            </label>
-            <p class="note" id="pr" hidden></p>
-            <label>
-              <span data-i="nm"></span>
-              <input id="nm" autocomplete="name">
-            </label>
-            <label>
-              <span data-i="ph"></span>
-              <input id="ph" type="tel" autocomplete="tel">
-            </label>
-            <label class="pay">
-              <span data-i="pay"></span>
-              <select id="pay">
-                <option value="1" data-i="pay1"></option>
-                <option value="2" data-i="pay2"></option>
-              </select>
-            </label>
+    <!-- ===================== მთავარი გვერდი ===================== -->
+    <div id="p-home">
+      <!-- პირველი ეკრანი: უკუთვლა და მარშრუტი ცოცხალი ავტობუსით -->
+      <section class="hero">
+        <div class="w hero-in">
+          <div class="hero-t rv">
+            <span class="chip live"><i class="dot"></i><span><span data-i="nx1"></span>:</span> <b id="d1"></b></span>
+            <h1><span data-i="cGe"></span> <em>⇄</em><br><span data-i="cMo"></span></h1>
+            <p class="sub" data-i="hsub"></p>
+            <div class="cd" id="cd" aria-live="off"></div>
+            <div class="ctas"><a class="btn coral" href="#book"><span data-i="cta"></span><svg><use href="#i-arrow"/></svg></a><a class="btn ghost" data-href="schedule" data-i="nv2"></a></div>
+          </div>
+          <div class="rcard rv" id="rcard">
+            <h2 data-i="rt"></h2>
+            <i class="rbus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 16V6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v10M5 16h14v2a1 1 0 0 1-1 1h-1v1.5M7 19.5V19H6a1 1 0 0 1-1-1v-2M5 11h14M8 15h.01M16 15h.01" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></i>
+            <ol class="route" id="route"></ol>
+            <p class="rnext"><span data-i="nx2"></span>: <b id="d2"></b></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- დაჯავშნა: ბილეთის ფორმა → WhatsApp (ადგილებს ოფისი ანაწილებს) -->
+      <section class="book" id="book">
+        <div class="w book-in">
+          <div class="book-t rv">
+            <span class="kicker" data-i="bk"></span>
+            <h2 data-i="hw"></h2>
+            <ol class="how">
+              <li><b data-i="hw1"></b><span data-i="hw1t"></span></li>
+              <li><b data-i="hw2"></b><span data-i="hw2t"></span></li>
+              <li><b data-i="hw3"></b><span data-i="hw3t"></span></li>
+            </ol>
+          </div>
+          <form class="ticket rv" id="f" onsubmit="return false">
+            <div class="tk-dir">
+              <div><small data-i="fr"></small><b id="tkA"></b></div>
+              <button type="button" class="swap" id="swap" data-i-aria="swp"><svg><use href="#i-swap"/></svg></button>
+              <div><small data-i="to"></small><b id="tkB"></b></div>
+              <select id="dir" class="vh" tabindex="-1" aria-hidden="true"><option value="ge" data-i="d1o"></option><option value="ru" data-i="d2o"></option></select>
+            </div>
+            <div class="tk-f">
+              <label class="fld wide"><span data-i="dt"></span><select id="dt"></select></label>
+              <label class="fld"><span id="stl"></span><select id="st"></select></label>
+              <div class="fld"><span data-i="px"></span><div class="stepper"><button type="button" id="pxm" aria-label="−">−</button><input id="px" type="number" min="1" max="20" value="1" inputmode="numeric"><button type="button" id="pxp" aria-label="+">+</button></div></div>
+              <a id="stm" class="map" target="_blank" rel="noopener"></a>
+              <label class="fld"><span data-i="nm"></span><input id="nm" autocomplete="name"></label>
+              <label class="fld"><span data-i="ph"></span><input id="ph" type="tel" autocomplete="tel" inputmode="tel"></label>
+              <label class="fld wide"><span data-i="pay"></span><select id="pay"><option value="1" data-i="pay1"></option><option value="2" data-i="pay2"></option></select></label>
+            </div>
+            <p class="price" id="pr" hidden></p>
+            <a class="btn coral full" id="wa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-i="send"></span></a>
             <p class="note" data-i="note"></p>
-            <a class="btn" id="wa" href="#" target="_blank" rel="noopener" data-i="send"></a>
           </form>
         </div>
       </section>
 
-      <!-- ამანათების ბლოკი -->
-      <section class="band b2">
+      <!-- ჩვენი ავტობუსები: ნამდვილი ფოტოები -->
+      <section class="band">
         <div class="w">
-          <div class="pbox">
-            <div>
-              <h2 class="hflag"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true"><use href="#flag"></use></svg><span data-i="pc"></span></h2>
-              <p data-i="pct" style="max-width:55ch"></p>
-              <p><a class="btn" href="../parcels/" data-i="more"></a></p>
-            </div>
-            <svg viewBox="0 0 200 150" aria-hidden="true"><use href="#boxes"></use></svg>
+          <div class="head rv"><span class="kicker" data-i="bh"></span><h2 data-i="whyt"></h2></div>
+          <div class="cards rv">
+            <a class="pcard" data-href="buses"><img src="../images/real/bus-white-hotel.jpg" alt="" loading="lazy"><div><b data-i="c1"></b><small data-i="c1t"></small></div></a>
+            <a class="pcard" data-href="buses"><img src="../images/real/interior-orange.jpg" alt="" loading="lazy"><div><b data-i="c2"></b><small data-i="c2t"></small></div></a>
+            <a class="pcard" data-href="parcels"><img src="../images/real/bus-gold-side.jpg" alt="" loading="lazy"><div><b data-i="pc"></b><small data-i="c3t"></small></div></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ამანათები -->
+      <section class="band">
+        <div class="w">
+          <div class="promo rv">
+            <span class="promo-ic"><svg><use href="#i-box"/></svg></span>
+            <div><h2 data-i="pc"></h2><p data-i="pct"></p></div>
+            <a class="btn coral" data-href="parcels"><span data-i="more"></span><svg><use href="#i-arrow"/></svg></a>
           </div>
         </div>
       </section>
 
       <!-- მგზავრების შეფასებები (ჩანს, როცა ადმინ-გვერდზე დაამატებ) -->
-      <section class="band b1" id="rvs" hidden>
-        <div class="w">
-          <h2 data-i="rvh"></h2>
-          <div class="rvl" id="rvl"></div>
-        </div>
+      <section class="band" id="rvs" hidden>
+        <div class="w"><div class="head rv"><h2 data-i="rvh"></h2></div><div class="rvl" id="rvl"></div></div>
       </section>
 
-      <!-- პანორამული ფოტო-ზოლი -->
-      <div class="vista">
-        <div class="vb v-r"></div>
-        <div class="vc" data-i="vt2"></div>
-      </div>
-
-      <!-- კონტაქტები -->
-      <section class="band b3" id="contact">
+      <!-- კონტაქტი -->
+      <section class="band" id="contact">
         <div class="w">
-          <h2 data-i="ct"></h2>
-          <div class="cts">
-            <div class="ct">
-              <b>+995 598 80 80 22</b>
-              <a href="tel:+995598808022">Call</a>
-              <a href="https://wa.me/995598808022">WhatsApp</a>
-            </div>
+          <div class="contact rv">
+            <div><span class="kicker" data-i="ct"></span><b class="tel">+995 598 80 80 22</b></div>
+            <div class="ctas"><a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a><a class="btn ghost" href="tel:+995598808022">Call</a></div>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- გვერდი: ავტობუსები -->
-    <div class="w pg" id="p-buses" hidden>
-      <h1 data-i="bh"></h1>
-      <p class="sub" data-i="bsub"></p>
-      <img class="full" alt="Imereti Tour buses" src="../images/buses-both.jpg">
-      <div class="gal">
-        <img alt="Bus 1" src="../images/bus-white.jpg">
-        <img alt="Bus 2" src="../images/bus-gold.jpg">
+    <!-- ===================== ავტობუსები ===================== -->
+    <div class="pg" id="p-buses" hidden>
+      <div class="phd"><div class="w"><span class="kicker" data-i="brand"></span><h1 data-i="bh"></h1><p class="sub" data-i="bsub"></p></div></div>
+      <div class="w">
+        <div class="gal">
+          <figure class="big"><img src="../images/real/bus-white-hotel.jpg" alt="" loading="lazy"></figure>
+          <figure><img src="../images/real/interior-orange.jpg" alt="" loading="lazy"></figure>
+          <figure><img src="../images/real/bus-gold-front.jpg" alt="" loading="lazy"></figure>
+          <figure><img src="../images/real/interior-red.jpg" alt="" loading="lazy"></figure>
+          <figure><img src="../images/real/bus-white-side.jpg" alt="" loading="lazy"></figure>
+          <figure class="big"><img src="../images/real/bus-gold-side.jpg" alt="" loading="lazy"></figure>
+        </div>
+        <h2 class="h2" data-i="amh"></h2>
+        <div class="am">
+          <div><svg><use href="#i-seat"/></svg><span data-i="am1"></span></div>
+          <div><svg><use href="#i-shield"/></svg><span data-i="am2"></span></div>
+          <div><svg><use href="#i-snow"/></svg><span data-i="am3"></span></div>
+          <div><svg><use href="#i-wifi"/></svg><span>Wi-Fi</span></div>
+          <div><svg><use href="#i-plug"/></svg><span data-i="am5"></span></div>
+        </div>
+        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta"></span><svg><use href="#i-arrow"/></svg></a></p>
       </div>
-      <h2 data-i="amh" style="margin-top:36px"></h2>
-      <div class="am">
-        <div>
-          💺
-          <span data-i="am1"></span>
-        </div>
-        <div>
-          🛡️
-          <span data-i="am2"></span>
-        </div>
-        <div>
-          ❄️
-          <span data-i="am3"></span>
-        </div>
-        <div>
-          📶 Wi-Fi
-        </div>
-        <div>
-          🔌
-          <span data-i="am5"></span>
-        </div>
-      </div>
-      <p style="margin-top:28px"><a class="btn" href="#book" data-i="cta"></a></p>
     </div>
 
-    <!-- გვერდი: განრიგი -->
-    <div class="w pg" id="p-schedule" hidden>
-
-      <!-- პანორამული ფოტო-ზოლი -->
-      <div class="vista">
-        <div class="vb v-m"></div>
-        <div class="vc" data-i="vt2"></div>
-      </div>
-      <h1 data-i="sh"></h1>
-      <div class="two">
-        <div>
-          <h2 data-i="nx1"></h2>
-          <ul class="dl" id="sg"></ul>
+    <!-- ===================== განრიგი ===================== -->
+    <div class="pg" id="p-schedule" hidden>
+      <div class="phd"><div class="w"><span class="kicker" data-i="brand"></span><h1 data-i="sh"></h1></div></div>
+      <div class="w">
+        <div class="two">
+          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nx1"></span></h2><ul class="dl" id="sg"></ul></div>
+          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nx2"></span></h2><ul class="dl" id="sm"></ul></div>
         </div>
-        <div>
-          <h2 data-i="nx2"></h2>
-          <ul class="dl" id="sm"></ul>
-        </div>
+        <div class="box rbox"><h2><svg><use href="#i-pin"/></svg><span data-i="rt"></span></h2><ol class="route" id="route2"></ol></div>
+        <div id="pl"></div>
+        <p class="note" data-i="note"></p>
+        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta"></span><svg><use href="#i-arrow"/></svg></a></p>
       </div>
-      <h2 data-i="rt" style="margin-top:32px"></h2>
-      <ol class="route" id="route2"></ol>
-      <div id="pl"></div>
-      <p class="note" data-i="note" style="margin-top:20px"></p>
-      <p style="margin-top:20px"><a class="btn" href="#book" data-i="cta"></a></p>
     </div>
 
-    <!-- გვერდი: ამანათები -->
-    <div class="w pg" id="p-parcels" hidden>
-      <div class="phero">
-        <img src="../images/parcel-road.jpg" alt="">
-        <div class="ptxt">
-          <h1 data-i="pt"></h1>
-          <p data-i="ps"></p>
+    <!-- ===================== ამანათები ===================== -->
+    <div class="pg" id="p-parcels" hidden>
+      <div class="phd"><div class="w"><span class="kicker" data-i="pc"></span><h1 data-i="pt"></h1><p class="sub" data-i="ps"></p></div></div>
+      <div class="w">
+        <div class="feat">
+          <div><svg><use href="#i-bolt"/></svg><b data-i="f1"></b><p data-i="f1t"></p></div>
+          <div><svg><use href="#i-lock"/></svg><b data-i="f2"></b><p data-i="f2t"></p></div>
+          <div><svg><use href="#i-swap"/></svg><b data-i="f3"></b><p data-i="f3t"></p></div>
+          <div><svg><use href="#i-pin"/></svg><b data-i="f4"></b><p data-i="f4t"></p></div>
         </div>
-        <svg viewBox="0 0 200 150" aria-hidden="true"><use href="#boxes"></use></svg>
+        <div class="two">
+          <div class="box">
+            <h2 data-i="how"></h2>
+            <ol class="steps"><li data-i="s1"></li><li data-i="s2"></li><li data-i="s3"></li></ol>
+            <h2 class="mt" data-i="pts"></h2>
+            <div class="chips" id="pp"></div>
+          </div>
+          <form class="ticket" onsubmit="return false">
+            <h2 data-i="pform"></h2>
+            <div class="tk-f">
+              <label class="fld wide"><span data-i="dir"></span><select id="pdir"><option value="ge" data-i="d1o"></option><option value="ru" data-i="d2o"></option></select></label>
+              <label class="fld wide"><span data-i="pwhat"></span><input id="pwh"></label>
+              <label class="fld"><span data-i="kgl"></span><input id="pkg" type="number" min="0" step="0.5" inputmode="decimal"></label>
+              <p class="price" id="ppr" hidden></p>
+              <label class="fld"><span data-i="nm"></span><input id="pnm" autocomplete="name"></label>
+              <label class="fld wide"><span data-i="ph"></span><input id="pph" type="tel" autocomplete="tel" inputmode="tel"></label>
+            </div>
+            <a class="btn coral full" id="pwa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-i="send"></span></a>
+          </form>
+        </div>
       </div>
-      <div class="pfeat">
-        <div>
-          <b>⚡ <span data-i="f1"></span></b>
-          <p data-i="f1t"></p>
-        </div>
-        <div>
-          <b>🔒 <span data-i="f2"></span></b>
-          <p data-i="f2t"></p>
-        </div>
-        <div>
-          <b>🔁 <span data-i="f3"></span></b>
-          <p data-i="f3t"></p>
-        </div>
-        <div>
-          <b>📍 <span data-i="f4"></span></b>
-          <p data-i="f4t"></p>
-        </div>
-      </div>
-      <h2 data-i="how"></h2>
-      <ol class="steps">
-        <li data-i="s1"></li>
-        <li data-i="s2"></li>
-        <li data-i="s3"></li>
-      </ol>
-      <h2 data-i="pts"></h2>
-      <div class="chips" id="pp"></div>
-      <h2 data-i="pform"></h2>
-      <form onsubmit="return false">
-        <label>
-          <span data-i="dir"></span>
-          <select id="pdir">
-            <option value="ge" data-i="d1o"></option>
-            <option value="ru" data-i="d2o"></option>
-          </select>
-        </label>
-        <label>
-          <span data-i="pwhat"></span>
-          <input id="pwh">
-        </label>
-        <label>
-          <span data-i="kgl"></span>
-          <input id="pkg" type="number" min="0" step="0.5">
-        </label>
-        <p class="note" id="ppr" hidden style="grid-column:1/-1"></p>
-        <label>
-          <span data-i="nm"></span>
-          <input id="pnm" autocomplete="name">
-        </label>
-        <label>
-          <span data-i="ph"></span>
-          <input id="pph" type="tel" autocomplete="tel">
-        </label>
-        <a class="btn" id="pwa" href="#" target="_blank" rel="noopener" data-i="send"></a>
-      </form>
     </div>
 
-    <!-- ადმინ-გვერდი (#/admin): განრიგი, ფასები, ტექსტები -->
-    <div class="w pg" id="p-admin" hidden>
-      <h1>ადმინ-პანელი</h1>
-      <p class="sub">აქ ცვლი განრიგს, ფასებს და ტექსტებს. შეცვლის შემდეგ გადმოწერე ფაილი, ჩაანაცვლე საქაღალდეში <b>js/</b> და ატვირთე GitHub-ზე (git push): Cloudflare საიტს თავისით განაახლებს. (ცვლილება მხოლოდ შენს ბრაუზერში ჩანს, სანამ არ ატვირთავ.)</p>
-      <h2>1. საიტის პარამეტრები</h2>
-      <div id="sched"></div>
-      <textarea id="sout" rows="4" readonly></textarea>
-      <p><a class="btn" id="sdl" href="#" download="schedule-config.js">გადმოწერა: schedule-config.js</a></p>
+    <!-- ===================== პირობები ===================== -->
+    <div class="pg" id="p-info" hidden>
+      <div class="phd"><div class="w"><span class="kicker" data-i="brand"></span><h1 data-i="nv5"></h1></div></div>
+      <div class="w narrow"><div class="box prose" id="inf"></div><p class="cta-row"><a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a></p></div>
     </div>
 
-    <!-- გვერდი: პირობები (გაუქმება და თანხის დაბრუნება) -->
-    <div class="w pg" id="p-info" hidden>
-      <h1 data-i="nv5"></h1>
-      <div id="inf"></div>
-      <p><a class="btn" href="https://wa.me/995598808022">WhatsApp</a></p>
-    </div>
-
-    <!-- გვერდი: ხშირი კითხვები -->
-    <div class="w pg" id="p-faq" hidden>
-
-      <!-- პანორამული ფოტო-ზოლი -->
-      <div class="vista">
-        <div class="vb v-r"></div>
-        <div class="vc" data-i="vt1"></div>
+    <!-- ===================== კითხვები ===================== -->
+    <div class="pg" id="p-faq" hidden>
+      <div class="phd"><div class="w"><span class="kicker" data-i="brand"></span><h1 data-i="fh"></h1></div></div>
+      <div class="w narrow faq">
+        <details><summary data-i="q1"></summary><p data-i="a1"></p></details>
+        <details><summary data-i="q2"></summary><p data-i="a2"></p></details>
+        <details><summary data-i="q3"></summary><p data-i="a3" id="a3"></p></details>
+        <details><summary data-i="q4"></summary><p data-i="a4"></p></details>
+        <details><summary data-i="q5"></summary><p data-i="a5"></p></details>
+        <details><summary data-i="q6"></summary><p data-i="a6"></p></details>
+        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta"></span><svg><use href="#i-arrow"/></svg></a></p>
       </div>
-      <h1 data-i="fh"></h1>
-      <details>
-        <summary data-i="q1"></summary>
-        <p data-i="a1"></p>
-      </details>
-      <details>
-        <summary data-i="q2"></summary>
-        <p data-i="a2"></p>
-      </details>
-      <details>
-        <summary data-i="q3"></summary>
-        <p data-i="a3" id="a3"></p>
-      </details>
-      <details>
-        <summary data-i="q4"></summary>
-        <p data-i="a4"></p>
-      </details>
-      <details>
-        <summary data-i="q5"></summary>
-        <p data-i="a5"></p>
-      </details>
-      <details>
-        <summary data-i="q6"></summary>
-        <p data-i="a6"></p>
-      </details>
+    </div>
+
+    <!-- ===================== ადმინ-გვერდი (#/admin): განრიგი, ფასები, ტექსტები ===================== -->
+    <div class="pg" id="p-admin" hidden>
+      <div class="phd"><div class="w"><h1>ადმინ-პანელი</h1><p class="sub">აქ ცვლი განრიგს, ფასებს და ტექსტებს. შეცვლის შემდეგ გადმოწერე ფაილი, ჩაანაცვლე საქაღალდეში <b>js/</b> და ატვირთე GitHub-ზე (git push): Cloudflare საიტს თავისით განაახლებს. (ცვლილება მხოლოდ შენს ბრაუზერში ჩანს, სანამ არ ატვირთავ.)</p></div></div>
+      <div class="w admin">
+        <div id="sched"></div>
+        <textarea id="sout" rows="4" readonly></textarea>
+        <p><a class="btn coral" id="sdl" href="#" download="schedule-config.js">გადმოწერა: schedule-config.js</a></p>
+      </div>
     </div>
 
     <!-- ფუტერი -->
-    <footer class="w ft">
-      © 2026–2027 Imereti Tour
+    <footer class="ft">
+      <div class="w ft-in">
+        <a class="logo" href=".././"><img src="../images/logo.svg" alt="" width="36" height="36"><span><b data-i="brand"></b><small data-i="tag"></small></span></a>
+        <p>© 2026–2027 Imereti Tour · <a href="https://wa.me/995598808022" target="_blank" rel="noopener">+995 598 80 80 22</a></p>
+      </div>
     </footer>
 
-    <!-- მცურავი WhatsApp ღილაკი -->
-    <a class="fab" href="https://wa.me/995598808022" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 5a11 11 0 0 0-9.4 16.6L5 27l5.6-1.5A11 11 0 1 0 16 5zm0 2a9 9 0 1 1-4.7 16.7l-.4-.2-3.3.9.9-3.2-.2-.4A9 9 0 0 1 16 7zm-3.2 4.3c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.4 5.3 4.6 2.6 1 3.1.8 3.7.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.7-.4l-2.1-1c-.3-.1-.5-.2-.7.1l-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5z"></path></svg></a>
+    <!-- ტელეფონზე ქვემოთ: დაჯავშნა და WhatsApp -->
+    <div class="sticky" id="sticky"><a class="btn coral" href="#book" data-i="cta"></a><a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a></div>
+
     <!-- სკრიპტები: 1) პარამეტრები (schedule-config.js), 2) მთავარი პროგრამა (script.js) -->
-  <script src="../js/schedule-config.js"></script>
+    <script src="../js/schedule-config.js"></script>
     <script src="../js/script.js"></script>
   </body>
 </html>

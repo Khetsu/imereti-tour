@@ -1,1770 +1,274 @@
 /* =====================================================================
-   იმერეთი ტური: საიტის დიზაინი (CSS)
-
-   როგორ იკითხება ეს ფაილი:
-   - ზემოდან ქვემოთ დანომრილი სექციებია (1-26), თითოეულს თავისი სათაური აქვს.
-   - ფერების შესაცვლელად იხილე სექცია 1.
-   - ზოგი წესი ორჯერ ზის (ძველი და ახალი). CSS-ში ბოლო წესი იმარჯვებს,
-     ამიტომ ფაილში წესების თანმიმდევრობა არ შეცვალო.
+   იმერეთი ტური · დიზაინი (navy · cream · coral)
+   სექციები: 1 ფერები · 2 საფუძველი · 3 ღილაკები · 4 ზედა ზოლი · 5 მთავარი ეკრანი
+             6 მარშრუტი · 7 დაჯავშნა (ბილეთი) · 8 ბლოკები · 9 შიდა გვერდები
+             10 ადმინი · 11 ფუტერი და ქვედა ღილაკი · 12 ანიმაციები
    ===================================================================== */
 
-/* ======================================================================
-   1. ფერები და ცვლადები
-   აქ შეგიძლია შეცვალო საიტის ფერები: --wine (წითელი), --teal (მწვანე), --bg (ფონი), --ink (ტექსტი). ღამის რეჟიმის ფერები ქვემოთ, @media ბლოკშია.
-   ====================================================================== */
-
-/* SVG გრაფიკა (ჩაშენებული), გამოიყენება ქვემოთ var(--svg-...)-ით */
-:root {
-  --svg-search: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='white' stroke-width='2'><circle cx='8' cy='8' r='6'/><path d='M13 13l4 4'/></svg>");
-  --svg-flag-strip: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2726%27%20height%3D%2712%27%3E%3Crect%20width%3D%2726%27%20height%3D%2712%27%20fill%3D%27white%27/%3E%3Cpath%20d%3D%27M13%201.5v9M8.5%206h9%27%20stroke%3D%27%23C8102E%27%20stroke-width%3D%272%27/%3E%3C/svg%3E");
-  --svg-mountains: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201200%20170%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%20170V100l110-55%2085%2045%20125-75%20150%2085%20105-45%20150%2065%20115-55%20145%2065%2095-35%20120%2045V170z%27%20fill%3D%27%230B2239%27%20fill-opacity%3D%27.35%27/%3E%3Cpath%20d%3D%27M0%20170V130l140-50%20110%2050%20130-60%20160%2070%20130-50%20150%2060%20140-55%20140%2055V170z%27%20fill%3D%27%230B2239%27%20fill-opacity%3D%27.6%27/%3E%3C/svg%3E");
-  --svg-cross-pattern: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2760%27%20height%3D%2760%27%3E%3Cpath%20d%3D%27M30%2012v36M12%2030h36%27%20stroke%3D%27white%27%20stroke-opacity%3D%27.07%27%20stroke-width%3D%275%27/%3E%3C/svg%3E");
-}
-
-:root {
-  --i-m: url(../images/mountains.jpg);
-  --i-c: url(../images/city.jpg);
-  --i-r: url(../images/parcel-road.jpg);
-  --bg: #F5F6F3;
-  --ink: #1C2321;
-  --mute: #58635F;
-  --line: #CBD2CD;
-  --card: #fff;
-  --wine: #8E1B2D;
-  --teal: #126B66;
-  --on: #fff;
-  --b1: #D9EBE8;
-  --b2: #F4DEE1;
-  --b3: #1C2B29;
-  --b3t: #EAF0ED;
-  --b3a: #7FD8D0;
-  box-sizing: border-box;
-  padding-top: env(safe-area-inset-top,0px);
-  padding-bottom: env(safe-area-inset-bottom,0px);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #121917;
-    --ink: #EAF0ED;
-    --mute: #9AA8A2;
-    --line: #2B3733;
-    --card: #1A2421;
-    --wine: #E26A7C;
-    --teal: #4FC4BC;
-    --on: #121917;
-    --b1: #173230;
-    --b2: #2E1A1F;
-    --b3: #0A0F0E;
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg: #121917;
-  --ink: #EAF0ED;
-  --mute: #9AA8A2;
-  --line: #2B3733;
-  --card: #1A2421;
-  --wine: #E26A7C;
-  --teal: #4FC4BC;
-  --on: #121917;
-  --b1: #173230;
-  --b2: #2E1A1F;
-  --b3: #0A0F0E;
-}
-
-
-/* ======================================================================
-   2. ზოგადი ელემენტები (გვერდი, ტექსტი, ბმულები)
-   ====================================================================== */
-
-html {
-  scroll-padding-top: env(safe-area-inset-top,0px);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font: 16px/1.6 "Noto Sans Georgian",system-ui,sans-serif;
-}
-
-.w {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-
-/* ======================================================================
-   3. ძველი ზედა ზოლი (ლოგო და ენის ღილაკები)
-   შენიშვნა: ეს წესები ქვემოთ, "ახალი ზედა ზოლის" ნაწილში ნაწილობრივ გადაფარულია. CSS-ში ბოლო წესი იმარჯვებს.
-   ====================================================================== */
-
-header.top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 0;
-}
-
-.brand {
-  font-weight: 800;
-  font-size: 1.15rem;
-  color: var(--wine);
-}
-
-.lang button {
-  border: 1px solid var(--line);
-  background: none;
-  color: var(--ink);
-  padding: 6px 12px;
-  font: inherit;
-  cursor: pointer;
-}
-
-.lang button:first-child {
-  border-radius: 999px 0 0 999px;
-}
-
-.lang button:last-child {
-  border-radius: 0 999px 999px 0;
-}
-
-.lang button[aria-pressed=true] {
-  background: var(--ink);
-  color: var(--bg);
-}
-
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible {
-  outline: 3px solid var(--teal);
-  outline-offset: 2px;
-}
-
-
-/* ======================================================================
-   4. მთავარი გვერდი: სათაური და უახლოესი გასვლა
-   ====================================================================== */
-
-.hero {
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 40px;
-  padding: 5vh 0 56px;
-}
-
-@media(max-width: 760px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-}
-
-h1 {
-  font-size: clamp(2rem,6vw,3.6rem);
-  line-height: 1.1;
-  font-weight: 800;
-  margin: 0 0 16px;
-  letter-spacing: -.02em;
-}
-
-.sub {
-  color: var(--mute);
-  margin: 0 0 28px;
-  max-width: 40ch;
-}
-
-.next {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-left: 6px solid var(--wine);
-  padding: 16px 20px;
-  margin-bottom: 12px;
-}
-
-.next small {
-  color: var(--mute);
-  display: block;
-}
-
-.next b {
-  font-size: 1.15rem;
-}
-
-.cd {
-  font-size: 1.9rem;
-  font-weight: 800;
-  color: var(--wine);
-  font-variant-numeric: tabular-nums;
-}
-
-.cd i {
-  font-style: normal;
-  font-size: .9rem;
-  font-weight: 400;
-  color: var(--mute);
-  margin: 0 10px 0 3px;
-}
-
-h2 {
-  font-size: 1.15rem;
-  margin: 0 0 14px;
-}
-
-
-/* ======================================================================
-   5. მარშრუტის სია (გაჩერებები წერტილებით)
-   ====================================================================== */
-
-ol.route {
-  list-style: none;
-  margin: 0;
-  padding: 0 0 0 26px;
-  border-left: 3px solid var(--teal);
-}
-
-.route li {
-  position: relative;
-  padding: 0 0 18px 18px;
-}
-
-.route li::before {
-  content: "";
-  position: absolute;
-  left: -36px;
-  top: 7px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 3px solid var(--teal);
-}
-
-.route li.end::before {
-  background: var(--wine);
-  border-color: var(--wine);
-}
-
-.route time {
-  font-weight: 800;
-  margin-right: 10px;
-  font-variant-numeric: tabular-nums;
-}
-
-.route small {
-  display: block;
-  color: var(--mute);
-}
-
-.route .days {
-  color: var(--teal);
-  font-weight: 600;
-  padding-bottom: 20px;
-}
-
-.route .days::before {
-  display: none;
-}
-
-
-/* ======================================================================
-   6. ფერადი სექციები (ჯავშანი, ამანათები, კონტაქტები)
-   ====================================================================== */
-
-.band {
-  padding: 56px 0;
-}
-
-.b1 {
-  background: var(--b1);
-}
-
-.b2 {
-  background: var(--b2);
-}
-
-.b3 {
-  background: var(--b3);
-  color: var(--b3t);
-}
-
-.b3 .ct {
-  border-color: rgba(255,255,255,.18);
-}
-
-.b3 .ct a {
-  color: var(--b3a);
-}
-
-
-/* ======================================================================
-   7. ფორმები, ველები და ღილაკები
-   ====================================================================== */
-
-.note {
-  grid-column: 1/-1;
-  margin: 0;
-  padding: 12px 14px;
-  background: var(--card);
-  border-left: 5px solid var(--wine);
-  font-size: .95rem;
-}
-
-.pay {
-  grid-column: 1/-1;
-}
-
-form {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 14px;
-  max-width: 640px;
-}
-
-@media(max-width: 560px) {
-  form {
-    grid-template-columns: 1fr;
-  }
-}
-
-label {
-  display: grid;
-  gap: 4px;
-  font-size: .9rem;
-  color: var(--mute);
-}
-
-input,
-select {
-  font: inherit;
-  padding: 11px 12px;
-  border: 1px solid var(--line);
-  background: var(--card);
-  color: var(--ink);
-  border-radius: 6px;
-  width: 100%;
-}
-
-.btn {
-  display: inline-block;
-  background: var(--wine);
-  color: var(--on);
-  padding: 13px 24px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  text-align: center;
-}
-
-form .btn {
-  grid-column: 1/-1;
-}
-
-
-/* ======================================================================
-   8. კონტაქტები
-   ====================================================================== */
-
-.cts {
-  display: grid;
-  gap: 10px;
-  max-width: 640px;
-}
-
-.ct {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.ct b {
-  min-width: 170px;
-}
-
-.ct a {
-  color: var(--teal);
-  font-weight: 600;
-}
-
-
-/* ======================================================================
-   9. ძველი მენიუ
-   ====================================================================== */
-
-.mn {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 22px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--line);
-}
-
-.mn a {
-  text-decoration: none;
-  color: var(--mute);
-  padding: 6px 0;
-  font-weight: 600;
-  border-bottom: 3px solid transparent;
-}
-
-.mn a[aria-current=page] {
-  color: var(--wine);
-  border-color: var(--wine);
-}
-
-
-/* ======================================================================
-   10. შიდა გვერდები (ავტობუსები, განრიგი, ამანათები, კითხვები)
-   ====================================================================== */
-
-.pg {
-  padding-top: 36px;
-  padding-bottom: 56px;
-}
-
-[hidden] {
-  display: none!important;
-}
-
-
-/* ======================================================================
-   11. ავტობუსების გვერდი: ფოტოები და ბარათები
-   ====================================================================== */
-
-.full {
-  width: 100%;
-  border-radius: 10px;
-  display: block;
-  margin-bottom: 16px;
-}
-
-.gal {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.gal img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-@media(max-width: 600px) {
-  .gal,
-  .two {
-    grid-template-columns: 1fr!important;
-  }
-}
-
-.am {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
-  gap: 12px;
-}
-
-.am div {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-left: 5px solid var(--teal);
-  padding: 14px 16px;
-  border-radius: 6px;
-}
-
-.two {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-.dl {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.dl li {
-  padding: 12px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-details {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  margin-bottom: 10px;
-  padding: 2px 16px;
-}
-
-summary {
-  cursor: pointer;
-  font-weight: 600;
-  padding: 12px 0;
-}
-
-details p {
-  margin: 0 0 14px;
-  color: var(--mute);
-}
-
-
-/* ======================================================================
-   12. მოძრავი ავტობუსი მთავარ გვერდზე
-   ====================================================================== */
-
-.road {
-  position: relative;
-  height: 96px;
-  overflow: hidden;
-  margin-top: -10px;
-}
-
-.lane {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 12px;
-  height: 4px;
-  background: repeating-linear-gradient(90deg,var(--mute) 0 26px,transparent 26px 52px);
-  animation: lane .8s linear infinite;
-  opacity: .6;
-}
-
-.road::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 30px;
-  height: 2px;
-  background: var(--line);
-}
-
-.bus {
-  position: absolute;
-  bottom: 18px;
-  left: -240px;
-  animation: drive 16s linear infinite;
-  z-index: 1;
-}
-
-.bus svg {
-  display: block;
-  animation: bump .5s ease-in-out infinite;
-}
-
-.wh {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: spin .7s linear infinite;
-}
-
-@keyframes drive {
-  to {
-    left: 100%;
-  }
-}
-
-@keyframes lane {
-  to {
-    background-position-x: -52px;
-  }
-}
-
-@keyframes bump {
-  50% {
-    transform: translateY(-2px);
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes pageIn {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes wipe {
-  from {
-    clip-path: inset(0 100% 0 0);
-    transform: scale(1.04);
-  }
-  to {
-    clip-path: inset(0);
-    transform: none;
-  }
-}
-
-@keyframes inL {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes inR {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes pop {
-  from {
-    opacity: 0;
-    transform: translateY(12px) scale(.96);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes ring {
-  0% {
-    box-shadow: 0 0 0 0 rgba(142,27,45,.5);
-  }
-  70%,100% {
-    box-shadow: 0 0 0 14px rgba(142,27,45,0);
-  }
-}
-
-
-/* ======================================================================
-   13. ანიმაციები: გვერდის გახსნა და ბარათები
-   ====================================================================== */
-
-.enter {
-  animation: pageIn .5s cubic-bezier(.2,.7,.2,1);
-}
-
-#p-buses.enter .full {
-  animation: wipe 1s cubic-bezier(.2,.7,.2,1) both;
-}
-
-#p-buses.enter .gal img:nth-child(1) {
-  animation: inL .8s .25s cubic-bezier(.2,.7,.2,1) both;
-}
-
-#p-buses.enter .gal img:nth-child(2) {
-  animation: inR .8s .4s cubic-bezier(.2,.7,.2,1) both;
-}
-
-#p-buses.enter .am div {
-  animation: pop .5s both;
-}
-
-#p-buses.enter .am div:nth-child(1) {
-  animation-delay: .6s;
-}
-
-#p-buses.enter .am div:nth-child(2) {
-  animation-delay: .7s;
-}
-
-#p-buses.enter .am div:nth-child(3) {
-  animation-delay: .8s;
-}
-
-#p-buses.enter .am div:nth-child(4) {
-  animation-delay: .9s;
-}
-
-#p-buses.enter .am div:nth-child(5) {
-  animation-delay: 1s;
-}
-
-.am div,
-.gal img,
-.next {
-  transition: transform .25s,box-shadow .25s;
-}
-
-.am div:hover,
-.gal img:hover,
-.next:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 22px rgba(0,0,0,.14);
-}
-
-.route li {
-  animation: pop .5s both;
-}
-
-.route li:nth-child(2) {
-  animation-delay: .1s;
-}
-
-.route li:nth-child(3) {
-  animation-delay: .2s;
-}
-
-.route li:nth-child(4) {
-  animation-delay: .3s;
-}
-
-.route li:nth-child(5) {
-  animation-delay: .4s;
-}
-
-.route li:nth-child(6) {
-  animation-delay: .5s;
-}
-
-.route li:nth-child(7) {
-  animation-delay: .6s;
-}
-
-.hero .btn {
-  animation: ring 2.4s infinite;
-}
-
-.btn {
-  transition: transform .2s;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-
-/* ======================================================================
-   14. გამოჩენა სქროლისას
-   ====================================================================== */
-
-.rv {
-  opacity: 0;
-  transform: translateY(26px);
-  transition: opacity .7s,transform .7s;
-}
-
-.rv.in {
-  opacity: 1;
-  transform: none;
-}
-
-details[open] p {
-  animation: pop .35s both;
-}
-
-.mn a {
-  transition: color .2s,border-color .2s;
-}
-
-
-/* ======================================================================
-   15. ახალი ზედა ზოლი (ლოგო, ძებნა, ენა, მენიუ)
-   ეს ნაწილი გადაფარავს ძველ ზედა ზოლს.
-   ====================================================================== */
-
-.topbar {
-  background: linear-gradient(120deg,#0B2239 0%,#0F3D54 55%,#126B66 100%);
-  color: #fff;
-  position: relative;
-}
-
-.topbar::after {
-  content: "";
-  position: absolute;
-  right: -70px;
-  top: -90px;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: radial-gradient(circle,rgba(242,183,5,.4),transparent 65%);
-  pointer-events: none;
-}
-
-.topbar .w {
-  position: relative;
-  z-index: 2;
-}
-
-header.top {
-  gap: 14px 20px;
-  flex-wrap: wrap;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: #fff;
-}
-
-.logo img {
-  border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(0,0,0,.4);
-}
-
-.logo b {
-  display: block;
-  font-size: 1.4rem;
-  line-height: 1.1;
-  font-weight: 800;
-}
-
-.logo small {
-  display: block;
-  color: #F2B705;
-  font-weight: 600;
-}
-
-.lang button {
-  border-color: rgba(255,255,255,.4);
-  color: #fff;
-}
-
-.lang button[aria-pressed=true] {
-  background: #F2B705;
-  border-color: #F2B705;
-  color: #0B2239;
-}
-
-
-/* ======================================================================
-   16. ძებნის ველი და შედეგების სია
-   ====================================================================== */
-
-.sr {
-  position: relative;
-  flex: 1 1 240px;
-  max-width: 380px;
-  margin-left: auto;
-}
-
-.sr input {
-  width: 100%;
-  padding: 10px 14px 10px 40px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.35);
-  color: #fff;
-  font: inherit;
-  background: rgba(255,255,255,.12) var(--svg-search) left 14px center no-repeat;
-}
-
-.sr input::placeholder {
-  color: rgba(255,255,255,.75);
-}
-
-#qr {
-  list-style: none;
-  margin: 6px 0 0;
-  padding: 6px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: 30;
-  background: var(--card);
-  color: var(--ink);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.3);
-}
-
-#qr li {
-  padding: 9px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-#qr li:hover,
-#qr li.on {
-  background: var(--b1);
-}
-
-#qr li.no {
-  color: var(--mute);
-  cursor: default;
-}
-
-@media(max-width: 640px) {
-  .sr {
-    order: 3;
-    flex-basis: 100%;
-    max-width: none;
-  }
-  .lang {
-    margin-left: auto;
-  }
-}
-
-.mn {
-  border-bottom: 0;
-  border-top: 1px solid rgba(255,255,255,.18);
-  padding: 6px 0 0;
-  margin-top: 6px;
-}
-
-.mn a {
-  color: rgba(255,255,255,.85);
-}
-
-.mn a[aria-current=page] {
-  color: #F2B705;
-  border-color: #F2B705;
-}
-
-.ft {
-  text-align: center;
-}
-
-
-/* ======================================================================
-   17. ამანათების ბლოკი და გვერდი
-   ====================================================================== */
-
-.pbox {
-  display: grid;
-  grid-template-columns: 1fr 230px;
-  gap: 28px;
-  align-items: center;
-}
-
-.pbox>svg {
-  width: 100%;
-  animation: float 3.2s ease-in-out infinite;
-}
-
-@media(max-width: 600px) {
-  .pbox {
-    grid-template-columns: 1fr;
-  }
-  .pbox>svg {
-    max-width: 200px;
-  }
-}
-
-.phero {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  min-height: 250px;
-  margin-bottom: 28px;
-  color: #fff;
-}
-
-.phero img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.phero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg,rgba(11,34,57,.94),rgba(11,34,57,.4));
-  z-index: 1;
-}
-
-.ptxt {
-  position: relative;
-  z-index: 2;
-  padding: 34px;
-  max-width: 560px;
-}
-
-.ptxt h1 {
-  color: #fff;
-  margin: 0 0 10px;
-}
-
-.ptxt p {
-  margin: 0;
-  opacity: .92;
-}
-
-.phero svg {
-  position: absolute;
-  right: 20px;
-  bottom: 10px;
-  width: min(250px,36%);
-  z-index: 2;
-  animation: float 3.2s ease-in-out infinite;
-}
-
-.pfeat {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 14px;
-  margin-bottom: 34px;
-}
-
-.pfeat div {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-top: 5px solid var(--wine);
-  border-radius: 8px;
-  padding: 18px;
-}
-
-.pfeat b {
-  display: block;
-  font-size: 1.1rem;
-  margin-bottom: 6px;
-}
-
-.pfeat p {
-  margin: 0;
-  color: var(--mute);
-}
-
-.steps {
-  counter-reset: s;
-  list-style: none;
-  padding: 0;
-  margin: 0 0 34px;
-  display: grid;
-  gap: 12px;
-}
-
-.steps li {
-  counter-increment: s;
-  position: relative;
-  padding: 14px 16px 14px 64px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-
-.steps li::before {
-  content: counter(s);
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--wine);
-  color: var(--on);
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 34px;
-}
-
-.chips span {
-  padding: 7px 14px;
-  background: var(--b1);
-  border-radius: 999px;
-  font-weight: 600;
-}
-
-@keyframes float {
-  50% {
-    transform: translateY(-7px);
-  }
-}
-
-#p-parcels.enter .phero img {
-  animation: wipe 1s cubic-bezier(.2,.7,.2,1) both;
-}
-
-#p-parcels.enter .pfeat div,
-#p-parcels.enter .steps li {
-  animation: pop .5s both;
-}
-
-#p-parcels.enter .pfeat div:nth-child(2),
-#p-parcels.enter .steps li:nth-child(2) {
-  animation-delay: .12s;
-}
-
-#p-parcels.enter .pfeat div:nth-child(3),
-#p-parcels.enter .steps li:nth-child(3) {
-  animation-delay: .24s;
-}
-
-#p-parcels.enter .pfeat div:nth-child(4) {
-  animation-delay: .36s;
-}
-
-.pfeat div {
-  transition: transform .25s,box-shadow .25s;
-}
-
-.pfeat div:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 22px rgba(0,0,0,.14);
-}
-
-
-/* ======================================================================
-   18. მთავარის ფონი: ცვალებადი ხედები
-   ====================================================================== */
-
-.heroband {
-  position: relative;
-  overflow: hidden;
-  background: #0B2239;
-  color: #fff;
-}
-
-.heroband::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(180deg,rgba(11,34,57,.72),rgba(11,34,57,.5) 55%,rgba(11,34,57,.88));
-}
-
-.heroband .w {
-  position: relative;
-  z-index: 2;
-}
-
-.hs {
-  position: absolute;
-  inset: -24px;
-  background: center/cover no-repeat;
-  filter: blur(2.5px) saturate(1.15);
-  opacity: 0;
-  animation: slide 30s linear infinite;
-}
-
-.hs1 {
-  background-image: var(--i-m);
-}
-
-.hs2 {
-  background-image: var(--i-c);
-  animation-delay: 10s;
-}
-
-.hs3 {
-  background-image: var(--i-r);
-  animation-delay: 20s;
-}
-
-@keyframes slide {
-  0% {
-    opacity: 0;
-    transform: scale(1) translateX(0);
-  }
-  6% {
-    opacity: 1;
-  }
-  33% {
-    opacity: 1;
-  }
-  40% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.14) translateX(-2%);
-  }
-}
-
-.heroband h1 {
-  color: #fff;
-  text-shadow: 0 2px 18px rgba(0,0,0,.4);
-}
-
-.heroband .sub {
-  color: rgba(255,255,255,.88);
-}
-
-.heroband h2 {
-  color: #fff;
-}
-
-.heroband .route small {
-  color: rgba(255,255,255,.75);
-}
-
-.heroband .route .days {
-  color: #7FD8D0;
-}
-
-.heroband .route li::before {
-  background: #0B2239;
-}
-
-.heroband .route {
-  border-color: #7FD8D0;
-}
-
-.heroband .next {
-  color: var(--ink);
-}
-
-
-/* ======================================================================
-   19. პანორამული ზოლები ფოტოებით
-   ====================================================================== */
-
-.vista {
-  position: relative;
-  height: 230px;
-  overflow: hidden;
-}
-
-.vb {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -20%;
-  height: 140%;
-  background: center/cover no-repeat;
-  will-change: transform;
-}
-
-.v-m {
-  background-image: var(--i-m);
-}
-
-.v-r {
-  background-image: var(--i-r);
-}
-
-.vista::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(90deg,rgba(11,34,57,.6),rgba(11,34,57,.15));
-}
-
-.vc {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  font-size: clamp(1.3rem,4vw,2.3rem);
-  font-weight: 800;
-  padding: 0 20px;
-  text-shadow: 0 2px 14px rgba(0,0,0,.55);
-}
-
-.pg .vista {
-  border-radius: 12px;
-  margin-bottom: 26px;
-  height: 190px;
-}
-
-
-/* ======================================================================
-   20. ადგილების არჩევა: ავტობუსის სქემა
-   ====================================================================== */
-
-.seats {
-  grid-column: 1/-1;
-}
-
-.seats>b {
-  display: block;
-}
-
-.lg {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin: 6px 0 10px;
-  font-size: .85rem;
-  color: var(--mute);
-}
-
-.lg i {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  border-radius: 4px;
-  border: 2px solid var(--teal);
-  background: var(--card);
-  vertical-align: -3px;
-  margin-right: 6px;
-}
-
-.lg em {
-  font-style: normal;
-}
-
-.lg .a {
-  background: var(--wine);
-  border-color: var(--wine);
-}
-
-.lg .t {
-  background: var(--line);
-  border-color: var(--line);
-}
-
-.bmap {
-  background: var(--card);
-  border: 2px solid var(--line);
-  border-radius: 30px 30px 12px 12px;
-  padding: 14px 16px 16px;
-  width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
-  box-shadow: 0 8px 24px rgba(0,0,0,.1);
-}
-
-.bfront {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 6px 10px;
-  border-bottom: 2px dashed var(--line);
-  margin-bottom: 10px;
-}
-
-.wheel {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 5px solid var(--mute);
-  position: relative;
-}
-
-.wheel::after {
-  content: "";
-  position: absolute;
-  inset: 5px;
-  border-radius: 50%;
-  background: var(--mute);
-}
-
-.srow {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-
-.srow.back {
-  gap: 6px;
-  margin: 12px 0 0;
-  padding-top: 12px;
-  border-top: 2px dashed var(--line);
-}
-
-.aisle {
-  flex: 0 0 24px;
-}
-
-.seat {
-  flex: 1 1 0;
-  max-width: 42px;
-  aspect-ratio: 1/1;
-  border-radius: 10px 10px 6px 6px;
-  border: 2px solid var(--teal);
-  background: var(--card);
-  color: var(--ink);
-  font: 700 .8rem "Noto Sans Georgian",sans-serif;
-  cursor: pointer;
-  padding: 0;
-  box-shadow: inset 0 -6px 0 rgba(18,107,102,.2);
-  transition: transform .15s,background .15s;
-}
-
-.seat:hover:not(:disabled) {
-  transform: translateY(-3px);
-  background: var(--b1);
-}
-
-.seat.sel {
-  background: var(--wine);
-  border-color: var(--wine);
-  color: var(--on);
-  box-shadow: inset 0 -6px 0 rgba(0,0,0,.25);
-  animation: pop .3s both;
-}
-
-.seat.tk {
-  background: repeating-linear-gradient(45deg,var(--line) 0 4px,transparent 4px 8px);
-  border-color: var(--line);
-  color: var(--mute);
-  box-shadow: none;
-  cursor: not-allowed;
-}
-
-#ssel {
-  text-align: center;
-  font-weight: 600;
-  color: var(--wine);
-  margin: 10px 0 4px;
-}
-
-
-/* ======================================================================
-   21. ადმინ-გვერდი (#/admin)
-   ====================================================================== */
-
-#aout,
-#sout {
-  width: 100%;
-  font-family: monospace;
-  padding: 10px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--card);
-  color: var(--ink);
-}
-
-#sched h3 {
-  margin: 22px 0 8px;
-  font-size: 1rem;
-}
-
-#sched label {
-  margin-bottom: 10px;
-}
-
-#sched input[type=checkbox] {
-  width: auto;
-}
-
-.dys {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 16px;
-}
-
-.dys label {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 6px;
-  color: var(--ink);
-  margin: 0;
-}
-
-.tms,
-.chg {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-#sched .dl button {
-  border: 0;
-  background: var(--line);
-  border-radius: 6px;
-  cursor: pointer;
-  margin-left: 8px;
-  color: var(--ink);
-}
-
-
-/* ======================================================================
-   22. ზედა ინფორმაციის ზოლი
-   ====================================================================== */
-
-.nb {
-  background: #F2B705;
-  color: #0B2239;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 44px 10px 16px;
-  position: relative;
-  font-weight: 600;
-  text-align: center;
-  animation: slideDown .5s both;
-}
-
-.nb[hidden] {
-  display: none;
-}
-
-.nb button {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 0;
-  background: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #0B2239;
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: none;
-    opacity: 1;
-  }
-}
-
-
-/* ======================================================================
-   23. მცურავი WhatsApp ღილაკი
-   ====================================================================== */
-
-.fab {
-  position: fixed;
-  right: 16px;
-  bottom: calc(16px + env(safe-area-inset-bottom,0px));
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: #25D366;
-  display: grid;
-  place-items: center;
-  z-index: 40;
-  animation: fab 2.6s infinite;
-}
-
-.fab svg {
-  width: 32px;
-  height: 32px;
-}
-
-@keyframes fab {
-  0% {
-    box-shadow: 0 6px 18px rgba(0,0,0,.35),0 0 0 0 rgba(37,211,102,.55);
-  }
-  70%,100% {
-    box-shadow: 0 6px 18px rgba(0,0,0,.35),0 0 0 16px rgba(37,211,102,0);
-  }
-}
-
-
-/* ======================================================================
-   24. მგზავრების შეფასებები
-   ====================================================================== */
-
-.rvl {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap: 14px;
-}
-
-.rvl blockquote {
-  margin: 0;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-left: 5px solid var(--teal);
-  border-radius: 8px;
-  padding: 16px;
-}
-
-.rvl p {
-  margin: 0 0 8px;
-}
-
-.rvl cite {
-  color: var(--mute);
-  font-style: normal;
-  font-weight: 600;
-}
-
-
-/* ======================================================================
-   25. დაბეჭდვა, რუკის ბმული, პირობების გვერდი
-   ====================================================================== */
-
-.btn.alt {
-  background: var(--teal);
-  border: 0;
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.mp {
-  text-decoration: none;
-  margin-left: 6px;
-}
-
-#inf p {
-  max-width: 65ch;
-}
-
-#tkt {
-  display: none;
-}
-
-@media print {
-  body.pt>*:not(#tkt) {
-    display: none!important;
-  }
-  body.pt #tkt {
-    display: block;
-    padding: 24px;
-    color: #000;
-    background: #fff;
-    font-family: "Noto Sans Georgian",sans-serif;
-  }
-  body.pt #tkt table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0;
-  }
-  body.pt #tkt th,
-  body.pt #tkt td {
-    border: 1px solid #888;
-    padding: 8px;
-    text-align: left;
-  }
-}
-
-
-/* ======================================================================
-   26. ბოლო გასწორებები: ჯავშნისა და ამანათების ზოლები, ქართული დროშა
-   ====================================================================== */
-
-body {
-  overflow-x: hidden;
-}
-
-.topbar {
-  z-index: 60;
-  overflow-x: clip;
-}
-
-.band {
-  position: relative;
-}
-
-#book::before,
-.b2::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 12px;
-  z-index: 1;
-  background: var(--svg-flag-strip) repeat-x;
-}
-
-#book {
-  padding: 64px 0 170px;
-  color: #fff;
-  background: var(--svg-mountains) bottom center/100% 150px no-repeat,var(--svg-cross-pattern),linear-gradient(180deg,#0F3D54 0%,#126B66 62%,#0B2239 100%);
-}
-
-#book h2 {
-  color: #fff;
-  font-size: 1.5rem;
-}
-
-#f {
-  background: var(--card);
-  color: var(--ink);
-  padding: 26px;
-  border-radius: 16px;
-  box-shadow: 0 20px 44px rgba(0,0,0,.4);
-  border-top: 6px solid var(--wine);
-  max-width: 720px;
-}
-
-.b2 {
-  padding-top: 68px;
-  color: #fff;
-  background: linear-gradient(105deg,rgba(11,34,57,.94),rgba(11,34,57,.7)),var(--i-r) center/cover no-repeat;
-}
-
-.b2 h2 {
-  color: #fff;
-  font-size: 1.5rem;
-}
-
-.b2 p {
-  color: rgba(255,255,255,.92);
-}
-
-.hflag {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.flag {
-  width: 42px;
-  height: 28px;
-  flex: none;
-  border-radius: 3px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.35);
-  animation: flagw 3s ease-in-out infinite;
-}
-
-@keyframes flagw {
-  50% {
-    transform: rotate(-3deg) translateY(-2px);
-  }
-}
-
-#p-parcels form {
-  background: var(--card);
-  padding: 24px;
-  border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.14);
-  border-top: 5px solid var(--wine);
-  max-width: 720px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation: none!important;
-    transition: none!important;
-  }
-  .rv {
-    opacity: 1;
-    transform: none;
-  }
-  .bus {
-    left: 40%;
-  }
-  .hs1 {
-    opacity: 1;
-  }
-}
-
-footer {
-  padding: 24px 0 40px;
-  color: var(--mute);
-  font-size: .9rem;
-}
+/* 1. ფერები — აქ იცვლება საიტის ფერები */
+:root{
+  --navy:#14213D; --navy2:#1F3158; --navy3:#0D1730;
+  --cream:#F6F1E7; --cream2:#EDE5D6; --paper:#FFFCF6;
+  --coral:#FF6B5B; --coral2:#E8574A; --coral-soft:#FFE3DE;
+  --wa:#25D366;
+  --ink:#14213D; --muted:#5E6577; --line:rgba(20,33,61,.12); --line-l:rgba(246,241,231,.14);
+  --r:20px; --ease:cubic-bezier(.22,.7,.2,1);
+  --font:"Noto Sans Georgian","Noto Sans",system-ui,sans-serif;
+}
+
+/* 2. საფუძველი */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font:400 16px/1.6 var(--font);color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+svg{width:1em;height:1em;flex:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none;padding:0}
+[hidden]{display:none!important}
+:focus-visible{outline:2.5px solid var(--coral);outline-offset:3px;border-radius:8px}
+.w{width:min(100% - 32px,1140px);margin-inline:auto}
+.narrow{width:min(100% - 32px,780px)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);opacity:0;pointer-events:none}
+.kicker{display:inline-block;font:800 12px/1.2 var(--font);letter-spacing:.16em;text-transform:uppercase;color:var(--coral)}
+h1,h2,h3{letter-spacing:-.01em}
+.h2,.head h2,.book-t h2,.promo h2{margin:8px 0 0;font:800 clamp(26px,4.6vw,38px)/1.15 var(--font)}
+.sub{margin:10px 0 0;font-size:17px;color:var(--muted);max-width:620px}
+.note{margin:14px 0 0;font-size:13px;line-height:1.55;color:var(--muted)}
+
+/* 3. ღილაკები */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:14px;font:800 15px/1.1 var(--font);cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s,background .3s;text-align:center}
+.btn svg{width:20px;height:20px}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn.coral{background:var(--coral);color:#fff;box-shadow:0 14px 30px -12px rgba(255,107,91,.8)}
+.btn.coral:hover{background:var(--coral2)}
+.btn.ghost{border:1.5px solid currentColor}
+.btn.wa{background:var(--wa);color:#fff}
+.btn.full{width:100%}
+.ctas{display:flex;flex-wrap:wrap;gap:10px}
+.cta-row{margin:30px 0 0}
+
+/* 4. ზედა ზოლი */
+.nb{position:relative;z-index:60;display:flex;justify-content:center;align-items:center;gap:12px;padding:10px 44px 10px 16px;background:var(--coral);color:#fff;font-weight:700;font-size:14px;text-align:center}
+.nb button{position:absolute;right:10px;top:50%;width:30px;height:30px;margin-top:-15px;border-radius:50%;font-size:20px;line-height:1;color:#fff}
+.hd{position:sticky;top:0;z-index:50;background:rgba(20,33,61,.94);color:var(--cream);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-l)}
+.hd-in{display:flex;align-items:center;gap:14px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;min-width:0}
+.logo img{width:40px;height:40px;flex:none}
+.logo b{display:block;font:800 18px/1.1 var(--font);white-space:nowrap}
+.logo small{display:block;margin-top:3px;font:700 10px/1 var(--font);letter-spacing:.12em;color:var(--coral);white-space:nowrap;text-transform:uppercase}
+.mn{display:none;gap:4px;margin-left:auto}
+.mn a{padding:9px 13px;border-radius:10px;font:700 14px/1 var(--font);color:rgba(246,241,231,.75);transition:background .25s,color .25s}
+.mn a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.mn a[aria-current="page"]{color:#fff;background:rgba(255,107,91,.18);box-shadow:inset 0 -2px 0 var(--coral)}
+.hd-r{display:flex;align-items:center;gap:8px;margin-left:auto}
+.ic-btn{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;color:var(--cream);background:rgba(255,255,255,.08)}
+.ic-btn svg{width:18px;height:18px}
+.lang{display:flex;gap:2px;padding:3px;border-radius:12px;background:rgba(255,255,255,.08)}
+.lang button{padding:7px 9px;border-radius:9px;font:800 12px/1 var(--font);color:rgba(246,241,231,.7)}
+.lang button[aria-pressed="true"]{background:var(--coral);color:#fff}
+/* ტელეფონზე მენიუ ჰორიზონტალური ღილაკების რიგია ლოგოს ქვეშ */
+@media (max-width:959px){
+  .mn{display:flex;order:5;flex-basis:100%;margin:0;overflow-x:auto;scrollbar-width:none;padding:0 0 10px;-webkit-mask:linear-gradient(90deg,#000 88%,transparent);mask:linear-gradient(90deg,#000 88%,transparent)}
+  .mn::-webkit-scrollbar{display:none}
+  .mn a{flex:none;padding:8px 12px;font-size:13px;background:rgba(255,255,255,.06)}
+  .hd-in{flex-wrap:wrap;height:auto;padding-top:10px;row-gap:10px}
+}
+@media (min-width:960px){.mn{display:flex}.hd-r{margin-left:8px}}
+@media (max-width:959px){.logo{flex:1}.logo b{font-size:16px}.lang button{padding:7px 7px}.ic-btn{width:34px;height:34px}.hd-r{gap:6px}}
+@media (max-width:430px){.logo small{display:none}.logo img{width:36px;height:36px}}
+/* ძებნა */
+.sr{position:relative;display:flex;align-items:center;gap:10px;margin-bottom:12px;padding:0 14px;border-radius:12px;background:var(--cream);color:var(--ink)}
+.sr svg{width:18px;height:18px;color:var(--muted)}
+.sr input{flex:1;min-width:0;padding:12px 0;border:0;outline:0;background:none;font-size:15px}
+#qr{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:5;margin:0;padding:6px;list-style:none;border-radius:14px;background:#fff;box-shadow:0 20px 40px -14px rgba(13,23,48,.45)}
+#qr li{padding:11px 12px;border-radius:10px;font-weight:700;cursor:pointer}
+#qr li:hover,#qr li.on{background:var(--cream)}
+#qr li.no{color:var(--muted);font-weight:600;cursor:default}
+
+/* 5. მთავარი ეკრანი */
+.hero{position:relative;overflow:hidden;color:var(--cream);background:radial-gradient(900px 520px at 100% 0,rgba(255,107,91,.22),transparent 60%),radial-gradient(600px 400px at 0 100%,rgba(31,49,88,.9),transparent 70%),linear-gradient(180deg,var(--navy),var(--navy3))}
+.hero-in{position:relative;z-index:1;display:grid;gap:28px;padding:28px 0 110px}
+@media (min-width:960px){.hero-in{grid-template-columns:1.05fr .95fr;align-items:center;gap:56px;padding:56px 0 150px}}
+.chip{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:8px 14px;border-radius:99px;font:700 13px/1.3 var(--font)}
+.chip.live{background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px var(--line-l)}
+.chip.live b{color:#fff}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--coral);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,107,91,.6)}70%{box-shadow:0 0 0 10px rgba(255,107,91,0)}100%{box-shadow:0 0 0 0 rgba(255,107,91,0)}}
+.hero h1{margin:18px 0 0;font:900 clamp(40px,5.6vw,68px)/1.05 var(--font);color:#fff}
+@media (max-width:959px){.hero h1{font-size:clamp(38px,10vw,56px)}}
+.hero h1 em{font-style:normal;color:var(--coral);display:inline-block;animation:flip 4s var(--ease) infinite}
+@keyframes flip{0%,40%{transform:none}50%,90%{transform:scaleX(-1)}100%{transform:none}}
+.hero .sub{color:rgba(246,241,231,.75)}
+.cd{display:flex;gap:8px;margin:22px 0 24px}
+.cd div{min-width:66px;padding:11px 8px 9px;border-radius:14px;text-align:center;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px var(--line-l)}
+.cd b{display:block;font:800 28px/1 var(--font);color:#fff;font-variant-numeric:tabular-nums}
+.cd small{display:block;margin-top:5px;font:700 11px/1 var(--font);color:rgba(246,241,231,.6)}
+.hero .ghost{color:var(--cream)}
+
+/* 6. მარშრუტი */
+.rcard{position:relative;padding:22px 20px 18px 64px;border-radius:24px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px var(--line-l)}
+.rcard h2{margin:0 0 8px;font:800 12px/1 var(--font);letter-spacing:.16em;text-transform:uppercase;color:var(--coral)}
+.route{position:relative;list-style:none;margin:0;padding:0}
+.route li{position:relative;display:flex;align-items:center;gap:10px;padding:9px 0;font-weight:800;font-size:16px}
+.route li time{order:2;margin-left:auto;font-weight:700;font-variant-numeric:tabular-nums;opacity:.65}
+.route li .mp{order:1;font-size:13px;opacity:.8}
+.route li.days{display:block;padding:12px 0 8px;font:600 13px/1.5 var(--font);opacity:.7}
+.route li.end{display:block;padding:12px 0 4px;border-top:1px dashed rgba(127,127,127,.35)}
+.route li.end small{display:block;margin-top:6px;font:600 13px/1.5 var(--font);opacity:.7}
+.rcard .route::before{content:"";position:absolute;left:-36px;top:20px;bottom:64px;width:3px;border-radius:3px;background:repeating-linear-gradient(180deg,rgba(246,241,231,.35) 0 8px,transparent 8px 14px)}
+.rcard .route li:not(.days)::before{content:"";position:absolute;left:-40px;top:50%;width:11px;height:11px;margin-top:-6px;border-radius:50%;background:var(--navy);box-shadow:0 0 0 2.5px var(--cream)}
+.rcard .route li.end::before{top:22px;background:var(--coral);box-shadow:0 0 0 2.5px var(--coral),0 0 0 7px rgba(255,107,91,.25)}
+.rbus{position:absolute;left:21px;top:52px;z-index:2;display:grid;place-items:center;width:30px;height:30px;border-radius:10px;background:var(--coral);box-shadow:0 0 0 6px rgba(255,107,91,.22);animation:ride 9s var(--ease) infinite}
+.rbus svg{width:18px;height:18px}
+@keyframes ride{0%,6%{transform:translateY(0)}84%,100%{transform:translateY(var(--rh,200px))}}
+.rnext{margin:10px 0 0;padding-top:12px;border-top:1px solid var(--line-l);font-size:13px;opacity:.8}
+.rnext b{color:#fff}
+.box .route li .mp{opacity:1}
+
+/* 7. დაჯავშნა: ბილეთი */
+.book{position:relative;z-index:2;margin-top:-80px;padding-bottom:20px}
+.book-in{display:grid;gap:26px}
+@media (min-width:960px){.book{margin-top:-110px}.book-in{grid-template-columns:.85fr 1.15fr;align-items:end;gap:48px}.book-t{padding-bottom:10px}}
+@media (max-width:959px){.book-t{order:2}}
+.how{list-style:none;counter-reset:h;display:grid;gap:10px;margin:18px 0 0;padding:0}
+.how li{counter-increment:h;position:relative;display:grid;gap:2px;padding:14px 16px 14px 60px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.how li::before{content:counter(h);position:absolute;left:14px;top:14px;display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--navy);color:#fff;font-weight:900}
+.how b{font-size:16px}
+.how span{font-size:14px;color:var(--muted)}
+.ticket{position:relative;padding:22px;border-radius:26px;background:var(--paper);box-shadow:0 34px 70px -34px rgba(13,23,48,.55),0 0 0 1px var(--line)}
+.ticket h2{margin:0 0 14px;font:800 20px/1.3 var(--font)}
+.tk-dir{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;padding-bottom:20px;margin-bottom:18px;border-bottom:2px dashed var(--line)}
+.tk-dir::before,.tk-dir::after{content:"";position:absolute;bottom:-12px;width:22px;height:22px;border-radius:50%;background:var(--cream)}
+.tk-dir::before{left:-33px}.tk-dir::after{right:-33px}
+.tk-dir small{display:block;font:700 11px/1 var(--font);letter-spacing:.06em;color:var(--muted)}
+.tk-dir b{display:block;margin-top:6px;font:900 clamp(17px,4.4vw,24px)/1.1 var(--font)}
+.tk-dir>div:nth-of-type(2){text-align:right}
+.swap{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--navy);color:#fff;transition:transform .5s var(--ease)}
+.swap svg{width:20px;height:20px}
+.swap:hover,.swap.spin{transform:rotate(180deg)}
+.tk-f{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fld{display:block;min-width:0;padding:10px 14px 8px;border-radius:14px;background:var(--cream);transition:box-shadow .25s}
+.fld:focus-within{box-shadow:0 0 0 2px var(--coral)}
+.fld>span{display:block;font:700 11px/1.2 var(--font);color:var(--muted)}
+.fld input,.fld select{display:block;width:100%;margin-top:3px;padding:4px 0;border:0;outline:0;background:transparent;font:800 15px/1.4 var(--font);color:var(--ink);-webkit-appearance:none;appearance:none;text-overflow:ellipsis}
+.fld select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='%2314213D' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") right center/16px no-repeat;padding-right:22px;cursor:pointer}
+.fld.wide{grid-column:1/-1}
+.stepper{display:flex;align-items:center;gap:6px;margin-top:2px}
+.stepper button{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:#fff;font:800 18px/1 var(--font);box-shadow:0 0 0 1px var(--line)}
+.stepper input{text-align:center;margin:0;-moz-appearance:textfield}
+.stepper input::-webkit-inner-spin-button,.stepper input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.map{grid-column:1/-1;margin:-2px 0 4px 4px;font:700 13px/1.4 var(--font);color:var(--coral2)}
+.price{margin:16px 0 14px;padding:13px 16px;border-radius:14px;background:var(--navy);color:#fff;font:800 15px/1.4 var(--font)}
+#ppr{grid-column:1/-1;margin:0}
+
+/* 8. ბლოკები */
+.band{padding:40px 0}
+.head{margin-bottom:20px}
+.cards{display:grid;gap:12px}
+@media (min-width:760px){.cards{grid-template-columns:1.25fr 1fr 1fr}}
+.pcard{position:relative;display:block;min-height:250px;border-radius:var(--r);overflow:hidden;color:#fff;background:var(--navy)}
+.pcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.pcard:hover img{transform:scale(1.06)}
+.pcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(13,23,48,.88))}
+.pcard div{position:absolute;left:16px;right:16px;bottom:14px;z-index:1}
+.pcard b{display:block;font-size:19px}
+.pcard small{font-size:13px;opacity:.8}
+.promo{display:grid;gap:16px;padding:26px;border-radius:24px;background:var(--navy);color:var(--cream)}
+@media (min-width:760px){.promo{grid-template-columns:auto 1fr auto;align-items:center;padding:30px 34px}}
+.promo-ic{display:grid;place-items:center;width:58px;height:58px;border-radius:16px;background:rgba(255,107,91,.16);color:var(--coral)}
+.promo-ic svg{width:30px;height:30px}
+.promo h2{margin:0;color:#fff}
+.promo p{margin:6px 0 0;color:rgba(246,241,231,.7)}
+.rvl{display:grid;gap:12px}
+@media (min-width:760px){.rvl{grid-template-columns:repeat(3,1fr)}}
+.rvl blockquote{margin:0;padding:20px;border-radius:var(--r);background:#fff;box-shadow:0 0 0 1px var(--line)}
+.rvl p{margin:0;font-weight:600}
+.rvl cite{display:block;margin-top:10px;font-style:normal;font-weight:800;color:var(--coral2)}
+.contact{display:grid;gap:16px;padding:24px;border-radius:24px;background:#fff;box-shadow:0 0 0 1px var(--line)}
+@media (min-width:760px){.contact{grid-template-columns:1fr auto;align-items:center;padding:28px 34px}}
+.contact .tel{display:block;margin-top:6px;font:900 clamp(24px,5vw,32px)/1.1 var(--font)}
+.contact .ghost{color:var(--navy)}
+
+/* 9. შიდა გვერდები */
+.phd{padding:34px 0 32px;margin-bottom:28px;color:var(--cream);background:radial-gradient(700px 300px at 100% 0,rgba(255,107,91,.2),transparent 60%),linear-gradient(180deg,var(--navy),var(--navy3))}
+.phd h1{margin:8px 0 0;font:900 clamp(30px,6vw,52px)/1.08 var(--font);color:#fff}
+.phd .sub{color:rgba(246,241,231,.72)}
+.pg{padding-bottom:40px}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (min-width:760px){.gal{grid-template-columns:repeat(4,1fr)}}
+.gal figure{margin:0;aspect-ratio:3/4;border-radius:18px;overflow:hidden;background:var(--cream2)}
+.gal figure.big{grid-column:span 2;aspect-ratio:3/2}
+@media (min-width:760px){.gal figure.big{aspect-ratio:auto}}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.gal figure:hover img{transform:scale(1.05)}
+.h2{margin-top:34px}
+.am{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:16px}
+@media (max-width:520px){.am{grid-template-columns:1fr 1fr}.am div{padding:14px 12px;font-size:14px;gap:10px;overflow-wrap:anywhere}}
+.am div{display:flex;align-items:center;gap:12px;padding:16px;border-radius:16px;background:#fff;font-weight:700;box-shadow:0 0 0 1px var(--line)}
+.am svg{width:26px;height:26px;color:var(--coral)}
+.two{display:grid;gap:14px}
+@media (min-width:760px){.two{grid-template-columns:1fr 1fr;align-items:start}}
+.box{padding:22px;border-radius:var(--r);background:#fff;box-shadow:0 0 0 1px var(--line)}
+.box h2{display:flex;align-items:center;gap:10px;margin:0 0 12px;font:800 18px/1.3 var(--font)}
+.box h2 svg{width:22px;height:22px;color:var(--coral)}
+.box .mt{margin-top:24px}
+.rbox{margin-top:14px}
+.dl{list-style:none;margin:0;padding:0}
+.dl li{padding:12px 0;border-bottom:1px solid var(--line);font-weight:700}
+.dl li:last-child{border-bottom:0}
+#pl h2{margin:28px 0 10px!important;font:800 20px/1.3 var(--font)}
+#pl .dl{padding:6px 20px;border-radius:var(--r);background:#fff;box-shadow:0 0 0 1px var(--line)}
+#pl b{color:var(--coral2)}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:14px}
+.feat div{padding:20px;border-radius:var(--r);background:#fff;box-shadow:0 0 0 1px var(--line)}
+.feat svg{width:28px;height:28px;color:var(--coral)}
+.feat b{display:block;margin-top:10px;font-size:17px}
+.feat p{margin:4px 0 0;font-size:14px;color:var(--muted)}
+.steps{margin:0;padding-left:20px;display:grid;gap:8px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{padding:8px 14px;border-radius:99px;background:var(--cream);font-weight:700;font-size:14px}
+.prose p{margin:0 0 14px}
+.prose p:last-child{margin:0}
+.faq details{margin-bottom:10px;padding:0 20px;border-radius:16px;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;list-style:none;cursor:pointer;font-weight:800}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:10px;background:var(--cream);color:var(--coral2);font-size:20px;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 18px;color:var(--muted)}
+
+/* 10. ადმინი */
+.admin h3{margin:28px 0 10px;font-size:17px}
+.admin label{display:grid;gap:4px;font-size:13px;font-weight:700;color:var(--muted)}
+.admin input,.admin select,.admin textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:600;color:var(--ink)}
+.admin .dys{display:flex;flex-wrap:wrap;gap:8px}
+.admin .dys label{display:flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.admin .dys input{width:auto}
+.admin .tms,.admin .chg{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.admin .dl li{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:600}
+.admin .dl button{width:28px;height:28px;border-radius:8px;background:var(--coral-soft);color:var(--coral2);font-weight:800}
+.admin .btn{margin-top:10px}
+.admin textarea{margin-top:20px;font:12px/1.4 ui-monospace,monospace}
+
+/* 11. ფუტერი და ქვედა ღილაკი */
+.ft{margin-top:30px;padding:28px 0 100px;background:var(--navy3);color:rgba(246,241,231,.7)}
+.ft-in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px}
+.ft .logo b{color:#fff}
+.ft p{margin:0;font-size:14px}
+.ft p a{color:#fff;font-weight:700}
+@media (min-width:960px){.ft{padding-bottom:28px}}
+.sticky{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:40;display:flex;gap:8px;padding:8px;border-radius:18px;background:rgba(20,33,61,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 18px 40px -10px rgba(0,0,0,.55);transition:transform .4s var(--ease),opacity .4s}
+.sticky .coral{flex:1;padding:14px}
+.sticky .wa{flex:none;width:52px;padding:0}
+.sticky .wa svg{width:24px;height:24px}
+.sticky.off{transform:translateY(140%);opacity:0;pointer-events:none}
+@media (min-width:960px){.sticky{display:none}}
+
+/* 12. ანიმაციები */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.pg.enter,#p-home.enter{animation:pgin .5s var(--ease)}
+@keyframes pgin{from{opacity:0;transform:translateY(10px)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+@media print{.hd,.sticky,.ft,.nb{display:none!important}}
