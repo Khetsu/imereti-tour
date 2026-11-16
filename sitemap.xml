@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://imeretitour.com/</loc></url><url><loc>https://imeretitour.com/buses/</loc></url><url><loc>https://imeretitour.com/schedule/</loc></url><url><loc>https://imeretitour.com/parcels/</loc></url><url><loc>https://imeretitour.com/info/</loc></url><url><loc>https://imeretitour.com/faq/</loc></url></urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://imeretitour.com/</loc><lastmod>2026-11-16</lastmod><priority>1.0</priority></url>
+  <url><loc>https://imeretitour.com/buses/</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://imeretitour.com/schedule/</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://imeretitour.com/parcels/</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://imeretitour.com/info/</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://imeretitour.com/faq/</loc><lastmod>2026-11-16</lastmod><priority>0.8</priority></url>
+</urlset>

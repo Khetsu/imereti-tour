@@ -20,6 +20,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://imeretitour.com/parcels/">
     <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+    <link rel="icon" href="../images/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700;800;900&amp;family=Noto+Sans:wght@400;600;700;800;900&amp;family=Noto+Serif+Georgian:wght@400;500;700&amp;display=swap">
@@ -27,6 +30,7 @@
     <link rel="stylesheet" href="../css/fx.css">
     <link rel="preload" href="../fonts/FiraGO-Heavy.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="modulepreload" href="../js/vendor/three.module.min.js">
+      <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://imeretitour.com/#site","name":"იმერეთი ტური","alternateName":["Imereti Tour","Имерети Тур","imeretitour.com"],"url":"https://imeretitour.com/","inLanguage":["ka","ru","en"]},{"@type":["Organization","TravelAgency"],"@id":"https://imeretitour.com/#org","name":"იმერეთი ტური","alternateName":"Imereti Tour","url":"https://imeretitour.com/","logo":"https://imeretitour.com/images/icon-512.png","image":"https://imeretitour.com/images/og.jpg","telephone":"+995598808022","description":"იმერეთი ტური: კომფორტული და უსაფრთხო მგზავრობა საქართველო–მოსკოვი და მოსკოვი–საქართველო მიმართულებით. ბათუმი, ქობულეთი, ფოთი, ქუთაისი, თბილისი. ამანათების გადაზიდვა.","areaServed":["GE","RU"],"address":{"@type":"PostalAddress","addressLocality":"Kutaisi","addressRegion":"Imereti","addressCountry":"GE"},"contactPoint":{"@type":"ContactPoint","telephone":"+995598808022","contactType":"customer service","availableLanguage":["ka","ru","en"]}},{"@type":"WebPage","@id":"https://imeretitour.com/parcels/#page","url":"https://imeretitour.com/parcels/","name":"ამანათების გადაზიდვა საქართველო–მოსკოვი — იმერეთი ტური","description":"ამანათების სწრაფი და უსაფრთხო გადაზიდვა საქართველო–მოსკოვი ორივე მიმართულებით.","isPartOf":{"@id":"https://imeretitour.com/#site"},"about":{"@id":"https://imeretitour.com/#org"},"inLanguage":"ka"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"მთავარი","item":"https://imeretitour.com/"},{"@type":"ListItem","position":2,"name":"ამანათები","item":"https://imeretitour.com/parcels/"}]}]}</script>
   </head>
   <body data-page="parcels" data-base="../">
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -47,7 +51,7 @@
     </svg>
 
     <!-- ჩატვირთვის ეკრანი, გვერდებს შორის ფარდა, სქროლის ზოლი (js/fx.js) -->
-    <div class="pre" id="pre" aria-hidden="true"><div class="pre-in"><img src="../images/logo.svg" alt="" width="64" height="64"><b data-i="brand"></b><div class="pre-road"><i></i></div></div></div>
+    <div class="pre" id="pre" aria-hidden="true"><div class="pre-in"><img src="../images/logo.svg" alt="" width="64" height="64"><b data-i="brand">იმერეთი ტური</b><div class="pre-road"><i></i></div></div></div>
     <div class="curtain" id="curtain" aria-hidden="true"><img src="../images/logo.svg" alt="" width="56" height="56"></div>
     <div class="prog" id="prog" aria-hidden="true"><i></i></div>
 
@@ -57,8 +61,8 @@
     <!-- ზედა ზოლი: ლოგო, მენიუ, ძებნა, ენა -->
     <header class="hd" id="hd">
       <div class="w hd-in">
-        <a class="logo" href=".././" aria-label="Imereti Tour"><img src="../images/logo.svg" alt="" width="40" height="40"><span><b data-i="brand"></b><small data-i="tag"></small></span></a>
-        <nav class="mn" id="mn" aria-label="Pages"></nav>
+        <a class="logo" href=".././" aria-label="Imereti Tour"><img src="../images/logo.svg" alt="" width="40" height="40"><span><b data-i="brand">იმერეთი ტური</b><small data-i="tag">საქართველო–მოსკოვი</small></span></a>
+        <nav class="mn" id="mn" aria-label="Pages"><a href="../" data-p="">მთავარი</a><a href="../buses/" data-p="buses">ავტობუსები</a><a href="../schedule/" data-p="schedule">განრიგი</a><a href="../parcels/" data-p="parcels" aria-current="page">ამანათები</a><a href="../info/" data-p="info">პირობები</a><a href="../faq/" data-p="faq">კითხვები</a></nav>
         <div class="hd-r">
           <button type="button" class="ic-btn" id="qbtn" aria-label="Search"><svg><use href="#i-search"/></svg></button>
           <div class="lang" role="group" aria-label="Language"><button data-l="ka">KA</button><button data-l="ru">RU</button><button data-l="en">EN</button></div>
@@ -82,13 +86,13 @@
           <canvas id="gl" aria-hidden="true"></canvas>
           <div class="shade" aria-hidden="true"></div>
           <div class="w hero-t" id="heroT">
-            <span class="chip live"><i class="dot"></i><span><span data-i="nx1"></span>:</span> <b id="d1"></b></span>
-            <h1><span class="ln"><span data-i="cGe"></span> <em>⇄</em></span><span class="ln"><span data-i="cMo"></span></span></h1>
-            <p class="sub" data-i="hsub"></p>
+            <span class="chip live"><i class="dot"></i><span><span data-i="nx1">უახლოესი გასვლა საქართველოდან</span>:</span> <b id="d1"></b></span>
+            <h1><span class="ln"><span data-i="cGe">საქართველო</span> <em>⇄</em></span><span class="ln"><span data-i="cMo">მოსკოვი</span></span></h1>
+            <p class="sub" data-i="hsub">რეგულარული რეისები ორივე მიმართულებით. დაჯავშნე ადგილი 1 წუთში, რეგისტრაციის გარეშე.</p>
             <div class="cd" id="cd" aria-live="off"></div>
-            <div class="ctas"><a class="btn coral mag" href="#book"><span data-i="cta"></span><svg><use href="#i-arrow"/></svg></a><a class="btn ghost" data-href="schedule" data-i="nv2"></a></div>
+            <div class="ctas"><a class="btn coral mag" href="#book"><span data-i="cta">დაჯავშნა</span><svg><use href="#i-arrow"/></svg></a><a class="btn ghost" href="../schedule/" data-href="schedule" data-i="nv2">განრიგი</a></div>
           </div>
-          <div class="hint" id="hint" aria-hidden="true"><i></i><span data-i="scrl"></span></div>
+          <div class="hint" id="hint" aria-hidden="true"><i></i><span data-i="scrl">გადაახვიე და იმოგზაურე</span></div>
           <div class="chap" id="chap"></div>
           <div class="trail" id="trail" aria-hidden="true"><i class="tbar"></i><i class="tbus"></i></div>
         </div>
@@ -98,33 +102,33 @@
       <section class="book" id="book">
         <div class="w book-in">
           <div class="book-t rv">
-            <span class="kicker" data-i="bk"></span>
-            <h2 data-i="hw"></h2>
+            <span class="kicker" data-i="bk">ადგილის დაჯავშნა</span>
+            <h2 data-i="hw">სამი ნაბიჯი და ადგილი შენია</h2>
             <ol class="how">
-              <li><b data-i="hw1"></b><span data-i="hw1t"></span></li>
-              <li><b data-i="hw2"></b><span data-i="hw2t"></span></li>
-              <li><b data-i="hw3"></b><span data-i="hw3t"></span></li>
+              <li><b data-i="hw1">აირჩიე თარიღი</b><span data-i="hw1t">უახლოესი რეისები ორივე მიმართულებით.</span></li>
+              <li><b data-i="hw2">მიუთითე გაჩერება</b><span data-i="hw2t">ბათუმი, ქობულეთი, ფოთი, ქუთაისი, თბილისი.</span></li>
+              <li><b data-i="hw3">გაგზავნე</b><span data-i="hw3t">ჯავშანი WhatsApp-ში მოგვდის და მალევე გიდასტურებთ.</span></li>
             </ol>
           </div>
           <form class="ticket rv" id="f" data-tilt onsubmit="return false">
             <div class="tk-dir">
-              <div><small data-i="fr"></small><b id="tkA"></b></div>
+              <div><small data-i="fr">საიდან</small><b id="tkA"></b></div>
               <button type="button" class="swap" id="swap" data-i-aria="swp"><svg><use href="#i-swap"/></svg></button>
-              <div><small data-i="to"></small><b id="tkB"></b></div>
-              <select id="dir" class="vh" tabindex="-1" aria-hidden="true"><option value="ge" data-i="d1o"></option><option value="ru" data-i="d2o"></option></select>
+              <div><small data-i="to">სად</small><b id="tkB"></b></div>
+              <select id="dir" class="vh" tabindex="-1" aria-hidden="true"><option value="ge" data-i="d1o">საქართველო → მოსკოვი</option><option value="ru" data-i="d2o">მოსკოვი → საქართველო</option></select>
             </div>
             <div class="tk-f">
-              <label class="fld wide"><span data-i="dt"></span><select id="dt"></select></label>
+              <label class="fld wide"><span data-i="dt">თარიღი</span><select id="dt"></select></label>
               <label class="fld"><span id="stl"></span><select id="st"></select></label>
-              <div class="fld"><span data-i="px"></span><div class="stepper"><button type="button" id="pxm" aria-label="−">−</button><input id="px" type="number" min="1" max="20" value="1" inputmode="numeric"><button type="button" id="pxp" aria-label="+">+</button></div></div>
+              <div class="fld"><span data-i="px">მგზავრები</span><div class="stepper"><button type="button" id="pxm" aria-label="−">−</button><input id="px" type="number" min="1" max="20" value="1" inputmode="numeric"><button type="button" id="pxp" aria-label="+">+</button></div></div>
               <a id="stm" class="map" target="_blank" rel="noopener"></a>
-              <label class="fld"><span data-i="nm"></span><input id="nm" autocomplete="name"></label>
-              <label class="fld"><span data-i="ph"></span><input id="ph" type="tel" autocomplete="tel" inputmode="tel"></label>
-              <label class="fld wide"><span data-i="pay"></span><select id="pay"><option value="1" data-i="pay1"></option><option value="2" data-i="pay2"></option></select></label>
+              <label class="fld"><span data-i="nm">სახელი</span><input id="nm" autocomplete="name"></label>
+              <label class="fld"><span data-i="ph">ტელეფონი</span><input id="ph" type="tel" autocomplete="tel" inputmode="tel"></label>
+              <label class="fld wide"><span data-i="pay">ანგარიშსწორება</span><select id="pay"><option value="1" data-i="pay1">მინიმუმ 25% წინასწარ</option><option value="2" data-i="pay2">100% სრულად</option></select></label>
             </div>
             <p class="price" id="pr" hidden></p>
-            <a class="btn coral full" id="wa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-i="send"></span></a>
-            <p class="note" data-i="note"></p>
+            <a class="btn coral full" id="wa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-i="send">გაგზავნა WhatsApp-ში</span></a>
+            <p class="note" data-i="note">დაჯავშნისას აუცილებელია მინიმუმ 25%-ის ჩარიცხვა, ან შეგიძლიათ სრულად გადაიხადოთ. გადახდის რეკვიზიტებს გამოგიგზავნით WhatsApp-ში. გაუქმების შემთხვევაში თანხას დაგიბრუნებთ.</p>
           </form>
         </div>
       </section>
@@ -135,14 +139,14 @@
       <!-- „ფანჯრები“: ჰორიზონტალური გალერეა ავტობუსის ფანჯრის ჩარჩოებში (სქროლით გვერდზე მოძრაობს) -->
       <section class="hs" id="hs">
         <div class="hs-st">
-          <div class="w head"><span class="kicker" data-i="bh"></span><h2 data-i="whyt"></h2></div>
+          <div class="w head"><span class="kicker" data-i="bh">ჩვენი ავტობუსები</span><h2 data-i="whyt">ნამდვილი ავტობუსები, ნამდვილი კომფორტი</h2></div>
           <div class="hs-tr" id="hstr">
-            <a class="win" data-href="buses"><span class="win-f"><img src="../images/real/bus-white-hotel.jpg" alt="" loading="lazy"></span><b data-i="c1"></b><small data-i="c1t"></small></a>
-            <a class="win" data-href="buses"><span class="win-f"><img src="../images/real/interior-orange.jpg" alt="" loading="lazy"></span><b data-i="c2"></b><small data-i="c2t"></small></a>
-            <a class="win" data-href="buses"><span class="win-f"><img src="../images/real/bus-gold-front.jpg" alt="" loading="lazy"></span><b data-i="nv1"></b><small data-i="w3"></small></a>
-            <a class="win" data-href="buses"><span class="win-f"><img src="../images/real/interior-red.jpg" alt="" loading="lazy"></span><b data-i="amh"></b><small data-i="am1"></small></a>
-            <a class="win" data-href="parcels"><span class="win-f"><img src="../images/real/bus-gold-side.jpg" alt="" loading="lazy"></span><b data-i="pc"></b><small data-i="c3t"></small></a>
-            <a class="win" data-href="schedule"><span class="win-f"><img src="../images/real/bus-white-side.jpg" alt="" loading="lazy"></span><b data-i="nv2"></b><small data-i="hw1t"></small></a>
+            <a class="win" href="../buses/" data-href="buses"><span class="win-f"><img src="../images/real/bus-white-hotel.jpg" alt="" loading="lazy"></span><b data-i="c1">თანამედროვე ავტობუსები</b><small data-i="c1t">კონდიციონერი · USB დამტენი</small></a>
+            <a class="win" href="../buses/" data-href="buses"><span class="win-f"><img src="../images/real/interior-orange.jpg" alt="" loading="lazy"></span><b data-i="c2">რბილი სავარძლები</b><small data-i="c2t">გრძელი გზისთვის</small></a>
+            <a class="win" href="../buses/" data-href="buses"><span class="win-f"><img src="../images/real/bus-gold-front.jpg" alt="" loading="lazy"></span><b data-i="nv1">ავტობუსები</b><small data-i="w3">ნამდვილი ფოტოები, ჩვენი ავტობუსები</small></a>
+            <a class="win" href="../buses/" data-href="buses"><span class="win-f"><img src="../images/real/interior-red.jpg" alt="" loading="lazy"></span><b data-i="amh">რას გთავაზობთ გზაზე</b><small data-i="am1">კომფორტული ავტობუსები</small></a>
+            <a class="win" href="../parcels/" data-href="parcels"><span class="win-f"><img src="../images/real/bus-gold-side.jpg" alt="" loading="lazy"></span><b data-i="pc">ამანათები</b><small data-i="c3t">ორივე მიმართულებით</small></a>
+            <a class="win" href="../schedule/" data-href="schedule"><span class="win-f"><img src="../images/real/bus-white-side.jpg" alt="" loading="lazy"></span><b data-i="nv2">განრიგი</b><small data-i="hw1t">უახლოესი რეისები ორივე მიმართულებით.</small></a>
           </div>
         </div>
       </section>
@@ -152,10 +156,10 @@
         <div class="w stats-in">
           <div class="stats rv" id="stats"></div>
           <div class="rcard rv" id="rcard" data-tilt>
-            <h2 data-i="rt"></h2>
+            <h2 data-i="rt">მარშრუტი</h2>
             <i class="rbus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 16V6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v10M5 16h14v2a1 1 0 0 1-1 1h-1v1.5M7 19.5V19H6a1 1 0 0 1-1-1v-2M5 11h14M8 15h.01M16 15h.01" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></i>
             <ol class="route" id="route"></ol>
-            <p class="rnext"><span data-i="nx2"></span>: <b id="d2"></b></p>
+            <p class="rnext"><span data-i="nx2">უახლოესი გასვლა მოსკოვიდან</span>: <b id="d2"></b></p>
           </div>
         </div>
       </section>
@@ -165,8 +169,8 @@
         <div class="w">
           <div class="promo rv" data-tilt>
             <div class="cube sm" aria-hidden="true"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i><i class="f6"></i></div>
-            <div><h2 data-i="pc"></h2><p data-i="pct"></p></div>
-            <a class="btn coral mag" data-href="parcels"><span data-i="more"></span><svg><use href="#i-arrow"/></svg></a>
+            <div><h2 data-i="pc">ამანათები</h2><p data-i="pct">სწრაფად და უსაფრთხოდ ვაგზავნით ამანათებს საქართველო–მოსკოვის ორივე მიმართულებით.</p></div>
+            <a class="btn coral mag" href="../parcels/" data-href="parcels"><span data-i="more">ვრცლად ამანათებზე</span><svg><use href="#i-arrow"/></svg></a>
           </div>
         </div>
       </section>
@@ -174,21 +178,21 @@
       <!-- რეკლამა: პარტნიორები (რეკლამებს ამატებ ადმინ-გვერდიდან; ცარიელ ადგილზე ჩანს „აქ შეიძლება იყოს თქვენი რეკლამა“) -->
       <section class="band ads" id="ads">
         <div class="w">
-          <div class="head rv"><span class="kicker" data-i="adk"></span><h2 data-i="adh"></h2></div>
+          <div class="head rv"><span class="kicker" data-i="adk">პარტნიორები</span><h2 data-i="adh">შენი ბიზნესი მგზავრების თვალწინ</h2></div>
           <div class="adl" id="adl"></div>
         </div>
       </section>
 
       <!-- მგზავრების შეფასებები (ჩანს, როცა ადმინ-გვერდზე დაამატებ) -->
       <section class="band" id="rvs" hidden>
-        <div class="w"><div class="head rv"><h2 data-i="rvh"></h2></div><div class="rvl" id="rvl"></div></div>
+        <div class="w"><div class="head rv"><h2 data-i="rvh">მგზავრები გვიყვებიან</h2></div><div class="rvl" id="rvl"></div></div>
       </section>
 
       <!-- კონტაქტი -->
       <section class="band" id="contact">
         <div class="w">
           <div class="contact rv" data-tilt>
-            <div><span class="kicker" data-i="ct"></span><b class="tel">+995 598 80 80 22</b></div>
+            <div><span class="kicker" data-i="ct">კონტაქტი</span><b class="tel">+995 598 80 80 22</b></div>
             <div class="ctas"><a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a><a class="btn ghost" href="tel:+995598808022">Call</a></div>
           </div>
         </div>
@@ -197,7 +201,7 @@
 
     <!-- ===================== ავტობუსები ===================== -->
     <div class="pg" id="p-buses" hidden>
-      <div class="phd phd3" data-scene="bus"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand"></span><h1 data-i="bh"></h1><p class="sub" data-i="bsub"></p></div></div>
+      <div class="phd phd3" data-scene="bus"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">იმერეთი ტური</span><h1 data-i="bh">ჩვენი ავტობუსები</h1><p class="sub" data-i="bsub">კომფორტული ავტობუსები და საიმედო მომსახურება გრძელ გზაზე.</p></div></div>
       <div class="w">
         <div class="ringw" id="ringw">
           <div class="ring" id="ring">
@@ -208,64 +212,64 @@
             <figure><img src="../images/real/bus-white-side.jpg" alt="" loading="lazy"></figure>
             <figure><img src="../images/real/bus-gold-side.jpg" alt="" loading="lazy"></figure>
           </div>
-          <p class="ring-h"><span>⟲</span> <span data-i="spin"></span></p>
+          <p class="ring-h"><span>⟲</span> <span data-i="spin">გადაატრიალე ან გადაახვიე</span></p>
         </div>
-        <h2 class="h2" data-i="amh"></h2>
+        <h2 class="h2" data-i="amh">რას გთავაზობთ გზაზე</h2>
         <div class="am flip">
-          <div><svg><use href="#i-seat"/></svg><span data-i="am1"></span></div>
-          <div><svg><use href="#i-shield"/></svg><span data-i="am2"></span></div>
-          <div><svg><use href="#i-snow"/></svg><span data-i="am3"></span></div>
+          <div><svg><use href="#i-seat"/></svg><span data-i="am1">კომფორტული ავტობუსები</span></div>
+          <div><svg><use href="#i-shield"/></svg><span data-i="am2">უსაფრთხო და საიმედო მომსახურება</span></div>
+          <div><svg><use href="#i-snow"/></svg><span data-i="am3">კონდიციონერი</span></div>
           <div><svg><use href="#i-wifi"/></svg><span>Wi-Fi</span></div>
-          <div><svg><use href="#i-plug"/></svg><span data-i="am5"></span></div>
+          <div><svg><use href="#i-plug"/></svg><span data-i="am5">USB დასატენი</span></div>
         </div>
-        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta"></span><svg><use href="#i-arrow"/></svg></a></p>
+        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta">დაჯავშნა</span><svg><use href="#i-arrow"/></svg></a></p>
       </div>
     </div>
 
     <!-- ===================== განრიგი ===================== -->
     <div class="pg" id="p-schedule" hidden>
-      <div class="phd phd3" data-scene="orbit"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand"></span><h1 data-i="sh"></h1></div></div>
+      <div class="phd phd3" data-scene="orbit"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">იმერეთი ტური</span><h1 data-i="sh">გასვლის განრიგი</h1></div></div>
       <div class="w">
         <div class="two board">
-          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nx1"></span></h2><ul class="dl" id="sg"></ul></div>
-          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nx2"></span></h2><ul class="dl" id="sm"></ul></div>
+          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nx1">უახლოესი გასვლა საქართველოდან</span></h2><ul class="dl" id="sg"></ul></div>
+          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nx2">უახლოესი გასვლა მოსკოვიდან</span></h2><ul class="dl" id="sm"></ul></div>
         </div>
-        <div class="box rbox" id="rbox"><h2><svg><use href="#i-pin"/></svg><span data-i="rt"></span></h2><ol class="route" id="route2"></ol></div>
+        <div class="box rbox" id="rbox"><h2><svg><use href="#i-pin"/></svg><span data-i="rt">მარშრუტი</span></h2><ol class="route" id="route2"></ol></div>
         <div id="pl"></div>
-        <p class="note" data-i="note"></p>
-        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta"></span><svg><use href="#i-arrow"/></svg></a></p>
+        <p class="note" data-i="note">დაჯავშნისას აუცილებელია მინიმუმ 25%-ის ჩარიცხვა, ან შეგიძლიათ სრულად გადაიხადოთ. გადახდის რეკვიზიტებს გამოგიგზავნით WhatsApp-ში. გაუქმების შემთხვევაში თანხას დაგიბრუნებთ.</p>
+        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta">დაჯავშნა</span><svg><use href="#i-arrow"/></svg></a></p>
       </div>
     </div>
 
     <!-- ===================== ამანათები ===================== -->
     <div class="pg" id="p-parcels" hidden>
-      <div class="phd phd3" data-scene="boxes"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="pc"></span><h1 data-i="pt"></h1><p class="sub" data-i="ps"></p></div></div>
+      <div class="phd phd3" data-scene="boxes"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="pc">ამანათები</span><h1 data-i="pt">ამანათების გადაზიდვა საქართველო–მოსკოვი</h1><p class="sub" data-i="ps">სწრაფი და უსაფრთხო გზავნილი ავტობუსის რეგულარული რეისებით, ორივე მიმართულებით.</p></div></div>
       <div class="w">
         <div class="unbox" id="unbox"><div class="cube" aria-hidden="true"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i><i class="f6"></i></div></div>
         <div class="feat">
-          <div><svg><use href="#i-bolt"/></svg><b data-i="f1"></b><p data-i="f1t"></p></div>
-          <div><svg><use href="#i-lock"/></svg><b data-i="f2"></b><p data-i="f2t"></p></div>
-          <div><svg><use href="#i-swap"/></svg><b data-i="f3"></b><p data-i="f3t"></p></div>
-          <div><svg><use href="#i-pin"/></svg><b data-i="f4"></b><p data-i="f4t"></p></div>
+          <div><svg><use href="#i-bolt"/></svg><b data-i="f1">სწრაფად</b><p data-i="f1t">ამანათი მიდის უახლოესი რეისით, რეგულარულად ორივე მიმართულებით.</p></div>
+          <div><svg><use href="#i-lock"/></svg><b data-i="f2">უსაფრთხოდ</b><p data-i="f2t">ვზრუნავთ თქვენი ამანათის უსაფრთხო ტრანსპორტირებაზე.</p></div>
+          <div><svg><use href="#i-swap"/></svg><b data-i="f3">ორივე მიმართულებით</b><p data-i="f3t">საქართველოდან მოსკოვში და მოსკოვიდან საქართველოში.</p></div>
+          <div><svg><use href="#i-pin"/></svg><b data-i="f4">მოსახერხებელი გაჩერებები</b><p data-i="f4t">ბათუმი, ქობულეთი, ფოთი, ქუთაისი, თბილისი და მოსკოვი.</p></div>
         </div>
         <div class="two">
           <div class="box">
-            <h2 data-i="how"></h2>
-            <ol class="steps"><li data-i="s1"></li><li data-i="s2"></li><li data-i="s3"></li></ol>
-            <h2 class="mt" data-i="pts"></h2>
+            <h2 data-i="how">როგორ გავგზავნო</h2>
+            <ol class="steps"><li data-i="s1">მოგვწერე WhatsApp-ში: მიმართულება და რისი გაგზავნა გინდა.</li><li data-i="s2">დაგიდასტურებთ პირობებს, გაჩერებას და გადაცემის დროს.</li><li data-i="s3">ამანათი მიდის უახლოესი რეისით და ადრესატი იღებს დანიშნულების ადგილას.</li></ol>
+            <h2 class="mt" data-i="pts">გაჩერებები</h2>
             <div class="chips" id="pp"></div>
           </div>
           <form class="ticket" onsubmit="return false">
-            <h2 data-i="pform"></h2>
+            <h2 data-i="pform">გამოგვიგზავნე მოთხოვნა</h2>
             <div class="tk-f">
-              <label class="fld wide"><span data-i="dir"></span><select id="pdir"><option value="ge" data-i="d1o"></option><option value="ru" data-i="d2o"></option></select></label>
-              <label class="fld wide"><span data-i="pwhat"></span><input id="pwh"></label>
-              <label class="fld"><span data-i="kgl"></span><input id="pkg" type="number" min="0" step="0.5" inputmode="decimal"></label>
+              <label class="fld wide"><span data-i="dir">მიმართულება</span><select id="pdir"><option value="ge" data-i="d1o">საქართველო → მოსკოვი</option><option value="ru" data-i="d2o">მოსკოვი → საქართველო</option></select></label>
+              <label class="fld wide"><span data-i="pwhat">რისი გაგზავნა გინდა</span><input id="pwh"></label>
+              <label class="fld"><span data-i="kgl">წონა (კგ)</span><input id="pkg" type="number" min="0" step="0.5" inputmode="decimal"></label>
               <p class="price" id="ppr" hidden></p>
-              <label class="fld"><span data-i="nm"></span><input id="pnm" autocomplete="name"></label>
-              <label class="fld wide"><span data-i="ph"></span><input id="pph" type="tel" autocomplete="tel" inputmode="tel"></label>
+              <label class="fld"><span data-i="nm">სახელი</span><input id="pnm" autocomplete="name"></label>
+              <label class="fld wide"><span data-i="ph">ტელეფონი</span><input id="pph" type="tel" autocomplete="tel" inputmode="tel"></label>
             </div>
-            <a class="btn coral full" id="pwa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-i="send"></span></a>
+            <a class="btn coral full" id="pwa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-i="send">გაგზავნა WhatsApp-ში</span></a>
           </form>
         </div>
       </div>
@@ -273,21 +277,21 @@
 
     <!-- ===================== პირობები ===================== -->
     <div class="pg" id="p-info" hidden>
-      <div class="phd phd3" data-scene="planes"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand"></span><h1 data-i="nv5"></h1></div></div>
+      <div class="phd phd3" data-scene="planes"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">იმერეთი ტური</span><h1 data-i="nv5">პირობები</h1></div></div>
       <div class="w narrow"><div class="prose stack" id="inf"></div><p class="cta-row"><a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a></p></div>
     </div>
 
     <!-- ===================== კითხვები ===================== -->
     <div class="pg" id="p-faq" hidden>
-      <div class="phd phd3" data-scene="gems"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand"></span><h1 data-i="fh"></h1></div></div>
+      <div class="phd phd3" data-scene="gems"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">იმერეთი ტური</span><h1 data-i="fh">ხშირი კითხვები</h1></div></div>
       <div class="w narrow faq f3d">
-        <details><summary data-i="q1"></summary><p data-i="a1"></p></details>
-        <details><summary data-i="q2"></summary><p data-i="a2"></p></details>
-        <details><summary data-i="q3"></summary><p data-i="a3" id="a3"></p></details>
-        <details><summary data-i="q4"></summary><p data-i="a4"></p></details>
-        <details><summary data-i="q5"></summary><p data-i="a5"></p></details>
-        <details><summary data-i="q6"></summary><p data-i="a6"></p></details>
-        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta"></span><svg><use href="#i-arrow"/></svg></a></p>
+        <details><summary data-i="q1">როგორ დავჯავშნო ადგილი?</summary><p data-i="a1">შეავსე ფორმა მთავარ გვერდზე და გამოგვიგზავნე WhatsApp-ში, ან დაგვირეკე ნომრებზე.</p></details>
+        <details><summary data-i="q2">რამდენი უნდა გადავიხადო დაჯავშნისას?</summary><p data-i="a2">მინიმუმ 25%. სურვილის შემთხვევაში შეგიძლია სრულად გადაიხადო.</p></details>
+        <details><summary data-i="q3">რომელ დღეს არის რეისები?</summary><p data-i="a3" id="a3">საქართველოდან ოთხშაბათს და შაბათს, მოსკოვიდან სამშაბათს და შაბათს.</p></details>
+        <details><summary data-i="q4">გადააქვთ თუ არა ამანათები?</summary><p data-i="a4">დიახ, ორივე მიმართულებით. დეტალები დაგვირეკე ან მოგვწერე.</p></details>
+        <details><summary data-i="q5">საიდან შემიძლია ასვლა?</summary><p data-i="a5">ბათუმი, ქობულეთი, ფოთი, ქუთაისი, თბილისი. მოსკოვში მეტრო „ანინოსთან“.</p></details>
+        <details><summary data-i="q6">შემიძლია ჯავშნის გაუქმება?</summary><p data-i="a6">დიახ. გაუქმების შემთხვევაში გადახდილ თანხას დაგიბრუნებთ. მოგვწერეთ WhatsApp-ში.</p></details>
+        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta">დაჯავშნა</span><svg><use href="#i-arrow"/></svg></a></p>
       </div>
     </div>
 
@@ -307,13 +311,13 @@
     <!-- ფუტერი -->
     <footer class="ft">
       <div class="w ft-in">
-        <a class="logo" href=".././"><img src="../images/logo.svg" alt="" width="36" height="36"><span><b data-i="brand"></b><small data-i="tag"></small></span></a>
+        <a class="logo" href=".././"><img src="../images/logo.svg" alt="" width="36" height="36"><span><b data-i="brand">იმერეთი ტური</b><small data-i="tag">საქართველო–მოსკოვი</small></span></a>
         <p>© 2026–2027 Imereti Tour · <a href="https://wa.me/995598808022" target="_blank" rel="noopener">+995 598 80 80 22</a></p>
       </div>
     </footer>
 
     <!-- ტელეფონზე ქვემოთ: დაჯავშნა და WhatsApp -->
-    <div class="sticky" id="sticky"><a class="btn coral" href="#book" data-i="cta"></a><a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a></div>
+    <div class="sticky" id="sticky"><a class="btn coral" href="#book" data-i="cta">დაჯავშნა</a><a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a></div>
 
     <!-- სკრიპტები: 1) პარამეტრები, 2) მთავარი პროგრამა, 3) ანიმაციები და რეკლამა (fx.js), 4) 3D სცენები (scene.js, Three.js) -->
     <script src="../js/schedule-config.js"></script>
