@@ -1,0 +1,256 @@
+/* =====================================================================
+   იმერეთი ტური · ანიმაციები და 3D (css/fx.css). იტვირთება style.css-ის შემდეგ.
+   სექციები: 1 ჩატვირთვა და ფარდა · 2 მოგზაურობა (3D ეკრანი) · 3 ქალაქების ფანჯრები
+             4 ბილეთი, დახრა, ბზინვა · 5 ზოლი და ფანჯრების გალერეა · 6 რიცხვები, მარშრუტი
+             7 3D ყუთი · 8 რეკლამა · 9 შიდა გვერდების თავები · 10 გვერდების ანიმაციები
+             11 გამოჩენა სქროლისას · 12 შემცირებული მოძრაობა
+   ===================================================================== */
+
+/* 0. ფონტები: FiraGO (სათაურები, fonts/), Noto Serif Georgian (ელეგანტური ტექსტი), Noto Sans Georgian (ძირითადი) */
+@font-face{font-family:"FiraGO";src:url(../fonts/FiraGO-Bold.woff2) format("woff2");font-weight:600 799;font-display:swap}
+@font-face{font-family:"FiraGO";src:url(../fonts/FiraGO-Heavy.woff2) format("woff2");font-weight:800 950;font-display:swap}
+:root{--display:"FiraGO","Noto Sans Georgian","Noto Sans",system-ui,sans-serif;--serif:"Noto Serif Georgian",Georgia,serif}
+h1,h2,.hero-t h1,.phd h1,.cw b,.stats b,.marq span,.logo b,.tk-dir b,.contact .tel,.win b,.ad-b b,.price,.cd b,.pre-in b{font-family:var(--display)!important}
+h1,.cw b,.marq span{letter-spacing:-.025em}
+.sub,.hero-t .sub,.cw p,.how span,.faq details p,.rvl p,.stack p,.promo p,.ad-b small,.win small,.note,.phd .sub{font-family:var(--serif)}
+.cw p,.hero-t .sub{font-style:normal;font-weight:500}
+.kicker,.cw small,.hint{font-family:var(--display)}
+
+/* 1. ჩატვირთვა, ფარდა, სქროლის ზოლი */
+.pre{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--navy3);color:var(--cream);clip-path:inset(0 0 0 0);transition:clip-path .9s cubic-bezier(.76,0,.24,1);animation:preauto 0s 5s forwards}
+@keyframes preauto{to{visibility:hidden}}
+.pre.out{clip-path:inset(0 0 100% 0)}
+.pre.fast{transition-duration:.65s}
+.pre-in{display:grid;justify-items:center;gap:14px;transition:opacity .4s,transform .7s var(--ease)}
+.pre.out .pre-in{opacity:0;transform:translateY(-40px)}
+.pre-in img{width:64px;height:64px;animation:bob 1.1s ease-in-out infinite alternate}
+.pre-in b{font:900 22px/1 var(--font)}
+.pre-road{position:relative;width:200px;height:3px;margin-top:6px;background:repeating-linear-gradient(90deg,rgba(246,241,231,.3) 0 10px,transparent 10px 18px)}
+.pre-road i{position:absolute;top:-8px;left:0;width:30px;height:18px;border-radius:6px 9px 4px 4px;background:var(--coral);box-shadow:0 0 18px rgba(255,107,91,.7);animation:drive 1.4s var(--ease) infinite}
+@keyframes drive{0%{transform:translateX(-10px);opacity:0}20%,80%{opacity:1}100%{transform:translateX(180px);opacity:0}}
+@keyframes bob{to{transform:translateY(-8px)}}
+.curtain{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:var(--navy3);clip-path:inset(100% 0 0 0);transition:clip-path .55s cubic-bezier(.76,0,.24,1);pointer-events:none}
+.curtain.go{clip-path:inset(0 0 0 0);pointer-events:auto}
+.curtain img{animation:bob 1s ease-in-out infinite alternate}
+.prog{position:fixed;top:0;left:0;right:0;z-index:70;height:3px;pointer-events:none}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--coral),#FFB199);transform:scaleX(0);transform-origin:left}
+
+/* 2. მოგზაურობა: 3D ეკრანი, რომელიც სქროლისას რჩება ადგილზე */
+.trip{position:relative;height:560vh;background:var(--navy3)}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--cream)}
+.sky{position:absolute;inset:0;background:radial-gradient(900px 520px at 72% 78%,rgba(255,107,91,.5),transparent 62%),linear-gradient(180deg,#0B1430 0%,#1F3158 55%,#C9675F 100%)}
+.sky .mt{position:absolute;left:-5%;bottom:0;width:110%;height:46%}
+.m3{fill:#3A4F80;transform:translateY(calc(var(--p,0)*30px))}
+.m2{fill:#1F3158;transform:translateY(calc(var(--p,0)*60px))}
+.m1{fill:#0D1730;transform:translateY(calc(var(--p,0)*100px))}
+#gl{position:absolute;inset:0;display:block;width:100%;height:100%;opacity:0;transition:opacity 1.4s}
+#gl.on{opacity:1}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(13,23,48,.78),rgba(13,23,48,.25) 52%,transparent 75%),linear-gradient(0deg,rgba(13,23,48,.55),transparent 28%)}
+@media (max-width:759px){.shade{background:linear-gradient(180deg,rgba(13,23,48,.55),rgba(13,23,48,.15) 45%,rgba(13,23,48,.75))}}
+.hero-t{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:calc(var(--hdh,70px) + 10px) 0 110px;will-change:transform,opacity}
+.hero-t h1{margin:18px 0 0;font:900 clamp(46px,7.4vw,104px)/.98 var(--font);color:#fff;letter-spacing:-.02em;text-shadow:0 10px 40px rgba(13,23,48,.5)}
+.hero-t h1 .ln{display:block}
+.hero-t h1 em{font-style:normal;color:var(--coral);display:inline-block;animation:flip 4s var(--ease) infinite}
+.hero-t .sub{max-width:520px;color:rgba(246,241,231,.82)}
+.hero-t .ghost{color:var(--cream)}
+@media (max-width:759px){.hero-t{justify-content:flex-start;padding-top:calc(var(--hdh,110px) + 22px)}.hero-t h1{font-size:clamp(38px,11vw,62px)}.hero-t h1 em{font-size:.62em;vertical-align:.15em}.hero-t .sub{font-size:15px}.cd div{min-width:0;flex:1}}
+/* სათაურის ხაზები ამოდის ჩატვირთვისას */
+.fx .hero-t>*{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform 1s var(--ease)}
+.fx .hero-t h1{opacity:1;transform:none}
+.fx .hero-t h1 .ln{clip-path:inset(0 0 100% 0);transform:translateY(60%);transition:clip-path 1.1s var(--ease),transform 1.1s var(--ease)}
+.ready .hero-t>*{opacity:1;transform:none}
+.ready .hero-t h1 .ln{clip-path:inset(-20% -10% -25% -5%);transform:none}
+.ready .hero-t h1 .ln+.ln{transition-delay:.12s}
+.ready .hero-t>.sub{transition-delay:.3s}.ready .hero-t>.cd{transition-delay:.4s}.ready .hero-t>.ctas{transition-delay:.5s}
+.hint{position:absolute;left:50%;bottom:72px;display:grid;justify-items:center;gap:8px;transform:translateX(-50%);font:800 11px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,231,.85);pointer-events:none}
+.hint i{position:relative;width:24px;height:38px;border:2px solid currentColor;border-radius:14px}
+.hint i::after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--coral);animation:wheel 1.6s infinite}
+@keyframes wheel{to{transform:translateY(13px);opacity:0}}
+@media (max-width:759px){.hint{display:none}}
+
+/* 3. ქალაქების ფანჯრები: თითო გაჩერებაზე მინის ბარათი 3D-ში შემოდის */
+.chap{position:absolute;inset:0;pointer-events:none;perspective:1200px}
+.cw{--ty:-50%;--x:70px;--r:-38deg;position:absolute;top:54%;width:min(440px,86vw);opacity:0;transform:translateY(var(--ty)) translateX(var(--x)) rotateY(var(--r)) scale(.9);transition:opacity .7s var(--ease),transform 1s var(--ease)}
+.cw[data-side="l"]{left:max(16px,6vw);--x:-70px;--r:38deg}
+.cw[data-side="r"]{right:max(16px,6vw)}
+.cw.on{opacity:1;transform:translateY(var(--ty))}
+.cw.past{--x:0px;--r:0deg;opacity:0;transform:translateY(calc(var(--ty) - 80px)) scale(.92)}
+.cw-in{position:relative;display:block;padding:26px 28px 24px;border-radius:38px 38px 26px 26px;overflow:hidden;background:rgba(13,23,48,.5);-webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3);box-shadow:inset 0 0 0 1.5px rgba(246,241,231,.22),0 40px 80px -30px rgba(0,0,0,.6)}
+.cw-in::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.18) 0 14%,transparent 28% 62%,rgba(255,255,255,.08) 70%,transparent 80%);pointer-events:none}
+.cw small{display:flex;align-items:center;gap:10px;font:800 12px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;color:var(--coral)}
+.cw small i{display:grid;place-items:center;width:30px;height:30px;border-radius:10px;background:var(--coral);color:#fff;font-style:normal;letter-spacing:0}
+.cw b{display:block;margin-top:12px;font:900 clamp(40px,6vw,76px)/1 var(--font);color:#fff;letter-spacing:-.02em}
+.cw p{margin:10px 0 0;font-size:17px;color:rgba(246,241,231,.85)}
+@media (max-width:759px){.cw,.cw[data-side]{--ty:0px;left:16px;right:16px;width:auto;top:auto;bottom:118px}.cw-in{padding:20px 20px 18px}.cw b{font-size:clamp(34px,10vw,48px)}.cw p{font-size:15px}}
+.trail{position:absolute;left:max(16px,calc((100% - 1140px)/2));right:max(16px,calc((100% - 1140px)/2));bottom:32px;height:3px;border-radius:3px;background:rgba(246,241,231,.18)}
+.tbar{position:absolute;inset:0;border-radius:3px;background:var(--coral);transform:scaleX(var(--p,0));transform-origin:left}
+.tbus{position:absolute;top:-9px;left:calc(var(--p,0)*100%);width:30px;height:21px;margin-left:-15px;border-radius:6px 10px 5px 5px;background:var(--cream);box-shadow:0 0 0 4px rgba(255,107,91,.35),0 6px 18px rgba(0,0,0,.4)}
+.tbus::before{content:"";position:absolute;left:4px;right:7px;top:4px;height:6px;border-radius:2px;background:var(--navy)}
+.tdot{position:absolute;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;border-radius:50%;background:var(--navy3);box-shadow:0 0 0 2px rgba(246,241,231,.5);transition:background .4s,box-shadow .4s}
+.tdot.on{background:var(--coral);box-shadow:0 0 0 2px var(--coral),0 0 0 6px rgba(255,107,91,.25)}
+@media (max-width:959px){.trail{bottom:96px}}
+@media (min-width:960px){.trail{bottom:34px}}
+
+/* 4. ბილეთი, 3D დახრა და ბზინვა */
+.book{margin-top:0;padding:90px 0 30px;perspective:1600px}
+@media (min-width:960px){.book{margin-top:0}}
+.fx [data-tilt]{transform:perspective(1100px) rotateX(calc(var(--rx,0deg) + var(--tp,0deg))) rotateY(var(--ry,0deg)) translateY(var(--ty,0px));transition:transform .35s var(--ease),opacity .8s var(--ease),box-shadow .35s;transform-origin:50% 100%}
+.fx .rv[data-tilt]:not(.in){--ty:30px}
+.contact,.promo{position:relative}
+.ticket::after,.contact::after,.promo::after,.ad::after,.rcard::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.2),transparent 45%);opacity:0;transition:opacity .4s}
+.ticket:hover::after,.contact:hover::after,.promo:hover::after,.ad:hover::after,.rcard:hover::after{opacity:1}
+.ticket::after{background:radial-gradient(420px circle at var(--gx,50%) var(--gy,50%),rgba(255,107,91,.08),transparent 45%)}
+.mag{transition:transform .3s var(--ease),translate .25s var(--ease),box-shadow .3s,background .3s}
+
+/* 5. მოძრავი ქალაქების ზოლი და „ფანჯრების“ გალერეა */
+.marq{overflow:hidden;margin:56px 0 0;padding:22px 0;background:var(--navy);color:var(--cream);transform:rotate(-2deg) scale(1.05)}
+.marq-in{display:flex;width:max-content;transform:translate3d(var(--x,0),0,0) skewX(var(--sk,0deg))}
+.marq-in>div{display:flex;flex:none;align-items:center}
+.marq span{padding:0 24px;font:900 clamp(34px,6vw,76px)/1.1 var(--font);white-space:nowrap}
+.marq span:nth-of-type(2n){color:transparent;-webkit-text-stroke:1.5px rgba(246,241,231,.75)}
+.marq i{font-style:normal;font-size:26px;color:var(--coral)}
+.hs{position:relative}
+.hs-st{position:sticky;top:0;display:flex;flex-direction:column;justify-content:center;height:100vh;height:100svh;padding-top:calc(var(--hdh,70px) - 10px);overflow:hidden}
+.hs .head{margin-bottom:10px}
+.hs-tr{display:flex;gap:clamp(18px,3vw,40px);width:max-content;padding:20px max(16px,calc((100vw - 1140px)/2)) 20px;will-change:transform}
+.win{flex:none;display:block;width:clamp(220px,28vw,360px);transform-style:preserve-3d;transition:opacity .3s}
+.win-f{position:relative;display:block;aspect-ratio:3/4;max-height:58vh;overflow:hidden;border:11px solid var(--navy);border-radius:46px 46px 30px 30px;background:var(--navy2);box-shadow:inset 0 0 0 2px rgba(255,255,255,.12),0 0 0 2px rgba(20,33,61,.08),0 40px 70px -36px rgba(13,23,48,.65)}
+.win-f::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.3) 0 12%,transparent 26% 60%,rgba(255,255,255,.12) 68%,transparent 78%);pointer-events:none}
+.win-f::before{content:"";position:absolute;z-index:1;left:50%;top:10px;width:46px;height:6px;margin-left:-23px;border-radius:6px;background:rgba(13,23,48,.55)}
+.win img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.win b{display:block;margin-top:16px;font:800 19px/1.25 var(--font)}
+.win small{display:block;margin-top:2px;color:var(--muted);font-size:14px}
+@media (max-width:759px){.win-f{max-height:48vh;border-width:9px;border-radius:36px 36px 24px 24px}}
+
+/* 6. რიცხვები და მარშრუტი */
+.stats-in{display:grid;gap:16px}
+@media (min-width:960px){.stats-in{grid-template-columns:1fr 1fr;align-items:center;gap:40px}}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stats div{padding:22px 20px;border-radius:24px;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.stats div:nth-child(2),.stats div:nth-child(3){background:var(--navy);color:var(--cream)}
+.stats b{display:block;font:900 clamp(48px,7vw,80px)/1 var(--font);font-variant-numeric:tabular-nums;color:var(--coral)}
+.stats span{display:block;margin-top:8px;font-weight:700;font-size:15px;line-height:1.3;opacity:.8}
+.stats-in .rcard{color:var(--cream);background:linear-gradient(160deg,var(--navy),var(--navy3));box-shadow:0 40px 80px -40px rgba(13,23,48,.7)}
+
+/* 7. 3D ყუთი (ამანათები) */
+.cube{--s:150px;position:relative;width:var(--s);height:var(--s);transform-style:preserve-3d;transform:rotateX(-24deg) rotateY(calc(var(--cp,0)*330deg - 35deg))}
+.cube i{position:absolute;inset:0;background:#E7D3AE;box-shadow:inset 0 0 0 1px rgba(120,80,30,.2),inset 0 0 40px rgba(120,80,30,.22)}
+.cube .f1{transform:translateZ(calc(var(--s)/2))}
+.cube .f2{transform:rotateY(180deg) translateZ(calc(var(--s)/2))}
+.cube .f3{transform:rotateY(90deg) translateZ(calc(var(--s)/2));background:#DCC59C}
+.cube .f4{transform:rotateY(-90deg) translateZ(calc(var(--s)/2));background:#DCC59C}
+.cube .f6{transform:rotateX(-90deg) translateZ(calc(var(--s)/2));background:#C9B08A}
+.cube .f5{transform-origin:50% 0;transform:translateZ(calc(var(--s)/-2)) rotateX(calc(90deg + var(--open,0)*112deg));background:#EEDDBD}
+.cube .f1::after,.cube .f5::after{content:"";position:absolute;left:41%;width:18%;top:0;bottom:0;background:var(--coral);opacity:.9}
+.cube .f1::before,.cube .f3::before{content:"";position:absolute;left:50%;bottom:12%;width:30%;height:30%;margin-left:-15%;background:url(../images/logo.svg) center/contain no-repeat;opacity:.9}
+.cube .f1::before{bottom:auto;top:12%;left:22%;width:22%;height:22%;margin:0}
+.cube.sm{--s:64px;animation:spin 10s linear infinite;flex:none;margin:6px 8px}
+@keyframes spin{from{transform:rotateX(-24deg) rotateY(0)}to{transform:rotateX(-24deg) rotateY(360deg)}}
+.promo{grid-template-columns:auto 1fr auto}
+@media (max-width:759px){.promo{grid-template-columns:1fr}}
+.unbox{position:relative;display:grid;place-items:center;height:320px;margin:-10px 0 18px;perspective:900px}
+.unbox::before{content:"";position:absolute;left:50%;top:50%;width:260px;height:260px;margin:-150px 0 0 -130px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,107,91,.55),transparent);opacity:var(--open,0);transform:scale(calc(.6 + var(--open,0)*.6))}
+.unbox::after{content:"";position:absolute;left:50%;bottom:24px;width:220px;height:30px;margin-left:-110px;border-radius:50%;background:radial-gradient(closest-side,rgba(13,23,48,.3),transparent)}
+
+/* 8. რეკლამა (პარტნიორები) */
+.adl{display:grid;gap:14px}
+@media (min-width:760px){.adl{grid-template-columns:repeat(3,1fr)}.adl.n0{grid-template-columns:1fr}.adl.n1{grid-template-columns:1.3fr 1fr}}
+.ad{position:relative;display:flex;flex-direction:column;overflow:hidden;border-radius:26px;background:#fff;color:var(--ink);box-shadow:0 0 0 1px var(--line),0 26px 50px -32px rgba(13,23,48,.45)}
+.ad-img{display:block;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--navy2))}
+.ad-img img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.ad:hover .ad-img img{transform:scale(1.07)}
+.ad-ph{display:grid;place-items:center;height:100%;font:900 70px/1 var(--font);font-style:normal;color:var(--coral)}
+.ad-tag{position:absolute;top:12px;left:12px;z-index:1;padding:6px 10px;border-radius:99px;background:rgba(13,23,48,.72);color:#fff;font:800 10px/1 var(--font);letter-spacing:.14em;text-transform:uppercase;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.ad-b{display:grid;gap:4px;padding:16px 18px 20px}
+.ad-b b{font-size:18px;line-height:1.3}
+.ad-b small{font-size:14px;color:var(--muted)}
+.ad-b em{margin-top:6px;font-style:normal;font-weight:800;color:var(--coral2)}
+.ad.free{align-items:flex-start;gap:14px;padding:24px;border:2px dashed rgba(255,107,91,.55);background:repeating-linear-gradient(135deg,#fff 0 18px,#FFF7F2 18px 36px);box-shadow:none}
+.ad.free .ad-b{padding:0}
+.ad.free em.btn{margin-top:auto;font-style:normal}
+.ad-plus{display:grid;place-items:center;flex:none;width:56px;height:56px;border-radius:18px;background:var(--coral);color:#fff;font:900 32px/1 var(--font);animation:pulse 2s infinite}
+@media (min-width:760px){.ad.free.solo{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:22px;padding:30px 34px}.ad.free.solo em.btn{margin:0}}
+.adbar{margin:34px auto 0}
+.ad.wide{flex-direction:row;align-items:stretch}
+.ad.wide .ad-img{flex:0 0 34%;aspect-ratio:auto;min-height:150px}
+.ad.wide .ad-b{align-content:center}
+.ad.free.wide{flex-direction:row;flex-wrap:wrap;align-items:center}
+.ad.free.wide .ad-b{flex:1 1 260px}
+.ad.free.wide em.btn{margin:0}
+@media (max-width:559px){.ad.wide:not(.free){flex-direction:column}.ad.wide .ad-img{flex:none;aspect-ratio:16/9;min-height:0}}
+
+/* 9. შიდა გვერდების თავები: თითოს თავისი 3D სცენა (js/scene.js) */
+.phd3{position:relative;display:flex;align-items:flex-end;min-height:clamp(300px,44vh,420px);padding:40px 0 42px;overflow:hidden}
+.phd3>.w{position:relative;z-index:1}
+.phd3 h1,.phd3 .sub{text-shadow:0 6px 30px rgba(13,23,48,.6)}
+.phgl{position:absolute;inset:0;display:block;width:100%;height:100%;opacity:0;transition:opacity 1.2s}
+.phgl.on{opacity:1}
+@media (max-width:759px){.phd3{min-height:400px}}
+.wd{display:inline-block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em;vertical-align:top}
+.wd>span{display:inline-block;transform:translateY(110%) rotate(5deg);animation:wd 1s var(--ease) forwards;animation-delay:calc(var(--d) + .2s)}
+@keyframes wd{to{transform:none}}
+
+/* 10. გვერდების ანიმაციები */
+/* ავტობუსები: 3D კარუსელი */
+.ringw{position:relative;display:grid;place-items:center;height:clamp(400px,58vw,540px);margin-top:4px;overflow:hidden;perspective:1500px;cursor:grab;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+.ringw.drag{cursor:grabbing}
+.ringw::after{content:"";position:absolute;left:50%;bottom:34px;width:min(70%,560px);height:40px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(13,23,48,.25),transparent)}
+.ring{position:relative;width:clamp(190px,24vw,280px);aspect-ratio:3/4;transform-style:preserve-3d;margin-top:-30px}
+.ring figure{position:absolute;inset:0;margin:0;overflow:hidden;border:6px solid #fff;border-radius:24px;background:var(--cream2);box-shadow:0 30px 60px -30px rgba(13,23,48,.6)}
+.ring img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ring-h{position:absolute;bottom:0;left:0;right:0;margin:0;text-align:center;font-weight:700;font-size:14px;color:var(--muted)}
+.ring-h span:first-child{display:inline-block;color:var(--coral);animation:spin2 3s linear infinite}
+@keyframes spin2{to{transform:rotate(-360deg)}}
+.am.flip div{transition:transform .5s var(--ease),box-shadow .3s}
+.am.flip div:hover{transform:translateY(-4px) rotateX(10deg);box-shadow:0 0 0 1px var(--line),0 20px 30px -20px rgba(13,23,48,.4)}
+.am.flip div:hover svg{animation:spin2 .8s var(--ease) reverse}
+/* განრიგი: აეროპორტის დაფა */
+.board .box{background:var(--navy3);color:var(--cream);box-shadow:0 30px 60px -36px rgba(13,23,48,.8)}
+.board .dl li{border-color:rgba(246,241,231,.1);letter-spacing:.02em}
+.board .fl{display:inline-block;margin:0 .5px;padding:1px 1.5px;border-radius:3px;background:rgba(255,255,255,.07);box-shadow:inset 0 -1px 0 rgba(0,0,0,.4);animation:flap .7s var(--ease) both;animation-delay:var(--d)}
+@keyframes flap{0%{transform:perspective(300px) rotateX(-90deg);opacity:0}55%{transform:perspective(300px) rotateX(25deg);opacity:1}100%{transform:none}}
+#rbox .route{padding-left:34px}
+#rbox .route::before,#rbox .route::after{content:"";position:absolute;left:8px;top:16px;bottom:16px;width:3px;border-radius:3px;background:var(--line)}
+#rbox .route::after{background:var(--coral);transform:scaleY(var(--p,0));transform-origin:top}
+#rbox li{opacity:.4;transition:opacity .5s}
+#rbox li.lit{opacity:1}
+#rbox li:not(.days)::before{content:"";position:absolute;left:-31px;top:50%;width:11px;height:11px;margin-top:-6px;border-radius:50%;background:#fff;box-shadow:0 0 0 2.5px rgba(20,33,61,.25);transition:background .4s,box-shadow .4s}
+#rbox li.end::before{top:22px}
+#rbox li.lit:not(.days)::before{background:var(--coral);box-shadow:0 0 0 2.5px var(--coral),0 0 0 7px rgba(255,107,91,.2)}
+/* პირობები: ერთმანეთზე დაწყობილი ბარათები */
+.stack{display:grid;gap:18px;counter-reset:st}
+.stack p{position:sticky;top:calc(var(--hdh,70px) + 18px + var(--i,0)*14px);min-height:150px;margin:0;padding:26px 26px 26px 74px;border-radius:26px;background:#fff;box-shadow:0 0 0 1px var(--line),0 -12px 40px -22px rgba(13,23,48,.4);transform-origin:50% 0;counter-increment:st}
+.stack p:nth-child(even){background:var(--navy);color:var(--cream)}
+.stack p::before{content:counter(st,decimal-leading-zero);position:absolute;left:24px;top:24px;font:900 22px/1 var(--font);color:var(--coral)}
+/* კითხვები */
+.f3d{perspective:1200px}
+.f3d details{transition:transform .45s var(--ease),box-shadow .4s}
+.f3d details:hover{transform:translateY(-3px) rotateX(5deg);box-shadow:0 0 0 1px var(--line),0 22px 40px -26px rgba(13,23,48,.45)}
+.f3d details[open]{box-shadow:inset 4px 0 0 var(--coral),0 0 0 1px var(--line)}
+.f3d details[open] p{animation:pgin .5s var(--ease)}
+
+/* 11. გამოჩენა სქროლისას (data-rv: left, flip, rise, fold, zoom, card) */
+.fx [data-rv]{transition:opacity .8s var(--ease) var(--d,0s),transform 1s var(--ease) var(--d,0s)}
+.fx [data-rv]:not(.in){opacity:0}
+.fx [data-rv="left"]:not(.in){transform:translateX(-46px)}
+.fx [data-rv="flip"]:not(.in){transform:perspective(800px) rotateY(-80deg);transform-origin:left center}
+.fx [data-rv="rise"]:not(.in){transform:perspective(900px) translate3d(0,70px,-140px) rotateX(28deg)}
+.fx [data-rv="fold"]:not(.in){transform:perspective(900px) rotateX(-75deg);transform-origin:top center}
+.fx [data-rv="zoom"]:not(.in){transform:scale(.86) translateY(30px)}
+.fx [data-rv="card"]:not(.in){transform:translateY(80px) rotate(-3deg)}
+
+/* 12. შემცირებული მოძრაობა: ყველაფერი სტატიკურია, გალერეა ჩვეულებრივ გადაიხვევა */
+.rm .trip{height:auto}
+.rm .stage{position:relative;height:auto;min-height:100svh}
+.rm .hero-t{position:relative;inset:auto;min-height:100svh}
+.rm .chap,.rm .trail,.rm .hint{display:none}
+.rm .hs{height:auto!important}
+.rm .hs-st{position:static;height:auto;padding:40px 0}
+.rm .hs-tr{width:auto;overflow-x:auto}
+.rm .pre,.rm .curtain{display:none}
+
+/* 8.1 ცარიელი სარეკლამო ადგილები (ჩანს, სანამ რეკლამები არ დაემატება) */
+.ad.ghost{box-shadow:0 0 0 1.5px rgba(20,33,61,.14)}
+.ad.ghost .ad-img{position:relative;display:grid;place-items:center;background:linear-gradient(110deg,var(--navy) 30%,var(--navy2) 45%,var(--navy) 60%);background-size:250% 100%;animation:shim 3.2s linear infinite}
+.ad.ghost .ad-img i{padding:10px 16px;border:1.5px dashed rgba(246,241,231,.4);border-radius:12px;font:800 14px/1 var(--display);font-style:normal;color:rgba(246,241,231,.75)}
+@keyframes shim{to{background-position:-150% 0}}

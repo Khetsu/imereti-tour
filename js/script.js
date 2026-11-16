@@ -43,9 +43,18 @@ var T2 = {
     ru: { cGe: "Грузия", cMo: "Москва", hsub: "Регулярные рейсы в обе стороны. Забронируйте место за 1 минуту, без регистрации.", cdD: "дн.", cdH: "час.", cdM: "мин.", cdS: "сек.", fr: "Откуда", to: "Куда", swp: "Сменить направление", hw: "Три шага — и место ваше", hw1: "Выберите дату", hw1t: "Ближайшие рейсы в обе стороны.", hw2: "Укажите остановку", hw2t: "Батуми, Кобулети, Поти, Кутаиси, Тбилиси.", hw3: "Отправьте", hw3t: "Заявка приходит нам в WhatsApp, и мы быстро подтверждаем.", whyt: "Настоящие автобусы, настоящий комфорт", c1: "Современные автобусы", c1t: "Кондиционер · USB-зарядка", c2: "Удобные кресла", c2t: "для долгой дороги", c3t: "в обе стороны" },
     en: { cGe: "Georgia", cMo: "Moscow", hsub: "Regular trips both ways. Book a seat in 1 minute, no sign-up.", cdD: "days", cdH: "hours", cdM: "min", cdS: "sec", fr: "From", to: "To", swp: "Swap direction", hw: "Three steps and the seat is yours", hw1: "Pick a date", hw1t: "Upcoming trips in both directions.", hw2: "Choose your stop", hw2t: "Batumi, Kobuleti, Poti, Kutaisi, Tbilisi.", hw3: "Send", hw3t: "Your request reaches us on WhatsApp and we confirm shortly.", whyt: "Real buses, real comfort", c1: "Modern buses", c1t: "Air conditioning · USB charging", c2: "Comfortable seats", c2t: "for the long road", c3t: "both directions" }
 };
+// 3D მოგზაურობის, რიცხვების და რეკლამის ტექსტები (js/fx.js იყენებს)
+var T3 = {
+    ka: { scrl: "გადაახვიე და იმოგზაურე", trk: "მოგზაურობა", j0: "ზღვის სანაპიროდან იწყება გზა.", j1: "სანაპიროს გასწვრივ, ჩრდილოეთისკენ.", j2: "ნავსადგური და კოლხეთის დაბლობი.", j3: "იმერეთის გული, ჩვენი სახლი.", j4: "დედაქალაქი, ბოლო გაჩერება საქართველოში.", jL: "ზემო ლარსი", jLt: "კავკასიონის მთები და საზღვარი.", jMt: "ფინიში. კეთილი იყოს თქვენი მობრძანება!", stp: "გაჩერება", st_s: "გაჩერება საქართველოში", st_w: "რეისი კვირაში", st_d: "მიმართულება", st_l: "ენა საიტზე", w3: "ნამდვილი ფოტოები, ჩვენი ავტობუსები", spin: "გადაატრიალე ან გადაახვიე", adk: "პარტნიორები", adh: "შენი ბიზნესი მგზავრების თვალწინ", adl: "რეკლამა", adf: "აქ შეიძლება იყოს თქვენი რეკლამა", adft: "სასტუმრო, რესტორანი, მაღაზია თუ სერვისი: განათავსე რეკლამა იმერეთი ტურის საიტზე.", adb: "რეკლამის განთავსება", adm: "გამარჯობა! მინდა რეკლამის განთავსება იმერეთი ტურის საიტზე.", adv: "ნახვა", ads2: "სარეკლამო ადგილი" },
+    ru: { scrl: "Листайте, и в путь", trk: "Путешествие", j0: "Путь начинается у моря.", j1: "Вдоль побережья, на север.", j2: "Порт и Колхидская низменность.", j3: "Сердце Имерети, наш дом.", j4: "Столица, последняя остановка в Грузии.", jL: "Верхний Ларс", jLt: "Горы Кавказа и граница.", jMt: "Финиш. Добро пожаловать!", stp: "Остановка", st_s: "остановок в Грузии", st_w: "рейса в неделю", st_d: "направления", st_l: "языка на сайте", w3: "Настоящие фото наших автобусов", spin: "Крутите или листайте", adk: "Партнёры", adh: "Ваш бизнес перед глазами пассажиров", adl: "Реклама", adf: "Здесь может быть ваша реклама", adft: "Гостиница, ресторан, магазин или сервис: разместите рекламу на сайте Имерети Тур.", adb: "Разместить рекламу", adm: "Здравствуйте! Хочу разместить рекламу на сайте Имерети Тур.", adv: "Подробнее", ads2: "Рекламное место" },
+    en: { scrl: "Scroll to ride", trk: "The journey", j0: "The road starts by the sea.", j1: "Along the coast, heading north.", j2: "The port and the Colchis lowland.", j3: "The heart of Imereti, our home.", j4: "The capital, last stop in Georgia.", jL: "Upper Lars", jLt: "The Caucasus mountains and the border.", jMt: "Finish line. Welcome!", stp: "Stop", st_s: "stops in Georgia", st_w: "trips a week", st_d: "directions", st_l: "site languages", w3: "Real photos of our buses", spin: "Drag or scroll to spin", adk: "Partners", adh: "Your business in front of travellers", adl: "Ad", adf: "Your ad could be here", adft: "Hotel, restaurant, shop or service: advertise on the Imereti Tour website.", adb: "Place an ad", adm: "Hello! I would like to advertise on the Imereti Tour website.", adv: "Visit", ads2: "Ad space" }
+};
 for (var tl in T2)
     for (var tk in T2[tl])
         T[tl][tk] = T2[tl][tk];
+for (tl in T3)
+    for (tk in T3[tl])
+        T[tl][tk] = T3[tl][tk];
 
 // ======================================================================
 // 2. გაჩერებები (დრო, ქალაქი სამ ენაზე)
@@ -93,6 +102,7 @@ SC.info = SC.info || {
 };
 SC.reviews = SC.reviews || [];
 SC.maps = SC.maps || {};
+SC.ads = SC.ads || []; // რეკლამები: [{t: სათაური, x: ტექსტი, img: სურათი, u: ბმული}]
 SC.ga = SC.ga || "";
 S.forEach(function (s, i) {
     if (SC.stops[i])
@@ -585,6 +595,9 @@ function acr() {
     h += '<h3>მგზავრების შეფასებები (მხოლოდ რეალური)</h3><div class=chg><label>სახელი<input id=rvn></label><label>შეფასება<input id=rvt></label></div><p><button type=button class=btn data-a=rvadd>დამატება</button></p><ul class=dl>' + AC.reviews.map(function (r, i) {
         return "<li>" + esc(r.n) + ": " + esc(r.t) + ' <button type=button data-rr="' + i + '">×</button></li>';
     }).join("") + "</ul>";
+    h += '<h3>რეკლამა (პარტნიორები): ჩანს მთავარ გვერდზე და შიდა გვერდების ბოლოს</h3><p class=note>სურათი: ჩადე ფაილი საქაღალდეში images/ads/ და ჩაწერე images/ads/სახელი.jpg, ან ჩასვი სრული ბმული (https://...). საუკეთესო ზომა: 1200×750.</p><div class=chg><label>კომპანია / სათაური<input id=adt></label><label>მოკლე ტექსტი<input id=adx></label><label>სურათი<input id=adi placeholder="images/ads/hotel.jpg"></label><label>ბმული (საიტი, Facebook, ტელეფონი)<input id=adu placeholder="https://"></label></div><p><button type=button class=btn data-a=adadd>რეკლამის დამატება</button></p><ul class=dl>' + AC.ads.map(function (a, i) {
+        return "<li>" + esc(a.t) + (a.u ? " · " + esc(a.u) : "") + ' <button type=button data-rad="' + i + '">×</button></li>';
+    }).join("") + "</ul>";
     h += "<h3>რუკის ბმულები გაჩერებებისთვის (Google Maps)</h3><div class=tms>" + S.map(function (s, i) {
         return "<label>" + s[1].ka + '<input data-mp="' + i + '" value="' + esc(AC.maps[i] || "") + '"></label>';
     }).join("") + '<label>მოსკოვი<input data-mp=m value="' + esc(AC.maps.m || "") + '"></label></div>';
@@ -649,6 +662,12 @@ $("sched").onclick = function (e) {
         });
     else if (d.rr != null)
         AC.reviews.splice(+d.rr, 1);
+    else if (d.a == "adadd" && $("adt").value)
+        AC.ads.push({
+            t: $("adt").value, x: $("adx").value, img: $("adi").value, u: $("adu").value
+        });
+    else if (d.rad != null)
+        AC.ads.splice(+d.rad, 1);
     else
         return;
     acr();
