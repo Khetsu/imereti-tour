@@ -15,7 +15,7 @@ import { fileURLToPath } from "node:url";
 import { join, dirname } from "node:path";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const SITE = "https://imeretitour.com/";
+const SITE = "https://www.imeretitour.com/";
 const PHONE = "+995598808022";
 const tpl = await readFile(join(ROOT, "src/template.html"), "utf8");
 const pages = JSON.parse(await readFile(join(ROOT, "src/pages.json"), "utf8"));
