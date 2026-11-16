@@ -79,6 +79,8 @@ var S = [["00:00", {
 // ======================================================================
 
 var BASE = document.body.dataset.base || "", PG = document.body.dataset.page || "", SPA = !!document.body.dataset.spa;
+// გვერდის ენა (ka = მთავარი, ru = /ru/, en = /en/) და ბმულების საფუძველი ამ ენისთვის
+var LANGP = document.body.dataset.lang || "", LB = BASE + (LANGP && LANGP != "ka" ? LANGP + "/" : "");
 var SC = window.SCHEDULE || {};
 SC.days = SC.days || {
     ge: [3, 6], ru: [2, 6]
@@ -190,7 +192,7 @@ function fillSt() {
 
 var L = "ka";
 try {
-    L = localStorage.getItem("l") || "ka";
+    L = LANGP || localStorage.getItem("l") || "ka";
 }
 catch (e) { }
 var $ = function (i) {
@@ -268,7 +270,7 @@ function render() {
         return "<span>" + s[1][L] + "</span>";
     }).join("") + "<span>" + k.mw + "</span>";
     $("mn").innerHTML = [["", "nv0"], ["buses", "nv1"], ["schedule", "nv2"], ["parcels", "nv4"], ["info", "nv5"], ["faq", "nv3"]].map(function (x) {
-        return '<a href="' + (SPA ? "#/" + x[0] : (BASE + (x[0] ? x[0] + "/" : "") || "./")) + '" data-p="' + x[0] + '">' + k[x[1]] + "</a>";
+        return '<a href="' + (SPA ? "#/" + x[0] : (LB + (x[0] ? x[0] + "/" : "") || "./")) + '" data-p="' + x[0] + '">' + k[x[1]] + "</a>";
     }).join("");
     route();
     var ge = $("dir").value == "ge", ds = trips(ge ? "ge" : "ru", BOOK_N), sel = $("dt").value;
@@ -284,7 +286,7 @@ function render() {
         e.setAttribute("aria-label", k[e.dataset.iAria]);
     });
     document.querySelectorAll("[data-href]").forEach(function (a) {
-        a.href = SPA ? "#/" + a.dataset.href : BASE + a.dataset.href + "/";
+        a.href = SPA ? "#/" + a.dataset.href : LB + a.dataset.href + "/";
     });
     renderX();
     cd();
@@ -301,11 +303,16 @@ function upd() {
 }
 document.querySelectorAll(".lang button").forEach(function (b) {
     b.onclick = function () {
-        L = b.dataset.l;
         try {
-            localStorage.setItem("l", L);
+            localStorage.setItem("l", b.dataset.l);
         }
         catch (e) { }
+        // თითო ენას თავისი მისამართი აქვს (/, /ru/, /en/): გადადის იმავე გვერდზე სხვა ენაზე
+        if (LANGP && !SPA && location.hash.indexOf("#/admin") != 0) {
+            if (b.dataset.l != L) location.href = BASE + (b.dataset.l == "ka" ? "" : b.dataset.l + "/") + (PG ? PG + "/" : "") || "./";
+            return;
+        }
+        L = b.dataset.l;
         render();
     };
 });
@@ -415,7 +422,7 @@ function pick(e) {
     var g = e[1];
     if (!SPA && g.indexOf("#/") == 0) {
         var pp = g.slice(2);
-        location.href = BASE + (pp ? pp + "/" : "") || "./";
+        location.href = LB + (pp ? pp + "/" : "") || "./";
     }
     else {
         location.hash = g;

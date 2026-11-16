@@ -254,3 +254,8 @@ h1,.cw b,.marq span{letter-spacing:-.025em}
 .ad.ghost .ad-img{position:relative;display:grid;place-items:center;background:linear-gradient(110deg,var(--navy) 30%,var(--navy2) 45%,var(--navy) 60%);background-size:250% 100%;animation:shim 3.2s linear infinite}
 .ad.ghost .ad-img i{padding:10px 16px;border:1.5px dashed rgba(246,241,231,.4);border-radius:12px;font:800 14px/1 var(--display);font-style:normal;color:rgba(246,241,231,.75)}
 @keyframes shim{to{background-position:-150% 0}}
+
+/* 13. ენების ბმულები ფუტერში (თითო ენას თავისი მისამართი აქვს: /, /ru/, /en/) */
+.ft-lang{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:16px;border-top:1px solid rgba(246,241,231,.1)}
+.ft-lang a{padding:6px 12px;border-radius:99px;font-size:13px;font-weight:700;color:rgba(246,241,231,.7);background:rgba(255,255,255,.05)}
+.ft-lang a[aria-current]{color:#fff;background:rgba(255,107,91,.25)}
