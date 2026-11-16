@@ -99,9 +99,11 @@ function at(ds, tm, off) {
     return Date.UTC(+p[0], p[1] - 1, +p[2], +h[0], +h[1]) - off * 36e5;
 }
 // ითვლის უახლოეს რეისებს. kind = "ge" (საქართველოდან) ან "ru" (მოსკოვიდან). ითვალისწინებს კვირის დღეებს, გაუქმებულ და დამატებულ რეისებს.
+// რამდენი თარიღი ჩანს დაჯავშნის ფორმაში (კვირაში 2 რეისით 16 ≈ 2 თვე).
+var BOOK_N = 16;
 function trips(kind, n) {
     var ge = kind == "ge", off = ge ? 4 : 3, now = Date.now(), base = ge ? S[0][0] : SC.ruTime, sh0 = new Date(now + off * 36e5), o = [];
-    for (var i = 0; i < 70; i++) {
+    for (var i = 0; i < 120; i++) {
         var d = new Date(sh0.getTime() + i * 864e5);
         if (SC.days[kind].indexOf(d.getUTCDay()) < 0)
             continue;
@@ -152,7 +154,7 @@ function dn(kind) {
 }
 // ავსებს "გაჩერების" არჩევანს ჯავშნის ფორმაში (დროები რეისის მიხედვით ინაცვლებს).
 function fillSt() {
-    var ge = $("dir").value == "ge", t = trips(ge ? "ge" : "ru", 4)[+$("dt").value || 0], dl = 0;
+    var ge = $("dir").value == "ge", t = trips(ge ? "ge" : "ru", BOOK_N)[+$("dt").value || 0], dl = 0;
     if (ge && t)
         dl = tmn(hm(t, "Asia/Tbilisi")) - tmn(S[0][0]);
     var sv = $("st").value || 0;
@@ -243,7 +245,7 @@ function render() {
         return '<a href="' + (SPA ? "#/" + x[0] : (BASE + (x[0] ? x[0] + "/" : "") || "./")) + '" data-p="' + x[0] + '">' + k[x[1]] + "</a>";
     }).join("");
     route();
-    var ge = $("dir").value == "ge", ds = ge ? g : m, sel = $("dt").value;
+    var ge = $("dir").value == "ge", ds = trips(ge ? "ge" : "ru", BOOK_N), sel = $("dt").value;
     $("dt").innerHTML = ds.map(function (t, i) {
         return '<option value="' + i + '" data-m="' + ft(t, ge) + '">' + ft(t, ge) + "</option>";
     }).join("");
