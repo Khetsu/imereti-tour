@@ -72,3 +72,10 @@ imereti-tour/
 | ფონტები | FiraGO (`fonts/`, სათაურები), Noto Serif Georgian (ტექსტი), Noto Sans Georgian |
 | რეკლამის დამატება | საიტზე `#/admin` → „რეკლამა (პარტნიორები)“ → გადმოწერე schedule-config.js → ჩაანაცვლე js/-ში → git push. სურათები: `images/ads/` |
 | ლოკალურად ნახვა | `node tools/serve.mjs` → http://localhost:8137 |
+
+## ენები, ქალაქები და Google
+
+- საიტი სამ ენაზეა: ქართული `/`, რუსული `/ru/`, ინგლისური `/en/`. ყველა იქმნება ერთი შაბლონიდან: `node tools/build.mjs`.
+- ქალაქების გვერდები: `/bus/batumi-moscow/`, `/bus/kutaisi-moscow/` ... (და `/ru/bus/...`, `/en/bus/...`). დრო, დღეები და ფასი ავტომატურად მოდის `js/schedule-config.js`-დან: ადმინიდან შეცვლის შემდეგ გაუშვი `node tools/build.mjs`.
+- გვერდების სათაურები სამ ენაზე: `src/pages.json`.
+- Google Search Console: search.google.com/search-console (imeretitour.com). სტატისტიკა: Cloudflare → Workers & Pages → imereti-tour → Metrics → Web Analytics.
