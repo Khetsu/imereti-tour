@@ -332,9 +332,11 @@ $("dt").onchange = function () {
 // გვერდების გადართვა: აჩვენებს მხოლოდ ერთ გვერდს (მთავარი, ავტობუსები, განრიგი...).
 function route() {
     var h = location.hash, p = h.indexOf("#/") == 0 ? h.slice(2) : PG;
-    if (["buses", "schedule", "parcels", "info", "faq", "admin"].indexOf(p) < 0)
+    if (p.indexOf("bus/") == 0)
+        p = "route"; // ქალაქის გვერდი (მაგ. bus/kutaisi-moscow)
+    if (["buses", "schedule", "parcels", "info", "faq", "admin", "route"].indexOf(p) < 0)
         p = "";
-    ["home", "buses", "schedule", "parcels", "info", "faq", "admin"].forEach(function (n) {
+    ["home", "buses", "schedule", "parcels", "info", "faq", "admin", "route"].forEach(function (n) {
         var e = $("p-" + n);
         if (e)
             e.hidden = (n != (p || "home"));
@@ -353,7 +355,7 @@ function route() {
     }
     if (h == "#book" || h == "#contact") {
         $("p-home").hidden = false;
-        ["buses", "schedule", "parcels", "info", "faq", "admin"].forEach(function (n) {
+        ["buses", "schedule", "parcels", "info", "faq", "admin", "route"].forEach(function (n) {
             $("p-" + n).hidden = true;
         });
         $(h.slice(1)).scrollIntoView();
@@ -715,6 +717,16 @@ document.addEventListener("click", function (e) {
 // 15. ახალი დიზაინის ღილაკები: მიმართულების შეცვლა, მგზავრები −/+, ძებნა, მოძრავი ავტობუსი, ქვედა ღილაკი
 // ======================================================================
 
+// ქალაქის გვერდიდან მოსული (?st=2): ფორმაში ეს გაჩერება წინასწარ არჩეულია
+(function () {
+    var m = /[?&]st=([0-9])/.exec(location.search);
+    if (m && S[+m[1]]) {
+        $("dir").value = "ge";
+        render();
+        $("st").value = m[1];
+        upd();
+    }
+})();
 $("swap").onclick = function () {
     $("dir").value = $("dir").value == "ge" ? "ru" : "ge";
     this.classList.toggle("spin");

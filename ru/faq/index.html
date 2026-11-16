@@ -33,7 +33,6 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/fx.css">
     <link rel="preload" href="../../fonts/FiraGO-Heavy.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="modulepreload" href="../../js/vendor/three.module.min.js">
       <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.imeretitour.com/#site","name":"იმერეთი ტური","alternateName":["Imereti Tour","Имерети Тур","imeretitour.com"],"url":"https://www.imeretitour.com/","inLanguage":["ka","ru","en"]},{"@type":["Organization","TravelAgency"],"@id":"https://www.imeretitour.com/#org","name":"იმერეთი ტური","alternateName":["Imereti Tour","Имерети Тур"],"url":"https://www.imeretitour.com/","logo":"https://www.imeretitour.com/images/icon-512.png","image":"https://www.imeretitour.com/images/og.jpg","telephone":"+995598808022","description":"Автобус Грузия–Москва и Москва–Грузия: Батуми, Кобулети, Поти, Кутаиси, Тбилиси. Расписание, цены, онлайн-бронирование за 1 минуту. Доставка посылок.","areaServed":["GE","RU"],"address":{"@type":"PostalAddress","addressLocality":"Kutaisi","addressRegion":"Imereti","addressCountry":"GE"},"contactPoint":{"@type":"ContactPoint","telephone":"+995598808022","contactType":"customer service","availableLanguage":["ka","ru","en"]}},{"@type":"WebPage","@id":"https://www.imeretitour.com/ru/faq/#page","url":"https://www.imeretitour.com/ru/faq/","name":"Частые вопросы — Имерети Тур","description":"Ответы на частые вопросы о поездке на автобусе Грузия–Москва: бронирование, оплата, расписание, посылки.","isPartOf":{"@id":"https://www.imeretitour.com/#site"},"about":{"@id":"https://www.imeretitour.com/#org"},"inLanguage":"ru"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://www.imeretitour.com/ru/"},{"@type":"ListItem","position":2,"name":"Вопросы","item":"https://www.imeretitour.com/ru/faq/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как забронировать место?","acceptedAnswer":{"@type":"Answer","text":"Заполните форму на главной странице и отправьте в WhatsApp, либо позвоните по нашим номерам."}},{"@type":"Question","name":"Сколько нужно оплатить при бронировании?","acceptedAnswer":{"@type":"Answer","text":"Минимум 25%. При желании можно оплатить полностью."}},{"@type":"Question","name":"В какие дни идут рейсы?","acceptedAnswer":{"@type":"Answer","text":"Из Грузии по средам и субботам, из Москвы по вторникам и субботам."}},{"@type":"Question","name":"Перевозите ли вы посылки?","acceptedAnswer":{"@type":"Answer","text":"Да, в обоих направлениях. Подробности уточняйте по телефону или в мессенджере."}},{"@type":"Question","name":"Где можно сесть в автобус?","acceptedAnswer":{"@type":"Answer","text":"Батуми, Кобулети, Поти, Кутаиси, Тбилиси. В Москве у метро «Анино»."}},{"@type":"Question","name":"Можно ли отменить бронирование?","acceptedAnswer":{"@type":"Answer","text":"Да. При отмене мы возвращаем уплаченную сумму. Напишите нам в WhatsApp."}}]}]}</script>
   </head>
   <body data-lang="ru" data-page="faq" data-base="../../">
@@ -299,6 +298,9 @@
       </div>
     </div>
 
+    <!-- ===================== ქალაქის გვერდი (bus/…-moscow/): შიგთავსს build წერს src/cities.json-დან ===================== -->
+    <div class="pg rt" id="p-route" hidden></div>
+
     <!-- ===================== ადმინ-გვერდი (#/admin): განრიგი, ფასები, ტექსტები ===================== -->
     <div class="pg" id="p-admin" hidden>
       <div class="phd"><div class="w"><h1>ადმინ-პანელი</h1><p class="sub">აქ ცვლი განრიგს, ფასებს და ტექსტებს. შეცვლის შემდეგ გადმოწერე ფაილი, ჩაანაცვლე საქაღალდეში <b>js/</b> და ატვირთე GitHub-ზე (git push): Cloudflare საიტს თავისით განაახლებს. (ცვლილება მხოლოდ შენს ბრაუზერში ჩანს, სანამ არ ატვირთავ.)</p></div></div>
@@ -318,6 +320,7 @@
         <a class="logo" href="../.././"><img src="../../images/logo.svg" alt="" width="36" height="36"><span><b data-i="brand">Имерети Тур</b><small data-i="tag">Грузия–Москва</small></span></a>
         <p>© 2026–2027 Imereti Tour · <a href="https://wa.me/995598808022" target="_blank" rel="noopener">+995 598 80 80 22</a></p>
       </div>
+      <nav class="w ft-routes" aria-label="Routes"><a href="../../ru/bus/batumi-moscow/">Батуми — Москва</a><a href="../../ru/bus/kobuleti-moscow/">Кобулети — Москва</a><a href="../../ru/bus/poti-moscow/">Поти — Москва</a><a href="../../ru/bus/kutaisi-moscow/">Кутаиси — Москва</a><a href="../../ru/bus/tbilisi-moscow/">Тбилиси — Москва</a></nav>
       <nav class="w ft-lang" aria-label="Language"><a href="../../faq/" hreflang="ka" lang="ka">ქართული</a><a href="../../ru/faq/" hreflang="ru" lang="ru" aria-current="true">Русский</a><a href="../../en/faq/" hreflang="en" lang="en">English</a></nav>
     </footer>
 

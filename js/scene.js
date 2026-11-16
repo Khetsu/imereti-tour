@@ -11,7 +11,8 @@
 
    თუ ბრაუზერს 3D არ შეუძლია, საიტი ჩვეულებრივ მუშაობს (ჩანს ფონის სურათი).
    ===================================================================== */
-import * as THREE from "./vendor/three.module.min.js";
+// Three.js იტვირთება მოგვიანებით (გვერდის გამოჩენის შემდეგ), რომ საიტი სწრაფად გაიხსნას.
+let THREE;
 
 const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const MOB = matchMedia("(max-width: 760px)").matches || (navigator.hardwareConcurrency || 8) <= 4;
@@ -464,8 +465,14 @@ function mini(canvas, kind) {
 // ======================================================================
 // 5. გაშვება: მხოლოდ ხილული სცენა იხატება
 // ======================================================================
-if (!webgl()) document.documentElement.classList.add("no3d");
+// სუსტი მოწყობილობა ან ნელი ინტერნეტი: 3D-ს გარეშე (ჩანს ფონის სურათი)
+const NC = navigator.connection || {};
+const LITE = NC.saveData || /(^|-)2g/.test(NC.effectiveType || "") || (navigator.deviceMemory && navigator.deviceMemory < 2);
+if (!webgl() || LITE) document.documentElement.classList.add("no3d");
 else {
+    if (document.readyState !== "complete") await new Promise(r => addEventListener("load", r, { once: true }));
+    await new Promise(r => (window.requestIdleCallback || setTimeout)(r, { timeout: 1200 }));
+    THREE = await import("./vendor/three.module.min.js");
     const live = new Map();
     const seen = new WeakMap();
     const io = new IntersectionObserver(es => es.forEach(e => seen.set(e.target, e.isIntersecting)), { rootMargin: "100px" });

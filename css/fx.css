@@ -259,3 +259,24 @@ h1,.cw b,.marq span{letter-spacing:-.025em}
 .ft-lang{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding-top:16px;border-top:1px solid rgba(246,241,231,.1)}
 .ft-lang a{padding:6px 12px;border-radius:99px;font-size:13px;font-weight:700;color:rgba(246,241,231,.7);background:rgba(255,255,255,.05)}
 .ft-lang a[aria-current]{color:#fff;background:rgba(255,107,91,.25)}
+
+/* 14. ქალაქის გვერდი (bus/…-moscow/) და მარშრუტების ბმულები ფუტერში */
+.rt-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:-6px 0 16px}
+.rt-facts div{padding:18px 20px;border-radius:20px;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.rt-facts div:first-child{background:var(--navy);color:var(--cream)}
+.rt-facts small{display:block;font:800 11px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--coral)}
+.rt-facts b{display:block;margin-top:8px;font:800 20px/1.25 var(--display)}
+.rt-facts div:first-child b{font-size:34px}
+.rt-route li.me{color:var(--coral2)}
+.rt-route li.me time{opacity:1}
+.rt-route li.me::after{content:"●";order:0;color:var(--coral);font-size:12px}
+.rt-list{margin:0 0 18px;padding:0;list-style:none;display:grid;gap:10px}
+.rt-list li{position:relative;padding-left:30px;font-weight:600}
+.rt-list li::before{content:"✓";position:absolute;left:0;top:0;display:grid;place-items:center;width:22px;height:22px;border-radius:7px;background:var(--coral-soft);color:var(--coral2);font-weight:900;font-size:13px}
+.rt .ctas .ghost{color:var(--navy)}
+.rt-other{display:flex;flex-wrap:wrap;gap:10px}
+.rt-other a{padding:12px 18px;border-radius:14px;background:#fff;font-weight:800;box-shadow:0 0 0 1px var(--line);transition:transform .3s var(--ease),box-shadow .3s}
+.rt-other a:hover{transform:translateY(-3px);box-shadow:0 0 0 1.5px var(--coral)}
+.ft-routes{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:22px;padding-top:16px;border-top:1px solid rgba(246,241,231,.1)}
+.ft-routes a{font-size:13px;font-weight:700;color:rgba(246,241,231,.75)}
+.ft-routes a:hover{color:#fff}

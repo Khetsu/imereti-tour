@@ -30,7 +30,6 @@
     <link rel="stylesheet" href="{{B}}css/style.css">
     <link rel="stylesheet" href="{{B}}css/fx.css">
     <link rel="preload" href="{{B}}fonts/FiraGO-Heavy.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="modulepreload" href="{{B}}js/vendor/three.module.min.js">
   </head>
   <body data-page="{{PAGE}}" data-base="{{B}}">
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -294,6 +293,9 @@
         <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta"></span><svg><use href="#i-arrow"/></svg></a></p>
       </div>
     </div>
+
+    <!-- ===================== ქალაქის გვერდი (bus/…-moscow/): შიგთავსს build წერს src/cities.json-დან ===================== -->
+    <div class="pg rt" id="p-route" hidden>{{ROUTE}}</div>
 
     <!-- ===================== ადმინ-გვერდი (#/admin): განრიგი, ფასები, ტექსტები ===================== -->
     <div class="pg" id="p-admin" hidden>
