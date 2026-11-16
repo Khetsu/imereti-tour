@@ -44,7 +44,7 @@ imereti-tour/
 
 ## როგორ განაახლო საიტი (Cloudflare Pages)
 
-საიტი: **https://imereti-tour.pages.dev** · კოდი: github.com/Khetsu/imereti-tour
+საიტი: **https://imeretitour.com** (ასევე imereti-tour.pages.dev) · კოდი: github.com/Khetsu/imereti-tour
 
 1. შეცვალე ფაილი (ან ჩაანაცვლე გადმოწერილი `schedule-config.js` საქაღალდე `js/`-ში).
 2. ტერმინალში, ამ საქაღალდეში: `git add .` -> `git commit -m "რა შეიცვალა"` -> `git push`.

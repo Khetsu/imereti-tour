@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 import { join, dirname } from "node:path";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const SITE = "https://imereti-tour.pages.dev/";
+const SITE = "https://imeretitour.com/";
 const tpl = await readFile(join(ROOT, "src/template.html"), "utf8");
 const pages = JSON.parse(await readFile(join(ROOT, "src/pages.json"), "utf8"));
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
