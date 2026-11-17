@@ -104,6 +104,7 @@ SC.info = SC.info || {
 };
 SC.reviews = SC.reviews || [];
 SC.maps = SC.maps || {};
+SC.sheet = SC.sheet || ""; // ჯავშნების ცხრილის (Google Apps Script) მისამართი
 SC.ads = SC.ads || []; // რეკლამები: [{t: სათაური, x: ტექსტი, img: სურათი, u: ბმული}]
 SC.ga = SC.ga || "";
 S.forEach(function (s, i) {
@@ -716,6 +717,32 @@ document.addEventListener("click", function (e) {
 // ======================================================================
 // 15. ახალი დიზაინის ღილაკები: მიმართულების შეცვლა, მგზავრები −/+, ძებნა, მოძრავი ავტობუსი, ქვედა ღილაკი
 // ======================================================================
+
+// ჯავშნების ცხრილი (Google Sheets): WhatsApp-ის ღილაკზე დაჭერისას ჯავშანი ცხრილშიც იწერება.
+// მისამართი: js/schedule-config.js → "sheet". ცარიელი = არ იგზავნება.
+function sheetLog(d) {
+    if (!SC.sheet)
+        return;
+    d.k = "it-2026";
+    d.lang = L;
+    d.page = location.pathname;
+    var body = JSON.stringify(d);
+    try {
+        if (!(navigator.sendBeacon && navigator.sendBeacon(SC.sheet, new Blob([body], { type: "text/plain" }))))
+            fetch(SC.sheet, { method: "POST", mode: "no-cors", keepalive: true, body: body });
+    }
+    catch (e) { }
+}
+function txt(i) {
+    var e = $(i);
+    return !e ? "" : e.tagName == "SELECT" ? (e.selectedOptions[0] ? e.selectedOptions[0].textContent : "") : e.value || e.textContent || "";
+}
+$("wa").addEventListener("click", function () {
+    sheetLog({ t: "ბილეთი", dir: txt("tkA") + " → " + txt("tkB"), date: txt("dt"), stop: txt("st"), px: $("px").value, nm: txt("nm"), ph: txt("ph"), pay: txt("pay"), price: $("pr").hidden ? "" : txt("pr") });
+});
+$("pwa").addEventListener("click", function () {
+    sheetLog({ t: "ამანათი", dir: txt("pdir"), nm: txt("pnm"), ph: txt("pph"), what: txt("pwh"), kg: txt("pkg"), price: $("ppr").hidden ? "" : txt("ppr") });
+});
 
 // ქალაქის გვერდიდან მოსული (?st=2): ფორმაში ეს გაჩერება წინასწარ არჩეულია
 (function () {
