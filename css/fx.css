@@ -315,5 +315,6 @@ h1,.cw b,.marq span{letter-spacing:-.025em}
 .chp{font-size:1.05em;line-height:1.6;margin:0 0 12px}
 .chl{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:8px;grid-template-columns:1fr}
 @media (min-width:640px){.chl{grid-template-columns:1fr 1fr}}
+@media (min-width:1000px){.chl{grid-template-columns:1fr 1fr 1fr}}
 .chl li{position:relative;padding:10px 12px 10px 34px;border-radius:12px;background:rgba(127,127,127,.08)}
 .chl li::before{content:"✓";position:absolute;left:12px;top:10px;font-weight:700;color:var(--coral,#ff6b5a)}

@@ -17,6 +17,8 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { join, dirname } from "node:path";
+import { createHash } from "node:crypto";
+import { readFileSync, existsSync } from "node:fs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = "https://www.imeretitour.com/";
@@ -170,6 +172,8 @@ async function page(l, id, city) {
   const B = "../".repeat(depth), LB = B + lp(l), U = SITE + lp(l) + pth;
   let html = tpl
     .replace(/<!-- იმერეთი ტური · შაბლონი[\s\S]*?-->\n/, "<!-- იმერეთი ტური · ეს ფაილი იქმნება src/template.html-დან (node tools/build.mjs). ხელით ნუ შეცვლი. -->\n")
+    // ფაილის ვერსია (?v=…): ცვლილების შემდეგ ბრაუზერი ძველ js/css-ს აღარ აიღებს ქეშიდან
+    .replace(/\{\{B\}\}((?:css|js)\/[\w.-]+\.(?:css|js))"/g,(m, f) => existsSync(join(ROOT, f)) ? "{{B}}" + f + "?v=" + createHash("md5").update(readFileSync(join(ROOT, f))).digest("hex").slice(0, 8) + "\"" : m)
     .replaceAll("{{B}}", B)
     .replaceAll("{{PAGE}}", city ? "bus/" + city.slug : home ? "" : id)
     .replaceAll("{{TITLE}}", esc(p.title))
