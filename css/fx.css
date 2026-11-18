@@ -309,3 +309,11 @@ h1,.cw b,.marq span{letter-spacing:-.025em}
 .mapc b{font:800 17px/1.3 var(--display)}
 .mapc span{font-size:14px;color:var(--muted)}
 .mapc a{margin-top:4px;font-weight:800;color:var(--coral2)}
+
+/* 17. ავტობუსის დაქირავება (ავტობუსების გვერდი) */
+.chb{margin-top:14px}
+.chp{font-size:1.05em;line-height:1.6;margin:0 0 12px}
+.chl{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:8px;grid-template-columns:1fr}
+@media (min-width:640px){.chl{grid-template-columns:1fr 1fr}}
+.chl li{position:relative;padding:10px 12px 10px 34px;border-radius:12px;background:rgba(127,127,127,.08)}
+.chl li::before{content:"✓";position:absolute;left:12px;top:10px;font-weight:700;color:var(--coral,#ff6b5a)}
