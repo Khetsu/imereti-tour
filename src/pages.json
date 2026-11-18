@@ -27,6 +27,30 @@
       "desc": "Comfortable Georgia–Moscow coaches: air conditioning, Wi-Fi, USB charging, comfortable seats."
     }
   },
+  "charter": {
+    "title": "ავტობუსის დაქირავება მძღოლით — საქართველო და ევროპა | იმერეთი ტური",
+    "desc": "ავტობუსის დაქირავება მძღოლით: ექსკურსიები, ქორწილები, ღონისძიებები, ტრანსფერები. საქართველოს მასშტაბით, ევროპაში და სხვა ქვეყნებში. ფასი შეთანხმებით.",
+    "ru": {
+      "title": "Аренда автобуса с водителем в Грузии и в Европу — Имерети Тур",
+      "desc": "Аренда автобуса с водителем: экскурсии, свадьбы, мероприятия, трансферы. По всей Грузии, в Европу и другие страны. Цена по договорённости."
+    },
+    "en": {
+      "title": "Bus charter with driver in Georgia and to Europe — Imereti Tour",
+      "desc": "Charter a bus with a driver: excursions, weddings, events, transfers. Across Georgia, to Europe and other countries. Price on request."
+    }
+  },
+  "lars": {
+    "title": "ზემო ლარსის გადაკვეთა: საბუთები და რჩევები — იმერეთი ტური",
+    "desc": "რა საბუთები გჭირდებათ ზემო ლარსზე, სამედიცინო დაზღვევა 2026 წლიდან, რიგები და პრაქტიკული რჩევები ავტობუსით მგზავრობისთვის.",
+    "ru": {
+      "title": "Верхний Ларс: документы и советы для поездки на автобусе — Имерети Тур",
+      "desc": "Какие документы нужны на Верхнем Ларсе, страховка для въезда в Грузию с 2026 года, очереди и советы для поездки на автобусе."
+    },
+    "en": {
+      "title": "Crossing Upper Lars: documents and tips — Imereti Tour",
+      "desc": "Documents for the Upper Lars border, Georgia's travel health insurance rule from 2026, queues and practical tips for the bus trip."
+    }
+  },
   "schedule": {
     "title": "განრიგი და ფასები — იმერეთი ტური",
     "desc": "გასვლის განრიგი საქართველოდან მოსკოვში და მოსკოვიდან საქართველოში: ბათუმი, ქობულეთი, ფოთი, ქუთაისი, თბილისი. ფასები და ადგილების არჩევა.",

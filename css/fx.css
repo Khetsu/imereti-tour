@@ -318,3 +318,10 @@ h1,.cw b,.marq span{letter-spacing:-.025em}
 @media (min-width:1000px){.chl{grid-template-columns:1fr 1fr 1fr}}
 .chl li{position:relative;padding:10px 12px 10px 34px;border-radius:12px;background:rgba(127,127,127,.08)}
 .chl li::before{content:"✓";position:absolute;left:12px;top:10px;font-weight:700;color:var(--coral,#ff6b5a)}
+
+/* 18. დაქირავების გვერდი: ნაბიჯები; სტატია */
+.steps{list-style:none;counter-reset:st;padding:0;margin:14px 0 0;display:grid;gap:12px}
+@media (min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.steps li{counter-increment:st;position:relative;padding:18px 18px 18px 64px;border-radius:16px;background:rgba(127,127,127,.08);display:grid;gap:4px}
+.steps li::before{content:counter(st);position:absolute;left:16px;top:16px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;background:var(--coral,#ff6b5a)}
+.art h2{margin-top:1.4em}.art h3{margin:1.2em 0 .3em}.art ul{padding-left:1.2em;display:grid;gap:6px}

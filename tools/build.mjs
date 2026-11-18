@@ -44,7 +44,7 @@ function grab(name) {
 const TT = [grab("T"), grab("T2"), grab("T3")];
 const TX = Object.fromEntries(LANGS.map(l => [l, Object.assign({}, ...TT.map(t => t[l] || {}))]));
 
-const NAV = [["", "nv0"], ["buses", "nv1"], ["schedule", "nv2"], ["parcels", "nv4"], ["info", "nv5"], ["faq", "nv3"]];
+const NAV = [["", "nv0"], ["buses", "nv1"], ["charter", "nv6"], ["schedule", "nv2"], ["parcels", "nv4"], ["info", "nv5"], ["faq", "nv3"]];
 const lp = l => (l === "ka" ? "" : l + "/");
 const path = id => (id && id !== "home" ? id + "/" : "");
 const url = (id, l = "ka") => SITE + lp(l) + path(id);
@@ -67,7 +67,7 @@ function jsonld(id, l, p, K) {
   if (id !== "home") g.push({
     "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: K.nv0 || name, item: url("home", l) },
-      { "@type": "ListItem", position: 2, name: K[NAV.find(n => n[0] === id)[1]], item: url(id, l) }]
+      { "@type": "ListItem", position: 2, name: id === "lars" ? K.laN : K[NAV.find(n => n[0] === id)[1]], item: url(id, l) }]
   });
   if (id === "faq") g.push({
     "@type": "FAQPage", mainEntity: [1, 2, 3, 4, 5, 6].filter(i => K["q" + i] && K["a" + i]).map(i => ({
@@ -162,7 +162,7 @@ function routeHtml(c, l, LB) {
         <div class="rt-other">${CITY.filter(o => o !== c).map(o => `<a href="${LB}bus/${o.slug}/">${esc(t.other(o))}</a>`).join("")}</div>
       </div>`;
 }
-const routesNav = (l, LB) => `<nav class="w ft-routes" aria-label="Routes">${CITY.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RT[l](c).h1)}</a>`).join("")}</nav>`;
+const routesNav = (l, LB) => `<nav class="w ft-routes" aria-label="Routes">${CITY.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RT[l](c).h1)}</a>`).join("")}<a href="${LB}charter/">${esc(TX[l].cpH)}</a><a href="${LB}lars/">${esc(TX[l].laN)}</a></nav>`;
 
 async function page(l, id, city) {
   const K = TX[l], home = id === "home";
