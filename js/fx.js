@@ -239,9 +239,12 @@
     function flaps() {
         all(".board .dl li").forEach(function (li, n) {
             var t = li.textContent;
-            li.innerHTML = Array.from(t).map(function (c, i) {
-                return c == " " ? " " : '<span class="fl" style="--d:' + (n * 0.12 + i * 0.022).toFixed(3) + 's">' + esc(c) + "</span>";
-            }).join("");
+            var i = 0; // სიტყვები არ წყდება შუაზე (ტელეფონზე თარიღი/საათი ერთად რჩება)
+            li.innerHTML = t.split(" ").map(function (w) {
+                return '<span class="flw">' + Array.from(w).map(function (c) {
+                    return '<span class="fl" style="--d:' + (n * 0.12 + (i++) * 0.022).toFixed(3) + 's">' + esc(c) + "</span>";
+                }).join("") + "</span>";
+            }).join(" ");
         });
     }
     // 5.4 ავტობუსების 3D კარუსელი: ტრიალებს თავისით, სქროლით და თითით/მაუსით
