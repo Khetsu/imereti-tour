@@ -698,8 +698,13 @@ if (SC.ga) {
     gtag("js", new Date());
     gtag("config", SC.ga);
 }
+// დაჭერები WhatsApp-ზე და ტელეფონზე იწერება Google-ის ცხრილში (ფურცელი Clicks): რომელი ღილაკი, რომელ გვერდზე, საიდან მოვიდა სტუმარი
 document.addEventListener("click", function (e) {
     var a = e.target.closest("a");
+    if (a && (a.href.indexOf("wa.me") > 0 || a.href.indexOf("tel:") == 0)) {
+        var where = a.closest("section,.pg,.sticky,footer,.box");
+        sheetLog({ t: "click", b: (a.href.indexOf("tel:") == 0 ? "ზარი" : "WhatsApp") + (where && where.id ? " · " + where.id : where && where.className ? " · " + String(where.className).split(" ")[0] : ""), ref: (document.referrer || "პირდაპირ").slice(0, 200) });
+    }
     if (!a || !window.gtag)
         return;
     if (a.href.indexOf("wa.me") > 0)
