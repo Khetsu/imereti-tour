@@ -752,7 +752,7 @@ function stars(n) {
     return '<span class="rstars" aria-label="' + n + '/5">' + "★★★★★".slice(0, n) + '<i>' + "★★★★★".slice(n) + "</i></span>";
 }
 function rvRender() {
-    var k = T[L], all = (RV || []).concat(SC.reviews.map(function (r) { return { n: r.n, t: r.t, s: 5 }; }));
+    var k = T[L], all = (RV || []).concat(SC.reviews.map(function (r) { return { n: r.n, t: r.t, c: r.c, s: r.s || 5 }; }));
     $("rvl").innerHTML = all.map(function (r) {
         return "<blockquote>" + stars(r.s) + "<p>" + esc(r.t) + "</p><cite>— " + esc(r.n) + (r.c ? ", " + esc(r.c) : "") + "</cite></blockquote>";
     }).join("");
