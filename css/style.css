@@ -72,7 +72,7 @@ h1,h2,h3{letter-spacing:-.01em}
 @media (max-width:1179px){
   .mn{display:flex;order:5;flex-basis:100%;margin:0;overflow-x:auto;scrollbar-width:none;padding:0 0 10px;-webkit-mask:linear-gradient(90deg,#000 88%,transparent);mask:linear-gradient(90deg,#000 88%,transparent)}
   .mn::-webkit-scrollbar{display:none}
-  .mn a{flex:none;padding:8px 12px;font-size:13px;background:rgba(255,255,255,.06)}
+  .mn a{flex:none;padding:11px 13px;font-size:13px;background:rgba(255,255,255,.06)}
   .hd-in{flex-wrap:wrap;height:auto;padding-top:10px;row-gap:10px}
 }
 @media (min-width:1180px){.mn{display:flex}.hd-r{margin-left:8px}}

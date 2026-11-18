@@ -760,7 +760,7 @@ function stars(n) {
 function rvRender() {
     var k = T[L], all = (RV || []).concat(SC.reviews.map(function (r) { return { n: r.n, t: r.t, c: r.c, s: r.s || 5 }; }));
     $("rvl").innerHTML = all.map(function (r) {
-        return "<blockquote>" + stars(r.s) + "<p>" + esc(r.t) + "</p><cite>— " + esc(r.n) + (r.c ? ", " + esc(r.c) : "") + "</cite></blockquote>";
+        return "<blockquote>" + stars(r.s) + "<p" + (/[ა-ჿ]/.test(r.t) ? ' lang="ka"' : "") + ">" + esc(r.t) + "</p><cite>— " + esc(r.n) + (r.c ? ", " + esc(r.c) : "") + "</cite></blockquote>";
     }).join("");
     $("rvempty").hidden = !!all.length;
     var a = $("rvavg");
@@ -952,3 +952,14 @@ render();
 rbus();
 addEventListener("load", rbus);
 setInterval(cd, 1000);
+
+// რუკები (Google Maps) იტვირთება მხოლოდ მაშინ, როცა ეკრანზე ჩნდება: გვერდი ტელეფონზე ~2 მბ-ით მსუბუქია
+(function () {
+    var f = document.querySelectorAll("iframe[data-src]");
+    if (!f.length) return;
+    if (!("IntersectionObserver" in window)) { f.forEach(function (e) { e.src = e.dataset.src; }); return; }
+    var io = new IntersectionObserver(function (es) {
+        es.forEach(function (x) { if (x.isIntersecting) { x.target.src = x.target.dataset.src; io.unobserve(x.target); } });
+    }, { rootMargin: "300px 0px" });
+    f.forEach(function (e) { io.observe(e); });
+})();
