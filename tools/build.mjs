@@ -56,7 +56,8 @@ function jsonld(id, l, p, K) {
       "@type": ["Organization", "TravelAgency"], "@id": SITE + "#org", name: "იმერეთი ტური", alternateName: ["Imereti Tour", "Имерети Тур"], url: SITE,
       logo: SITE + "images/icon-512.png", image: SITE + "images/og.jpg", telephone: PHONE,
       description: meta("home", l).desc, areaServed: ["GE", "RU"],
-      address: { "@type": "PostalAddress", addressLocality: "Kutaisi", addressRegion: "Imereti", addressCountry: "GE" },
+      address: { "@type": "PostalAddress", streetAddress: "8 Baku Street", addressLocality: "Batumi", addressCountry: "GE" },
+      geo: { "@type": "GeoCoordinates", latitude: 41.6465879, longitude: 41.6465561 },
       contactPoint: { "@type": "ContactPoint", telephone: PHONE, contactType: "customer service", availableLanguage: ["ka", "ru", "en"] }
     },
     { "@type": "WebPage", "@id": url(id, l) + "#page", url: url(id, l), name: p.title, description: p.desc, isPartOf: { "@id": SITE + "#site" }, about: { "@id": SITE + "#org" }, inLanguage: l }
