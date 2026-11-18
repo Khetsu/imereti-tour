@@ -86,6 +86,7 @@ function grabArr(name) {
   }
 }
 const STOPS = grabArr("S");
+const MAPS = await readFile(join(ROOT, "src/maps.html"), "utf8"); // გაჩერებების რუკები (თბილისი, მოსკოვი)
 const cfgSrc = await readFile(join(ROOT, "js/schedule-config.js"), "utf8");
 const CFG = Function("var window={};" + cfgSrc + ";return window.SCHEDULE")();
 const days = (kind, l) => CFG.days[kind].slice().sort((a, b) => (a || 7) - (b || 7))
@@ -151,6 +152,7 @@ function routeHtml(c, l, LB) {
           <div class="box"><h2>${t.wH}</h2><ul class="rt-list">${t.li.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
             <p class="ctas"><a class="btn coral mag" href="${LB || "./"}?st=${c.i}#book">${esc(t.cta)}</a><a class="btn wa" href="https://wa.me/995598808022?text=${encodeURIComponent(t.msg)}" target="_blank" rel="noopener">WhatsApp</a><a class="btn ghost" href="${LB}schedule/">${esc(t.sch)}</a></p></div>
         </div>
+        ${MAPS}
         <h2 class="h2">${t.qH}</h2>
         <div class="faq f3d">${t.faq.filter(Boolean).map(q => `<details><summary>${esc(q[0])}</summary><p>${esc(q[1])}</p></details>`).join("")}</div>
         <h2 class="h2">${t.oH}</h2>
@@ -194,7 +196,7 @@ async function page(l, id, city) {
     g["@graph"] = g["@graph"].filter(x => x["@type"] !== "BreadcrumbList").map(x => x["@type"] === "WebPage" ? { ...x, "@id": U + "#page", url: U } : x);
     g["@graph"].push({ "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: K.nv0, item: SITE + lp(l) }, { "@type": "ListItem", position: 2, name: t.h1, item: U }] });
     g["@graph"].push({ "@type": "FAQPage", mainEntity: t.faq.filter(Boolean).map(q => ({ "@type": "Question", name: q[0], acceptedAnswer: { "@type": "Answer", text: q[1] } })) });
-    g["@graph"].push({ "@type": "BusTrip", name: t.h1, provider: { "@id": SITE + "#org" }, departureBusStop: { "@type": "BusStop", name: city.n[l] }, arrivalBusStop: { "@type": "BusStop", name: t.end }, ...(price ? { offers: { "@type": "Offer", price: CFG.price.ge, priceCurrency: "GEL", url: U } } : {}) });
+    g["@graph"].push({ "@type": "BusTrip", name: t.h1, provider: { "@id": SITE + "#org" }, departureBusStop: { "@type": "BusStop", name: city.n[l] }, arrivalBusStop: { "@type": "BusStop", name: t.end, address: "МКАД 33 км, владение 6, стр. 5, Москва", geo: { "@type": "GeoCoordinates", latitude: 55.578679, longitude: 37.588061 } }, ...(price ? { offers: { "@type": "Offer", price: CFG.price.ge, priceCurrency: "GEL", url: U } } : {}) });
     ld = '<script type="application/ld+json">' + JSON.stringify(g).replace(/</g, "\\u003c") + "</script>";
   }
   html = html.replace("</head>", "    " + ld + "\n  </head>");
