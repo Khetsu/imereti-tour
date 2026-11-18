@@ -187,8 +187,24 @@
       </section>
 
       <!-- მგზავრების შეფასებები (ჩანს, როცა ადმინ-გვერდზე დაამატებ) -->
-      <section class="band" id="rvs" hidden>
-        <div class="w"><div class="head rv"><h2 data-i="rvh">მგზავრები გვიყვებიან</h2></div><div class="rvl" id="rvl"></div></div>
+      <section class="band" id="rvs">
+        <div class="w">
+          <div class="head rv"><span class="kicker" data-i="rvk">შეფასებები</span><h2 data-i="rvh">მგზავრები გვიყვებიან</h2><p class="rv-avg" id="rvavg" hidden></p></div>
+          <div class="rvl" id="rvl"></div>
+          <p class="rv-empty" id="rvempty" data-i="rve" hidden>ჯერ შეფასება არ არის. იყავი პირველი!</p>
+          <!-- შეფასების დატოვება: მიდის Google-ის ცხრილში (ფურცელი Reviews), საიტზე ჩანს მხოლოდ მას შემდეგ, რაც სვეტში Approved ჩაწერ yes ან კი -->
+          <form class="ticket rvf" id="rvf" onsubmit="return false">
+            <h3 data-i="rvw">დატოვე შეფასება</h3>
+            <div class="stars" id="rfs" role="radiogroup" aria-label="Rating"><button type="button" data-s="1" aria-label="1">★</button><button type="button" data-s="2" aria-label="2">★</button><button type="button" data-s="3" aria-label="3">★</button><button type="button" data-s="4" aria-label="4">★</button><button type="button" data-s="5" aria-label="5">★</button></div>
+            <div class="tk-f">
+              <label class="fld"><span data-i="nm">სახელი</span><input id="rfn" maxlength="60" autocomplete="name"></label>
+              <label class="fld"><span data-i="rvc">ქალაქი</span><input id="rfc" maxlength="40"></label>
+              <label class="fld wide"><span data-i="rvt2">შენი შთაბეჭდილება მგზავრობაზე</span><textarea id="rft" rows="3" maxlength="600"></textarea></label>
+            </div>
+            <button type="button" class="btn coral" id="rfsend"><span data-i="rvb">გაგზავნა</span></button>
+            <p class="note" id="rfmsg" role="status" hidden></p>
+          </form>
+        </div>
       </section>
 
       <!-- კონტაქტი -->

@@ -45,9 +45,9 @@ var T2 = {
 };
 // 3D მოგზაურობის, რიცხვების და რეკლამის ტექსტები (js/fx.js იყენებს)
 var T3 = {
-    ka: { scrl: "გადაახვიე და იმოგზაურე", trk: "მოგზაურობა", j0: "ზღვის სანაპიროდან იწყება გზა.", j1: "სანაპიროს გასწვრივ, ჩრდილოეთისკენ.", j2: "ნავსადგური და კოლხეთის დაბლობი.", j3: "იმერეთის გული, ჩვენი სახლი.", j4: "დედაქალაქი, ბოლო გაჩერება საქართველოში.", jL: "ზემო ლარსი", jLt: "კავკასიონის მთები და საზღვარი.", jMt: "ფინიში. კეთილი იყოს თქვენი მობრძანება!", stp: "გაჩერება", st_s: "გაჩერება საქართველოში", st_w: "რეისი კვირაში", st_d: "მიმართულება", st_l: "ენა საიტზე", w3: "ნამდვილი ფოტოები, ჩვენი ავტობუსები", spin: "გადაატრიალე ან გადაახვიე", adk: "პარტნიორები", adh: "შენი ბიზნესი მგზავრების თვალწინ", adl: "რეკლამა", adf: "აქ შეიძლება იყოს თქვენი რეკლამა", adft: "სასტუმრო, რესტორანი, მაღაზია თუ სერვისი: განათავსე რეკლამა იმერეთი ტურის საიტზე.", adb: "რეკლამის განთავსება", adm: "გამარჯობა! მინდა რეკლამის განთავსება იმერეთი ტურის საიტზე.", adv: "ნახვა", ads2: "სარეკლამო ადგილი" },
-    ru: { scrl: "Листайте, и в путь", trk: "Путешествие", j0: "Путь начинается у моря.", j1: "Вдоль побережья, на север.", j2: "Порт и Колхидская низменность.", j3: "Сердце Имерети, наш дом.", j4: "Столица, последняя остановка в Грузии.", jL: "Верхний Ларс", jLt: "Горы Кавказа и граница.", jMt: "Финиш. Добро пожаловать!", stp: "Остановка", st_s: "остановок в Грузии", st_w: "рейса в неделю", st_d: "направления", st_l: "языка на сайте", w3: "Настоящие фото наших автобусов", spin: "Крутите или листайте", adk: "Партнёры", adh: "Ваш бизнес перед глазами пассажиров", adl: "Реклама", adf: "Здесь может быть ваша реклама", adft: "Гостиница, ресторан, магазин или сервис: разместите рекламу на сайте Имерети Тур.", adb: "Разместить рекламу", adm: "Здравствуйте! Хочу разместить рекламу на сайте Имерети Тур.", adv: "Подробнее", ads2: "Рекламное место" },
-    en: { scrl: "Scroll to ride", trk: "The journey", j0: "The road starts by the sea.", j1: "Along the coast, heading north.", j2: "The port and the Colchis lowland.", j3: "The heart of Imereti, our home.", j4: "The capital, last stop in Georgia.", jL: "Upper Lars", jLt: "The Caucasus mountains and the border.", jMt: "Finish line. Welcome!", stp: "Stop", st_s: "stops in Georgia", st_w: "trips a week", st_d: "directions", st_l: "site languages", w3: "Real photos of our buses", spin: "Drag or scroll to spin", adk: "Partners", adh: "Your business in front of travellers", adl: "Ad", adf: "Your ad could be here", adft: "Hotel, restaurant, shop or service: advertise on the Imereti Tour website.", adb: "Place an ad", adm: "Hello! I would like to advertise on the Imereti Tour website.", adv: "Visit", ads2: "Ad space" }
+    ka: { scrl: "გადაახვიე და იმოგზაურე", trk: "მოგზაურობა", j0: "ზღვის სანაპიროდან იწყება გზა.", j1: "სანაპიროს გასწვრივ, ჩრდილოეთისკენ.", j2: "ნავსადგური და კოლხეთის დაბლობი.", j3: "იმერეთის გული, ჩვენი სახლი.", j4: "დედაქალაქი, ბოლო გაჩერება საქართველოში.", jL: "ზემო ლარსი", jLt: "კავკასიონის მთები და საზღვარი.", jMt: "ფინიში. კეთილი იყოს თქვენი მობრძანება!", stp: "გაჩერება", st_s: "გაჩერება საქართველოში", st_w: "რეისი კვირაში", st_d: "მიმართულება", st_l: "ენა საიტზე", w3: "ნამდვილი ფოტოები, ჩვენი ავტობუსები", spin: "გადაატრიალე ან გადაახვიე", adk: "პარტნიორები", adh: "შენი ბიზნესი მგზავრების თვალწინ", adl: "რეკლამა", adf: "აქ შეიძლება იყოს თქვენი რეკლამა", adft: "სასტუმრო, რესტორანი, მაღაზია თუ სერვისი: განათავსე რეკლამა იმერეთი ტურის საიტზე.", adb: "რეკლამის განთავსება", adm: "გამარჯობა! მინდა რეკლამის განთავსება იმერეთი ტურის საიტზე.", adv: "ნახვა", ads2: "სარეკლამო ადგილი", rvk: "შეფასებები", rve: "ჯერ შეფასება არ არის. იყავი პირველი!", rvw: "დატოვე შეფასება", rvc: "ქალაქი", rvt2: "შენი შთაბეჭდილება მგზავრობაზე", rvb: "გაგზავნა", rvok: "მადლობა! შეფასება საიტზე გამოჩნდება შემოწმების შემდეგ.", rver: "ჩაწერე სახელი და კომენტარი.", rvn: "შეფასება", wk: "უახლოესი რეისები" },
+    ru: { scrl: "Листайте, и в путь", trk: "Путешествие", j0: "Путь начинается у моря.", j1: "Вдоль побережья, на север.", j2: "Порт и Колхидская низменность.", j3: "Сердце Имерети, наш дом.", j4: "Столица, последняя остановка в Грузии.", jL: "Верхний Ларс", jLt: "Горы Кавказа и граница.", jMt: "Финиш. Добро пожаловать!", stp: "Остановка", st_s: "остановок в Грузии", st_w: "рейса в неделю", st_d: "направления", st_l: "языка на сайте", w3: "Настоящие фото наших автобусов", spin: "Крутите или листайте", adk: "Партнёры", adh: "Ваш бизнес перед глазами пассажиров", adl: "Реклама", adf: "Здесь может быть ваша реклама", adft: "Гостиница, ресторан, магазин или сервис: разместите рекламу на сайте Имерети Тур.", adb: "Разместить рекламу", adm: "Здравствуйте! Хочу разместить рекламу на сайте Имерети Тур.", adv: "Подробнее", ads2: "Рекламное место", rvk: "Отзывы", rve: "Пока нет отзывов. Будьте первым!", rvw: "Оставить отзыв", rvc: "Город", rvt2: "Ваши впечатления о поездке", rvb: "Отправить", rvok: "Спасибо! Отзыв появится на сайте после проверки.", rver: "Укажите имя и комментарий.", rvn: "отзывов", wk: "Ближайшие рейсы" },
+    en: { scrl: "Scroll to ride", trk: "The journey", j0: "The road starts by the sea.", j1: "Along the coast, heading north.", j2: "The port and the Colchis lowland.", j3: "The heart of Imereti, our home.", j4: "The capital, last stop in Georgia.", jL: "Upper Lars", jLt: "The Caucasus mountains and the border.", jMt: "Finish line. Welcome!", stp: "Stop", st_s: "stops in Georgia", st_w: "trips a week", st_d: "directions", st_l: "site languages", w3: "Real photos of our buses", spin: "Drag or scroll to spin", adk: "Partners", adh: "Your business in front of travellers", adl: "Ad", adf: "Your ad could be here", adft: "Hotel, restaurant, shop or service: advertise on the Imereti Tour website.", adb: "Place an ad", adm: "Hello! I would like to advertise on the Imereti Tour website.", adv: "Visit", ads2: "Ad space", rvk: "Reviews", rve: "No reviews yet. Be the first!", rvw: "Leave a review", rvc: "City", rvt2: "Your impressions of the trip", rvb: "Send", rvok: "Thank you! Your review will appear after moderation.", rver: "Please enter your name and a comment.", rvn: "reviews", wk: "Upcoming trips" }
 };
 for (var tl in T2)
     for (var tk in T2[tl])
@@ -541,11 +541,7 @@ function renderX() {
             h += "<li>" + k.pkg + " · " + x[1] + ": <b>" + SC.kg[x[0]] + " " + c + "</b></li>";
     });
     $("pl").innerHTML = h ? '<h2 style="margin-top:32px">' + k.prh + '</h2><ul class="dl">' + h + "</ul>" : "";
-    var rv = SC.reviews;
-    $("rvs").hidden = !rv.length;
-    $("rvl").innerHTML = rv.map(function (r) {
-        return "<blockquote><p>" + esc(r.t) + "</p><cite>— " + esc(r.n) + "</cite></blockquote>";
-    }).join("");
+    rvRender();
     var nt = SC.notice[L] || SC.notice.ka || "", ds = "";
     try {
         ds = localStorage.getItem("nbx");
@@ -611,6 +607,7 @@ function acr() {
     h += "<h3>რუკის ბმულები გაჩერებებისთვის (Google Maps)</h3><div class=tms>" + S.map(function (s, i) {
         return "<label>" + s[1].ka + '<input data-mp="' + i + '" value="' + esc(AC.maps[i] || "") + '"></label>';
     }).join("") + '<label>მოსკოვი<input data-mp=m value="' + esc(AC.maps.m || "") + '"></label></div>';
+    h += '<h3>სოციალური ქსელებისთვის</h3><p class=note>უახლოესი რეისების სურათი (1080×1350) Facebook-ისა და Instagram-ის პოსტისთვის. თარიღები ავტომატურად ითვლება განრიგიდან.</p><p><button type=button class="btn coral" data-a=weekimg>📅 ამ კვირის რეისების სურათი (PNG)</button></p>';
     h += '<h3>Google Analytics ID (მაგ. G-XXXXXXXXXX, არასავალდებულო)</h3><label><input data-ga value="' + esc(AC.ga) + '"></label>';
     $("sched").innerHTML = h;
     sout();
@@ -742,6 +739,128 @@ $("wa").addEventListener("click", function () {
 });
 $("pwa").addEventListener("click", function () {
     sheetLog({ t: "ამანათი", dir: txt("pdir"), nm: txt("pnm"), ph: txt("pph"), what: txt("pwh"), kg: txt("pkg"), price: $("ppr").hidden ? "" : txt("ppr") });
+});
+
+// ======================================================================
+// 16. შეფასებები: მგზავრი წერს საიტზე → Google-ის ცხრილი (ფურცელი Reviews) →
+//     შენ წერ „yes“ ან „კი“ სვეტში Approved → შეფასება ჩნდება საიტზე (5 წუთში).
+//     ადმინ-გვერდიდან დამატებული შეფასებებიც ჩანს (SC.reviews).
+// ======================================================================
+var RV = [];
+function stars(n) {
+    n = Math.max(1, Math.min(5, Math.round(+n || 5)));
+    return '<span class="rstars" aria-label="' + n + '/5">' + "★★★★★".slice(0, n) + '<i>' + "★★★★★".slice(n) + "</i></span>";
+}
+function rvRender() {
+    var k = T[L], all = (RV || []).concat(SC.reviews.map(function (r) { return { n: r.n, t: r.t, s: 5 }; }));
+    $("rvl").innerHTML = all.map(function (r) {
+        return "<blockquote>" + stars(r.s) + "<p>" + esc(r.t) + "</p><cite>— " + esc(r.n) + (r.c ? ", " + esc(r.c) : "") + "</cite></blockquote>";
+    }).join("");
+    $("rvempty").hidden = !!all.length;
+    var a = $("rvavg");
+    if (all.length) {
+        var sum = 0;
+        all.forEach(function (r) { sum += +r.s || 5; });
+        a.innerHTML = stars(sum / all.length) + " <b>" + (sum / all.length).toFixed(1) + "</b> · " + all.length + " " + k.rvn;
+    }
+    a.hidden = !all.length;
+}
+(function () {
+    if (!SC.sheet || !$("rvl"))
+        return;
+    var key = "it-rv", c = null;
+    try { c = JSON.parse(sessionStorage.getItem(key) || "null"); } catch (e) { }
+    if (c) { RV = c; rvRender(); return; }
+    fetch(SC.sheet).then(function (r) { return r.json(); }).then(function (j) {
+        RV = (j.reviews || []).filter(function (r) { return r.n && r.t; });
+        try { sessionStorage.setItem(key, JSON.stringify(RV)); } catch (e) { }
+        rvRender();
+    }).catch(function () { });
+})();
+(function () {
+    var box = $("rfs"), val = 5;
+    if (!box)
+        return;
+    function paint(n) {
+        box.querySelectorAll("button").forEach(function (b) {
+            b.classList.toggle("on", +b.dataset.s <= n);
+            b.setAttribute("aria-pressed", +b.dataset.s == n);
+        });
+    }
+    paint(val);
+    box.onclick = function (e) {
+        var b = e.target.closest("button");
+        if (b) { val = +b.dataset.s; paint(val); }
+    };
+    $("rfsend").onclick = function () {
+        var k = T[L], n = $("rfn").value.trim(), t = $("rft").value.trim(), m = $("rfmsg");
+        m.hidden = false;
+        if (!n || t.length < 3) { m.textContent = k.rver; return; }
+        if (!SC.sheet) return;
+        this.disabled = true;
+        fetch(SC.sheet, { method: "POST", mode: "no-cors", body: JSON.stringify({ k: "it-2026", t: "review", nm: n, city: $("rfc").value.trim(), stars: val, text: t }) })
+            .catch(function () { });
+        m.textContent = k.rvok;
+        $("rft").value = "";
+    };
+})();
+
+// ======================================================================
+// 17. ადმინი: „ამ კვირის რეისების“ სურათი Facebook/Instagram-ისთვის (1080×1350)
+// ======================================================================
+function weekImage() {
+    var k = T[L], c = document.createElement("canvas"), W = 1080, H = 1350;
+    c.width = W; c.height = H;
+    var g = c.getContext("2d"), F = '"FiraGO","Noto Sans Georgian",sans-serif', S = '"Noto Sans Georgian",sans-serif';
+    var bg = g.createLinearGradient(0, 0, 0, H);
+    bg.addColorStop(0, "#14213D"); bg.addColorStop(1, "#0D1730");
+    g.fillStyle = bg; g.fillRect(0, 0, W, H);
+    var gl = g.createRadialGradient(W, 0, 0, W, 0, 700);
+    gl.addColorStop(0, "rgba(255,107,91,.4)"); gl.addColorStop(1, "rgba(255,107,91,0)");
+    g.fillStyle = gl; g.fillRect(0, 0, W, H);
+    g.textAlign = "center";
+    g.fillStyle = "#FF6B5B"; g.font = "800 34px " + F;
+    g.fillText(k.brand.toUpperCase(), W / 2, 120);
+    g.fillStyle = "#fff"; g.font = "900 76px " + F;
+    g.fillText(k.wk, W / 2, 215);
+    g.fillStyle = "rgba(246,241,231,.75)"; g.font = "600 32px " + S;
+    g.fillText(k.cGe + " ⇄ " + k.cMo, W / 2, 275);
+    function block(y, title, list, ge) {
+        g.fillStyle = "rgba(255,255,255,.06)";
+        g.beginPath(); g.roundRect(90, y, W - 180, 100 + list.length * 62, 32); g.fill();
+        g.textAlign = "left"; g.fillStyle = "#FF6B5B"; g.font = "800 34px " + F;
+        g.fillText(title, 135, y + 62);
+        g.fillStyle = "#F6F1E7"; g.font = "700 40px " + S;
+        list.forEach(function (t, i) { g.fillText("•  " + ft(t, ge), 135, y + 128 + i * 62); });
+        g.textAlign = "center";
+        return y + 100 + list.length * 62 + 30;
+    }
+    var y = block(320, k.ge, trips("ge", 4), 1);
+    y = block(y, k.ru, trips("ru", 3), 0);
+    if (SC.price.ge > 0) {
+        g.fillStyle = "#fff"; g.font = "800 40px " + F;
+        g.fillText(SC.price.ge + " " + SC.cur + " " + k.per, W / 2, y + 40);
+    }
+    g.fillStyle = "#FF6B5B";
+    g.beginPath(); g.roundRect(160, H - 230, W - 320, 100, 50); g.fill();
+    g.fillStyle = "#fff"; g.font = "900 46px " + F;
+    g.fillText("imeretitour.com", W / 2, H - 165);
+    g.fillStyle = "rgba(246,241,231,.85)"; g.font = "700 34px " + S;
+    g.fillText("WhatsApp: +995 598 80 80 22", W / 2, H - 70);
+    return c;
+}
+document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("[data-a=weekimg]");
+    if (!b)
+        return;
+    (document.fonts ? document.fonts.load('900 40px "FiraGO"') : Promise.resolve()).then(function () {
+        weekImage().toBlob(function (bl) {
+            var a = document.createElement("a");
+            a.href = URL.createObjectURL(bl);
+            a.download = "imereti-tour-" + new Date().toISOString().slice(0, 10) + ".png";
+            a.click();
+        });
+    });
 });
 
 // ქალაქის გვერდიდან მოსული (?st=2): ფორმაში ეს გაჩერება წინასწარ არჩეულია
