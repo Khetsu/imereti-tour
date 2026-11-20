@@ -171,6 +171,7 @@ function routeHtml(c, l, LB) {
         <div class="rt-other">${CITY.filter(o => o !== c).map(o => `<a href="${LB}bus/${o.slug}/">${esc(t.other(o))}</a>`).join("")}</div>
       </div>`;
 }
+const GUIDES = "<div class=\"gd rv\"><div class=\"head\"><span class=\"kicker\" data-i=\"gdK\"></span><h2 data-i=\"gdH\"></h2></div><div class=\"gdl\"><a class=\"gdc gdc1\" data-href=\"charter\"><span class=\"gdi\" aria-hidden=\"true\">🚌</span><span class=\"gdx\"><b data-i=\"gd1\"></b><small data-i=\"gd1t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc2\" data-href=\"lars\"><span class=\"gdi\" aria-hidden=\"true\">🛂</span><span class=\"gdx\"><b data-i=\"gd2\"></b><small data-i=\"gd2t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc3\" data-href=\"parcel-guide\"><span class=\"gdi\" aria-hidden=\"true\">📦</span><span class=\"gdx\"><b data-i=\"gd3\"></b><small data-i=\"gd3t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a></div></div>";
 const routesNav = (l, LB) => `<nav class="w ft-routes" aria-label="Routes">${CITY.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RT[l](c).h1)}</a>`).join("")}<a href="${LB}charter/">${esc(TX[l].cpH)}</a><a href="${LB}lars/">${esc(TX[l].laN)}</a><a href="${LB}parcel-guide/">${esc(TX[l].pgN)}</a></nav>`;
 
 async function page(l, id, city) {
@@ -190,7 +191,8 @@ async function page(l, id, city) {
     .replaceAll("{{OGTITLE}}", esc(l === "ka" && !city ? p.ogTitle || p.title : p.title))
     .replaceAll("{{OGDESC}}", esc(l === "ka" && !city ? p.ogDesc || p.desc : p.desc))
     .replaceAll("{{URL}}", U)
-    .replace("{{ROUTE}}", city ? routeHtml(city, l, LB) : "");
+    .replace("{{ROUTE}}", city ? routeHtml(city, l, LB) + "<div class=\"w\">{{GUIDES}}</div>" : "")
+    .replaceAll("{{GUIDES}}", GUIDES);
   if (/\{\{[A-Z]+\}\}/.test(html)) throw new Error("unfilled placeholder in " + l + "/" + pth);
   html = html
     .replace('<html lang="ka">', `<html lang="${l}">`)
