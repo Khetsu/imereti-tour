@@ -28,15 +28,15 @@
     }
   },
   "charter": {
-    "title": "ავტობუსის დაქირავება მძღოლით — საქართველო და ევროპა | იმერეთი ტური",
-    "desc": "ავტობუსის დაქირავება მძღოლით: ექსკურსიები, ქორწილები, ღონისძიებები, ტრანსფერები. საქართველოს მასშტაბით, ევროპაში და სხვა ქვეყნებში. ფასი შეთანხმებით.",
+    "title": "ავტობუსის დაქირავება — საქართველო და ევროპა | იმერეთი ტური",
+    "desc": "ავტობუსის დაქირავება: ექსკურსიები, ქორწილები, ღონისძიებები, ტრანსფერები. საქართველოს მასშტაბით, ევროპაში და სხვა ქვეყნებში. ფასი შეთანხმებით.",
     "ru": {
-      "title": "Аренда автобуса с водителем в Грузии и в Европу — Имерети Тур",
-      "desc": "Аренда автобуса с водителем: экскурсии, свадьбы, мероприятия, трансферы. По всей Грузии, в Европу и другие страны. Цена по договорённости."
+      "title": "Аренда автобуса в Грузии и в Европу — Имерети Тур",
+      "desc": "Аренда автобуса: экскурсии, свадьбы, мероприятия, трансферы. По всей Грузии, в Европу и другие страны. Цена по договорённости."
     },
     "en": {
-      "title": "Bus charter with driver in Georgia and to Europe — Imereti Tour",
-      "desc": "Charter a bus with a driver: excursions, weddings, events, transfers. Across Georgia, to Europe and other countries. Price on request."
+      "title": "Bus rental in Georgia and to Europe — Imereti Tour",
+      "desc": "Rent a bus: excursions, weddings, events, transfers. Across Georgia, to Europe and other countries. Price on request."
     }
   },
   "lars": {
