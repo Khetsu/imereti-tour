@@ -5,6 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex">
+    <script>
+      // Facebook ზოგჯერ ლინკს ბოლოში ემოჯის (📞 👉) ან ტექსტს უერთებს: /bus/batumi-moscow/📞 → /bus/batumi-moscow/
+      (function () {
+        var p; try { p = decodeURIComponent(location.pathname); } catch (e) { p = location.pathname; }
+        var c = p.replace(/[^\x00-\x7F][\s\S]*$/, "").replace(/[^\/]*$/, "");
+        if (/[^\x00-\x7F]/.test(p) && c && c !== p) location.replace(c + location.search + location.hash);
+      })();
+    </script>
     <title>გვერდი ვერ მოიძებნა — იმერეთი ტური</title>
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="stylesheet" href="/css/style.css">
