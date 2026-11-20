@@ -79,6 +79,18 @@
       "desc": "Fast, secure parcel delivery between Georgia and Moscow in both directions."
     }
   },
+  "parcel-guide": {
+    "title": "ამანათის გაგზავნა მოსკოვში და მოსკოვიდან საქართველოში — გზამკვლევი | იმერეთი ტური",
+    "desc": "როგორ გავაგზავნოთ ამანათი ავტობუსით მოსკოვში ან მოსკოვიდან საქართველოში: ნაბიჯები, მისამართები ბათუმში, ქუთაისში, თბილისში და მოსკოვში, ფასი და რჩევები.",
+    "ru": {
+      "title": "Посылка из Москвы в Грузию и обратно автобусом — как отправить | Имерети Тур",
+      "desc": "Как отправить посылку из Москвы в Грузию или из Грузии в Москву автобусом: шаги, адреса в Батуми, Кутаиси, Тбилиси и Москве, цена и советы."
+    },
+    "en": {
+      "title": "Send a parcel from Moscow to Georgia and back by bus — guide | Imereti Tour",
+      "desc": "How to send a parcel between Moscow and Georgia by bus: steps, drop-off addresses in Batumi, Kutaisi, Tbilisi and Moscow, price and tips."
+    }
+  },
   "info": {
     "title": "პირობები, გაუქმება და თანხის დაბრუნება — იმერეთი ტური",
     "desc": "ჯავშნის პირობები, თანხის დაბრუნება გაუქმებისას, ბარგი და საბუთები.",

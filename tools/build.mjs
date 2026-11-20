@@ -67,13 +67,15 @@ function jsonld(id, l, p, K) {
   if (id !== "home") g.push({
     "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: K.nv0 || name, item: url("home", l) },
-      { "@type": "ListItem", position: 2, name: id === "lars" ? K.laN : K[NAV.find(n => n[0] === id)[1]], item: url(id, l) }]
+      { "@type": "ListItem", position: 2, name: id === "lars" ? K.laN : id === "parcel-guide" ? K.pgN : K[NAV.find(n => n[0] === id)[1]], item: url(id, l) }]
   });
   // ავტობუსის დაქირავება: სერვისი + ხშირი კითხვები; ზემო ლარსი: სტატია
   if (id === "charter") g.push(
     { "@type": "Service", name: K.cpH, description: K.chT, serviceType: "Bus charter", provider: { "@id": SITE + "#org" },
       areaServed: ["GE", "Europe"], url: url(id, l), inLanguage: l },
     { "@type": "FAQPage", mainEntity: [1, 2, 3].map(i => ({ "@type": "Question", name: K["cq" + i], acceptedAnswer: { "@type": "Answer", text: K["ca" + i] } })) });
+  if (id === "parcel-guide") g.push({ "@type": "Article", headline: K.pgH, description: K.pgS, inLanguage: l, url: url(id, l),
+    image: SITE + "images/og.jpg", author: { "@id": SITE + "#org" }, publisher: { "@id": SITE + "#org" }, datePublished: "2026-11-20", dateModified: "2026-11-20" });
   if (id === "lars") g.push({ "@type": "Article", headline: K.laH, description: K.laS, inLanguage: l, url: url(id, l),
     image: SITE + "images/og.jpg", author: { "@id": SITE + "#org" }, publisher: { "@id": SITE + "#org" }, datePublished: "2026-11-18", dateModified: "2026-11-20" });
   if (id === "faq") g.push({
@@ -169,7 +171,7 @@ function routeHtml(c, l, LB) {
         <div class="rt-other">${CITY.filter(o => o !== c).map(o => `<a href="${LB}bus/${o.slug}/">${esc(t.other(o))}</a>`).join("")}</div>
       </div>`;
 }
-const routesNav = (l, LB) => `<nav class="w ft-routes" aria-label="Routes">${CITY.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RT[l](c).h1)}</a>`).join("")}<a href="${LB}charter/">${esc(TX[l].cpH)}</a><a href="${LB}lars/">${esc(TX[l].laN)}</a></nav>`;
+const routesNav = (l, LB) => `<nav class="w ft-routes" aria-label="Routes">${CITY.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RT[l](c).h1)}</a>`).join("")}<a href="${LB}charter/">${esc(TX[l].cpH)}</a><a href="${LB}lars/">${esc(TX[l].laN)}</a><a href="${LB}parcel-guide/">${esc(TX[l].pgN)}</a></nav>`;
 
 async function page(l, id, city) {
   const K = TX[l], home = id === "home";
