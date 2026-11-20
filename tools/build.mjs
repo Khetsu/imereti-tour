@@ -69,6 +69,13 @@ function jsonld(id, l, p, K) {
       { "@type": "ListItem", position: 1, name: K.nv0 || name, item: url("home", l) },
       { "@type": "ListItem", position: 2, name: id === "lars" ? K.laN : K[NAV.find(n => n[0] === id)[1]], item: url(id, l) }]
   });
+  // ავტობუსის დაქირავება: სერვისი + ხშირი კითხვები; ზემო ლარსი: სტატია
+  if (id === "charter") g.push(
+    { "@type": "Service", name: K.cpH, description: K.chT, serviceType: "Bus charter", provider: { "@id": SITE + "#org" },
+      areaServed: ["GE", "Europe"], url: url(id, l), inLanguage: l },
+    { "@type": "FAQPage", mainEntity: [1, 2, 3].map(i => ({ "@type": "Question", name: K["cq" + i], acceptedAnswer: { "@type": "Answer", text: K["ca" + i] } })) });
+  if (id === "lars") g.push({ "@type": "Article", headline: K.laH, description: K.laS, inLanguage: l, url: url(id, l),
+    image: SITE + "images/og.jpg", author: { "@id": SITE + "#org" }, publisher: { "@id": SITE + "#org" }, datePublished: "2026-11-18", dateModified: "2026-11-20" });
   if (id === "faq") g.push({
     "@type": "FAQPage", mainEntity: [1, 2, 3, 4, 5, 6].filter(i => K["q" + i] && K["a" + i]).map(i => ({
       "@type": "Question", name: K["q" + i], acceptedAnswer: { "@type": "Answer", text: K["a" + i] }
@@ -99,7 +106,7 @@ const CITY = STOPS.map((s, i) => ({ i, slug: s[1].en.toLowerCase() + "-moscow", 
 const kaAbl = n => n + "დან", kaLoc = n => n.replace(/ი$/, "") + "ში";
 const RT = {
   ka: c => ({
-    title: `ავტობუსი ${c.n.ka} — მოსკოვი | იმერეთი ტური`,
+    title: `ავტობუსი ${c.n.ka} — მოსკოვი და მოსკოვი — ${c.n.ka}: განრიგი, ფასი | იმერეთი ტური`,
     desc: `ავტობუსი ${kaAbl(c.n.ka)} მოსკოვამდე: გასვლა ${days("ge", "ka")}, ${c.time}.${price ? " ფასი " + price + "." : ""} დაჯავშნე ონლაინ 1 წუთში.`,
     kick: "ავტობუსი", h1: `${c.n.ka} — მოსკოვი`, sub: `რეგულარული რეისი ${kaAbl(c.n.ka)} მოსკოვამდე, ზემო ლარსის გავლით. დაჯავშნე ადგილი 1 წუთში.`,
     fT: "გასვლა", fD: "დღეები", fP: "ფასი", fE: "ფინიში", end: "მოსკოვი, მეტრო „ანინო“",
@@ -113,10 +120,10 @@ const RT = {
     msg: `გამარჯობა! მინდა ადგილის დაჯავშნა: ${c.n.ka} → მოსკოვი.`, other: o => `${o.n.ka} — მოსკოვი`
   }),
   ru: c => ({
-    title: `Автобус ${c.n.ru} — Москва | Имерети Тур`,
-    desc: `Автобус из ${c.n.ru} в Москву: отправление ${days("ge", "ru")} в ${c.time}.${price ? " Цена " + price + "." : ""} Бронирование онлайн за 1 минуту.`,
+    title: `Автобус ${c.n.ru} — Москва и Москва — ${c.n.ru}: расписание, цена | Имерети Тур`,
+    desc: `Автобус из ${c.n.ru} в Москву: отправление ${days("ge", "ru")} в ${c.time}.${price ? " Цена " + price + "." : ""} Обратно из Москвы: ${days("ru", "ru")}. Бронирование онлайн за 1 минуту.`,
     kick: "Автобус", h1: `${c.n.ru} — Москва`, sub: `Регулярный рейс из ${c.n.ru} в Москву через Верхний Ларс. Бронирование за 1 минуту.`,
-    fT: "Отправление", fD: "Дни", fP: "Цена", fE: "Финиш", end: "Москва, метро «Анино»",
+    fT: "Отправление", fD: "Дни", fP: "Цена", fE: "Финиш", end: "Москва, метро «Аннино»",
     rH: "Маршрут", wH: "Почему мы",
     li: ["Комфортные автобусы: кондиционер, Wi-Fi, USB-зарядка", "Бронирование за 1 минуту, без регистрации", "Для брони достаточно 25% предоплаты", "Доставка посылок в обе стороны"],
     cta: "Забронировать", sch: "Всё расписание", qH: "Частые вопросы", oH: "Из других городов",
@@ -127,7 +134,7 @@ const RT = {
     msg: `Здравствуйте! Хочу забронировать место: ${c.n.ru} → Москва.`, other: o => `${o.n.ru} — Москва`
   }),
   en: c => ({
-    title: `${c.n.en} to Moscow bus | Imereti Tour`,
+    title: `${c.n.en} — Moscow bus and Moscow — ${c.n.en}: schedule, price | Imereti Tour`,
     desc: `Bus from ${c.n.en} to Moscow: departures ${days("ge", "en")} at ${c.time}.${price ? " Price " + price + "." : ""} Book online in 1 minute.`,
     kick: "Bus", h1: `${c.n.en} — Moscow`, sub: `Regular bus from ${c.n.en} to Moscow via Upper Lars. Book a seat in 1 minute.`,
     fT: "Departure", fD: "Days", fP: "Price", fE: "Finish", end: "Moscow, Annino metro",
