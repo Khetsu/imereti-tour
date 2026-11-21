@@ -365,3 +365,5 @@ h1,.cw b,.marq span{letter-spacing:-.025em}
 .nysh{cursor:pointer}
 
 .art p a,.art li a{color:var(--coral,#ff6b5b);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+.btn.tg{background:#229ed9;color:#fff}.btn.tg:hover{background:#1b8cc2}

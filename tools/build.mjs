@@ -90,7 +90,7 @@ function jsonld(id, l, p, K) {
     { "@type": "WebSite", "@id": SITE + "#site", name: "იმერეთი ტური", alternateName: ["Imereti Tour", "Имерети Тур", "imeretitour.com"], url: SITE, inLanguage: LANGS },
     {
       "@type": ["Organization", "TravelAgency"], "@id": SITE + "#org", name: "იმერეთი ტური", alternateName: ["Imereti Tour", "Имерети Тур"], url: SITE,
-      logo: SITE + "images/icon-512.png", image: SITE + "images/og.jpg", telephone: PHONE,
+      logo: SITE + "images/icon-512.png", image: SITE + "images/og.jpg", telephone: PHONE, sameAs: ["https://t.me/imeretitour", "https://www.facebook.com/Imeretitour/"],
       description: meta("home", l).desc, areaServed: ["GE", "RU"],
       address: { "@type": "PostalAddress", streetAddress: "8 Baku Street", addressLocality: "Batumi", addressCountry: "GE" },
       geo: { "@type": "GeoCoordinates", latitude: 41.6465879, longitude: 41.6465561 },
