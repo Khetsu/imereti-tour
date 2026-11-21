@@ -132,6 +132,8 @@
     <div class="pg" id="p-lars" hidden><div hidden></div></div>
     <!-- ===================== ახალი წელი სახლში (new-year/) — სეზონური, იანვრის შემდეგ შეიძლება წაიშალოს ===================== -->
     <div class="pg" id="p-new-year" hidden><div hidden><ul class="dl" id="nyRu"></ul><ul class="dl" id="nyGe"></ul></div></div>
+    <!-- ===================== სტატია: მგზავრობის გზამკვლევი (travel-guide/) ===================== -->
+    <div class="pg" id="p-travel-guide" hidden><div hidden><b id="tgPr"></b></div></div>
     <!-- ===================== სტატია: ამანათის გაგზავნა (parcel-guide/) ===================== -->
     <div class="pg" id="p-parcel-guide" hidden>
       <div class="phd phd3" data-scene="boxes"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="pc">Посылки</span><h1 data-i="pgH">Посылка из Москвы в Грузию и из Грузии в Москву</h1><p class="sub" data-i="pgS">Как отправить посылку автобусом: шаги, цена и советы.</p></div></div>
@@ -139,7 +141,7 @@
         <article class="prose art">
           <h2 data-i="pg1h">Как это работает</h2><ol><li data-i="pg1a">Напишите нам в WhatsApp или заполните форму на сайте: что отправляете, примерный вес, откуда и куда.</li><li data-i="pg1b">Мы назовём цену, место и время передачи посылки.</li><li data-i="pg1c">Вы передаёте посылку при отправлении автобуса — она едет регулярным рейсом.</li><li data-i="pg1d">Получатель забирает посылку в своём городе.</li></ol>
           <h2 data-i="pg3h">Когда едет посылка</h2><p data-i="pg3">Посылка едет обычным рейсом: из Грузии — в среду и субботу, из Москвы — во вторник и субботу. Точные даты смотрите в расписании.</p>
-          <h2 data-i="pg4h">Сколько стоит</h2><p data-i="pg4">Цена зависит от веса и размера. Точную цену назовём в WhatsApp или после заполнения формы на странице посылок.</p>
+          <h2 data-i="pg4h">Сколько стоит</h2><p data-i="pg4">Цена — 10 лари за 1 кг. Цену крупной или нестандартной посылки уточним заранее в WhatsApp.</p>
           <h2 data-i="pg5h">Советы</h2><ul><li data-i="pg5a">Хорошо упакуйте посылку и заранее предупредите, если внутри хрупкие вещи.</li><li data-i="pg5b">Напишите на посылке имя и телефон получателя.</li><li data-i="pg5c">Запрещённые законом предметы (оружие, наркотики, легковоспламеняющиеся вещества) не принимаются. О лекарствах, жидкостях и ценных вещах спросите заранее.</li></ul>
           <p data-i="pg6">Чтобы отправить посылку, перейдите на страницу посылок или напишите нам в WhatsApp.</p>
         </article>
@@ -168,7 +170,7 @@
         <a class="logo" href="../.././"><img src="../../images/logo.svg" alt="" width="36" height="36"><span><b data-i="brand">Имерети Тур</b><small data-i="tag">Грузия–Москва</small></span></a>
         <p>© 2026 Imereti Tour · <a href="https://wa.me/995598808022" target="_blank" rel="noopener">+995 598 80 80 22</a></p>
       </div>
-      <nav class="w ft-routes" aria-label="Routes"><a href="../../ru/bus/batumi-moscow/">Батуми — Москва</a><a href="../../ru/bus/kobuleti-moscow/">Кобулети — Москва</a><a href="../../ru/bus/poti-moscow/">Поти — Москва</a><a href="../../ru/bus/kutaisi-moscow/">Кутаиси — Москва</a><a href="../../ru/bus/tbilisi-moscow/">Тбилиси — Москва</a><a href="../../ru/new-year/">Новый год дома</a><a href="../../ru/charter/">Аренда автобуса</a><a href="../../ru/lars/">Верхний Ларс: советы</a><a href="../../ru/parcel-guide/">Посылка в Москву: инструкция</a></nav>
+      <nav class="w ft-routes" aria-label="Routes"><a href="../../ru/bus/batumi-moscow/">Батуми — Москва</a><a href="../../ru/bus/kobuleti-moscow/">Кобулети — Москва</a><a href="../../ru/bus/poti-moscow/">Поти — Москва</a><a href="../../ru/bus/kutaisi-moscow/">Кутаиси — Москва</a><a href="../../ru/bus/tbilisi-moscow/">Тбилиси — Москва</a><a href="../../ru/travel-guide/">Всё о поездке</a><a href="../../ru/new-year/">Новый год дома</a><a href="../../ru/charter/">Аренда автобуса</a><a href="../../ru/lars/">Верхний Ларс: советы</a><a href="../../ru/parcel-guide/">Посылка в Москву: инструкция</a></nav>
       <nav class="w ft-lang" aria-label="Language"><a href="../../parcel-guide/" hreflang="ka" lang="ka">ქართული</a><a href="../../ru/parcel-guide/" hreflang="ru" lang="ru" aria-current="true">Русский</a><a href="../../en/parcel-guide/" hreflang="en" lang="en">English</a></nav>
     </footer>
 
@@ -176,8 +178,8 @@
     <div class="sticky" id="sticky"><a class="btn coral" href="#book" data-i="cta">Забронировать</a><a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a></div>
 
     <!-- სკრიპტები: 1) პარამეტრები, 2) მთავარი პროგრამა, 3) ანიმაციები და რეკლამა (fx.js), 4) 3D სცენები (scene.js, Three.js) -->
-    <script src="../../js/schedule-config.js?v=c73a2d36"></script>
-    <script src="../../js/script.js?v=01b6c8c9"></script>
+    <script src="../../js/schedule-config.js?v=3d24d845"></script>
+    <script src="../../js/script.js?v=4856c1dd"></script>
     <script src="../../js/fx.js?v=76bf4eb4"></script>
     <script type="module" src="../../js/scene.js?v=ed17ff10"></script>
   </body>

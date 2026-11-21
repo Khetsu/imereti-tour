@@ -66,6 +66,18 @@
       "desc": "Documents for the Upper Lars border, Georgia's travel health insurance rule from 2026, queues and practical tips for the bus trip."
     }
   },
+  "travel-guide": {
+    "title": "ავტობუსი საქართველო–მოსკოვი: რამდენ ხანს მივდივართ, ბარგი, ფასი | იმერეთი ტური",
+    "desc": "რამდენ ხანს გრძელდება მგზავრობა ავტობუსით საქართველოდან მოსკოვამდე (დაახლოებით დღე-ნახევარი), რამდენი ბარგი შეიძლება (დაახლოებით 30 კგ), ადგილისა და ამანათის ფასი, განრიგი და რჩევები.",
+    "ru": {
+      "title": "Сколько ехать на автобусе Москва — Грузия: багаж и цены | Имерети Тур",
+      "desc": "Сколько ехать на автобусе из Москвы в Грузию (около полутора суток), сколько багажа можно взять (около 30 кг), цена места и посылки, расписание и советы в дорогу."
+    },
+    "en": {
+      "title": "Bus Moscow — Georgia: travel time, luggage and prices | Imereti Tour",
+      "desc": "How long the bus from Moscow to Georgia takes (about a day and a half), luggage allowance (about 30 kg), seat and parcel prices, schedule and travel tips."
+    }
+  },
   "schedule": {
     "title": "განრიგი და ფასები — იმერეთი ტური",
     "desc": "გასვლის განრიგი საქართველოდან მოსკოვში და მოსკოვიდან საქართველოში: ბათუმი, ქობულეთი, ფოთი, ქუთაისი, თბილისი. ფასები და ადგილების არჩევა.",

@@ -101,7 +101,7 @@ function jsonld(id, l, p, K) {
   if (id !== "home") g.push({
     "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: K.nv0 || name, item: url("home", l) },
-      { "@type": "ListItem", position: 2, name: id === "new-year" ? K.nyN : id === "lars" ? K.laN : id === "parcel-guide" ? K.pgN : K[NAV.find(n => n[0] === id)[1]], item: url(id, l) }]
+      { "@type": "ListItem", position: 2, name: id === "new-year" ? K.nyN : id === "travel-guide" ? K.tgN : id === "lars" ? K.laN : id === "parcel-guide" ? K.pgN : K[NAV.find(n => n[0] === id)[1]], item: url(id, l) }]
   });
   // ავტობუსის დაქირავება: სერვისი + ხშირი კითხვები; ზემო ლარსი: სტატია
   if (id === "charter") g.push(
@@ -110,10 +110,13 @@ function jsonld(id, l, p, K) {
     { "@type": "FAQPage", mainEntity: [1, 2, 3].map(i => ({ "@type": "Question", name: K["cq" + i], acceptedAnswer: { "@type": "Answer", text: K["ca" + i] } })) });
   if (id === "parcel-guide") g.push({ "@type": "Article", headline: K.pgH, description: K.pgS, inLanguage: l, url: url(id, l),
     image: SITE + "images/og.jpg", author: { "@id": SITE + "#org" }, publisher: { "@id": SITE + "#org" }, datePublished: "2026-11-20", dateModified: "2026-11-20" });
+  if (id === "travel-guide") g.push({ "@type": "Article", headline: K.tgH, description: K.tgS, inLanguage: l, url: url(id, l),
+    image: SITE + "images/og.jpg", author: { "@id": SITE + "#org" }, publisher: { "@id": SITE + "#org" }, datePublished: "2026-11-21", dateModified: "2026-11-21" },
+    { "@type": "FAQPage", mainEntity: [7, 8, 9].map(i => ({ "@type": "Question", name: K["q" + i], acceptedAnswer: { "@type": "Answer", text: K["a" + i] } })) });
   if (id === "lars") g.push({ "@type": "Article", headline: K.laH, description: K.laS, inLanguage: l, url: url(id, l),
     image: SITE + "images/og.jpg", author: { "@id": SITE + "#org" }, publisher: { "@id": SITE + "#org" }, datePublished: "2026-11-18", dateModified: "2026-11-20" });
   if (id === "faq") g.push({
-    "@type": "FAQPage", mainEntity: [1, 2, 3, 4, 5, 6].filter(i => K["q" + i] && K["a" + i]).map(i => ({
+    "@type": "FAQPage", mainEntity: [1, 2, 3, 4, 5, 6, 7, 8, 9].filter(i => K["q" + i] && K["a" + i]).map(i => ({
       "@type": "Question", name: K["q" + i], acceptedAnswer: { "@type": "Answer", text: K["a" + i] }
     }))
   });
@@ -152,6 +155,7 @@ const RT = {
     faq: [[`როდის გადის ავტობუსი ${kaAbl(c.n.ka)} მოსკოვში?`, `${days("ge", "ka")}, ${c.time}-ზე (საქართველოს დროით). ზუსტი თარიღები იხილეთ განრიგში.`],
       price && [`რა ღირს ბილეთი ${kaAbl(c.n.ka)} მოსკოვამდე?`, `${price} ერთ ადგილზე. დაჯავშნისას საკმარისია 25% წინასწარ.`],
       [`არის რეისი უკან, მოსკოვიდან ${kaLoc(c.n.ka)}?`, `დიახ. მოსკოვიდან გასვლა: ${days("ru", "ka")}.`],
+      ["რამდენ ხანს გრძელდება მგზავრობა?", "დაახლოებით დღე-ნახევარი — დამოკიდებულია ზემო ლარსზე რიგსა და ამინდზე. ბარგი: დაახლოებით 30 კგ ერთ მგზავრზე."],
       ["როგორ დავჯავშნო?", "აირჩიეთ თარიღი და გაჩერება საიტზე და გაგზავნეთ ჯავშანი WhatsApp-ში, ან დაგვირეკეთ: +995 598 80 80 22."]],
     msg: `გამარჯობა! მინდა ადგილის დაჯავშნა: ${c.n.ka} → მოსკოვი.`, other: o => `${o.n.ka} — მოსკოვი`
   }),
@@ -166,6 +170,7 @@ const RT = {
     faq: [[`Когда отправляется автобус из ${c.n.ru} в Москву?`, `${days("ge", "ru")}, в ${c.time} (по грузинскому времени). Точные даты смотрите в расписании.`],
       price && [`Сколько стоит билет из ${c.n.ru} до Москвы?`, `${price} за место. Для бронирования достаточно 25% предоплаты.`],
       [`Есть ли обратный рейс из Москвы в ${c.n.ru}?`, `Да. Отправление из Москвы: ${days("ru", "ru")}.`],
+      ["Сколько ехать до Москвы?", "Около полутора суток — зависит от очереди на Верхнем Ларсе и погоды. Багаж: около 30 кг на человека."],
       ["Как забронировать?", "Выберите дату и остановку на сайте и отправьте заявку в WhatsApp или позвоните: +995 598 80 80 22."]],
     msg: `Здравствуйте! Хочу забронировать место: ${c.n.ru} → Москва.`, other: o => `${o.n.ru} — Москва`
   }),
@@ -180,6 +185,7 @@ const RT = {
     faq: [[`When does the bus from ${c.n.en} to Moscow leave?`, `${days("ge", "en")} at ${c.time} (Georgia time). See the schedule for exact dates.`],
       price && [`How much is a ticket from ${c.n.en} to Moscow?`, `${price} per seat. Only 25% prepayment to book.`],
       [`Is there a return trip from Moscow to ${c.n.en}?`, `Yes. Departures from Moscow: ${days("ru", "en")}.`],
+      ["How long is the trip to Moscow?", "About a day and a half — depends on the queue at Upper Lars and the weather. Luggage: about 30 kg per person."],
       ["How do I book?", "Pick a date and stop on the website and send the request on WhatsApp, or call +995 598 80 80 22."]],
     msg: `Hello! I would like to book a seat: ${c.n.en} → Moscow.`, other: o => `${o.n.en} — Moscow`
   })
@@ -213,7 +219,7 @@ function routeHtml(c, l, LB) {
       </div>`;
 }
 const GUIDES = "<div class=\"gd rv\"><div class=\"head\"><span class=\"kicker\" data-i=\"gdK\"></span><h2 data-i=\"gdH\"></h2></div><div class=\"gdl\"><a class=\"gdc gdc0\" data-href=\"new-year\"><span class=\"gdi\" aria-hidden=\"true\">🎄</span><span class=\"gdx\"><b data-i=\"gd0\"></b><small data-i=\"gd0t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc1\" data-href=\"charter\"><span class=\"gdi\" aria-hidden=\"true\">🚌</span><span class=\"gdx\"><b data-i=\"gd1\"></b><small data-i=\"gd1t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc2\" data-href=\"lars\"><span class=\"gdi\" aria-hidden=\"true\">🛂</span><span class=\"gdx\"><b data-i=\"gd2\"></b><small data-i=\"gd2t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc3\" data-href=\"parcel-guide\"><span class=\"gdi\" aria-hidden=\"true\">📦</span><span class=\"gdx\"><b data-i=\"gd3\"></b><small data-i=\"gd3t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a></div></div>";
-const routesNav = (l, LB) => `<nav class="w ft-routes" aria-label="Routes">${CITY.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RT[l](c).h1)}</a>`).join("")}<a href="${LB}new-year/">${esc(TX[l].nyN)}</a><a href="${LB}charter/">${esc(TX[l].cpH)}</a><a href="${LB}lars/">${esc(TX[l].laN)}</a><a href="${LB}parcel-guide/">${esc(TX[l].pgN)}</a></nav>`;
+const routesNav = (l, LB) => `<nav class="w ft-routes" aria-label="Routes">${CITY.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RT[l](c).h1)}</a>`).join("")}<a href="${LB}travel-guide/">${esc(TX[l].tgN)}</a><a href="${LB}new-year/">${esc(TX[l].nyN)}</a><a href="${LB}charter/">${esc(TX[l].cpH)}</a><a href="${LB}lars/">${esc(TX[l].laN)}</a><a href="${LB}parcel-guide/">${esc(TX[l].pgN)}</a></nav>`;
 
 async function page(l, id, city) {
   const K = TX[l], home = id === "home";
