@@ -26,6 +26,8 @@ const PHONE = "+995598808022";
 const LANGS = ["ka", "ru", "en"];
 const LOCALE = { ka: "ka_GE", ru: "ru_RU", en: "en_US" };
 const tpl = await readFile(join(ROOT, "src/template.html"), "utf8");
+// Google My Maps ბმული ყველა გაჩერებით (src/stops-map.txt)
+const STOPSMAP = existsSync(join(ROOT, "src/stops-map.txt")) ? readFileSync(join(ROOT, "src/stops-map.txt"), "utf8").trim() : "https://www.imeretitour.com/";
 const pages = JSON.parse(await readFile(join(ROOT, "src/pages.json"), "utf8"));
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
@@ -219,7 +221,7 @@ function routeHtml(c, l, LB) {
       </div>`;
 }
 const GUIDES = "<div class=\"gd rv\"><div class=\"head\"><span class=\"kicker\" data-i=\"gdK\"></span><h2 data-i=\"gdH\"></h2></div><div class=\"gdl\"><a class=\"gdc gdc0\" data-href=\"new-year\"><span class=\"gdi\" aria-hidden=\"true\">🎄</span><span class=\"gdx\"><b data-i=\"gd0\"></b><small data-i=\"gd0t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc1\" data-href=\"charter\"><span class=\"gdi\" aria-hidden=\"true\">🚌</span><span class=\"gdx\"><b data-i=\"gd1\"></b><small data-i=\"gd1t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc2\" data-href=\"lars\"><span class=\"gdi\" aria-hidden=\"true\">🛂</span><span class=\"gdx\"><b data-i=\"gd2\"></b><small data-i=\"gd2t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc3\" data-href=\"parcel-guide\"><span class=\"gdi\" aria-hidden=\"true\">📦</span><span class=\"gdx\"><b data-i=\"gd3\"></b><small data-i=\"gd3t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a></div></div>";
-const routesNav = (l, LB) => `<nav class="w ft-routes" aria-label="Routes">${CITY.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RT[l](c).h1)}</a>`).join("")}<a href="${LB}travel-guide/">${esc(TX[l].tgN)}</a><a href="${LB}new-year/">${esc(TX[l].nyN)}</a><a href="${LB}charter/">${esc(TX[l].cpH)}</a><a href="${LB}lars/">${esc(TX[l].laN)}</a><a href="${LB}parcel-guide/">${esc(TX[l].pgN)}</a></nav>`;
+const routesNav = (l, LB) => `<nav class="w ft-routes" aria-label="Routes">${CITY.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RT[l](c).h1)}</a>`).join("")}<a href="${LB}travel-guide/">${esc(TX[l].tgN)}</a><a href="${LB}new-year/">${esc(TX[l].nyN)}</a><a href="${LB}charter/">${esc(TX[l].cpH)}</a><a href="${LB}lars/">${esc(TX[l].laN)}</a><a href="${LB}parcel-guide/">${esc(TX[l].pgN)}</a><a href="${esc(STOPSMAP)}" target="_blank" rel="noopener">${esc(TX[l].smN)}</a></nav>`;
 
 async function page(l, id, city) {
   const K = TX[l], home = id === "home";
@@ -239,7 +241,8 @@ async function page(l, id, city) {
     .replaceAll("{{OGDESC}}", esc(l === "ka" && !city ? p.ogDesc || p.desc : p.desc))
     .replaceAll("{{URL}}", U)
     .replace("{{ROUTE}}", city ? routeHtml(city, l, LB) + "<div class=\"w\">{{GUIDES}}</div>" : "")
-    .replaceAll("{{GUIDES}}", GUIDES);
+    .replaceAll("{{GUIDES}}", GUIDES)
+    .replaceAll("{{STOPSMAP}}", esc(STOPSMAP));
   if (!city && p.og) html = html.replace("images/og.jpg?v=3", p.og);
   html = slim(html, city ? "route" : home ? "home" : id);
   if (/\{\{[A-Z]+\}\}/.test(html)) throw new Error("unfilled placeholder in " + l + "/" + pth);
