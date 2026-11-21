@@ -67,7 +67,7 @@ function jsonld(id, l, p, K) {
   if (id !== "home") g.push({
     "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: K.nv0 || name, item: url("home", l) },
-      { "@type": "ListItem", position: 2, name: id === "lars" ? K.laN : id === "parcel-guide" ? K.pgN : K[NAV.find(n => n[0] === id)[1]], item: url(id, l) }]
+      { "@type": "ListItem", position: 2, name: id === "new-year" ? K.nyN : id === "lars" ? K.laN : id === "parcel-guide" ? K.pgN : K[NAV.find(n => n[0] === id)[1]], item: url(id, l) }]
   });
   // ავტობუსის დაქირავება: სერვისი + ხშირი კითხვები; ზემო ლარსი: სტატია
   if (id === "charter") g.push(
@@ -171,8 +171,8 @@ function routeHtml(c, l, LB) {
         <div class="rt-other">${CITY.filter(o => o !== c).map(o => `<a href="${LB}bus/${o.slug}/">${esc(t.other(o))}</a>`).join("")}</div>
       </div>`;
 }
-const GUIDES = "<div class=\"gd rv\"><div class=\"head\"><span class=\"kicker\" data-i=\"gdK\"></span><h2 data-i=\"gdH\"></h2></div><div class=\"gdl\"><a class=\"gdc gdc1\" data-href=\"charter\"><span class=\"gdi\" aria-hidden=\"true\">🚌</span><span class=\"gdx\"><b data-i=\"gd1\"></b><small data-i=\"gd1t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc2\" data-href=\"lars\"><span class=\"gdi\" aria-hidden=\"true\">🛂</span><span class=\"gdx\"><b data-i=\"gd2\"></b><small data-i=\"gd2t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc3\" data-href=\"parcel-guide\"><span class=\"gdi\" aria-hidden=\"true\">📦</span><span class=\"gdx\"><b data-i=\"gd3\"></b><small data-i=\"gd3t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a></div></div>";
-const routesNav = (l, LB) => `<nav class="w ft-routes" aria-label="Routes">${CITY.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RT[l](c).h1)}</a>`).join("")}<a href="${LB}charter/">${esc(TX[l].cpH)}</a><a href="${LB}lars/">${esc(TX[l].laN)}</a><a href="${LB}parcel-guide/">${esc(TX[l].pgN)}</a></nav>`;
+const GUIDES = "<div class=\"gd rv\"><div class=\"head\"><span class=\"kicker\" data-i=\"gdK\"></span><h2 data-i=\"gdH\"></h2></div><div class=\"gdl\"><a class=\"gdc gdc0\" data-href=\"new-year\"><span class=\"gdi\" aria-hidden=\"true\">🎄</span><span class=\"gdx\"><b data-i=\"gd0\"></b><small data-i=\"gd0t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc1\" data-href=\"charter\"><span class=\"gdi\" aria-hidden=\"true\">🚌</span><span class=\"gdx\"><b data-i=\"gd1\"></b><small data-i=\"gd1t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc2\" data-href=\"lars\"><span class=\"gdi\" aria-hidden=\"true\">🛂</span><span class=\"gdx\"><b data-i=\"gd2\"></b><small data-i=\"gd2t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc3\" data-href=\"parcel-guide\"><span class=\"gdi\" aria-hidden=\"true\">📦</span><span class=\"gdx\"><b data-i=\"gd3\"></b><small data-i=\"gd3t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a></div></div>";
+const routesNav = (l, LB) => `<nav class="w ft-routes" aria-label="Routes">${CITY.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RT[l](c).h1)}</a>`).join("")}<a href="${LB}new-year/">${esc(TX[l].nyN)}</a><a href="${LB}charter/">${esc(TX[l].cpH)}</a><a href="${LB}lars/">${esc(TX[l].laN)}</a><a href="${LB}parcel-guide/">${esc(TX[l].pgN)}</a></nav>`;
 
 async function page(l, id, city) {
   const K = TX[l], home = id === "home";
@@ -193,6 +193,7 @@ async function page(l, id, city) {
     .replaceAll("{{URL}}", U)
     .replace("{{ROUTE}}", city ? routeHtml(city, l, LB) + "<div class=\"w\">{{GUIDES}}</div>" : "")
     .replaceAll("{{GUIDES}}", GUIDES);
+  if (!city && p.og) html = html.replace("images/og.jpg?v=3", p.og);
   if (/\{\{[A-Z]+\}\}/.test(html)) throw new Error("unfilled placeholder in " + l + "/" + pth);
   html = html
     .replace('<html lang="ka">', `<html lang="${l}">`)

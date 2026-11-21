@@ -39,6 +39,21 @@
       "desc": "Rent a bus: excursions, weddings, events, transfers. Across Georgia, to Europe and other countries. Price on request."
     }
   },
+  "new-year": {
+    "title": "ახალი წელი სახლში — ავტობუსი მოსკოვიდან საქართველოში, დეკემბრის რეისები | იმერეთი ტური",
+    "desc": "ავტობუსი მოსკოვი–საქართველო ახალ წელს: დეკემბრის რეისები ბათუმამდე, ქობულეთამდე, ფოთამდე, ქუთაისამდე და თბილისამდე, უკან დაბრუნება იანვარში. საჩუქრები და ამანათები. ონლაინ დაჯავშნა.",
+    "og": "images/og-newyear-ka.jpg",
+    "ru": {
+      "title": "Автобус Москва — Грузия на Новый год: рейсы в декабре | Имерети Тур",
+      "desc": "Новый год дома: автобус из Москвы в Батуми, Кобулети, Поти, Кутаиси и Тбилиси в декабре, обратно — в январе. Подарки и посылки родным. Онлайн-бронирование.",
+      "og": "images/og-newyear-ru.jpg"
+    },
+    "en": {
+      "title": "Bus Moscow — Georgia for New Year: December trips | Imereti Tour",
+      "desc": "New Year at home: bus from Moscow to Batumi, Kobuleti, Poti, Kutaisi and Tbilisi in December, back in January. Gifts and parcels too. Book online.",
+      "og": "images/og-newyear-ru.jpg"
+    }
+  },
   "lars": {
     "title": "ზემო ლარსის გადაკვეთა: საბუთები და რჩევები — იმერეთი ტური",
     "desc": "რა საბუთები გჭირდებათ ზემო ლარსზე, სამედიცინო დაზღვევა 2026 წლიდან, რიგები და პრაქტიკული რჩევები ავტობუსით მგზავრობისთვის.",
