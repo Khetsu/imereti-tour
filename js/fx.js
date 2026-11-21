@@ -250,7 +250,7 @@
     // 5.4 ავტობუსების 3D კარუსელი: ტრიალებს თავისით, სქროლით და თითით/მაუსით
     var ring = $("ring"), ringw = $("ringw"), rA = 0, rV = 0, rDrag = false, rX = 0, rR = 300;
     function ringSize() {
-        if (!ring) return;
+        if (!ring || !all("figure", ring).length) return;
         var f = all("figure", ring), n = f.length, w = f[0].offsetWidth;
         rR = Math.round(w / 2 / Math.tan(Math.PI / n) + 24);
         f.forEach(function (e, i) { e.style.transform = "rotateY(" + (i * 360 / n) + "deg) translateZ(" + rR + "px)"; });
@@ -412,7 +412,7 @@
         rboxTick();
         unboxTick();
         stackTick();
-        if (marq && !RM && !$("p-home").hidden) {
+        if (marq && marq.firstChild && !RM && !$("p-home").hidden) {
             mx -= (40 + Math.abs(vel) * 18) * dt;
             var w = marq.firstChild.offsetWidth / 2 || 1;
             if (-mx > w) mx += w;

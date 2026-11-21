@@ -80,33 +80,6 @@
 
     <!-- ===================== მთავარი გვერდი ===================== -->
     <div id="p-home">
-      <!-- პირველი ეკრანი: 3D მოგზაურობა. სქროლისას ავტობუსი მიდის ბათუმიდან მოსკოვამდე (js/scene.js), ქალაქების „ფანჯრები“ (js/fx.js) -->
-      <section class="trip" id="trip">
-        <div class="stage">
-          <div class="sky" aria-hidden="true">
-            <svg class="mt m3" viewBox="0 0 1200 300" preserveAspectRatio="none"><path d="M0 300V190l120-60 90 40 140-110 120 90 110-70 150 120 120-80 140 60 110-50 100 40v130z"/></svg>
-            <svg class="mt m2" viewBox="0 0 1200 300" preserveAspectRatio="none"><path d="M0 300V220l160-70 110 50 160-120 140 100 150-60 130 80 170-90 180 110v100z"/></svg>
-            <svg class="mt m1" viewBox="0 0 1200 300" preserveAspectRatio="none"><path d="M0 300V250l200-40 180 30 220-50 200 40 220-30 180 40v60z"/></svg>
-          </div>
-          <canvas id="gl" aria-hidden="true"></canvas>
-          <div class="shade" aria-hidden="true"></div>
-          <div class="w hero-t" id="heroT">
-            <span class="chip live"><i class="dot"></i><span><span data-i="nx1">Ближайший выезд из Грузии</span>:</span> <b id="d1"></b></span>
-            <h1><span class="ln"><span data-i="cGe">Грузия</span> <em>⇄</em></span><span class="ln"><span data-i="cMo">Москва</span></span></h1>
-            <p class="sub" data-i="hsub">Регулярные рейсы в обе стороны. Забронируйте место за 1 минуту, без регистрации.</p>
-            <div class="cd" id="cd" aria-live="off"></div>
-            <div class="ctas"><a class="btn coral mag" href="#book"><span data-i="cta">Забронировать</span><svg><use href="#i-arrow"/></svg></a><a class="btn ghost" href="../../../ru/schedule/" data-href="schedule" data-i="nv2">Расписание</a></div>
-          </div>
-          <div class="hint" id="hint" aria-hidden="true"><i></i><span data-i="scrl">Листайте, и в путь</span></div>
-          <div class="chap" id="chap"></div>
-          <div class="trail" id="trail" aria-hidden="true"><i class="tbar"></i><i class="tbus"></i></div>
-        </div>
-      </section>
-
-      <!-- დაჯავშნა: ბილეთის ფორმა → WhatsApp (ადგილებს ოფისი ანაწილებს) -->
-      <!-- ახალი წლის ბანერი (სეზონური) -->
-      <div class="w nybw"><a class="nyb" href="../../../ru/new-year/" data-href="new-year"><span class="nyt" aria-hidden="true">🎄</span><b data-i="nyBn">Новый год дома — рейсы в декабре из Москвы</b><svg><use href="#i-arrow"/></svg></a></div>
-
       <section class="book" id="book">
         <div class="w book-in">
           <div class="book-t rv">
@@ -141,93 +114,6 @@
         </div>
       </section>
 
-      <!-- სასარგებლო: დაქირავება, ლარსი, ამანათი -->
-      <section class="band gdb"><div class="w"><div class="gd rv"><div class="head"><span class="kicker" data-i="gdK">Полезное</span><h2 data-i="gdH">Перед поездкой</h2></div><div class="gdl"><a class="gdc gdc0" href="../../../ru/new-year/" data-href="new-year"><span class="gdi" aria-hidden="true">🎄</span><span class="gdx"><b data-i="gd0">Новый год дома</b><small data-i="gd0t">Рейсы в декабре из Москвы в Грузию</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc1" href="../../../ru/charter/" data-href="charter"><span class="gdi" aria-hidden="true">🚌</span><span class="gdx"><b data-i="gd1">Аренда автобуса</b><small data-i="gd1t">Экскурсии, свадьбы, группы — по Грузии и в Европу</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc2" href="../../../ru/lars/" data-href="lars"><span class="gdi" aria-hidden="true">🛂</span><span class="gdx"><b data-i="gd2">Верхний Ларс: советы</b><small data-i="gd2t">Документы, очереди и что важно знать на границе</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc3" href="../../../ru/parcel-guide/" data-href="parcel-guide"><span class="gdi" aria-hidden="true">📦</span><span class="gdx"><b data-i="gd3">Посылка в Москву</b><small data-i="gd3t">Как отправить: шаги, цена, советы</small></span><svg class="gda"><use href="#i-arrow"/></svg></a></div></div></div></section>
-
-      <!-- მოძრავი ქალაქების ზოლი -->
-      <div class="marq" aria-hidden="true"><div class="marq-in" id="marq"></div></div>
-
-      <!-- „ფანჯრები“: ჰორიზონტალური გალერეა ავტობუსის ფანჯრის ჩარჩოებში (სქროლით გვერდზე მოძრაობს) -->
-      <section class="hs" id="hs">
-        <div class="hs-st">
-          <div class="w head"><span class="kicker" data-i="bh">Наши автобусы</span><h2 data-i="whyt">Настоящие автобусы, настоящий комфорт</h2></div>
-          <div class="hs-tr" id="hstr">
-            <a class="win" href="../../../ru/buses/" data-href="buses"><span class="win-f"><img src="../../../images/real/bus-white-hotel.jpg" alt="" loading="lazy"></span><b data-i="c1">Современные автобусы</b><small data-i="c1t">Кондиционер · USB-зарядка</small></a>
-            <a class="win" href="../../../ru/buses/" data-href="buses"><span class="win-f"><img src="../../../images/real/interior-orange.jpg" alt="" loading="lazy"></span><b data-i="c2">Удобные кресла</b><small data-i="c2t">для долгой дороги</small></a>
-            <a class="win" href="../../../ru/buses/" data-href="buses"><span class="win-f"><img src="../../../images/real/bus-gold-front.jpg" alt="" loading="lazy"></span><b data-i="nv1">Автобусы</b><small data-i="w3">Настоящие фото наших автобусов</small></a>
-            <a class="win" href="../../../ru/buses/" data-href="buses"><span class="win-f"><img src="../../../images/real/interior-red.jpg" alt="" loading="lazy"></span><b data-i="amh">Что вас ждёт в пути</b><small data-i="am1">Комфортные автобусы</small></a>
-            <a class="win" href="../../../ru/parcels/" data-href="parcels"><span class="win-f"><img src="../../../images/real/bus-gold-side.jpg" alt="" loading="lazy"></span><b data-i="pc">Посылки</b><small data-i="c3t">в обе стороны</small></a>
-            <a class="win" href="../../../ru/schedule/" data-href="schedule"><span class="win-f"><img src="../../../images/real/bus-white-side.jpg" alt="" loading="lazy"></span><b data-i="nv2">Расписание</b><small data-i="hw1t">Ближайшие рейсы в обе стороны.</small></a>
-          </div>
-        </div>
-      </section>
-
-      <!-- რიცხვები და მარშრუტი ცოცხალი ავტობუსით -->
-      <section class="band">
-        <div class="w stats-in">
-          <div class="stats rv" id="stats"></div>
-          <div class="rcard rv" id="rcard" data-tilt>
-            <h2 data-i="rt">Маршрут</h2>
-            <i class="rbus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 16V6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v10M5 16h14v2a1 1 0 0 1-1 1h-1v1.5M7 19.5V19H6a1 1 0 0 1-1-1v-2M5 11h14M8 15h.01M16 15h.01" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></i>
-            <ol class="route" id="route"></ol>
-            <p class="rnext"><span data-i="nx2">Ближайший выезд из Москвы</span>: <b id="d2"></b></p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ამანათები: 3D ყუთი -->
-      <section class="band">
-        <div class="w">
-          <div class="promo rv" data-tilt>
-            <div class="cube sm" aria-hidden="true"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i><i class="f6"></i></div>
-            <div><h2 data-i="pc">Посылки</h2><p data-i="pct">Быстро и безопасно перевозим посылки в обоих направлениях Грузия–Москва.</p></div>
-            <a class="btn coral mag" href="../../../ru/parcels/" data-href="parcels"><span data-i="more">Подробнее о посылках</span><svg><use href="#i-arrow"/></svg></a>
-          </div>
-        </div>
-      </section>
-
-      <!-- რეკლამა: პარტნიორები (რეკლამებს ამატებ ადმინ-გვერდიდან; ცარიელ ადგილზე ჩანს „აქ შეიძლება იყოს თქვენი რეკლამა“) -->
-      <section class="band ads" id="ads">
-        <div class="w">
-          <div class="head rv"><span class="kicker" data-i="adk">Партнёры</span><h2 data-i="adh">Ваш бизнес перед глазами пассажиров</h2></div>
-          <div class="adl" id="adl"></div>
-        </div>
-      </section>
-
-      <!-- ავტობუსის დაქირავება (იგივე ბლოკი, რაც ავტობუსების გვერდზე) -->
-      <section class="band" id="rent">
-        <div class="w">
-          <div class="head rv"><span class="kicker" data-i="brand">Имерети Тур</span><h2 data-i="chH">Аренда автобуса</h2></div>
-          <div class="box chb rv">
-          <p class="chp" data-i="chT">Арендуйте автобус для любой поездки — экскурсии, мероприятия, по всей Грузии и за её пределами: в Европу и другие страны.</p>
-          <ul class="chl"><li data-i="ch1">Экскурсии и туры по всей Грузии</li><li data-i="ch2">Свадьбы, дни рождения и мероприятия</li><li data-i="ch3">Корпоративные, школьные и групповые поездки</li><li data-i="ch4">Трансферы: аэропорт, вокзал, отель</li><li data-i="ch5">Международные рейсы: Европа и другие страны</li><li data-i="ch6">Цена по договорённости — напишите маршрут и дату</li></ul>
-          <div class="ctas"><a class="btn wa chwa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a><a class="btn ghost" href="tel:+995598808022" data-i="chC">Позвонить</a></div>
-        </div>
-        </div>
-      </section>
-
-      <!-- მგზავრების შეფასებები (ჩანს, როცა ადმინ-გვერდზე დაამატებ) -->
-      <section class="band" id="rvs">
-        <div class="w">
-          <div class="head rv"><span class="kicker" data-i="rvk">Отзывы</span><h2 data-i="rvh">Отзывы пассажиров</h2><p class="rv-avg" id="rvavg" hidden></p></div>
-          <div class="rvl" id="rvl"></div>
-          <p class="rv-empty" id="rvempty" data-i="rve" hidden>Пока нет отзывов. Будьте первым!</p>
-          <!-- შეფასების დატოვება: მიდის Google-ის ცხრილში (ფურცელი Reviews), საიტზე ჩანს მხოლოდ მას შემდეგ, რაც სვეტში Approved ჩაწერ yes ან კი -->
-          <form class="ticket rvf" id="rvf" onsubmit="return false">
-            <h3 data-i="rvw">Оставить отзыв</h3>
-            <div class="stars" id="rfs" role="radiogroup" aria-label="Rating"><button type="button" data-s="1" aria-label="1">★</button><button type="button" data-s="2" aria-label="2">★</button><button type="button" data-s="3" aria-label="3">★</button><button type="button" data-s="4" aria-label="4">★</button><button type="button" data-s="5" aria-label="5">★</button></div>
-            <div class="tk-f">
-              <label class="fld"><span data-i="nm">Имя</span><input id="rfn" maxlength="60" autocomplete="name"></label>
-              <label class="fld"><span data-i="rvc">Город</span><input id="rfc" maxlength="40"></label>
-              <label class="fld wide"><span data-i="rvt2">Ваши впечатления о поездке</span><textarea id="rft" rows="3" maxlength="600"></textarea></label>
-            </div>
-            <button type="button" class="btn coral" id="rfsend"><span data-i="rvb">Отправить</span></button>
-            <p class="note" id="rfmsg" role="status" hidden></p>
-          </form>
-        </div>
-      </section>
-
-      <!-- კონტაქტი -->
       <section class="band" id="contact">
         <div class="w">
           <div class="contact rv" data-tilt>
@@ -236,185 +122,26 @@
           </div>
         </div>
       </section>
+      <div hidden><section class="trip" id="trip"></section><div class="w hero-t" id="heroT"></div><b id="d1"></b><div class="cd" id="cd" aria-live="off"></div><div class="hint" id="hint" aria-hidden="true"></div><div class="chap" id="chap"></div><div class="trail" id="trail" aria-hidden="true"></div><div class="marq-in" id="marq"></div><section class="hs" id="hs"></section><div class="hs-tr" id="hstr"></div><div class="stats rv" id="stats"></div><div class="rcard rv" id="rcard" data-tilt></div><ol class="route" id="route"></ol><b id="d2"></b><div class="adl" id="adl"></div><p class="rv-avg" id="rvavg" hidden></p><div class="rvl" id="rvl"></div><p class="rv-empty" id="rvempty" hidden></p><div class="stars" id="rfs" role="radiogroup" aria-label="Rating"></div><input id="rfn" maxlength="60" autocomplete="name"><input id="rfc" maxlength="40"><textarea id="rft" rows="3" maxlength="600"></textarea><button type="button" class="btn coral" id="rfsend"></button><p class="note" id="rfmsg" role="status" hidden></p></div>
     </div>
-
     <!-- ===================== ავტობუსები ===================== -->
-    <div class="pg" id="p-buses" hidden>
-      <div class="phd phd3" data-scene="bus"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">Имерети Тур</span><h1 data-i="bh">Наши автобусы</h1><p class="sub" data-i="bsub">Комфортные автобусы и надёжный сервис в дальней дороге.</p></div></div>
-      <div class="w">
-        <div class="ringw" id="ringw">
-          <div class="ring" id="ring">
-            <figure><img src="../../../images/real/bus-white-hotel.jpg" alt="" loading="lazy"></figure>
-            <figure><img src="../../../images/real/interior-orange.jpg" alt="" loading="lazy"></figure>
-            <figure><img src="../../../images/real/bus-gold-front.jpg" alt="" loading="lazy"></figure>
-            <figure><img src="../../../images/real/interior-red.jpg" alt="" loading="lazy"></figure>
-            <figure><img src="../../../images/real/bus-white-side.jpg" alt="" loading="lazy"></figure>
-            <figure><img src="../../../images/real/bus-gold-side.jpg" alt="" loading="lazy"></figure>
-          </div>
-          <p class="ring-h"><span>⟲</span> <span data-i="spin">Крутите или листайте</span></p>
-        </div>
-        <h2 class="h2" data-i="amh">Что вас ждёт в пути</h2>
-        <div class="am flip">
-          <div><svg><use href="#i-seat"/></svg><span data-i="am1">Комфортные автобусы</span></div>
-          <div><svg><use href="#i-shield"/></svg><span data-i="am2">Безопасный и надёжный сервис</span></div>
-          <div><svg><use href="#i-snow"/></svg><span data-i="am3">Кондиционер</span></div>
-          <div><svg><use href="#i-wifi"/></svg><span>Wi-Fi</span></div>
-          <div><svg><use href="#i-plug"/></svg><span data-i="am5">USB-зарядка</span></div>
-        </div>
-        <div class="gd rv"><div class="head"><span class="kicker" data-i="gdK">Полезное</span><h2 data-i="gdH">Перед поездкой</h2></div><div class="gdl"><a class="gdc gdc0" href="../../../ru/new-year/" data-href="new-year"><span class="gdi" aria-hidden="true">🎄</span><span class="gdx"><b data-i="gd0">Новый год дома</b><small data-i="gd0t">Рейсы в декабре из Москвы в Грузию</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc1" href="../../../ru/charter/" data-href="charter"><span class="gdi" aria-hidden="true">🚌</span><span class="gdx"><b data-i="gd1">Аренда автобуса</b><small data-i="gd1t">Экскурсии, свадьбы, группы — по Грузии и в Европу</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc2" href="../../../ru/lars/" data-href="lars"><span class="gdi" aria-hidden="true">🛂</span><span class="gdx"><b data-i="gd2">Верхний Ларс: советы</b><small data-i="gd2t">Документы, очереди и что важно знать на границе</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc3" href="../../../ru/parcel-guide/" data-href="parcel-guide"><span class="gdi" aria-hidden="true">📦</span><span class="gdx"><b data-i="gd3">Посылка в Москву</b><small data-i="gd3t">Как отправить: шаги, цена, советы</small></span><svg class="gda"><use href="#i-arrow"/></svg></a></div></div>
-        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta">Забронировать</span><svg><use href="#i-arrow"/></svg></a></p>
-        <!-- ავტობუსის დაქირავება: საქართველოს მასშტაბით და საზღვარგარეთ (ტექსტები: js/script.js T3 ch*) -->
-        <h2 class="h2" data-i="chH">Аренда автобуса</h2>
-        <div class="box chb">
-          <p class="chp" data-i="chT">Арендуйте автобус для любой поездки — экскурсии, мероприятия, по всей Грузии и за её пределами: в Европу и другие страны.</p>
-          <ul class="chl"><li data-i="ch1">Экскурсии и туры по всей Грузии</li><li data-i="ch2">Свадьбы, дни рождения и мероприятия</li><li data-i="ch3">Корпоративные, школьные и групповые поездки</li><li data-i="ch4">Трансферы: аэропорт, вокзал, отель</li><li data-i="ch5">Международные рейсы: Европа и другие страны</li><li data-i="ch6">Цена по договорённости — напишите маршрут и дату</li></ul>
-          <div class="ctas"><a class="btn wa chwa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a><a class="btn ghost" href="tel:+995598808022" data-i="chC">Позвонить</a></div>
-        </div>
-      </div>
-    </div>
-
+    <div class="pg" id="p-buses" hidden><div hidden><div class="ringw" id="ringw"></div><div class="ring" id="ring"></div></div></div>
     <!-- ===================== ავტობუსის დაქირავება (charter/) ===================== -->
-    <div class="pg" id="p-charter" hidden>
-      <div class="phd phd3" data-scene="bus"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">Имерети Тур</span><h1 data-i="cpH">Аренда автобуса</h1><p class="sub" data-i="cpS">Аренда автобуса — по всей Грузии, в Европу и другие страны.</p></div></div>
-      <div class="w">
-        <div class="box chb">
-          <p class="chp" data-i="chT">Арендуйте автобус для любой поездки — экскурсии, мероприятия, по всей Грузии и за её пределами: в Европу и другие страны.</p>
-          <ul class="chl"><li data-i="ch1">Экскурсии и туры по всей Грузии</li><li data-i="ch2">Свадьбы, дни рождения и мероприятия</li><li data-i="ch3">Корпоративные, школьные и групповые поездки</li><li data-i="ch4">Трансферы: аэропорт, вокзал, отель</li><li data-i="ch5">Международные рейсы: Европа и другие страны</li><li data-i="ch6">Цена по договорённости — напишите маршрут и дату</li></ul>
-          <div class="ctas"><a class="btn wa chwa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a><a class="btn ghost" href="tel:+995598808022" data-i="chC">Позвонить</a></div>
-        </div>
-        <h2 class="h2" data-i="cpHow">Как заказать</h2>
-        <ol class="steps"><li><b data-i="cs1">Напишите нам</b><span data-i="cs1t">Напишите в WhatsApp маршрут, дату и количество пассажиров.</span></li><li><b data-i="cs2">Узнайте цену</b><span data-i="cs2t">По деталям поездки назовём цену и условия.</span></li><li><b data-i="cs3">В путь</b><span data-i="cs3t">В назначенное время автобус будет ждать вас в условленном месте.</span></li></ol>
-        <h2 class="h2" data-i="cpFq">Частые вопросы</h2>
-        <div class="prose art"><h3 data-i="cq1">Сколько стоит аренда автобуса?</h3><p data-i="ca1">Цена зависит от маршрута, расстояния и количества дней. Напишите детали — назовём точную цену.</p><h3 data-i="cq2">Можно ли поехать за границу?</h3><p data-i="ca2">Да — в Европу и другие страны, по предварительной договорённости.</p><h3 data-i="cq3">За сколько нужно бронировать?</h3><p data-i="ca3">Чем раньше, тем лучше — особенно летом и в праздники. Для срочного заказа позвоните нам.</p></div>
-      </div>
-    </div>
-
+    <div class="pg" id="p-charter" hidden><div hidden></div></div>
     <!-- ===================== სტატია: ზემო ლარსი (lars/) ===================== -->
-    <div class="pg" id="p-lars" hidden>
-      <div class="phd phd3" data-scene="planes"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">Имерети Тур</span><h1 data-i="laH">Верхний Ларс: документы и советы</h1><p class="sub" data-i="laS">Что нужно знать о поездке на автобусе из Грузии в Россию и обратно.</p></div></div>
-      <div class="w narrow">
-        <article class="prose art">
-          <h2 data-i="la1h">Что такое Верхний Ларс</h2><p data-i="la1">Верхний Ларс — главный сухопутный пункт пропуска между Грузией и Россией, на Военно-Грузинской дороге в Казбегском районе. Наш автобус едет этим путём: из городов Грузии через Верхний Ларс во Владикавказ и дальше до Москвы.</p>
-          <h2 data-i="la2h">Какие нужны документы</h2><ul><li data-i="la2a">Гражданам Грузии виза для въезда в Россию не нужна (безвизовый режим действует с 2023 года). Возьмите действующий паспорт.</li><li data-i="la2b">Иностранным гражданам, в том числе гражданам России, с 1 января 2026 года для въезда в Грузию нужна медицинская страховка на весь срок поездки (покрытие не менее 30 000 лари).</li></ul><p class="note" data-i="la2c">Правила могут меняться — перед поездкой проверьте их в официальных источниках или позвоните нам.</p>
-          <h2 data-i="la3h">Практические советы</h2><ul><li data-i="la3a">Летом и в праздники очередь на границе может занять несколько часов — возьмите воду и еду.</li><li data-i="la3b">Дорога идёт через горы, и даже летом там бывает холодно — держите тёплую одежду под рукой.</li><li data-i="la3c">Зимой дорогу иногда временно закрывают из-за погоды. В таком случае мы предупредим вас заранее.</li><li data-i="la3d">Держите документы при себе, а не в багаже.</li><li data-i="la3e">Не берите вещи или посылки у незнакомых людей — за их содержимое отвечаете вы.</li></ul>
-          <p data-i="la4">Расписание и бронирование — на этом сайте. Вопросы — пишите в WhatsApp.</p>
-        </article>
-        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta">Забронировать</span><svg><use href="#i-arrow"/></svg></a> <a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a></p>
-      </div>
-    </div>
-
+    <div class="pg" id="p-lars" hidden><div hidden></div></div>
     <!-- ===================== ახალი წელი სახლში (new-year/) — სეზონური, იანვრის შემდეგ შეიძლება წაიშალოს ===================== -->
-    <div class="pg" id="p-new-year" hidden>
-      <div class="phd phd3" data-scene="bus"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker">🎄 <span data-i="brand">Имерети Тур</span></span><h1 data-i="nyH">Новый год — дома, в Грузии: автобус из Москвы</h1><p class="sub" data-i="nyS">Рейсы в декабре из Москвы в Батуми, Кобулети, Поти, Кутаиси и Тбилиси. Бронируйте заранее.</p></div></div>
-      <div class="w">
-        <div class="two board">
-          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nyA">Из Москвы — до Нового года</span></h2><ul class="dl" id="nyRu"></ul></div>
-          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nyB">Обратно в Москву — после праздников</span></h2><ul class="dl" id="nyGe"></ul></div>
-        </div>
-        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta">Забронировать</span><svg><use href="#i-arrow"/></svg></a> <a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a> <button class="btn ghost nysh" type="button">❤ <span data-i="nySh">Поделиться с родными</span></button></p>
-        <article class="prose art">
-          <h2 data-i="ny1h">Почему на автобусе</h2><ul><li data-i="ny1a">Прямо до вашего города: Батуми, Кобулети, Поти, Кутаиси, Тбилиси.</li><li data-i="ny1b">Подарки и посылки родным можно отправить нашим рейсом.</li><li data-i="ny1c">Бронирование онлайн, аванс — от 25%. При отмене возвращаем деньги.</li></ul>
-          <h2 data-i="ny2h">Советы перед поездкой</h2><ul><li data-i="ny2a">Перед праздниками бронируйте место заранее.</li><li data-i="ny2b">Зимой дорогу через Верхний Ларс иногда временно закрывают из-за погоды — в таком случае мы предупредим вас заранее.</li><li data-i="ny2c">Документы держите при себе, а не в багаже.</li></ul>
-          <p>🛂 <a href="../../../ru/lars/" data-href="lars" data-i="nyL">Советы для Верхнего Ларса</a> · 📦 <a href="../../../ru/parcel-guide/" data-href="parcel-guide" data-i="pgN">Посылка в Москву: инструкция</a></p>
-        </article>
-      </div>
-    </div>
-
+    <div class="pg" id="p-new-year" hidden><div hidden><ul class="dl" id="nyRu"></ul><ul class="dl" id="nyGe"></ul></div></div>
     <!-- ===================== სტატია: ამანათის გაგზავნა (parcel-guide/) ===================== -->
-    <div class="pg" id="p-parcel-guide" hidden>
-      <div class="phd phd3" data-scene="boxes"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="pc">Посылки</span><h1 data-i="pgH">Посылка из Москвы в Грузию и из Грузии в Москву</h1><p class="sub" data-i="pgS">Как отправить посылку автобусом: шаги, цена и советы.</p></div></div>
-      <div class="w narrow">
-        <article class="prose art">
-          <h2 data-i="pg1h">Как это работает</h2><ol><li data-i="pg1a">Напишите нам в WhatsApp или заполните форму на сайте: что отправляете, примерный вес, откуда и куда.</li><li data-i="pg1b">Мы назовём цену, место и время передачи посылки.</li><li data-i="pg1c">Вы передаёте посылку при отправлении автобуса — она едет регулярным рейсом.</li><li data-i="pg1d">Получатель забирает посылку в своём городе.</li></ol>
-          <h2 data-i="pg3h">Когда едет посылка</h2><p data-i="pg3">Посылка едет обычным рейсом: из Грузии — в среду и субботу, из Москвы — во вторник и субботу. Точные даты смотрите в расписании.</p>
-          <h2 data-i="pg4h">Сколько стоит</h2><p data-i="pg4">Цена зависит от веса и размера. Точную цену назовём в WhatsApp или после заполнения формы на странице посылок.</p>
-          <h2 data-i="pg5h">Советы</h2><ul><li data-i="pg5a">Хорошо упакуйте посылку и заранее предупредите, если внутри хрупкие вещи.</li><li data-i="pg5b">Напишите на посылке имя и телефон получателя.</li><li data-i="pg5c">Запрещённые законом предметы (оружие, наркотики, легковоспламеняющиеся вещества) не принимаются. О лекарствах, жидкостях и ценных вещах спросите заранее.</li></ul>
-          <p data-i="pg6">Чтобы отправить посылку, перейдите на страницу посылок или напишите нам в WhatsApp.</p>
-        </article>
-        <p class="cta-row"><a class="btn coral" href="../../../ru/parcels/" data-href="parcels"><span data-i="pgB">Отправить посылку</span><svg><use href="#i-arrow"/></svg></a> <a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a></p>
-      </div>
-    </div>
-
+    <div class="pg" id="p-parcel-guide" hidden><div hidden></div></div>
     <!-- ===================== განრიგი ===================== -->
-    <div class="pg" id="p-schedule" hidden>
-      <div class="phd phd3" data-scene="orbit"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">Имерети Тур</span><h1 data-i="sh">Расписание выездов</h1></div></div>
-      <div class="w">
-        <div class="two board">
-          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nx1">Ближайший выезд из Грузии</span></h2><ul class="dl" id="sg"></ul></div>
-          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nx2">Ближайший выезд из Москвы</span></h2><ul class="dl" id="sm"></ul></div>
-        </div>
-        <div class="box rbox" id="rbox"><h2><svg><use href="#i-pin"/></svg><span data-i="rt">Маршрут</span></h2><ol class="route" id="route2"></ol></div>
-        <!-- გაჩერებები რუკაზე: ბათუმი (ოფისი, ბაქოს 8), ქუთაისი (ასათიანის 98, ლუკოილი), თბილისი (აღმაშენებლის ხეივანი 29, მარი მარკეტთან), მოსკოვი (მეტრო ანინო). ფაილი: src/maps.html -->
-        <h2 class="h2" data-i="mapH">Остановки на карте</h2>
-        <div class="maps">
-          <figure class="mapc"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Batumi" data-src="https://maps.google.com/maps?q=41.6465879,41.6465561&amp;z=17&amp;output=embed"></iframe><figcaption><b data-i="bmN">Батуми: офис</b><span data-i="bmA">ул. Баку 8</span><a href="https://www.google.com/maps/search/?api=1&amp;query=41.6465879,41.6465561" target="_blank" rel="noopener" data-i="mpo">Открыть в Google Maps</a></figcaption></figure>
-          <figure class="mapc"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Kutaisi" data-src="https://maps.google.com/maps?q=Lukoil%2C%2098%20Lado%20Asatiani%20Street%2C%20Kutaisi&amp;z=16&amp;output=embed"></iframe><figcaption><b data-i="ktN">Отправление из Кутаиси</b><span data-i="ktA">ул. Ладо Асатиани 98, Кутаиси, на АЗС «Лукойл»</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Lukoil%2C%2098%20Lado%20Asatiani%20Street%2C%20Kutaisi" target="_blank" rel="noopener" data-i="mpo">Открыть в Google Maps</a></figcaption></figure>
-          <figure class="mapc"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Tbilisi" data-src="https://maps.google.com/maps?q=41.766547,44.769317&amp;z=16&amp;output=embed"></iframe><figcaption><b data-i="tbN">Тбилиси: отправление</b><span data-i="tbA">аллея Давида Агмашенебели 29, у «Мари маркет»</span><a href="https://maps.app.goo.gl/J37dcSpmk4H28QCp6" target="_blank" rel="noopener" data-i="mpo">Открыть в Google Maps</a></figcaption></figure>
-          <figure class="mapc"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Moscow" data-src="https://maps.google.com/maps?q=55.578679,37.588061&amp;z=15&amp;output=embed"></iframe><figcaption><b data-i="mwN">Москва: прибытие и отправление</b><span data-i="mwA">метро «Аннино», МКАД 33 км, владение 6, стр. 5</span><a href="https://www.google.com/maps/search/?api=1&amp;query=55.578679,37.588061" target="_blank" rel="noopener" data-i="mpo">Открыть в Google Maps</a></figcaption></figure>
-        </div>
-        <div class="gd rv"><div class="head"><span class="kicker" data-i="gdK">Полезное</span><h2 data-i="gdH">Перед поездкой</h2></div><div class="gdl"><a class="gdc gdc0" href="../../../ru/new-year/" data-href="new-year"><span class="gdi" aria-hidden="true">🎄</span><span class="gdx"><b data-i="gd0">Новый год дома</b><small data-i="gd0t">Рейсы в декабре из Москвы в Грузию</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc1" href="../../../ru/charter/" data-href="charter"><span class="gdi" aria-hidden="true">🚌</span><span class="gdx"><b data-i="gd1">Аренда автобуса</b><small data-i="gd1t">Экскурсии, свадьбы, группы — по Грузии и в Европу</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc2" href="../../../ru/lars/" data-href="lars"><span class="gdi" aria-hidden="true">🛂</span><span class="gdx"><b data-i="gd2">Верхний Ларс: советы</b><small data-i="gd2t">Документы, очереди и что важно знать на границе</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc3" href="../../../ru/parcel-guide/" data-href="parcel-guide"><span class="gdi" aria-hidden="true">📦</span><span class="gdx"><b data-i="gd3">Посылка в Москву</b><small data-i="gd3t">Как отправить: шаги, цена, советы</small></span><svg class="gda"><use href="#i-arrow"/></svg></a></div></div>
-        <div id="pl"></div>
-        <p class="note" data-i="note">При бронировании необходимо внести минимум 25% стоимости или оплатить полностью. Реквизиты для оплаты пришлём в WhatsApp. При отмене бронирования деньги возвращаем.</p>
-        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta">Забронировать</span><svg><use href="#i-arrow"/></svg></a></p>
-      </div>
-    </div>
-
+    <div class="pg" id="p-schedule" hidden><div hidden><ul class="dl" id="sg"></ul><ul class="dl" id="sm"></ul><div class="box rbox" id="rbox"></div><ol class="route" id="route2"></ol><div id="pl"></div></div></div>
     <!-- ===================== ამანათები ===================== -->
-    <div class="pg" id="p-parcels" hidden>
-      <div class="phd phd3" data-scene="boxes"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="pc">Посылки</span><h1 data-i="pt">Перевозка посылок Грузия–Москва</h1><p class="sub" data-i="ps">Быстрая и безопасная отправка посылок регулярными рейсами автобусов в обе стороны.</p></div></div>
-      <div class="w">
-        <div class="unbox" id="unbox"><div class="cube" aria-hidden="true"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i><i class="f6"></i></div></div>
-        <div class="feat">
-          <div><svg><use href="#i-bolt"/></svg><b data-i="f1">Быстро</b><p data-i="f1t">Посылка уходит ближайшим рейсом, регулярно в обе стороны.</p></div>
-          <div><svg><use href="#i-lock"/></svg><b data-i="f2">Надёжно</b><p data-i="f2t">Мы заботимся о безопасной перевозке вашей посылки.</p></div>
-          <div><svg><use href="#i-swap"/></svg><b data-i="f3">В обе стороны</b><p data-i="f3t">Из Грузии в Москву и из Москвы в Грузию.</p></div>
-          <div><svg><use href="#i-pin"/></svg><b data-i="f4">Удобные остановки</b><p data-i="f4t">Батуми, Кобулети, Поти, Кутаиси, Тбилиси и Москва.</p></div>
-        </div>
-        <div class="two">
-          <div class="box">
-            <h2 data-i="how">Как отправить</h2>
-            <ol class="steps"><li data-i="s1">Напишите нам в WhatsApp: направление и что нужно отправить.</li><li data-i="s2">Мы подтвердим условия, остановку и время передачи.</li><li data-i="s3">Посылка едет ближайшим рейсом, получатель забирает её в пункте назначения.</li></ol>
-            <h2 class="mt" data-i="pts">Остановки</h2>
-            <div class="chips" id="pp"></div>
-          </div>
-          <form class="ticket" onsubmit="return false">
-            <h2 data-i="pform">Отправьте заявку</h2>
-            <div class="tk-f">
-              <label class="fld wide"><span data-i="dir">Направление</span><select id="pdir"><option value="ge" data-i="d1o">Грузия → Москва</option><option value="ru" data-i="d2o">Москва → Грузия</option></select></label>
-              <label class="fld wide"><span data-i="pwhat">Что отправляете</span><input id="pwh"></label>
-              <label class="fld"><span data-i="kgl">Вес (кг)</span><input id="pkg" type="number" min="0" step="0.5" inputmode="decimal"></label>
-              <p class="price" id="ppr" hidden></p>
-              <label class="fld"><span data-i="nm">Имя</span><input id="pnm" autocomplete="name"></label>
-              <label class="fld wide"><span data-i="ph">Телефон</span><input id="pph" type="tel" autocomplete="tel" inputmode="tel"></label>
-            </div>
-            <a class="btn coral full" id="pwa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-i="send">Отправить в WhatsApp</span></a>
-          </form>
-        </div>
-        <p class="note">📖 <a href="../../../ru/parcel-guide/" data-href="parcel-guide" data-i="pgN">Посылка в Москву: инструкция</a></p>
-      </div>
-    </div>
-
+    <div class="pg" id="p-parcels" hidden><div hidden><div class="unbox" id="unbox"></div><div class="chips" id="pp"></div><select id="pdir"></select><input id="pwh"><input id="pkg" type="number" min="0" step="0.5" inputmode="decimal"><p class="price" id="ppr" hidden></p><input id="pnm" autocomplete="name"><input id="pph" type="tel" autocomplete="tel" inputmode="tel"><a class="btn coral full" id="pwa" href="#" target="_blank" rel="noopener"></a></div></div>
     <!-- ===================== პირობები ===================== -->
-    <div class="pg" id="p-info" hidden>
-      <div class="phd phd3" data-scene="planes"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">Имерети Тур</span><h1 data-i="nv5">Условия</h1></div></div>
-      <div class="w narrow"><div class="prose stack" id="inf"></div><div class="gd rv"><div class="head"><span class="kicker" data-i="gdK">Полезное</span><h2 data-i="gdH">Перед поездкой</h2></div><div class="gdl"><a class="gdc gdc0" href="../../../ru/new-year/" data-href="new-year"><span class="gdi" aria-hidden="true">🎄</span><span class="gdx"><b data-i="gd0">Новый год дома</b><small data-i="gd0t">Рейсы в декабре из Москвы в Грузию</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc1" href="../../../ru/charter/" data-href="charter"><span class="gdi" aria-hidden="true">🚌</span><span class="gdx"><b data-i="gd1">Аренда автобуса</b><small data-i="gd1t">Экскурсии, свадьбы, группы — по Грузии и в Европу</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc2" href="../../../ru/lars/" data-href="lars"><span class="gdi" aria-hidden="true">🛂</span><span class="gdx"><b data-i="gd2">Верхний Ларс: советы</b><small data-i="gd2t">Документы, очереди и что важно знать на границе</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc3" href="../../../ru/parcel-guide/" data-href="parcel-guide"><span class="gdi" aria-hidden="true">📦</span><span class="gdx"><b data-i="gd3">Посылка в Москву</b><small data-i="gd3t">Как отправить: шаги, цена, советы</small></span><svg class="gda"><use href="#i-arrow"/></svg></a></div></div>
-        <p class="cta-row"><a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a></p></div>
-    </div>
-
+    <div class="pg" id="p-info" hidden><div hidden><div class="prose stack" id="inf"></div></div></div>
     <!-- ===================== კითხვები ===================== -->
-    <div class="pg" id="p-faq" hidden>
-      <div class="phd phd3" data-scene="gems"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">Имерети Тур</span><h1 data-i="fh">Частые вопросы</h1></div></div>
-      <div class="w narrow faq f3d">
-        <details><summary data-i="q1">Как забронировать место?</summary><p data-i="a1">Заполните форму на главной странице и отправьте в WhatsApp, либо позвоните по нашим номерам.</p></details>
-        <details><summary data-i="q2">Сколько нужно оплатить при бронировании?</summary><p data-i="a2">Минимум 25%. При желании можно оплатить полностью.</p></details>
-        <details><summary data-i="q3">В какие дни идут рейсы?</summary><p data-i="a3" id="a3">Из Грузии по средам и субботам, из Москвы по вторникам и субботам.</p></details>
-        <details><summary data-i="q4">Перевозите ли вы посылки?</summary><p data-i="a4">Да, в обоих направлениях. Подробности уточняйте по телефону или в мессенджере.</p></details>
-        <details><summary data-i="q5">Где можно сесть в автобус?</summary><p data-i="a5">Батуми, Кобулети, Поти, Кутаиси, Тбилиси. В Москве у метро «Аннино».</p></details>
-        <details><summary data-i="q6">Можно ли отменить бронирование?</summary><p data-i="a6">Да. При отмене мы возвращаем уплаченную сумму. Напишите нам в WhatsApp.</p></details>
-        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta">Забронировать</span><svg><use href="#i-arrow"/></svg></a></p>
-      </div>
-    </div>
-
+    <div class="pg" id="p-faq" hidden><div hidden><p id="a3"></p></div></div>
     <!-- ===================== ქალაქის გვერდი (bus/…-moscow/): შიგთავსს build წერს src/cities.json-დან ===================== -->
     <div class="pg rt" id="p-route" hidden>
       <div class="phd phd3" data-scene="bus"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker">Автобус</span><h1>Тбилиси — Москва</h1><p class="sub">Регулярный рейс из Тбилиси в Москву через Верхний Ларс. Бронирование за 1 минуту.</p></div></div>
@@ -427,8 +154,6 @@
         </div>
         <h2 class="h2" data-i="mapH">Остановки на карте</h2>
         <div class="maps">
-          <figure class="mapc"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Batumi" data-src="https://maps.google.com/maps?q=41.6465879,41.6465561&amp;z=17&amp;output=embed"></iframe><figcaption><b data-i="bmN">Батуми: офис</b><span data-i="bmA">ул. Баку 8</span><a href="https://www.google.com/maps/search/?api=1&amp;query=41.6465879,41.6465561" target="_blank" rel="noopener" data-i="mpo">Открыть в Google Maps</a></figcaption></figure>
-          <figure class="mapc"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Kutaisi" data-src="https://maps.google.com/maps?q=Lukoil%2C%2098%20Lado%20Asatiani%20Street%2C%20Kutaisi&amp;z=16&amp;output=embed"></iframe><figcaption><b data-i="ktN">Отправление из Кутаиси</b><span data-i="ktA">ул. Ладо Асатиани 98, Кутаиси, на АЗС «Лукойл»</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Lukoil%2C%2098%20Lado%20Asatiani%20Street%2C%20Kutaisi" target="_blank" rel="noopener" data-i="mpo">Открыть в Google Maps</a></figcaption></figure>
           <figure class="mapc"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Tbilisi" data-src="https://maps.google.com/maps?q=41.766547,44.769317&amp;z=16&amp;output=embed"></iframe><figcaption><b data-i="tbN">Тбилиси: отправление</b><span data-i="tbA">аллея Давида Агмашенебели 29, у «Мари маркет»</span><a href="https://maps.app.goo.gl/J37dcSpmk4H28QCp6" target="_blank" rel="noopener" data-i="mpo">Открыть в Google Maps</a></figcaption></figure>
           <figure class="mapc"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Moscow" data-src="https://maps.google.com/maps?q=55.578679,37.588061&amp;z=15&amp;output=embed"></iframe><figcaption><b data-i="mwN">Москва: прибытие и отправление</b><span data-i="mwA">метро «Аннино», МКАД 33 км, владение 6, стр. 5</span><a href="https://www.google.com/maps/search/?api=1&amp;query=55.578679,37.588061" target="_blank" rel="noopener" data-i="mpo">Открыть в Google Maps</a></figcaption></figure>
         </div>
@@ -439,15 +164,7 @@
       </div><div class="w"><div class="gd rv"><div class="head"><span class="kicker" data-i="gdK">Полезное</span><h2 data-i="gdH">Перед поездкой</h2></div><div class="gdl"><a class="gdc gdc0" href="../../../ru/new-year/" data-href="new-year"><span class="gdi" aria-hidden="true">🎄</span><span class="gdx"><b data-i="gd0">Новый год дома</b><small data-i="gd0t">Рейсы в декабре из Москвы в Грузию</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc1" href="../../../ru/charter/" data-href="charter"><span class="gdi" aria-hidden="true">🚌</span><span class="gdx"><b data-i="gd1">Аренда автобуса</b><small data-i="gd1t">Экскурсии, свадьбы, группы — по Грузии и в Европу</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc2" href="../../../ru/lars/" data-href="lars"><span class="gdi" aria-hidden="true">🛂</span><span class="gdx"><b data-i="gd2">Верхний Ларс: советы</b><small data-i="gd2t">Документы, очереди и что важно знать на границе</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc3" href="../../../ru/parcel-guide/" data-href="parcel-guide"><span class="gdi" aria-hidden="true">📦</span><span class="gdx"><b data-i="gd3">Посылка в Москву</b><small data-i="gd3t">Как отправить: шаги, цена, советы</small></span><svg class="gda"><use href="#i-arrow"/></svg></a></div></div></div></div>
 
     <!-- ===================== ადმინ-გვერდი (#/admin): განრიგი, ფასები, ტექსტები ===================== -->
-    <div class="pg" id="p-admin" hidden>
-      <div class="phd"><div class="w"><h1>ადმინ-პანელი</h1><p class="sub">აქ ცვლი განრიგს, ფასებს და ტექსტებს. შეცვლის შემდეგ გადმოწერე ფაილი, ჩაანაცვლე საქაღალდეში <b>js/</b> და ატვირთე GitHub-ზე (git push): Cloudflare საიტს თავისით განაახლებს. (ცვლილება მხოლოდ შენს ბრაუზერში ჩანს, სანამ არ ატვირთავ.)</p></div></div>
-      <div class="w admin">
-        <div id="sched"></div>
-        <textarea id="sout" rows="4" readonly></textarea>
-        <p><a class="btn coral" id="sdl" href="#" download="schedule-config.js">გადმოწერა: schedule-config.js</a></p>
-      </div>
-    </div>
-
+    <div class="pg" id="p-admin" hidden><div hidden><div id="sched"></div><textarea id="sout" rows="4" readonly></textarea><a class="btn coral" id="sdl" href="#" download="schedule-config.js"></a></div></div>
     <!-- რეკლამის ზოლი შიდა გვერდებზე (მთავრისა და ადმინის გარდა) -->
     <aside class="w adbar" id="adbar" hidden></aside>
 
@@ -466,8 +183,8 @@
 
     <!-- სკრიპტები: 1) პარამეტრები, 2) მთავარი პროგრამა, 3) ანიმაციები და რეკლამა (fx.js), 4) 3D სცენები (scene.js, Three.js) -->
     <script src="../../../js/schedule-config.js?v=c73a2d36"></script>
-    <script src="../../../js/script.js?v=426b6917"></script>
-    <script src="../../../js/fx.js?v=f7599bfa"></script>
+    <script src="../../../js/script.js?v=01b6c8c9"></script>
+    <script src="../../../js/fx.js?v=76bf4eb4"></script>
     <script type="module" src="../../../js/scene.js?v=ed17ff10"></script>
   </body>
 </html>

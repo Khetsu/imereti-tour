@@ -80,33 +80,6 @@
 
     <!-- ===================== მთავარი გვერდი ===================== -->
     <div id="p-home">
-      <!-- პირველი ეკრანი: 3D მოგზაურობა. სქროლისას ავტობუსი მიდის ბათუმიდან მოსკოვამდე (js/scene.js), ქალაქების „ფანჯრები“ (js/fx.js) -->
-      <section class="trip" id="trip">
-        <div class="stage">
-          <div class="sky" aria-hidden="true">
-            <svg class="mt m3" viewBox="0 0 1200 300" preserveAspectRatio="none"><path d="M0 300V190l120-60 90 40 140-110 120 90 110-70 150 120 120-80 140 60 110-50 100 40v130z"/></svg>
-            <svg class="mt m2" viewBox="0 0 1200 300" preserveAspectRatio="none"><path d="M0 300V220l160-70 110 50 160-120 140 100 150-60 130 80 170-90 180 110v100z"/></svg>
-            <svg class="mt m1" viewBox="0 0 1200 300" preserveAspectRatio="none"><path d="M0 300V250l200-40 180 30 220-50 200 40 220-30 180 40v60z"/></svg>
-          </div>
-          <canvas id="gl" aria-hidden="true"></canvas>
-          <div class="shade" aria-hidden="true"></div>
-          <div class="w hero-t" id="heroT">
-            <span class="chip live"><i class="dot"></i><span><span data-i="nx1">Next departure from Georgia</span>:</span> <b id="d1"></b></span>
-            <h1><span class="ln"><span data-i="cGe">Georgia</span> <em>⇄</em></span><span class="ln"><span data-i="cMo">Moscow</span></span></h1>
-            <p class="sub" data-i="hsub">Regular trips both ways. Book a seat in 1 minute, no sign-up.</p>
-            <div class="cd" id="cd" aria-live="off"></div>
-            <div class="ctas"><a class="btn coral mag" href="#book"><span data-i="cta">Book a seat</span><svg><use href="#i-arrow"/></svg></a><a class="btn ghost" href="../../en/schedule/" data-href="schedule" data-i="nv2">Schedule</a></div>
-          </div>
-          <div class="hint" id="hint" aria-hidden="true"><i></i><span data-i="scrl">Scroll to ride</span></div>
-          <div class="chap" id="chap"></div>
-          <div class="trail" id="trail" aria-hidden="true"><i class="tbar"></i><i class="tbus"></i></div>
-        </div>
-      </section>
-
-      <!-- დაჯავშნა: ბილეთის ფორმა → WhatsApp (ადგილებს ოფისი ანაწილებს) -->
-      <!-- ახალი წლის ბანერი (სეზონური) -->
-      <div class="w nybw"><a class="nyb" href="../../en/new-year/" data-href="new-year"><span class="nyt" aria-hidden="true">🎄</span><b data-i="nyBn">New Year at home — December trips from Moscow</b><svg><use href="#i-arrow"/></svg></a></div>
-
       <section class="book" id="book">
         <div class="w book-in">
           <div class="book-t rv">
@@ -141,93 +114,6 @@
         </div>
       </section>
 
-      <!-- სასარგებლო: დაქირავება, ლარსი, ამანათი -->
-      <section class="band gdb"><div class="w"><div class="gd rv"><div class="head"><span class="kicker" data-i="gdK">Useful</span><h2 data-i="gdH">Before you travel</h2></div><div class="gdl"><a class="gdc gdc0" href="../../en/new-year/" data-href="new-year"><span class="gdi" aria-hidden="true">🎄</span><span class="gdx"><b data-i="gd0">New Year at home</b><small data-i="gd0t">December trips from Moscow to Georgia</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc1" href="../../en/charter/" data-href="charter"><span class="gdi" aria-hidden="true">🚌</span><span class="gdx"><b data-i="gd1">Bus rental</b><small data-i="gd1t">Excursions, weddings, groups — across Georgia and to Europe</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc2" href="../../en/lars/" data-href="lars"><span class="gdi" aria-hidden="true">🛂</span><span class="gdx"><b data-i="gd2">Upper Lars: tips</b><small data-i="gd2t">Documents, queues and what to know at the border</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc3" href="../../en/parcel-guide/" data-href="parcel-guide"><span class="gdi" aria-hidden="true">📦</span><span class="gdx"><b data-i="gd3">Parcel to Moscow</b><small data-i="gd3t">How to send: steps, price, tips</small></span><svg class="gda"><use href="#i-arrow"/></svg></a></div></div></div></section>
-
-      <!-- მოძრავი ქალაქების ზოლი -->
-      <div class="marq" aria-hidden="true"><div class="marq-in" id="marq"></div></div>
-
-      <!-- „ფანჯრები“: ჰორიზონტალური გალერეა ავტობუსის ფანჯრის ჩარჩოებში (სქროლით გვერდზე მოძრაობს) -->
-      <section class="hs" id="hs">
-        <div class="hs-st">
-          <div class="w head"><span class="kicker" data-i="bh">Our buses</span><h2 data-i="whyt">Real buses, real comfort</h2></div>
-          <div class="hs-tr" id="hstr">
-            <a class="win" href="../../en/buses/" data-href="buses"><span class="win-f"><img src="../../images/real/bus-white-hotel.jpg" alt="" loading="lazy"></span><b data-i="c1">Modern buses</b><small data-i="c1t">Air conditioning · USB charging</small></a>
-            <a class="win" href="../../en/buses/" data-href="buses"><span class="win-f"><img src="../../images/real/interior-orange.jpg" alt="" loading="lazy"></span><b data-i="c2">Comfortable seats</b><small data-i="c2t">for the long road</small></a>
-            <a class="win" href="../../en/buses/" data-href="buses"><span class="win-f"><img src="../../images/real/bus-gold-front.jpg" alt="" loading="lazy"></span><b data-i="nv1">Buses</b><small data-i="w3">Real photos of our buses</small></a>
-            <a class="win" href="../../en/buses/" data-href="buses"><span class="win-f"><img src="../../images/real/interior-red.jpg" alt="" loading="lazy"></span><b data-i="amh">What you get on board</b><small data-i="am1">Comfortable buses</small></a>
-            <a class="win" href="../../en/parcels/" data-href="parcels"><span class="win-f"><img src="../../images/real/bus-gold-side.jpg" alt="" loading="lazy"></span><b data-i="pc">Parcels</b><small data-i="c3t">both directions</small></a>
-            <a class="win" href="../../en/schedule/" data-href="schedule"><span class="win-f"><img src="../../images/real/bus-white-side.jpg" alt="" loading="lazy"></span><b data-i="nv2">Schedule</b><small data-i="hw1t">Upcoming trips in both directions.</small></a>
-          </div>
-        </div>
-      </section>
-
-      <!-- რიცხვები და მარშრუტი ცოცხალი ავტობუსით -->
-      <section class="band">
-        <div class="w stats-in">
-          <div class="stats rv" id="stats"></div>
-          <div class="rcard rv" id="rcard" data-tilt>
-            <h2 data-i="rt">Route</h2>
-            <i class="rbus" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 16V6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v10M5 16h14v2a1 1 0 0 1-1 1h-1v1.5M7 19.5V19H6a1 1 0 0 1-1-1v-2M5 11h14M8 15h.01M16 15h.01" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></i>
-            <ol class="route" id="route"></ol>
-            <p class="rnext"><span data-i="nx2">Next departure from Moscow</span>: <b id="d2"></b></p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ამანათები: 3D ყუთი -->
-      <section class="band">
-        <div class="w">
-          <div class="promo rv" data-tilt>
-            <div class="cube sm" aria-hidden="true"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i><i class="f6"></i></div>
-            <div><h2 data-i="pc">Parcels</h2><p data-i="pct">We deliver parcels fast and securely in both directions between Georgia and Moscow.</p></div>
-            <a class="btn coral mag" href="../../en/parcels/" data-href="parcels"><span data-i="more">More about parcels</span><svg><use href="#i-arrow"/></svg></a>
-          </div>
-        </div>
-      </section>
-
-      <!-- რეკლამა: პარტნიორები (რეკლამებს ამატებ ადმინ-გვერდიდან; ცარიელ ადგილზე ჩანს „აქ შეიძლება იყოს თქვენი რეკლამა“) -->
-      <section class="band ads" id="ads">
-        <div class="w">
-          <div class="head rv"><span class="kicker" data-i="adk">Partners</span><h2 data-i="adh">Your business in front of travellers</h2></div>
-          <div class="adl" id="adl"></div>
-        </div>
-      </section>
-
-      <!-- ავტობუსის დაქირავება (იგივე ბლოკი, რაც ავტობუსების გვერდზე) -->
-      <section class="band" id="rent">
-        <div class="w">
-          <div class="head rv"><span class="kicker" data-i="brand">Imereti Tour</span><h2 data-i="chH">Bus charter</h2></div>
-          <div class="box chb rv">
-          <p class="chp" data-i="chT">Rent a bus for any trip — excursions, events, across Georgia and beyond: to Europe and other countries.</p>
-          <ul class="chl"><li data-i="ch1">Excursions and tours across Georgia</li><li data-i="ch2">Weddings, birthdays and events</li><li data-i="ch3">Corporate, school and group trips</li><li data-i="ch4">Transfers: airport, station, hotel</li><li data-i="ch5">International trips: Europe and other countries</li><li data-i="ch6">Price on request — send us the route and date</li></ul>
-          <div class="ctas"><a class="btn wa chwa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a><a class="btn ghost" href="tel:+995598808022" data-i="chC">Call</a></div>
-        </div>
-        </div>
-      </section>
-
-      <!-- მგზავრების შეფასებები (ჩანს, როცა ადმინ-გვერდზე დაამატებ) -->
-      <section class="band" id="rvs">
-        <div class="w">
-          <div class="head rv"><span class="kicker" data-i="rvk">Reviews</span><h2 data-i="rvh">Passenger reviews</h2><p class="rv-avg" id="rvavg" hidden></p></div>
-          <div class="rvl" id="rvl"></div>
-          <p class="rv-empty" id="rvempty" data-i="rve" hidden>No reviews yet. Be the first!</p>
-          <!-- შეფასების დატოვება: მიდის Google-ის ცხრილში (ფურცელი Reviews), საიტზე ჩანს მხოლოდ მას შემდეგ, რაც სვეტში Approved ჩაწერ yes ან კი -->
-          <form class="ticket rvf" id="rvf" onsubmit="return false">
-            <h3 data-i="rvw">Leave a review</h3>
-            <div class="stars" id="rfs" role="radiogroup" aria-label="Rating"><button type="button" data-s="1" aria-label="1">★</button><button type="button" data-s="2" aria-label="2">★</button><button type="button" data-s="3" aria-label="3">★</button><button type="button" data-s="4" aria-label="4">★</button><button type="button" data-s="5" aria-label="5">★</button></div>
-            <div class="tk-f">
-              <label class="fld"><span data-i="nm">Name</span><input id="rfn" maxlength="60" autocomplete="name"></label>
-              <label class="fld"><span data-i="rvc">City</span><input id="rfc" maxlength="40"></label>
-              <label class="fld wide"><span data-i="rvt2">Your impressions of the trip</span><textarea id="rft" rows="3" maxlength="600"></textarea></label>
-            </div>
-            <button type="button" class="btn coral" id="rfsend"><span data-i="rvb">Send</span></button>
-            <p class="note" id="rfmsg" role="status" hidden></p>
-          </form>
-        </div>
-      </section>
-
-      <!-- კონტაქტი -->
       <section class="band" id="contact">
         <div class="w">
           <div class="contact rv" data-tilt>
@@ -236,90 +122,16 @@
           </div>
         </div>
       </section>
+      <div hidden><section class="trip" id="trip"></section><div class="w hero-t" id="heroT"></div><b id="d1"></b><div class="cd" id="cd" aria-live="off"></div><div class="hint" id="hint" aria-hidden="true"></div><div class="chap" id="chap"></div><div class="trail" id="trail" aria-hidden="true"></div><div class="marq-in" id="marq"></div><section class="hs" id="hs"></section><div class="hs-tr" id="hstr"></div><div class="stats rv" id="stats"></div><div class="rcard rv" id="rcard" data-tilt></div><ol class="route" id="route"></ol><b id="d2"></b><div class="adl" id="adl"></div><p class="rv-avg" id="rvavg" hidden></p><div class="rvl" id="rvl"></div><p class="rv-empty" id="rvempty" hidden></p><div class="stars" id="rfs" role="radiogroup" aria-label="Rating"></div><input id="rfn" maxlength="60" autocomplete="name"><input id="rfc" maxlength="40"><textarea id="rft" rows="3" maxlength="600"></textarea><button type="button" class="btn coral" id="rfsend"></button><p class="note" id="rfmsg" role="status" hidden></p></div>
     </div>
-
     <!-- ===================== ავტობუსები ===================== -->
-    <div class="pg" id="p-buses" hidden>
-      <div class="phd phd3" data-scene="bus"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">Imereti Tour</span><h1 data-i="bh">Our buses</h1><p class="sub" data-i="bsub">Comfortable buses and reliable service on the long road.</p></div></div>
-      <div class="w">
-        <div class="ringw" id="ringw">
-          <div class="ring" id="ring">
-            <figure><img src="../../images/real/bus-white-hotel.jpg" alt="" loading="lazy"></figure>
-            <figure><img src="../../images/real/interior-orange.jpg" alt="" loading="lazy"></figure>
-            <figure><img src="../../images/real/bus-gold-front.jpg" alt="" loading="lazy"></figure>
-            <figure><img src="../../images/real/interior-red.jpg" alt="" loading="lazy"></figure>
-            <figure><img src="../../images/real/bus-white-side.jpg" alt="" loading="lazy"></figure>
-            <figure><img src="../../images/real/bus-gold-side.jpg" alt="" loading="lazy"></figure>
-          </div>
-          <p class="ring-h"><span>⟲</span> <span data-i="spin">Drag or scroll to spin</span></p>
-        </div>
-        <h2 class="h2" data-i="amh">What you get on board</h2>
-        <div class="am flip">
-          <div><svg><use href="#i-seat"/></svg><span data-i="am1">Comfortable buses</span></div>
-          <div><svg><use href="#i-shield"/></svg><span data-i="am2">Safe and reliable service</span></div>
-          <div><svg><use href="#i-snow"/></svg><span data-i="am3">Air conditioning</span></div>
-          <div><svg><use href="#i-wifi"/></svg><span>Wi-Fi</span></div>
-          <div><svg><use href="#i-plug"/></svg><span data-i="am5">USB charging</span></div>
-        </div>
-        <div class="gd rv"><div class="head"><span class="kicker" data-i="gdK">Useful</span><h2 data-i="gdH">Before you travel</h2></div><div class="gdl"><a class="gdc gdc0" href="../../en/new-year/" data-href="new-year"><span class="gdi" aria-hidden="true">🎄</span><span class="gdx"><b data-i="gd0">New Year at home</b><small data-i="gd0t">December trips from Moscow to Georgia</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc1" href="../../en/charter/" data-href="charter"><span class="gdi" aria-hidden="true">🚌</span><span class="gdx"><b data-i="gd1">Bus rental</b><small data-i="gd1t">Excursions, weddings, groups — across Georgia and to Europe</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc2" href="../../en/lars/" data-href="lars"><span class="gdi" aria-hidden="true">🛂</span><span class="gdx"><b data-i="gd2">Upper Lars: tips</b><small data-i="gd2t">Documents, queues and what to know at the border</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc3" href="../../en/parcel-guide/" data-href="parcel-guide"><span class="gdi" aria-hidden="true">📦</span><span class="gdx"><b data-i="gd3">Parcel to Moscow</b><small data-i="gd3t">How to send: steps, price, tips</small></span><svg class="gda"><use href="#i-arrow"/></svg></a></div></div>
-        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta">Book a seat</span><svg><use href="#i-arrow"/></svg></a></p>
-        <!-- ავტობუსის დაქირავება: საქართველოს მასშტაბით და საზღვარგარეთ (ტექსტები: js/script.js T3 ch*) -->
-        <h2 class="h2" data-i="chH">Bus charter</h2>
-        <div class="box chb">
-          <p class="chp" data-i="chT">Rent a bus for any trip — excursions, events, across Georgia and beyond: to Europe and other countries.</p>
-          <ul class="chl"><li data-i="ch1">Excursions and tours across Georgia</li><li data-i="ch2">Weddings, birthdays and events</li><li data-i="ch3">Corporate, school and group trips</li><li data-i="ch4">Transfers: airport, station, hotel</li><li data-i="ch5">International trips: Europe and other countries</li><li data-i="ch6">Price on request — send us the route and date</li></ul>
-          <div class="ctas"><a class="btn wa chwa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a><a class="btn ghost" href="tel:+995598808022" data-i="chC">Call</a></div>
-        </div>
-      </div>
-    </div>
-
+    <div class="pg" id="p-buses" hidden><div hidden><div class="ringw" id="ringw"></div><div class="ring" id="ring"></div></div></div>
     <!-- ===================== ავტობუსის დაქირავება (charter/) ===================== -->
-    <div class="pg" id="p-charter" hidden>
-      <div class="phd phd3" data-scene="bus"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">Imereti Tour</span><h1 data-i="cpH">Bus charter</h1><p class="sub" data-i="cpS">Bus rental — across Georgia, to Europe and other countries.</p></div></div>
-      <div class="w">
-        <div class="box chb">
-          <p class="chp" data-i="chT">Rent a bus for any trip — excursions, events, across Georgia and beyond: to Europe and other countries.</p>
-          <ul class="chl"><li data-i="ch1">Excursions and tours across Georgia</li><li data-i="ch2">Weddings, birthdays and events</li><li data-i="ch3">Corporate, school and group trips</li><li data-i="ch4">Transfers: airport, station, hotel</li><li data-i="ch5">International trips: Europe and other countries</li><li data-i="ch6">Price on request — send us the route and date</li></ul>
-          <div class="ctas"><a class="btn wa chwa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a><a class="btn ghost" href="tel:+995598808022" data-i="chC">Call</a></div>
-        </div>
-        <h2 class="h2" data-i="cpHow">How to book</h2>
-        <ol class="steps"><li><b data-i="cs1">Message us</b><span data-i="cs1t">Send us the route, date and number of passengers on WhatsApp.</span></li><li><b data-i="cs2">Get a price</b><span data-i="cs2t">We'll quote a price and terms based on your trip.</span></li><li><b data-i="cs3">Travel</b><span data-i="cs3t">At the agreed time the bus will be waiting at the agreed place.</span></li></ol>
-        <h2 class="h2" data-i="cpFq">FAQ</h2>
-        <div class="prose art"><h3 data-i="cq1">How much does a bus charter cost?</h3><p data-i="ca1">It depends on the route, distance and number of days. Send us the details and we'll give you an exact price.</p><h3 data-i="cq2">Can we travel abroad?</h3><p data-i="ca2">Yes — to Europe and other countries, by prior agreement.</p><h3 data-i="cq3">How far ahead should I book?</h3><p data-i="ca3">The earlier the better, especially in summer and on holidays. For urgent trips, call us.</p></div>
-      </div>
-    </div>
-
+    <div class="pg" id="p-charter" hidden><div hidden></div></div>
     <!-- ===================== სტატია: ზემო ლარსი (lars/) ===================== -->
-    <div class="pg" id="p-lars" hidden>
-      <div class="phd phd3" data-scene="planes"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">Imereti Tour</span><h1 data-i="laH">Crossing Upper Lars: documents and tips</h1><p class="sub" data-i="laS">What to know about travelling by bus between Georgia and Russia.</p></div></div>
-      <div class="w narrow">
-        <article class="prose art">
-          <h2 data-i="la1h">What is Upper Lars</h2><p data-i="la1">Upper Lars is the main land border crossing between Georgia and Russia, on the Georgian Military Road in the Kazbegi area. Our bus takes this route: from Georgian cities through Upper Lars to Vladikavkaz and on to Moscow.</p>
-          <h2 data-i="la2h">Documents you need</h2><ul><li data-i="la2a">Georgian citizens do not need a visa to enter Russia (visa-free travel since 2023). Bring a valid passport.</li><li data-i="la2b">Since 1 January 2026, foreign citizens, including Russian citizens, need health insurance covering their whole stay to enter Georgia (minimum cover 30,000 GEL).</li></ul><p class="note" data-i="la2c">Rules can change — check official sources before you travel, or call us.</p>
-          <h2 data-i="la3h">Practical tips</h2><ul><li data-i="la3a">In summer and on holidays the border queue can take several hours — bring water and food.</li><li data-i="la3b">The road crosses the mountains and it can be cold even in summer — keep warm clothes at hand.</li><li data-i="la3c">In winter the road is sometimes closed temporarily due to weather. If so, we'll let you know in advance.</li><li data-i="la3d">Keep your documents on you, not in your luggage.</li><li data-i="la3e">Don't carry items or parcels for strangers — you are responsible for what's inside.</li></ul>
-          <p data-i="la4">Schedule and booking are on this site. Questions? Message us on WhatsApp.</p>
-        </article>
-        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta">Book a seat</span><svg><use href="#i-arrow"/></svg></a> <a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a></p>
-      </div>
-    </div>
-
+    <div class="pg" id="p-lars" hidden><div hidden></div></div>
     <!-- ===================== ახალი წელი სახლში (new-year/) — სეზონური, იანვრის შემდეგ შეიძლება წაიშალოს ===================== -->
-    <div class="pg" id="p-new-year" hidden>
-      <div class="phd phd3" data-scene="bus"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker">🎄 <span data-i="brand">Imereti Tour</span></span><h1 data-i="nyH">New Year at home in Georgia: bus from Moscow</h1><p class="sub" data-i="nyS">December trips from Moscow to Batumi, Kobuleti, Poti, Kutaisi and Tbilisi. Book early.</p></div></div>
-      <div class="w">
-        <div class="two board">
-          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nyA">From Moscow — before New Year</span></h2><ul class="dl" id="nyRu"></ul></div>
-          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nyB">Back to Moscow — after the holidays</span></h2><ul class="dl" id="nyGe"></ul></div>
-        </div>
-        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta">Book a seat</span><svg><use href="#i-arrow"/></svg></a> <a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a> <button class="btn ghost nysh" type="button">❤ <span data-i="nySh">Share with family</span></button></p>
-        <article class="prose art">
-          <h2 data-i="ny1h">Why go by bus</h2><ul><li data-i="ny1a">Straight to your city: Batumi, Kobuleti, Poti, Kutaisi, Tbilisi.</li><li data-i="ny1b">Gifts and parcels for your family can travel on our bus too.</li><li data-i="ny1c">Book online with an advance from 25%. If you cancel, we refund your money.</li></ul>
-          <h2 data-i="ny2h">Tips before the trip</h2><ul><li data-i="ny2a">Book your seat early before the holidays.</li><li data-i="ny2b">In winter the road over Upper Lars is sometimes closed for a while due to weather — if so, we will let you know in advance.</li><li data-i="ny2c">Keep your documents with you, not in your luggage.</li></ul>
-          <p>🛂 <a href="../../en/lars/" data-href="lars" data-i="nyL">Upper Lars tips</a> · 📦 <a href="../../en/parcel-guide/" data-href="parcel-guide" data-i="pgN">Parcel to Moscow: guide</a></p>
-        </article>
-      </div>
-    </div>
-
+    <div class="pg" id="p-new-year" hidden><div hidden><ul class="dl" id="nyRu"></ul><ul class="dl" id="nyGe"></ul></div></div>
     <!-- ===================== სტატია: ამანათის გაგზავნა (parcel-guide/) ===================== -->
     <div class="pg" id="p-parcel-guide" hidden>
       <div class="phd phd3" data-scene="boxes"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="pc">Parcels</span><h1 data-i="pgH">Sending a parcel between Moscow and Georgia</h1><p class="sub" data-i="pgS">How to send a parcel by bus: steps, price and tips.</p></div></div>
@@ -336,98 +148,17 @@
     </div>
 
     <!-- ===================== განრიგი ===================== -->
-    <div class="pg" id="p-schedule" hidden>
-      <div class="phd phd3" data-scene="orbit"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">Imereti Tour</span><h1 data-i="sh">Departure schedule</h1></div></div>
-      <div class="w">
-        <div class="two board">
-          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nx1">Next departure from Georgia</span></h2><ul class="dl" id="sg"></ul></div>
-          <div class="box"><h2><svg><use href="#i-cal"/></svg><span data-i="nx2">Next departure from Moscow</span></h2><ul class="dl" id="sm"></ul></div>
-        </div>
-        <div class="box rbox" id="rbox"><h2><svg><use href="#i-pin"/></svg><span data-i="rt">Route</span></h2><ol class="route" id="route2"></ol></div>
-        <!-- გაჩერებები რუკაზე: ბათუმი (ოფისი, ბაქოს 8), ქუთაისი (ასათიანის 98, ლუკოილი), თბილისი (აღმაშენებლის ხეივანი 29, მარი მარკეტთან), მოსკოვი (მეტრო ანინო). ფაილი: src/maps.html -->
-        <h2 class="h2" data-i="mapH">Stops on the map</h2>
-        <div class="maps">
-          <figure class="mapc"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Batumi" data-src="https://maps.google.com/maps?q=41.6465879,41.6465561&amp;z=17&amp;output=embed"></iframe><figcaption><b data-i="bmN">Batumi: office</b><span data-i="bmA">8 Baku Street</span><a href="https://www.google.com/maps/search/?api=1&amp;query=41.6465879,41.6465561" target="_blank" rel="noopener" data-i="mpo">Open in Google Maps</a></figcaption></figure>
-          <figure class="mapc"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Kutaisi" data-src="https://maps.google.com/maps?q=Lukoil%2C%2098%20Lado%20Asatiani%20Street%2C%20Kutaisi&amp;z=16&amp;output=embed"></iframe><figcaption><b data-i="ktN">Departure from Kutaisi</b><span data-i="ktA">98 Lado Asatiani St, Kutaisi, at the Lukoil station</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Lukoil%2C%2098%20Lado%20Asatiani%20Street%2C%20Kutaisi" target="_blank" rel="noopener" data-i="mpo">Open in Google Maps</a></figcaption></figure>
-          <figure class="mapc"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Tbilisi" data-src="https://maps.google.com/maps?q=41.766547,44.769317&amp;z=16&amp;output=embed"></iframe><figcaption><b data-i="tbN">Tbilisi: departure</b><span data-i="tbA">29 Davit Aghmashenebeli Alley, by Mari Market</span><a href="https://maps.app.goo.gl/J37dcSpmk4H28QCp6" target="_blank" rel="noopener" data-i="mpo">Open in Google Maps</a></figcaption></figure>
-          <figure class="mapc"><iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Moscow" data-src="https://maps.google.com/maps?q=55.578679,37.588061&amp;z=15&amp;output=embed"></iframe><figcaption><b data-i="mwN">Moscow: arrival and departure</b><span data-i="mwA">Annino metro, MKAD 33 km, 6 vladenie, building 5</span><a href="https://www.google.com/maps/search/?api=1&amp;query=55.578679,37.588061" target="_blank" rel="noopener" data-i="mpo">Open in Google Maps</a></figcaption></figure>
-        </div>
-        <div class="gd rv"><div class="head"><span class="kicker" data-i="gdK">Useful</span><h2 data-i="gdH">Before you travel</h2></div><div class="gdl"><a class="gdc gdc0" href="../../en/new-year/" data-href="new-year"><span class="gdi" aria-hidden="true">🎄</span><span class="gdx"><b data-i="gd0">New Year at home</b><small data-i="gd0t">December trips from Moscow to Georgia</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc1" href="../../en/charter/" data-href="charter"><span class="gdi" aria-hidden="true">🚌</span><span class="gdx"><b data-i="gd1">Bus rental</b><small data-i="gd1t">Excursions, weddings, groups — across Georgia and to Europe</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc2" href="../../en/lars/" data-href="lars"><span class="gdi" aria-hidden="true">🛂</span><span class="gdx"><b data-i="gd2">Upper Lars: tips</b><small data-i="gd2t">Documents, queues and what to know at the border</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc3" href="../../en/parcel-guide/" data-href="parcel-guide"><span class="gdi" aria-hidden="true">📦</span><span class="gdx"><b data-i="gd3">Parcel to Moscow</b><small data-i="gd3t">How to send: steps, price, tips</small></span><svg class="gda"><use href="#i-arrow"/></svg></a></div></div>
-        <div id="pl"></div>
-        <p class="note" data-i="note">To confirm a booking you must pay at least 25% in advance, or you can pay the full amount. We will send payment details via WhatsApp. If you cancel, we refund your money.</p>
-        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta">Book a seat</span><svg><use href="#i-arrow"/></svg></a></p>
-      </div>
-    </div>
-
+    <div class="pg" id="p-schedule" hidden><div hidden><ul class="dl" id="sg"></ul><ul class="dl" id="sm"></ul><div class="box rbox" id="rbox"></div><ol class="route" id="route2"></ol><div id="pl"></div></div></div>
     <!-- ===================== ამანათები ===================== -->
-    <div class="pg" id="p-parcels" hidden>
-      <div class="phd phd3" data-scene="boxes"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="pc">Parcels</span><h1 data-i="pt">Parcel delivery Georgia–Moscow</h1><p class="sub" data-i="ps">Fast, secure parcel delivery on our regular bus trips, in both directions.</p></div></div>
-      <div class="w">
-        <div class="unbox" id="unbox"><div class="cube" aria-hidden="true"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f4"></i><i class="f5"></i><i class="f6"></i></div></div>
-        <div class="feat">
-          <div><svg><use href="#i-bolt"/></svg><b data-i="f1">Fast</b><p data-i="f1t">Your parcel goes on the next trip, regularly in both directions.</p></div>
-          <div><svg><use href="#i-lock"/></svg><b data-i="f2">Secure</b><p data-i="f2t">We take care of transporting your parcel safely.</p></div>
-          <div><svg><use href="#i-swap"/></svg><b data-i="f3">Both directions</b><p data-i="f3t">From Georgia to Moscow and from Moscow to Georgia.</p></div>
-          <div><svg><use href="#i-pin"/></svg><b data-i="f4">Convenient stops</b><p data-i="f4t">Batumi, Kobuleti, Poti, Kutaisi, Tbilisi and Moscow.</p></div>
-        </div>
-        <div class="two">
-          <div class="box">
-            <h2 data-i="how">How to send</h2>
-            <ol class="steps"><li data-i="s1">Message us on WhatsApp: direction and what you want to send.</li><li data-i="s2">We confirm the terms, the stop and the handover time.</li><li data-i="s3">The parcel travels on the next trip and the recipient collects it at the destination.</li></ol>
-            <h2 class="mt" data-i="pts">Stops</h2>
-            <div class="chips" id="pp"></div>
-          </div>
-          <form class="ticket" onsubmit="return false">
-            <h2 data-i="pform">Send a request</h2>
-            <div class="tk-f">
-              <label class="fld wide"><span data-i="dir">Direction</span><select id="pdir"><option value="ge" data-i="d1o">Georgia → Moscow</option><option value="ru" data-i="d2o">Moscow → Georgia</option></select></label>
-              <label class="fld wide"><span data-i="pwhat">What are you sending</span><input id="pwh"></label>
-              <label class="fld"><span data-i="kgl">Weight (kg)</span><input id="pkg" type="number" min="0" step="0.5" inputmode="decimal"></label>
-              <p class="price" id="ppr" hidden></p>
-              <label class="fld"><span data-i="nm">Name</span><input id="pnm" autocomplete="name"></label>
-              <label class="fld wide"><span data-i="ph">Phone</span><input id="pph" type="tel" autocomplete="tel" inputmode="tel"></label>
-            </div>
-            <a class="btn coral full" id="pwa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-i="send">Send via WhatsApp</span></a>
-          </form>
-        </div>
-        <p class="note">📖 <a href="../../en/parcel-guide/" data-href="parcel-guide" data-i="pgN">Parcel to Moscow: guide</a></p>
-      </div>
-    </div>
-
+    <div class="pg" id="p-parcels" hidden><div hidden><div class="unbox" id="unbox"></div><div class="chips" id="pp"></div><select id="pdir"></select><input id="pwh"><input id="pkg" type="number" min="0" step="0.5" inputmode="decimal"><p class="price" id="ppr" hidden></p><input id="pnm" autocomplete="name"><input id="pph" type="tel" autocomplete="tel" inputmode="tel"><a class="btn coral full" id="pwa" href="#" target="_blank" rel="noopener"></a></div></div>
     <!-- ===================== პირობები ===================== -->
-    <div class="pg" id="p-info" hidden>
-      <div class="phd phd3" data-scene="planes"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">Imereti Tour</span><h1 data-i="nv5">Terms</h1></div></div>
-      <div class="w narrow"><div class="prose stack" id="inf"></div><div class="gd rv"><div class="head"><span class="kicker" data-i="gdK">Useful</span><h2 data-i="gdH">Before you travel</h2></div><div class="gdl"><a class="gdc gdc0" href="../../en/new-year/" data-href="new-year"><span class="gdi" aria-hidden="true">🎄</span><span class="gdx"><b data-i="gd0">New Year at home</b><small data-i="gd0t">December trips from Moscow to Georgia</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc1" href="../../en/charter/" data-href="charter"><span class="gdi" aria-hidden="true">🚌</span><span class="gdx"><b data-i="gd1">Bus rental</b><small data-i="gd1t">Excursions, weddings, groups — across Georgia and to Europe</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc2" href="../../en/lars/" data-href="lars"><span class="gdi" aria-hidden="true">🛂</span><span class="gdx"><b data-i="gd2">Upper Lars: tips</b><small data-i="gd2t">Documents, queues and what to know at the border</small></span><svg class="gda"><use href="#i-arrow"/></svg></a><a class="gdc gdc3" href="../../en/parcel-guide/" data-href="parcel-guide"><span class="gdi" aria-hidden="true">📦</span><span class="gdx"><b data-i="gd3">Parcel to Moscow</b><small data-i="gd3t">How to send: steps, price, tips</small></span><svg class="gda"><use href="#i-arrow"/></svg></a></div></div>
-        <p class="cta-row"><a class="btn wa" href="https://wa.me/995598808022" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a></p></div>
-    </div>
-
+    <div class="pg" id="p-info" hidden><div hidden><div class="prose stack" id="inf"></div></div></div>
     <!-- ===================== კითხვები ===================== -->
-    <div class="pg" id="p-faq" hidden>
-      <div class="phd phd3" data-scene="gems"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker" data-i="brand">Imereti Tour</span><h1 data-i="fh">Frequently asked questions</h1></div></div>
-      <div class="w narrow faq f3d">
-        <details><summary data-i="q1">How do I book a seat?</summary><p data-i="a1">Fill in the form on the home page and send it via WhatsApp, or call our numbers.</p></details>
-        <details><summary data-i="q2">How much do I pay when booking?</summary><p data-i="a2">At least 25%. You can also pay the full amount.</p></details>
-        <details><summary data-i="q3">Which days do buses run?</summary><p data-i="a3" id="a3">From Georgia on Wednesdays and Saturdays, from Moscow on Tuesdays and Saturdays.</p></details>
-        <details><summary data-i="q4">Do you carry parcels?</summary><p data-i="a4">Yes, in both directions. Call or message us for details.</p></details>
-        <details><summary data-i="q5">Where can I board?</summary><p data-i="a5">Batumi, Kobuleti, Poti, Kutaisi, Tbilisi. In Moscow at metro Annino.</p></details>
-        <details><summary data-i="q6">Can I cancel my booking?</summary><p data-i="a6">Yes. If you cancel, we refund the amount you paid. Message us on WhatsApp.</p></details>
-        <p class="cta-row"><a class="btn coral" href="#book"><span data-i="cta">Book a seat</span><svg><use href="#i-arrow"/></svg></a></p>
-      </div>
-    </div>
-
+    <div class="pg" id="p-faq" hidden><div hidden><p id="a3"></p></div></div>
     <!-- ===================== ქალაქის გვერდი (bus/…-moscow/): შიგთავსს build წერს src/cities.json-დან ===================== -->
-    <div class="pg rt" id="p-route" hidden></div>
-
+    <div class="pg rt" id="p-route" hidden><div hidden></div></div>
     <!-- ===================== ადმინ-გვერდი (#/admin): განრიგი, ფასები, ტექსტები ===================== -->
-    <div class="pg" id="p-admin" hidden>
-      <div class="phd"><div class="w"><h1>ადმინ-პანელი</h1><p class="sub">აქ ცვლი განრიგს, ფასებს და ტექსტებს. შეცვლის შემდეგ გადმოწერე ფაილი, ჩაანაცვლე საქაღალდეში <b>js/</b> და ატვირთე GitHub-ზე (git push): Cloudflare საიტს თავისით განაახლებს. (ცვლილება მხოლოდ შენს ბრაუზერში ჩანს, სანამ არ ატვირთავ.)</p></div></div>
-      <div class="w admin">
-        <div id="sched"></div>
-        <textarea id="sout" rows="4" readonly></textarea>
-        <p><a class="btn coral" id="sdl" href="#" download="schedule-config.js">გადმოწერა: schedule-config.js</a></p>
-      </div>
-    </div>
-
+    <div class="pg" id="p-admin" hidden><div hidden><div id="sched"></div><textarea id="sout" rows="4" readonly></textarea><a class="btn coral" id="sdl" href="#" download="schedule-config.js"></a></div></div>
     <!-- რეკლამის ზოლი შიდა გვერდებზე (მთავრისა და ადმინის გარდა) -->
     <aside class="w adbar" id="adbar" hidden></aside>
 
@@ -446,8 +177,8 @@
 
     <!-- სკრიპტები: 1) პარამეტრები, 2) მთავარი პროგრამა, 3) ანიმაციები და რეკლამა (fx.js), 4) 3D სცენები (scene.js, Three.js) -->
     <script src="../../js/schedule-config.js?v=c73a2d36"></script>
-    <script src="../../js/script.js?v=426b6917"></script>
-    <script src="../../js/fx.js?v=f7599bfa"></script>
+    <script src="../../js/script.js?v=01b6c8c9"></script>
+    <script src="../../js/fx.js?v=76bf4eb4"></script>
     <script type="module" src="../../js/scene.js?v=ed17ff10"></script>
   </body>
 </html>

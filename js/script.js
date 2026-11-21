@@ -341,6 +341,11 @@ $("dt").onchange = function () {
 // გვერდების გადართვა: აჩვენებს მხოლოდ ერთ გვერდს (მთავარი, ავტობუსები, განრიგი...).
 function route() {
     var h = location.hash, p = h.indexOf("#/") == 0 ? h.slice(2) : PG;
+    // ძველი ბმული (/ru/#/schedule): თითო გვერდზე მხოლოდ საკუთარი შიგთავსია, ამიტომ გადავდივართ ნამდვილ მისამართზე
+    if (!SPA && h.indexOf("#/") == 0 && p.replace(/\/$/, "") != PG && !(p == "admin" && !PG)) {
+        location.replace(p == "admin" ? (LB || "./") + "#/admin" : (LB + (p ? p.replace(/\/$/, "") + "/" : "")) || "./");
+        return;
+    }
     if (p.indexOf("bus/") == 0)
         p = "route"; // ქალაქის გვერდი (მაგ. bus/kutaisi-moscow)
     if (["buses", "charter", "lars", "parcel-guide", "new-year", "schedule", "parcels", "info", "faq", "admin", "route"].indexOf(p) < 0)

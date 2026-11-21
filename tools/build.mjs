@@ -44,6 +44,40 @@ function grab(name) {
 const TT = [grab("T"), grab("T2"), grab("T3")];
 const TX = Object.fromEntries(LANGS.map(l => [l, Object.assign({}, ...TT.map(t => t[l] || {}))]));
 
+// ---------------------------------------------------------------------
+// თითო გვერდზე მხოლოდ საკუთარი შიგთავსი (Google-ისთვის): სხვა გვერდების ბლოკები იცვლება
+// ცარიელი „ნაკვალევით“ — მხოლოდ ის id-ები რჩება, რომლებსაც js იყენებს ($("…")), რომ კოდი არ გაფუჭდეს.
+// მთავარიდან სხვა გვერდებზე რჩება მხოლოდ დაჯავშნის ფორმა (#book) და კონტაქტი (#contact).
+const JSIDS = new Set(["js/script.js", "js/fx.js", "js/scene.js"].flatMap(f =>
+  existsSync(join(ROOT, f)) ? [...readFileSync(join(ROOT, f), "utf8").matchAll(/\$\("([A-Za-z0-9-]+)"\)/g)].map(m => m[1]) : []));
+const VOID = new Set(["input", "img", "br", "hr", "source", "meta", "link"]);
+function stubs(block) {
+  const out = [];
+  for (const m of block.matchAll(/<([a-z0-9]+)\b[^>]*\sid="([A-Za-z0-9-]+)"[^>]*>/g)) {
+    if (!JSIDS.has(m[2])) continue;
+    const open = m[0].replace(/\sdata-i="[^"]*"/g, "");
+    out.push(VOID.has(m[1]) ? open : open + "</" + m[1] + ">");
+  }
+  return out.join("");
+}
+function slim(html, cur) {
+  // შიდა გვერდები: <div class="pg..." id="p-X"> … შემდეგ კომენტარამდე
+  html = html.replace(/(<div class="pg[^"]*" id="p-([a-z-]+)"[^>]*>)([\s\S]*?)(?=\n    <!-- )/g, (m, open, name, body) => {
+    if (name === cur || (name === "admin" && cur === "home")) return m;
+    return open + "<div hidden>" + stubs(body) + "</div></div>";
+  });
+  if (cur !== "home") {
+    // მთავარი: რჩება #book და #contact, დანარჩენი — ნაკვალევი
+    html = html.replace(/(<div id="p-home">)([\s\S]*?)(?=\n    <!-- ===================== )/, (m, open, body) => {
+      const keep = [...body.matchAll(/\n      <section class="[^"]*" id="(book|contact)">[\s\S]*?\n      <\/section>/g)].map(x => x[0]);
+      let rest = body;
+      keep.forEach(k => { rest = rest.replace(k, ""); });
+      return open + keep.join("\n") + "\n      <div hidden>" + stubs(rest) + "</div>\n    </div>";
+    });
+  }
+  return html;
+}
+
 const NAV = [["", "nv0"], ["buses", "nv1"], ["charter", "nv6"], ["schedule", "nv2"], ["parcels", "nv4"], ["info", "nv5"], ["faq", "nv3"]];
 const lp = l => (l === "ka" ? "" : l + "/");
 const path = id => (id && id !== "home" ? id + "/" : "");
@@ -151,6 +185,13 @@ const RT = {
   })
 };
 const rtUrl = (c, l) => SITE + lp(l) + "bus/" + c.slug + "/";
+// ქალაქის გვერდზე: მხოლოდ ამ ქალაქის გაჩერება (თუ რუკა გვაქვს) + მოსკოვი — ყველა ქალაქის გვერდი უნიკალური რომ იყოს
+function cityMaps(c) {
+  return MAPS.replace(/\n\s*<figure class="mapc">[\s\S]*?<\/figure>/g, f => {
+    const t = (f.match(/title="([^"]+)"/) || [])[1];
+    return t === "Moscow" || t === c.n.en ? f : "";
+  });
+}
 function routeHtml(c, l, LB) {
   const t = RT[l](c), K = TX[l];
   const stops = STOPS.map((s, i) => `<li${i === c.i ? ' class="me"' : ""}><time>${CFG.stops[i] || s[0]}</time>${esc(s[1][l])}</li>`).join("") +
@@ -164,7 +205,7 @@ function routeHtml(c, l, LB) {
           <div class="box"><h2>${t.wH}</h2><ul class="rt-list">${t.li.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
             <p class="ctas"><a class="btn coral mag" href="${LB || "./"}?st=${c.i}#book">${esc(t.cta)}</a><a class="btn wa" href="https://wa.me/995598808022?text=${encodeURIComponent(t.msg)}" target="_blank" rel="noopener">WhatsApp</a><a class="btn ghost" href="${LB}schedule/">${esc(t.sch)}</a></p></div>
         </div>
-        ${MAPS}
+        ${cityMaps(c)}
         <h2 class="h2">${t.qH}</h2>
         <div class="faq f3d">${t.faq.filter(Boolean).map(q => `<details><summary>${esc(q[0])}</summary><p>${esc(q[1])}</p></details>`).join("")}</div>
         <h2 class="h2">${t.oH}</h2>
@@ -194,6 +235,7 @@ async function page(l, id, city) {
     .replace("{{ROUTE}}", city ? routeHtml(city, l, LB) + "<div class=\"w\">{{GUIDES}}</div>" : "")
     .replaceAll("{{GUIDES}}", GUIDES);
   if (!city && p.og) html = html.replace("images/og.jpg?v=3", p.og);
+  html = slim(html, city ? "route" : home ? "home" : id);
   if (/\{\{[A-Z]+\}\}/.test(html)) throw new Error("unfilled placeholder in " + l + "/" + pth);
   html = html
     .replace('<html lang="ka">', `<html lang="${l}">`)
