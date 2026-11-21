@@ -155,7 +155,7 @@ const RT = {
     faq: [[`როდის გადის ავტობუსი ${kaAbl(c.n.ka)} მოსკოვში?`, `${days("ge", "ka")}, ${c.time}-ზე (საქართველოს დროით). ზუსტი თარიღები იხილეთ განრიგში.`],
       price && [`რა ღირს ბილეთი ${kaAbl(c.n.ka)} მოსკოვამდე?`, `${price} ერთ ადგილზე. დაჯავშნისას საკმარისია 25% წინასწარ.`],
       [`არის რეისი უკან, მოსკოვიდან ${kaLoc(c.n.ka)}?`, `დიახ. მოსკოვიდან გასვლა: ${days("ru", "ka")}.`],
-      ["რამდენ ხანს გრძელდება მგზავრობა?", "დაახლოებით დღე-ნახევარი — დამოკიდებულია ზემო ლარსზე რიგსა და ამინდზე. ბარგი: დაახლოებით 30 კგ ერთ მგზავრზე."],
+      ["რამდენ ხანს გრძელდება მგზავრობა?", "დაახლოებით დღე-ნახევარი — დამოკიდებულია ზემო ლარსზე რიგსა და ამინდზე. 30 კგ ბარგი უფასოა, დამატებით — 10 ლარი/კგ."],
       ["როგორ დავჯავშნო?", "აირჩიეთ თარიღი და გაჩერება საიტზე და გაგზავნეთ ჯავშანი WhatsApp-ში, ან დაგვირეკეთ: +995 598 80 80 22."]],
     msg: `გამარჯობა! მინდა ადგილის დაჯავშნა: ${c.n.ka} → მოსკოვი.`, other: o => `${o.n.ka} — მოსკოვი`
   }),
@@ -170,7 +170,7 @@ const RT = {
     faq: [[`Когда отправляется автобус из ${c.n.ru} в Москву?`, `${days("ge", "ru")}, в ${c.time} (по грузинскому времени). Точные даты смотрите в расписании.`],
       price && [`Сколько стоит билет из ${c.n.ru} до Москвы?`, `${price} за место. Для бронирования достаточно 25% предоплаты.`],
       [`Есть ли обратный рейс из Москвы в ${c.n.ru}?`, `Да. Отправление из Москвы: ${days("ru", "ru")}.`],
-      ["Сколько ехать до Москвы?", "Около полутора суток — зависит от очереди на Верхнем Ларсе и погоды. Багаж: около 30 кг на человека."],
+      ["Сколько ехать до Москвы?", "Около полутора суток — зависит от очереди на Верхнем Ларсе и погоды. 30 кг багажа — бесплатно, сверх нормы — 10 лари/кг."],
       ["Как забронировать?", "Выберите дату и остановку на сайте и отправьте заявку в WhatsApp или позвоните: +995 598 80 80 22."]],
     msg: `Здравствуйте! Хочу забронировать место: ${c.n.ru} → Москва.`, other: o => `${o.n.ru} — Москва`
   }),
@@ -185,7 +185,7 @@ const RT = {
     faq: [[`When does the bus from ${c.n.en} to Moscow leave?`, `${days("ge", "en")} at ${c.time} (Georgia time). See the schedule for exact dates.`],
       price && [`How much is a ticket from ${c.n.en} to Moscow?`, `${price} per seat. Only 25% prepayment to book.`],
       [`Is there a return trip from Moscow to ${c.n.en}?`, `Yes. Departures from Moscow: ${days("ru", "en")}.`],
-      ["How long is the trip to Moscow?", "About a day and a half — depends on the queue at Upper Lars and the weather. Luggage: about 30 kg per person."],
+      ["How long is the trip to Moscow?", "About a day and a half — depends on the queue at Upper Lars and the weather. 30 kg of luggage free, extra — 10 GEL/kg."],
       ["How do I book?", "Pick a date and stop on the website and send the request on WhatsApp, or call +995 598 80 80 22."]],
     msg: `Hello! I would like to book a seat: ${c.n.en} → Moscow.`, other: o => `${o.n.en} — Moscow`
   })
