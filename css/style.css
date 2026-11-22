@@ -296,3 +296,9 @@ html.lbo{overflow:hidden}
 
 .rvy{text-align:center;margin:18px 0 0;font-weight:700}
 .rvy a{color:inherit;text-decoration:underline;text-underline-offset:4px}
+
+/* მთავარის სათაურის პატარა ზედა ხაზი („ავტობუსი“) */
+#heroT h1 .h1k{display:block;margin-bottom:8px;font-size:clamp(14px,1.6vw,18px);letter-spacing:.16em;text-transform:uppercase;color:var(--coral)}
+/* მარშრუტის გვერდის აღწერა */
+.rt-intro{margin:28px 0 8px}
+#about .rt-other{margin-bottom:8px}

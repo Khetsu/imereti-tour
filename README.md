@@ -79,3 +79,8 @@ imereti-tour/
 - ქალაქების გვერდები: `/bus/batumi-moscow/`, `/bus/kutaisi-moscow/` ... (და `/ru/bus/...`, `/en/bus/...`). დრო, დღეები და ფასი ავტომატურად მოდის `js/schedule-config.js`-დან: ადმინიდან შეცვლის შემდეგ გაუშვი `node tools/build.mjs`.
 - გვერდების სათაურები სამ ენაზე: `src/pages.json`.
 - Google Search Console: search.google.com/search-console (imeretitour.com). სტატისტიკა: Cloudflare → Workers & Pages → imereti-tour → Metrics → Web Analytics.
+
+## Google / Yandex / AI
+- `llms.txt` — მოკლე ცნობარი AI ასისტენტებისთვის (ChatGPT, Claude, Perplexity): ფასი, დღეები, გაჩერებები. ფასის ან განრიგის შეცვლისას აქაც შეცვალე.
+- საიტის ატვირთვის შემდეგ: `node tools/indexnow.mjs` — Bing-ს და Yandex-ს ატყობინებს ყველა გვერდს (IndexNow, გასაღები `3f4a74ee….txt` მთავარ საქაღალდეში — არ წაშალო).
+- სტატისტიკა: Google Analytics `G-ZWRB6V12CS`, Yandex Metrica `114510982` (js/script.js, სექცია 13).
