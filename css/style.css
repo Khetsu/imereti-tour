@@ -272,3 +272,4 @@ h1,h2,h3{letter-spacing:-.01em}
 @keyframes pgin{from{opacity:0;transform:translateY(10px)}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 @media print{.hd,.sticky,.ft,.nb{display:none!important}}
+.chgal{margin:28px 0 8px}
