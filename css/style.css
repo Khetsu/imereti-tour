@@ -293,3 +293,6 @@ h1,h2,h3{letter-spacing:-.01em}
 .lbc{top:16px;right:16px}.lbp{left:14px;top:50%;margin-top:-26px}.lbf{right:14px;top:50%;margin-top:-26px}
 .lbn{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:rgba(255,255,255,.8);font-weight:700;font-size:15px}
 html.lbo{overflow:hidden}
+
+.rvy{text-align:center;margin:18px 0 0;font-weight:700}
+.rvy a{color:inherit;text-decoration:underline;text-underline-offset:4px}
