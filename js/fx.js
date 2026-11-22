@@ -37,10 +37,10 @@
         try { sessionStorage.setItem("it-seen", "1"); } catch (e) { }
         setTimeout(function () { pre.hidden = true; }, 1000);
     }
-    if (seen || RM) { if (pre) pre.classList.add("fast"); requestAnimationFrame(open); }
+    if (seen || RM) { if (pre) pre.classList.add("fast"); requestAnimationFrame(open); setTimeout(open, 150); }
     else {
-        addEventListener("load", function () { setTimeout(open, 700); });
-        setTimeout(open, 2600);
+        addEventListener("load", function () { setTimeout(open, 300); });
+        setTimeout(open, 1200); // ჩამტვირთავი არასოდეს ჩანს 1,2 წამზე მეტხანს
     }
     // შიდა ბმულზე დაჭერისას ფარდა იხურება და მერე იხსნება ახალი გვერდი.
     var curtain = $("curtain");
@@ -52,7 +52,7 @@
         if (u.origin != location.origin || u.pathname == location.pathname || u.protocol.indexOf("http") != 0) return;
         e.preventDefault();
         curtain.classList.add("go");
-        setTimeout(function () { location.href = a.href; }, 560);
+        setTimeout(function () { location.href = a.href; }, 320);
     });
     addEventListener("pageshow", function (e) {
         curtain.classList.remove("go");
@@ -128,12 +128,16 @@
     var hs = $("hs"), hstr = $("hstr"), hsExtra = 0;
     function hsSize() {
         if (!hs || RM) return;
+        // ტელეფონზე: ფოტოები თითით გადაიფურცლება (გრძელი გადახვევის ნაცვლად)
+        var sw = VW < 760;
+        hs.classList.toggle("hs-swipe", sw);
+        if (sw) { hs.style.height = ""; hstr.style.transform = ""; return; }
         hstr.style.transform = "";
         hsExtra = Math.max(0, hstr.scrollWidth - VW);
         hs.style.height = (VH + hsExtra * 1.1) + "px";
     }
     function hsTick() {
-        if (!hs || RM || $("p-home").hidden) return;
+        if (!hs || RM || $("p-home").hidden || VW < 760) return;
         var r = hs.getBoundingClientRect();
         if (r.bottom < 0 || r.top > VH) return;
         var p = clamp(-r.top / (hs.offsetHeight - VH || 1), 0, 1);
@@ -153,7 +157,7 @@
     function statsRender() {
         var st = $("stats");
         if (!st) return;
-        var k = T[L], v = [[S.length, k.st_s], [SC.days.ge.length + SC.days.ru.length, k.st_w], [2, k.st_d], [3, k.st_l]];
+        var k = T[L], v = [[S.length, k.st_s], [SC.days.ge.length + SC.days.ru.length, k.st_w], [2, k.st_d], [30, k.st_l]];
         st.innerHTML = v.map(function (x) {
             return '<div><b data-count="' + x[0] + '">' + (counted || RM ? x[0] : 0) + "</b><span>" + esc(x[1]) + "</span></div>";
         }).join("");
@@ -351,6 +355,8 @@
             // ცარიელ ადგილებს ავსებს: „აქ შეიძლება იყოს თქვენი რეკლამა“ + სარეკლამო ადგილები
             if (n < 2) for (var g = n; g < 2; g++) gh += adGhost(g + 2);
             l.innerHTML = ads.map(function (a) { return adCard(a); }).join('') + (n % 3 || !n ? adFree() : '') + gh;
+            // მთავარზე რეკლამის ბლოკი ჩანს მხოლოდ მაშინ, როცა ნამდვილი რეკლამა მაინც ერთია
+            if ($("ads")) $("ads").hidden = !n;
         }
         if (bar) {
             var a = ads.length ? ads[Math.floor(Math.random() * ads.length)] : null;
@@ -360,7 +366,8 @@
     }
     function adbarVis() {
         var bar = $("adbar");
-        if (bar) bar.hidden = !$("p-home").hidden || !$("p-admin").hidden;
+        // ქვედა სარეკლამო ზოლი ჩანს მხოლოდ მაშინ, როცა ნამდვილი რეკლამა მაინც ერთია
+        if (bar) bar.hidden = !$("p-home").hidden || !$("p-admin").hidden || !(SC.ads || []).some(function (a) { return a && a.t; });
     }
 
     // ==================================================================

@@ -302,3 +302,29 @@ html.lbo{overflow:hidden}
 /* მარშრუტის გვერდის აღწერა */
 .rt-intro{margin:28px 0 8px}
 #about .rt-other{margin-bottom:8px}
+
+/* ტელეფონი: ავტობუსების ფოტოები — თითით გადაფურცვლა */
+.hs.hs-swipe{height:auto!important}
+.hs-swipe .hs-st{position:static;height:auto;padding:56px 0 18px}
+.hs-swipe .hs-tr{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;transform:none!important;padding:10px 16px 18px}
+.hs-swipe .hs-tr::-webkit-scrollbar{display:none}
+.hs-swipe .win{width:78vw;scroll-snap-align:center;transform:none!important;opacity:1!important}
+.hs-swipe .win img{transform:none!important}
+/* ტელეფონი: შეფასებები გვერდიგვერდ, თითით გადაფურცვლა */
+@media (max-width:759px){
+  .rvl{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -16px;padding:4px 16px 16px;scrollbar-width:none}
+  .rvl::-webkit-scrollbar{display:none}
+  .rvl blockquote{flex:0 0 84%;scroll-snap-align:center}
+  .fx .rvl blockquote:not(.in){transform:none;opacity:1}
+}
+/* შეფასების დატოვება: ღილაკზე დაჭერით იხსნება */
+.rvd{margin-top:18px}
+.rvd>summary{list-style:none;cursor:pointer}
+.rvd>summary::-webkit-details-marker{display:none}
+.rvd[open]>summary{display:none}
+
+/* ტელეფონი: გვერდის დიდი სათაური ეკრანში ეტევა; განრიგის დაფის ასოები უფრო მჭიდროდ */
+@media (max-width:759px){
+  .phd h1{font-size:clamp(25px,7.2vw,30px);overflow-wrap:break-word}
+  .board .fl{margin:0;padding:1px .6px}
+}
