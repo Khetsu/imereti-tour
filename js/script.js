@@ -106,7 +106,8 @@ SC.reviews = SC.reviews || [];
 SC.maps = SC.maps || {};
 SC.sheet = SC.sheet || ""; // ჯავშნების ცხრილის (Google Apps Script) მისამართი
 SC.ads = SC.ads || []; // რეკლამები: [{t: სათაური, x: ტექსტი, img: სურათი, u: ბმული}]
-SC.ga = SC.ga || "";
+SC.ga = SC.ga || "G-ZWRB6V12CS";
+SC.ym = SC.ym || 114510982; // Yandex Metrica
 S.forEach(function (s, i) {
     if (SC.stops[i])
         s[0] = SC.stops[i];
@@ -696,7 +697,7 @@ $("sched").onclick = function (e) {
 acr();
 
 // ======================================================================
-// 13. სტატისტიკა (Google Analytics, არასავალდებულო)
+// 13. სტატისტიკა (Google Analytics + Yandex Metrica)
 // ======================================================================
 
 if (SC.ga) {
@@ -711,6 +712,19 @@ if (SC.ga) {
     gtag("js", new Date());
     gtag("config", SC.ga);
 }
+if (SC.ym) {
+    (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+        m[i].l = 1 * new Date();
+        k = e.createElement(t); a = e.getElementsByTagName(t)[0]; k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=" + SC.ym, "ym");
+    ym(SC.ym, "init", { ssr: true, clickmap: true, referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+}
+// მიზნები (ორივე სტატისტიკაში): whatsapp_click, phone_click, booking_request, parcel_request
+function goal(n) {
+    try { if (window.gtag) gtag("event", n); } catch (e) { }
+    try { if (window.ym && SC.ym) ym(SC.ym, "reachGoal", n); } catch (e) { }
+}
 // დაჭერები WhatsApp-ზე და ტელეფონზე იწერება Google-ის ცხრილში (ფურცელი Clicks): რომელი ღილაკი, რომელ გვერდზე, საიდან მოვიდა სტუმარი
 document.addEventListener("click", function (e) {
     var a = e.target.closest("a");
@@ -718,12 +732,12 @@ document.addEventListener("click", function (e) {
         var where = a.closest("section,.pg,.sticky,footer,.box");
         sheetLog({ t: "click", b: (a.href.indexOf("tel:") == 0 ? "ზარი" : "WhatsApp") + (where && where.id ? " · " + where.id : where && where.className ? " · " + String(where.className).split(" ")[0] : ""), ref: (document.referrer || "პირდაპირ").slice(0, 200) });
     }
-    if (!a || !window.gtag)
+    if (!a)
         return;
     if (a.href.indexOf("wa.me") > 0)
-        gtag("event", "whatsapp_click");
+        goal("whatsapp_click");
     else if (a.href.indexOf("tel:") == 0)
-        gtag("event", "phone_click");
+        goal("phone_click");
 });
 
 // ======================================================================
@@ -754,9 +768,11 @@ function txt(i) {
     return !e ? "" : e.tagName == "SELECT" ? (e.selectedOptions[0] ? e.selectedOptions[0].textContent : "") : e.value || e.textContent || "";
 }
 $("wa").addEventListener("click", function () {
+    goal("booking_request");
     sheetLog({ t: "ბილეთი", dir: txt("tkA") + " → " + txt("tkB"), date: txt("dt"), stop: txt("st"), px: $("px").value, nm: txt("nm"), ph: txt("ph"), pay: txt("pay"), src: $("heard").value ? txt("heard") : "", price: $("pr").hidden ? "" : txt("pr") });
 });
 $("pwa").addEventListener("click", function () {
+    goal("parcel_request");
     sheetLog({ t: "ამანათი", dir: txt("pdir"), nm: txt("pnm"), ph: txt("pph"), what: txt("pwh"), kg: txt("pkg"), price: $("ppr").hidden ? "" : txt("ppr") });
 });
 
@@ -882,11 +898,11 @@ document.addEventListener("click", function (e) {
     });
 });
 
-// ქალაქის გვერდიდან მოსული (?st=2): ფორმაში ეს გაჩერება წინასწარ არჩეულია
+// ქალაქის გვერდიდან მოსული (?st=2, მოსკოვიდან: ?st=2&dir=ru): ფორმაში ეს გაჩერება წინასწარ არჩეულია
 (function () {
     var m = /[?&]st=([0-9])/.exec(location.search);
     if (m && S[+m[1]]) {
-        $("dir").value = "ge";
+        $("dir").value = /[?&]dir=ru/.test(location.search) ? "ru" : "ge";
         render();
         $("st").value = m[1];
         upd();
