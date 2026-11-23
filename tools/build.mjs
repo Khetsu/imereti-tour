@@ -97,10 +97,11 @@ function jsonld(id, l, p, K) {
       address: { "@type": "PostalAddress", streetAddress: "8 Baku Street", addressLocality: "Batumi", addressCountry: "GE" },
       geo: { "@type": "GeoCoordinates", latitude: 41.6465879, longitude: 41.6465561 },
       contactPoint: { "@type": "ContactPoint", telephone: PHONE, contactType: "customer service", availableLanguage: ["ka", "ru", "en"] },
-      priceRange: "200 GEL", currenciesAccepted: "GEL",
+      priceRange: "200 GEL / 6000 RUB", currenciesAccepted: "GEL, RUB",
       knowsAbout: ["Bus Moscow — Georgia", "Автобус Москва — Грузия", "Автобус Москва — Тбилиси", "Автобус Москва — Кутаиси", "Автобус Москва — Батуми", "Посылки в Грузию из Москвы", "Upper Lars border crossing"],
       hasOfferCatalog: { "@type": "OfferCatalog", name: "Imereti Tour", itemListElement: [
         { "@type": "Offer", name: "Bus ticket Georgia ⇄ Moscow (Batumi, Kobuleti, Poti, Kutaisi, Tbilisi ⇄ Moscow Annino)", price: 200, priceCurrency: "GEL", url: SITE },
+        { "@type": "Offer", name: "Bus ticket Moscow ⇄ Georgia (price in rubles)", price: 6000, priceCurrency: "RUB", url: SITE + "ru/" },
         { "@type": "Offer", name: "Parcel delivery Georgia ⇄ Moscow, per kg", price: 10, priceCurrency: "GEL", url: SITE + "parcels/" },
         { "@type": "Offer", name: "Bus charter in Georgia and to Europe", url: SITE + "charter/" }] }
     },
@@ -149,7 +150,8 @@ const cfgSrc = await readFile(join(ROOT, "js/schedule-config.js"), "utf8");
 const CFG = Function("var window={};" + cfgSrc + ";return window.SCHEDULE")();
 const days = (kind, l) => CFG.days[kind].slice().sort((a, b) => (a || 7) - (b || 7))
   .map(d => new Intl.DateTimeFormat(l, { weekday: "long", timeZone: "UTC" }).format(new Date(Date.UTC(2024, 0, 7 + d)))).join(", ");
-const price = CFG.price.ge > 0 ? CFG.price.ge + " " + CFG.cur : "";
+const RUB = CFG.rub || 6000; // ბილეთის ფასი რუბლში
+const price = CFG.price.ge > 0 ? CFG.price.ge + " " + CFG.cur + " (" + RUB + " ₽)" : "";
 const CITY = STOPS.map((s, i) => ({ i, slug: s[1].en.toLowerCase() + "-moscow", n: s[1], time: CFG.stops[i] || s[0] }));
 const kaAbl = n => n + "დან", kaLoc = n => n.replace(/ი$/, "") + "ში";
 const RT = {
@@ -201,7 +203,7 @@ const RT = {
 };
 const rtUrl = (c, l) => SITE + lp(l) + "bus/" + c.slug + "/";
 // საპირისპირო მიმართულება: bus/moscow-batumi/ ... (ხალხი ხშირად ეძებს „Москва Батуми“, „Москва Кутаиси“)
-const priceR = CFG.price.ru > 0 ? CFG.price.ru + " " + CFG.cur : "";
+const priceR = CFG.price.ru > 0 ? CFG.price.ru + " " + CFG.cur + " (" + RUB + " ₽)" : "";
 const CITYR = STOPS.map((s, i) => ({ i, rev: true, slug: "moscow-" + s[1].en.toLowerCase(), n: s[1] }));
 const RTR = {
   ka: c => ({
@@ -259,10 +261,10 @@ const HOMESEO = {
   ka: {
     k: "ყველაფერი მგზავრობაზე", h: "ავტობუსი საქართველო — მოსკოვი: ბილეთები, ფასი, განრიგი",
     p: [`„იმერეთი ტური“ — რეგულარული ავტობუსი საქართველოსა და მოსკოვს შორის. საქართველოდან მოსკოვში ავტობუსი გადის: ${days("ge", "ka")}; მოსკოვიდან საქართველოში: ${days("ru", "ka")}. გაჩერებები საქართველოში: ბათუმი, ქობულეთი, ფოთი, ქუთაისი და თბილისი; მოსკოვში — მეტრო „ანინო“ (МКАД 33 კმ). მარშრუტი ზემო ლარსის გავლით მიდის, გზაში დაახლოებით დღე-ნახევარია.`,
-      `ბილეთი ავტობუსზე საქართველო — მოსკოვი ღირს ${PR} ლარი ნებისმიერი ქალაქიდან. 30 კგ ბარგი ერთ მგზავრზე უფასოა, დამატებით — ${KG} ლარი 1 კგ. ავტობუსებში არის კონდიციონერი, Wi-Fi და USB დამტენი. ადგილის დასაჯავშნად აირჩიე თარიღი და გაჩერება ზემოთ ფორმაში და გამოგვიგზავნე WhatsApp-ში — რეგისტრაცია არ სჭირდება, საკმარისია 25% წინასწარ.`,
+      `ბილეთი ავტობუსზე საქართველო — მოსკოვი ღირს ${PR} ლარი (${RUB} ₽) ნებისმიერი ქალაქიდან. 30 კგ ბარგი ერთ მგზავრზე უფასოა, დამატებით — ${KG} ლარი 1 კგ. ავტობუსებში არის კონდიციონერი, Wi-Fi და USB დამტენი. ადგილის დასაჯავშნად აირჩიე თარიღი და გაჩერება ზემოთ ფორმაში და გამოგვიგზავნე WhatsApp-ში — რეგისტრაცია არ სჭირდება, საკმარისია 25% წინასწარ.`,
       `ამავე ავტობუსით ვგზავნით ამანათებს მოსკოვში და მოსკოვიდან საქართველოში — ${KG} ლარი 1 კგ. ამანათს ავტობუსის გაჩერებაზე გადმოგვცემთ, ადრესატი კი დანიშნულების ადგილას იღებს.`],
     rH: "პოპულარული მიმართულებები", qH: "ხშირი კითხვები ავტობუსზე საქართველო — მოსკოვი",
-    q: [[`რა ღირს ავტობუსის ბილეთი მოსკოვამდე?`, `${PR} ლარი ერთ ადგილზე — ბათუმიდან, ქობულეთიდან, ფოთიდან, ქუთაისიდან ან თბილისიდან. 30 კგ ბარგი უფასოა.`],
+    q: [[`რა ღირს ავტობუსის ბილეთი მოსკოვამდე?`, `${PR} ლარი (${RUB} ₽) ერთ ადგილზე — ბათუმიდან, ქობულეთიდან, ფოთიდან, ქუთაისიდან ან თბილისიდან. 30 კგ ბარგი უფასოა.`],
       ["რამდენ ხანს მივდივართ ავტობუსით მოსკოვამდე?", "დაახლოებით დღე-ნახევარი. დრო დამოკიდებულია ზემო ლარსზე რიგსა და ამინდზე."],
       ["რომელ დღეებში გადის ავტობუსი მოსკოვში?", `საქართველოდან: ${days("ge", "ka")}. მოსკოვიდან: ${days("ru", "ka")}.`],
       ["საიდან გადის ავტობუსი მოსკოვში?", "მოსკოვში ავტობუსი დგას მეტრო „ანინოსთან“ (МКАД 33 კმ, владение 6, стр. 5). ქუთაისში — Lukoil, ლადო ასათიანის 98."],
@@ -272,10 +274,10 @@ const HOMESEO = {
   ru: {
     k: "Всё о поездке", h: "Автобус Москва — Грузия: билеты, цена, расписание",
     p: [`«Имерети Тур» — регулярный автобус между Москвой и Грузией. Из Москвы автобус отправляется: ${days("ru", "ru")}; из Грузии в Москву: ${days("ge", "ru")}. Посадка в Москве — у метро «Аннино» (МКАД 33 км). Остановки в Грузии: Тбилиси, Кутаиси, Поти, Кобулети и Батуми. Маршрут идёт через КПП Верхний Ларс, в пути около полутора суток.`,
-      `Билет на автобус Москва — Грузия стоит ${PR} лари до любого города маршрута. 30 кг багажа на человека — бесплатно, сверх нормы — ${KG} лари за кг. В автобусах кондиционер, Wi-Fi и USB-зарядка. Чтобы купить билет, выберите дату и остановку в форме выше и отправьте заявку в WhatsApp — без регистрации, достаточно предоплаты 25%. При отмене деньги возвращаем.`,
+      `Билет на автобус Москва — Грузия стоит ${PR} лари (${RUB} ₽) до любого города маршрута. 30 кг багажа на человека — бесплатно, сверх нормы — ${KG} лари за кг. В автобусах кондиционер, Wi-Fi и USB-зарядка. Чтобы купить билет, выберите дату и остановку в форме выше и отправьте заявку в WhatsApp — без регистрации, достаточно предоплаты 25%. При отмене деньги возвращаем.`,
       `Этим же автобусом мы перевозим посылки из Москвы в Грузию и из Грузии в Москву — ${KG} лари за кг. Посылку передают на остановке автобуса, получатель забирает её в пункте назначения.`],
     rH: "Популярные направления", qH: "Частые вопросы об автобусе Москва — Грузия",
-    q: [["Сколько стоит билет на автобус Москва — Грузия?", `${PR} лари за место до Тбилиси, Кутаиси, Поти, Кобулети или Батуми. 30 кг багажа — бесплатно.`],
+    q: [["Сколько стоит билет на автобус Москва — Грузия?", `${PR} лари (${RUB} ₽) за место до Тбилиси, Кутаиси, Поти, Кобулети или Батуми. 30 кг багажа — бесплатно.`],
       ["Сколько ехать на автобусе из Москвы в Грузию?", "Около полутора суток. Время зависит от очереди на Верхнем Ларсе и погоды."],
       ["В какие дни ходит автобус?", `Из Москвы: ${days("ru", "ru")}. Из Грузии: ${days("ge", "ru")}.`],
       ["Откуда отправляется автобус в Москве?", "От метро «Аннино» (МКАД 33 км, владение 6, стр. 5)."],
@@ -285,10 +287,10 @@ const HOMESEO = {
   en: {
     k: "About the trip", h: "Georgia — Moscow bus: tickets, price, schedule",
     p: [`Imereti Tour runs a regular bus between Georgia and Moscow. From Georgia to Moscow: ${days("ge", "en")}; from Moscow to Georgia: ${days("ru", "en")}. Stops in Georgia: Batumi, Kobuleti, Poti, Kutaisi and Tbilisi; in Moscow the bus stops at Annino metro (MKAD 33 km). The route crosses the border at Upper Lars and takes about a day and a half.`,
-      `A Georgia — Moscow bus ticket costs ${PR} GEL from any city on the route. 30 kg of luggage per person is free, extra is ${KG} GEL per kg. The coaches have air conditioning, Wi-Fi and USB charging. To book, pick a date and stop in the form above and send it on WhatsApp — no sign-up, only 25% prepayment.`,
+      `A Georgia — Moscow bus ticket costs ${PR} GEL (${RUB} RUB) from any city on the route. 30 kg of luggage per person is free, extra is ${KG} GEL per kg. The coaches have air conditioning, Wi-Fi and USB charging. To book, pick a date and stop in the form above and send it on WhatsApp — no sign-up, only 25% prepayment.`,
       `The same bus carries parcels from Georgia to Moscow and back — ${KG} GEL per kg. You hand the parcel over at the bus stop and the recipient collects it at the destination.`],
     rH: "Popular routes", qH: "Georgia — Moscow bus: FAQ",
-    q: [["How much is a bus ticket from Georgia to Moscow?", `${PR} GEL per seat from Batumi, Kobuleti, Poti, Kutaisi or Tbilisi. 30 kg of luggage free.`],
+    q: [["How much is a bus ticket from Georgia to Moscow?", `${PR} GEL (${RUB} RUB) per seat from Batumi, Kobuleti, Poti, Kutaisi or Tbilisi. 30 kg of luggage free.`],
       ["How long is the bus trip to Moscow?", "About a day and a half, depending on the queue at Upper Lars and the weather."],
       ["Which days does the bus run?", `From Georgia: ${days("ge", "en")}. From Moscow: ${days("ru", "en")}.`],
       ["Where does the bus stop in Moscow?", "At Annino metro station (MKAD 33 km, vladenie 6, building 5)."],
@@ -315,19 +317,19 @@ function homeSeo(l, LB) {
 function routeIntro(c, l) {
   const n = c.n[l], rev = !!c.rev, t = (rev ? CFG.stops : CFG.stops)[c.i] || "";
   if (l === "ka") return rev
-    ? [`როგორ ჩავიდეთ მოსკოვიდან ${kaLoc(n)} ავტობუსით`, `„იმერეთი ტურის“ ავტობუსი მოსკოვი — ${n} გადის მოსკოვიდან, მეტრო „ანინოსთან“ (МКАД 33 კმ): ${days("ru", "ka")}. მარშრუტი ზემო ლარსის გავლით მიდის, გზაში დაახლოებით დღე-ნახევარია. ბილეთი — ${CFG.price.ru || PR} ლარი, 30 კგ ბარგი უფასოა, დამატებით — ${KG} ლარი/კგ. დაჯავშნა ონლაინ 1 წუთში, რეგისტრაციის გარეშე: საკმარისია 25% წინასწარ.`,
+    ? [`როგორ ჩავიდეთ მოსკოვიდან ${kaLoc(n)} ავტობუსით`, `„იმერეთი ტურის“ ავტობუსი მოსკოვი — ${n} გადის მოსკოვიდან, მეტრო „ანინოსთან“ (МКАД 33 კმ): ${days("ru", "ka")}. მარშრუტი ზემო ლარსის გავლით მიდის, გზაში დაახლოებით დღე-ნახევარია. ბილეთი — ${CFG.price.ru || PR} ლარი (${RUB} ₽), 30 კგ ბარგი უფასოა, დამატებით — ${KG} ლარი/კგ. დაჯავშნა ონლაინ 1 წუთში, რეგისტრაციის გარეშე: საკმარისია 25% წინასწარ.`,
       `ამანათი მოსკოვიდან ${kaLoc(n)}`, `ამანათი იმავე ავტობუსით მიდის — ${KG} ლარი 1 კგ. გადმოგვეცით მოსკოვში, მეტრო „ანინოსთან“, ადრესატი კი ${kaLoc(n)} იღებს.`]
-    : [`როგორ ჩავიდეთ ${kaAbl(n)} მოსკოვში ავტობუსით`, `„იმერეთი ტურის“ ავტობუსი ${n} — მოსკოვი გადის ${kaAbl(n)}: ${days("ge", "ka")}, ${t}-ზე. მარშრუტი ზემო ლარსის გავლით მიდის და ჩადის მოსკოვში, მეტრო „ანინოსთან“ (МКАД 33 კმ). გზაში დაახლოებით დღე-ნახევარია. ბილეთი — ${PR} ლარი, 30 კგ ბარგი უფასოა, დამატებით — ${KG} ლარი/კგ. დაჯავშნა ონლაინ 1 წუთში, რეგისტრაციის გარეშე: საკმარისია 25% წინასწარ.`,
+    : [`როგორ ჩავიდეთ ${kaAbl(n)} მოსკოვში ავტობუსით`, `„იმერეთი ტურის“ ავტობუსი ${n} — მოსკოვი გადის ${kaAbl(n)}: ${days("ge", "ka")}, ${t}-ზე. მარშრუტი ზემო ლარსის გავლით მიდის და ჩადის მოსკოვში, მეტრო „ანინოსთან“ (МКАД 33 კმ). გზაში დაახლოებით დღე-ნახევარია. ბილეთი — ${PR} ლარი (${RUB} ₽), 30 კგ ბარგი უფასოა, დამატებით — ${KG} ლარი/კგ. დაჯავშნა ონლაინ 1 წუთში, რეგისტრაციის გარეშე: საკმარისია 25% წინასწარ.`,
       `ამანათი ${kaAbl(n)} მოსკოვში`, `ამანათი იმავე ავტობუსით მიდის — ${KG} ლარი 1 კგ. გადმოგვეცით გაჩერებაზე, ადრესატი კი მოსკოვში, მეტრო „ანინოსთან“ იღებს.`];
   if (l === "ru") return rev
-    ? [`Как доехать из Москвы в ${n} на автобусе`, `Автобус Москва — ${n} компании «Имерети Тур» отправляется от метро «Аннино» (МКАД 33 км): ${days("ru", "ru")}. Маршрут идёт через КПП Верхний Ларс, в пути около полутора суток. Билет — ${CFG.price.ru || PR} лари, 30 кг багажа бесплатно, сверх нормы — ${KG} лари за кг. Бронирование онлайн за 1 минуту, без регистрации: достаточно предоплаты 25%.`,
+    ? [`Как доехать из Москвы в ${n} на автобусе`, `Автобус Москва — ${n} компании «Имерети Тур» отправляется от метро «Аннино» (МКАД 33 км): ${days("ru", "ru")}. Маршрут идёт через КПП Верхний Ларс, в пути около полутора суток. Билет — ${CFG.price.ru || PR} лари (${RUB} ₽), 30 кг багажа бесплатно, сверх нормы — ${KG} лари за кг. Бронирование онлайн за 1 минуту, без регистрации: достаточно предоплаты 25%.`,
       `Посылки из Москвы в ${n}`, `Посылка едет этим же автобусом — ${KG} лари за кг. Передайте её на остановке у метро «Аннино» в Москве, получатель забирает её в ${n}.`]
-    : [`Как доехать из ${n} в Москву на автобусе`, `Автобус ${n} — Москва компании «Имерети Тур» отправляется из ${n}: ${days("ge", "ru")}, в ${t}. Маршрут идёт через КПП Верхний Ларс до метро «Аннино» в Москве (МКАД 33 км), в пути около полутора суток. Билет — ${PR} лари, 30 кг багажа бесплатно, сверх нормы — ${KG} лари за кг. Бронирование онлайн за 1 минуту, без регистрации: достаточно предоплаты 25%.`,
+    : [`Как доехать из ${n} в Москву на автобусе`, `Автобус ${n} — Москва компании «Имерети Тур» отправляется из ${n}: ${days("ge", "ru")}, в ${t}. Маршрут идёт через КПП Верхний Ларс до метро «Аннино» в Москве (МКАД 33 км), в пути около полутора суток. Билет — ${PR} лари (${RUB} ₽), 30 кг багажа бесплатно, сверх нормы — ${KG} лари за кг. Бронирование онлайн за 1 минуту, без регистрации: достаточно предоплаты 25%.`,
       `Посылки из ${n} в Москву`, `Посылка едет этим же автобусом — ${KG} лари за кг. Передайте её на остановке в ${n}, получатель забирает её в Москве у метро «Аннино».`];
   return rev
-    ? [`How to get from Moscow to ${n} by bus`, `The Imereti Tour bus from Moscow to ${n} leaves from Annino metro (MKAD 33 km): ${days("ru", "en")}. It crosses the border at Upper Lars and takes about a day and a half. A ticket is ${CFG.price.ru || PR} GEL, 30 kg of luggage free, extra ${KG} GEL per kg. Book online in 1 minute, no sign-up, only 25% prepayment.`,
+    ? [`How to get from Moscow to ${n} by bus`, `The Imereti Tour bus from Moscow to ${n} leaves from Annino metro (MKAD 33 km): ${days("ru", "en")}. It crosses the border at Upper Lars and takes about a day and a half. A ticket is ${CFG.price.ru || PR} GEL (${RUB} RUB), 30 kg of luggage free, extra ${KG} GEL per kg. Book online in 1 minute, no sign-up, only 25% prepayment.`,
       `Parcels from Moscow to ${n}`, `Parcels travel on the same bus — ${KG} GEL per kg. Hand it over at Annino metro in Moscow; the recipient collects it in ${n}.`]
-    : [`How to get from ${n} to Moscow by bus`, `The Imereti Tour bus from ${n} to Moscow leaves ${days("ge", "en")} at ${t}. It crosses the border at Upper Lars and arrives at Annino metro in Moscow (MKAD 33 km) in about a day and a half. A ticket is ${PR} GEL, 30 kg of luggage free, extra ${KG} GEL per kg. Book online in 1 minute, no sign-up, only 25% prepayment.`,
+    : [`How to get from ${n} to Moscow by bus`, `The Imereti Tour bus from ${n} to Moscow leaves ${days("ge", "en")} at ${t}. It crosses the border at Upper Lars and arrives at Annino metro in Moscow (MKAD 33 km) in about a day and a half. A ticket is ${PR} GEL (${RUB} RUB), 30 kg of luggage free, extra ${KG} GEL per kg. Book online in 1 minute, no sign-up, only 25% prepayment.`,
       `Parcels from ${n} to Moscow`, `Parcels travel on the same bus — ${KG} GEL per kg. Hand it over at the stop in ${n}; the recipient collects it in Moscow at Annino metro.`];
 }
 const introHtml = (c, l) => { const x = routeIntro(c, l); return `<article class="prose art rt-intro"><h2>${esc(x[0])}</h2><p>${esc(x[1])}</p><h2>${esc(x[2])}</h2><p>${esc(x[3])}</p></article>`; };

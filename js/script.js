@@ -107,6 +107,7 @@ SC.maps = SC.maps || {};
 SC.sheet = SC.sheet || ""; // ჯავშნების ცხრილის (Google Apps Script) მისამართი
 SC.ads = SC.ads || []; // რეკლამები: [{t: სათაური, x: ტექსტი, img: სურათი, u: ბმული}]
 SC.ga = SC.ga || "G-ZWRB6V12CS";
+SC.rub = SC.rub || 6000; // ბილეთის ფასი რუბლში (ერთ ადგილზე)
 SC.ym = SC.ym || 114510982; // Yandex Metrica
 S.forEach(function (s, i) {
     if (SC.stops[i])
@@ -529,7 +530,7 @@ function mp(q, u) {
 function pinfo() {
     var ge = $("dir").value == "ge", p = SC.price[ge ? "ge" : "ru"] || 0, n = +$("px").value || 1;
     return p > 0 ? {
-        tot: p * n, dep: Math.ceil(p * n / 4)
+        tot: p * n, dep: Math.ceil(p * n / 4), n: n
     } : null;
 }
 // რუკის ბმული არჩეული გაჩერებისთვის.
@@ -544,14 +545,14 @@ function prShow() {
     var k = T[L], pi = pinfo(), e = $("pr");
     e.hidden = !pi;
     if (pi)
-        e.textContent = k.tot + ": " + pi.tot + " " + SC.cur + " · " + k.dep + ": " + pi.dep + " " + SC.cur;
+        e.textContent = k.tot + ": " + pi.tot + " " + SC.cur + (SC.rub ? " (" + SC.rub * pi.n + " ₽)" : "") + " · " + k.dep + ": " + pi.dep + " " + SC.cur;
 }
 // ავსებს დამატებით ბლოკებს: ფასები, შეფასებები, ზედა ზოლი, პირობების გვერდი.
 function renderX() {
     var k = T[L], c = SC.cur, h = "";
     [["ge", k.ge], ["ru", k.ru]].forEach(function (x) {
         if (SC.price[x[0]] > 0)
-            h += "<li>" + x[1] + ": <b>" + SC.price[x[0]] + " " + c + "</b> " + k.per + "</li>";
+            h += "<li>" + x[1] + ": <b>" + SC.price[x[0]] + " " + c + (SC.rub ? " (" + SC.rub + " ₽)" : "") + "</b> " + k.per + "</li>";
         if (SC.kg[x[0]] > 0)
             h += "<li>" + k.pkg + " · " + x[1] + ": <b>" + SC.kg[x[0]] + " " + c + "</b></li>";
     });
