@@ -124,7 +124,8 @@ function jsonld(id, l, p, K) {
     image: SITE + "images/og.jpg", author: { "@id": SITE + "#org" }, publisher: { "@id": SITE + "#org" }, datePublished: "2026-11-21", dateModified: "2026-11-21" },
     { "@type": "FAQPage", mainEntity: [7, 8, 9].map(i => ({ "@type": "Question", name: K["q" + i], acceptedAnswer: { "@type": "Answer", text: K["a" + i] } })) });
   if (id === "lars") g.push({ "@type": "Article", headline: K.laH, description: K.laS, inLanguage: l, url: url(id, l),
-    image: SITE + "images/og.jpg", author: { "@id": SITE + "#org" }, publisher: { "@id": SITE + "#org" }, datePublished: "2026-11-18", dateModified: "2026-11-20" });
+    image: SITE + "images/og.jpg", author: { "@id": SITE + "#org" }, publisher: { "@id": SITE + "#org" }, datePublished: "2026-11-18", dateModified: "2026-11-23" },
+    { "@type": "FAQPage", mainEntity: [1, 2, 3, 4].map(i => ({ "@type": "Question", name: K["laq" + i], acceptedAnswer: { "@type": "Answer", text: K["laa" + i] } })) });
   if (id === "home") g.push({ "@type": "FAQPage", mainEntity: HOMESEO[l].q.map(q => ({ "@type": "Question", name: q[0], acceptedAnswer: { "@type": "Answer", text: q[1] } })) });
   if (id === "faq") g.push({
     "@type": "FAQPage", mainEntity: [1, 2, 3, 4, 5, 6, 7, 8, 9].filter(i => K["q" + i] && K["a" + i]).map(i => ({
