@@ -92,7 +92,7 @@ function jsonld(id, l, p, K) {
     { "@type": "WebSite", "@id": SITE + "#site", name: "იმერეთი ტური", alternateName: ["Imereti Tour", "Имерети Тур", "imeretitour.com"], url: SITE, inLanguage: LANGS },
     {
       "@type": ["Organization", "TravelAgency"], "@id": SITE + "#org", name: "იმერეთი ტური", alternateName: ["Imereti Tour", "Имерети Тур"], url: SITE,
-      logo: SITE + "images/icon-512.png", image: [SITE + "images/og.jpg"].concat(["bus-verhoeven-hotel", "bus-alaibus-side", "interior-warm", "interior-blue", "bus-kutaisi-lukoil-night", "bus-sarp-border"].map(n => SITE + "images/real/" + n + ".jpg")), telephone: PHONE, sameAs: ["https://yandex.ru/maps/org/imereti_tour/213269777081/", "https://t.me/imeretitour", "https://www.facebook.com/profile.php?id=61596622898121", "https://www.facebook.com/Imeretitour/"],
+      logo: SITE + "images/icon-512.png", image: [SITE + "images/og.jpg"].concat(["bus-verhoeven-hotel", "bus-alaibus-side", "interior-warm", "interior-blue", "bus-kutaisi-lukoil-night", "bus-sarp-border"].map(n => SITE + "images/real/" + n + ".jpg")), telephone: PHONE, sameAs: ["https://yandex.ru/maps/org/imereti_tour/213269777081/", "https://t.me/imeretitour", "https://www.facebook.com/profile.php?id=61596622898121", "https://www.facebook.com/Imeretitour/", "https://vk.com/imeretitour", "https://ok.ru/group/70000060538721"],
       description: meta("home", l).desc, areaServed: ["GE", "RU"],
       address: { "@type": "PostalAddress", streetAddress: "8 Baku Street", addressLocality: "Batumi", addressCountry: "GE" },
       geo: { "@type": "GeoCoordinates", latitude: 41.6465879, longitude: 41.6465561 },
