@@ -108,6 +108,7 @@ SC.sheet = SC.sheet || ""; // ჯავშნების ცხრილის 
 SC.ads = SC.ads || []; // რეკლამები: [{t: სათაური, x: ტექსტი, img: სურათი, u: ბმული}]
 SC.ga = SC.ga || "G-ZWRB6V12CS";
 SC.rub = SC.rub || 6000; // ბილეთის ფასი რუბლში (ერთ ადგილზე)
+SC.kgRub = SC.kgRub || 400; // ამანათის 1 კგ რუბლში
 SC.ym = SC.ym || 114510982; // Yandex Metrica
 S.forEach(function (s, i) {
     if (SC.stops[i])
@@ -390,8 +391,8 @@ function pupd() {
     var k = T[L], ge = $("pdir").value == "ge", kp = SC.kg[ge ? "ge" : "ru"] || 0, w = +$("pkg").value || 0, e = $("ppr"), pr = kp * w;
     e.hidden = !(kp > 0 && w > 0);
     if (!e.hidden)
-        e.textContent = k.est + ": " + pr + " " + SC.cur;
-    $("pwa").href = "https://wa.me/995598808022?text=" + encodeURIComponent(k.pmsg + "\n" + k.f + ": " + (ge ? k.ge : k.ru) + "\n" + k.pwhat + ": " + $("pwh").value + (w ? "\n" + k.kgl + ": " + w : "") + (e.hidden ? "" : "\n" + k.est + ": " + pr + " " + SC.cur) + "\n" + k.n + ": " + $("pnm").value + "\n" + k.t + ": " + $("pph").value);
+        e.textContent = k.est + ": " + pr + " " + SC.cur + (SC.kgRub ? " (" + SC.kgRub * w + " ₽)" : "");
+    $("pwa").href = "https://wa.me/995598808022?text=" + encodeURIComponent(k.pmsg + "\n" + k.f + ": " + (ge ? k.ge : k.ru) + "\n" + k.pwhat + ": " + $("pwh").value + (w ? "\n" + k.kgl + ": " + w : "") + (e.hidden ? "" : "\n" + k.est + ": " + pr + " " + SC.cur + (SC.kgRub ? " (" + SC.kgRub * w + " ₽)" : "")) + "\n" + k.n + ": " + $("pnm").value + "\n" + k.t + ": " + $("pph").value);
 }
 ["pdir", "pwh", "pkg", "pnm", "pph"].forEach(function (i) {
     $(i).oninput = pupd;
@@ -554,7 +555,7 @@ function renderX() {
         if (SC.price[x[0]] > 0)
             h += "<li>" + x[1] + ": <b>" + SC.price[x[0]] + " " + c + (SC.rub ? " (" + SC.rub + " ₽)" : "") + "</b> " + k.per + "</li>";
         if (SC.kg[x[0]] > 0)
-            h += "<li>" + k.pkg + " · " + x[1] + ": <b>" + SC.kg[x[0]] + " " + c + "</b></li>";
+            h += "<li>" + k.pkg + " · " + x[1] + ": <b>" + SC.kg[x[0]] + " " + c + (SC.kgRub ? " (" + SC.kgRub + " ₽)" : "") + "</b></li>";
     });
     $("pl").innerHTML = h ? '<h2 style="margin-top:32px">' + k.prh + '</h2><ul class="dl">' + h + "</ul>" : "";
     rvRender();
