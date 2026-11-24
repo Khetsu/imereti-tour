@@ -411,6 +411,7 @@ async function page(l, id, city) {
     .replace("{{HOMESEO}}", home ? homeSeo(l, LB) : "")
     .replaceAll("{{STOPSMAP}}", esc(STOPSMAP));
   if (!city && p.og) html = html.replace("images/og.jpg?v=3", p.og);
+  if (l !== "ka") html = html.replaceAll("images/og.jpg?v=3", "images/og-" + l + ".jpg?v=1"); // ru/en გვერდებს — საკუთარი ენის OG სურათი
   html = slim(html, city ? "route" : home ? "home" : id);
   if (/\{\{[A-Z]+\}\}/.test(html)) throw new Error("unfilled placeholder in " + l + "/" + pth);
   const ALT = { ka: ["იმერეთი ტურის ავტობუსი საქართველო — მოსკოვი", "იმერეთი ტურის ავტობუსის სალონი"], ru: ["Автобус Москва — Грузия «Имерети Тур»", "Салон автобуса Москва — Грузия «Имерети Тур»"], en: ["Imereti Tour Georgia — Moscow bus", "Inside the Imereti Tour Georgia — Moscow bus"] }[l];
