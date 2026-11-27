@@ -97,11 +97,11 @@ function jsonld(id, l, p, K) {
       address: { "@type": "PostalAddress", streetAddress: "8 Baku Street", addressLocality: "Batumi", addressCountry: "GE" },
       geo: { "@type": "GeoCoordinates", latitude: 41.6465879, longitude: 41.6465561 },
       contactPoint: { "@type": "ContactPoint", telephone: PHONE, contactType: "customer service", availableLanguage: ["ka", "ru", "en"] },
-      priceRange: "200 GEL / 6000 RUB", currenciesAccepted: "GEL, RUB",
+      priceRange: "200 GEL / 6500 RUB", currenciesAccepted: "GEL, RUB",
       knowsAbout: ["Bus Moscow — Georgia", "Автобус Москва — Грузия", "Автобус Москва — Тбилиси", "Автобус Москва — Кутаиси", "Автобус Москва — Батуми", "Посылки в Грузию из Москвы", "Upper Lars border crossing"],
       hasOfferCatalog: { "@type": "OfferCatalog", name: "Imereti Tour", itemListElement: [
         { "@type": "Offer", name: "Bus ticket Georgia ⇄ Moscow (Batumi, Kobuleti, Poti, Kutaisi, Tbilisi ⇄ Moscow Annino)", price: 200, priceCurrency: "GEL", url: SITE },
-        { "@type": "Offer", name: "Bus ticket Moscow ⇄ Georgia (price in rubles)", price: 6000, priceCurrency: "RUB", url: SITE + "ru/" },
+        { "@type": "Offer", name: "Bus ticket Moscow ⇄ Georgia (price in rubles)", price: 6500, priceCurrency: "RUB", url: SITE + "ru/" },
         { "@type": "Offer", name: "Parcel delivery Georgia ⇄ Moscow, per kg", price: 10, priceCurrency: "GEL", url: SITE + "parcels/" },
         { "@type": "Offer", name: "Bus charter in Georgia and to Europe", url: SITE + "charter/" }] }
     },
@@ -154,7 +154,7 @@ const cfgSrc = await readFile(join(ROOT, "js/schedule-config.js"), "utf8");
 const CFG = Function("var window={};" + cfgSrc + ";return window.SCHEDULE")();
 const days = (kind, l) => CFG.days[kind].slice().sort((a, b) => (a || 7) - (b || 7))
   .map(d => new Intl.DateTimeFormat(l, { weekday: "long", timeZone: "UTC" }).format(new Date(Date.UTC(2024, 0, 7 + d)))).join(", ");
-const RUB = CFG.rub || 6000; // ბილეთის ფასი რუბლში
+const RUB = CFG.rub || 6500; // ბილეთის ფასი რუბლში
 const price = CFG.price.ge > 0 ? CFG.price.ge + " " + CFG.cur + " (" + RUB + " ₽)" : "";
 const CITY = STOPS.map((s, i) => ({ i, slug: s[1].en.toLowerCase() + "-moscow", n: s[1], time: CFG.stops[i] || s[0] }));
 const kaAbl = n => n + "დან", kaLoc = n => n.replace(/ი$/, "") + "ში";
