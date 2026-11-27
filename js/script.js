@@ -1033,3 +1033,15 @@ document.addEventListener("click", function (e) {
         show(list.indexOf(g.querySelector("img")));
     });
 })();
+
+// შეფასების პირდაპირი ბმული: imeretitour.com/#review → იხსნება შეფასების ფორმა (WhatsApp-ში გასაგზავნად)
+(function () {
+    function openRv() {
+        if (location.hash != "#review") return;
+        var d = document.querySelector(".rvd"); if (!d || d.offsetParent === null) return;
+        d.open = true;
+        setTimeout(function () { var hd = document.querySelector(".hd"); scrollTo({ top: d.getBoundingClientRect().top + scrollY - (hd ? hd.offsetHeight : 70) - 12, behavior: "smooth" }); }, 400);
+    }
+    if (document.readyState == "complete") openRv(); else addEventListener("load", openRv);
+    addEventListener("hashchange", openRv);
+})();
