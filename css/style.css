@@ -193,6 +193,7 @@ h1,h2,h3{letter-spacing:-.01em}
 
 /* 9. შიდა გვერდები */
 .phd{padding:34px 0 32px;margin-bottom:28px;color:var(--cream);background:radial-gradient(700px 300px at 100% 0,rgba(255,107,91,.2),transparent 60%),linear-gradient(180deg,var(--navy),var(--navy3))}
+html{overflow-x:clip}
 .phd h1{margin:8px 0 0;font:900 clamp(30px,6vw,52px)/1.08 var(--font);color:#fff}
 .phd .sub{color:rgba(246,241,231,.72)}
 .pg{padding-bottom:40px}

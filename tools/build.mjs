@@ -344,7 +344,7 @@ function routeHtmlR(c, l, LB) {
   const stops = `<li class="me"><b>${esc(t.start)}</b></li>` + STOPS.slice().reverse().map(s => `<li${STOPS.indexOf(s) === c.i ? ' class="me"' : ""}>${esc(s[1][l])}</li>`).join("");
   const fwd = CITY.find(o => o.i === c.i);
   return `
-      <div class="phd phd3" data-scene="bus"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker">${esc(t.kick)}</span><h1>${esc(t.h1)}</h1><p class="sub">${esc(t.sub)}</p></div></div>
+      <div class="phd phd3" data-scene="bus"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><h1>${esc(t.kick + " " + t.h1)}</h1><p class="sub">${esc(t.sub)}</p></div></div>
       <div class="w">
         <div class="rt-facts"><div><small>${t.fS}</small><b>${esc(t.start)}</b></div><div><small>${t.fD}</small><b>${esc(days("ru", l))}</b></div>${priceR ? `<div><small>${t.fP}</small><b>${esc(priceR)}</b></div>` : ""}<div><small>${t.fE}</small><b>${esc(t.end)}</b></div></div>
         <div class="two">
@@ -372,7 +372,7 @@ function routeHtml(c, l, LB) {
   const stops = STOPS.map((s, i) => `<li${i === c.i ? ' class="me"' : ""}><time>${CFG.stops[i] || s[0]}</time>${esc(s[1][l])}</li>`).join("") +
     `<li class="end"><b>${esc(t.end)}</b><small>${esc((K.rtl || "") + ": " + days("ru", l))}</small></li>`;
   return `
-      <div class="phd phd3" data-scene="bus"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><span class="kicker">${esc(t.kick)}</span><h1>${esc(t.h1)}</h1><p class="sub">${esc(t.sub)}</p></div></div>
+      <div class="phd phd3" data-scene="bus"><canvas class="phgl" aria-hidden="true"></canvas><div class="w"><h1>${esc(t.kick + " " + t.h1)}</h1><p class="sub">${esc(t.sub)}</p></div></div>
       <div class="w">
         <div class="rt-facts"><div><small>${t.fT}</small><b>${c.time}</b></div><div><small>${t.fD}</small><b>${esc(days("ge", l))}</b></div>${price ? `<div><small>${t.fP}</small><b>${esc(price)}</b></div>` : ""}<div><small>${t.fE}</small><b>${esc(t.end)}</b></div></div>
         <div class="two">
