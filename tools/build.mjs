@@ -110,7 +110,7 @@ function jsonld(id, l, p, K) {
   if (id !== "home") g.push({
     "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: K.nv0 || name, item: url("home", l) },
-      { "@type": "ListItem", position: 2, name: id === "new-year" ? K.nyN : id === "travel-guide" ? K.tgN : id === "lars" ? K.laN : id === "how-to-get" ? K.hgN : id === "parcel-guide" ? K.pgN : K[NAV.find(n => n[0] === id)[1]], item: url(id, l) }]
+      { "@type": "ListItem", position: 2, name: id === "new-year" ? K.nyN : id === "travel-guide" ? K.tgN : id === "lars" ? K.laN : id === "how-to-get" ? K.hgN : id === "lars-status" ? K.lsN : id === "imereti" ? K.imN : id === "parcel-guide" ? K.pgN : K[NAV.find(n => n[0] === id)[1]], item: url(id, l) }]
   });
   // ავტობუსის დაქირავება: სერვისი + ხშირი კითხვები; ზემო ლარსი: სტატია
   if (id === "charter") g.push(
@@ -122,6 +122,10 @@ function jsonld(id, l, p, K) {
   if (id === "travel-guide") g.push({ "@type": "Article", headline: K.tgH, description: K.tgS, inLanguage: l, url: url(id, l),
     image: SITE + "images/og.jpg", author: { "@id": SITE + "#org" }, publisher: { "@id": SITE + "#org" }, datePublished: "2026-11-21", dateModified: "2026-11-21" },
     { "@type": "FAQPage", mainEntity: [7, 8, 9].map(i => ({ "@type": "Question", name: K["q" + i], acceptedAnswer: { "@type": "Answer", text: K["a" + i] } })) });
+  if (id === "lars-status" || id === "imereti") { const p = id === "imereti" ? "im" : "ls", q = id === "imereti" ? "imq" : "lsq", a = id === "imereti" ? "ima" : "lsa";
+    g.push({ "@type": "Article", headline: K[p + "H"], description: K[p + "S"], inLanguage: l, url: url(id, l),
+    image: SITE + "images/og.jpg", author: { "@id": SITE + "#org" }, publisher: { "@id": SITE + "#org" }, datePublished: "2026-11-27", dateModified: "2026-11-27" },
+    { "@type": "FAQPage", mainEntity: [1, 2, 3].map(i => ({ "@type": "Question", name: K[q + i], acceptedAnswer: { "@type": "Answer", text: K[a + i] } })) }); }
   if (id === "how-to-get") g.push({ "@type": "Article", headline: K.hgH, description: K.hgS, inLanguage: l, url: url(id, l),
     image: SITE + "images/og.jpg", author: { "@id": SITE + "#org" }, publisher: { "@id": SITE + "#org" }, datePublished: "2026-11-27", dateModified: "2026-11-27" },
     { "@type": "FAQPage", mainEntity: [1, 2, 3].map(i => ({ "@type": "Question", name: K["hgq" + i], acceptedAnswer: { "@type": "Answer", text: K["hga" + i] } })) });
@@ -357,7 +361,7 @@ function routeHtmlR(c, l, LB) {
         <h2 class="h2">${t.qH}</h2>
         <div class="faq f3d">${faqOf(c, l, t).map(q => `<details><summary>${esc(q[0])}</summary><p>${esc(q[1])}</p></details>`).join("")}</div>
         <h2 class="h2">${t.oH}</h2>
-        <div class="rt-other"><a href="${LB}bus/${fwd.slug}/">${esc(t.back)}</a>${CITYR.filter(o => o !== c).map(o => `<a href="${LB}bus/${o.slug}/">${esc(t.other(o))}</a>`).join("")}</div>
+        <div class="rt-other">${c.i === 3 ? `<a href="${LB}imereti/">${esc(TX[l].imN)}</a>` : ""}<a href="${LB}bus/${fwd.slug}/">${esc(t.back)}</a>${CITYR.filter(o => o !== c).map(o => `<a href="${LB}bus/${o.slug}/">${esc(t.other(o))}</a>`).join("")}</div>
       </div>`;
 }
 // ქალაქის გვერდზე: მხოლოდ ამ ქალაქის გაჩერება (თუ რუკა გვაქვს) + მოსკოვი — ყველა ქალაქის გვერდი უნიკალური რომ იყოს
@@ -385,11 +389,11 @@ function routeHtml(c, l, LB) {
         <h2 class="h2">${t.qH}</h2>
         <div class="faq f3d">${faqOf(c, l, t).map(q => `<details><summary>${esc(q[0])}</summary><p>${esc(q[1])}</p></details>`).join("")}</div>
         <h2 class="h2">${t.oH}</h2>
-        <div class="rt-other"><a href="${LB}bus/moscow-${c.n.en.toLowerCase()}/">${esc(RTR[l](c).h1)}</a>${CITY.filter(o => o !== c).map(o => `<a href="${LB}bus/${o.slug}/">${esc(t.other(o))}</a>`).join("")}</div>
+        <div class="rt-other">${c.i === 3 ? `<a href="${LB}imereti/">${esc(TX[l].imN)}</a>` : ""}<a href="${LB}bus/moscow-${c.n.en.toLowerCase()}/">${esc(RTR[l](c).h1)}</a>${CITY.filter(o => o !== c).map(o => `<a href="${LB}bus/${o.slug}/">${esc(t.other(o))}</a>`).join("")}</div>
       </div>`;
 }
 const GUIDES = "<div class=\"gd rv\"><div class=\"head\"><span class=\"kicker\" data-i=\"gdK\"></span><h2 data-i=\"gdH\"></h2></div><div class=\"gdl\"><a class=\"gdc gdc0\" data-href=\"new-year\"><span class=\"gdi\" aria-hidden=\"true\">🎄</span><span class=\"gdx\"><b data-i=\"gd0\"></b><small data-i=\"gd0t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc1\" data-href=\"charter\"><span class=\"gdi\" aria-hidden=\"true\">🚌</span><span class=\"gdx\"><b data-i=\"gd1\"></b><small data-i=\"gd1t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc2\" data-href=\"lars\"><span class=\"gdi\" aria-hidden=\"true\">🛂</span><span class=\"gdx\"><b data-i=\"gd2\"></b><small data-i=\"gd2t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a><a class=\"gdc gdc3\" data-href=\"parcel-guide\"><span class=\"gdi\" aria-hidden=\"true\">📦</span><span class=\"gdx\"><b data-i=\"gd3\"></b><small data-i=\"gd3t\"></small></span><svg class=\"gda\"><use href=\"#i-arrow\"/></svg></a></div></div>";
-const routesNav = (l, LB) => `<nav class="w ft-routes" aria-label="Routes">${CITY.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RT[l](c).h1)}</a>`).join("")}${CITYR.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RTR[l](c).h1)}</a>`).join("")}<a href="${LB}travel-guide/">${esc(TX[l].tgN)}</a><a href="${LB}new-year/">${esc(TX[l].nyN)}</a><a href="${LB}charter/">${esc(TX[l].cpH)}</a><a href="${LB}lars/">${esc(TX[l].laN)}</a><a href="${LB}how-to-get/">${esc(TX[l].hgN)}</a><a href="${LB}parcel-guide/">${esc(TX[l].pgN)}</a><a href="${esc(STOPSMAP)}" target="_blank" rel="noopener">${esc(TX[l].smN)}</a></nav>`;
+const routesNav = (l, LB) => `<nav class="w ft-routes" aria-label="Routes">${CITY.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RT[l](c).h1)}</a>`).join("")}${CITYR.map(c => `<a href="${LB}bus/${c.slug}/">${esc(RTR[l](c).h1)}</a>`).join("")}<a href="${LB}travel-guide/">${esc(TX[l].tgN)}</a><a href="${LB}new-year/">${esc(TX[l].nyN)}</a><a href="${LB}charter/">${esc(TX[l].cpH)}</a><a href="${LB}lars/">${esc(TX[l].laN)}</a><a href="${LB}how-to-get/">${esc(TX[l].hgN)}</a><a href="${LB}lars-status/">${esc(TX[l].lsN)}</a><a href="${LB}imereti/">${esc(TX[l].imN)}</a><a href="${LB}parcel-guide/">${esc(TX[l].pgN)}</a><a href="${esc(STOPSMAP)}" target="_blank" rel="noopener">${esc(TX[l].smN)}</a></nav>`;
 
 async function page(l, id, city) {
   const K = TX[l], home = id === "home";
